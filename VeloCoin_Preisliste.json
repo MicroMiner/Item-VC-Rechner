@@ -1,0 +1,411 @@
+{
+  "format": "VeloCoin-Preisliste",
+  "version": 2,
+  "baseCurrency": "VC",
+  "baseItem": "DIRT",
+  "items": [
+    {
+      "id": "DIRT",
+      "name": "Dirt",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "STONE",
+      "name": "Stone",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "DEEPSLATE",
+      "name": "Deepslate",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "GRANITE",
+      "name": "Granite",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "DIORITE",
+      "name": "Diorite",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "ANDESITE",
+      "name": "Andesite",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "TUFF",
+      "name": "Tuff",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "NETHERRACK",
+      "name": "Netherrack",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "BLACKSTONE",
+      "name": "Blackstone",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "GRAVEL",
+      "name": "Gravel",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "SAND",
+      "name": "Sand",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CALCITE",
+      "name": "Calcite",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "DRIPSTONE_BLOCK",
+      "name": "Dripstone Block",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "OBSIDIAN",
+      "name": "Obsidian",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "COAL_ORE",
+      "name": "Coal Ore",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "COPPER_ORE",
+      "name": "Copper Ore",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "IRON_ORE",
+      "name": "Iron Ore",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "REDSTONE_ORE",
+      "name": "Redstone Ore",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "LAPIS_ORE",
+      "name": "Lapis Ore",
+      "standardPrice": 30,
+      "price": 30
+    },
+    {
+      "id": "NETHER_QUARTZ_ORE",
+      "name": "Nether Quartz Ore",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "NETHER_GOLD_ORE",
+      "name": "Nether Gold Ore",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "GOLD_ORE",
+      "name": "Gold Ore",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "EMERALD_ORE",
+      "name": "Emerald Ore",
+      "standardPrice": 150,
+      "price": 150
+    },
+    {
+      "id": "DIAMOND_ORE",
+      "name": "Diamond Ore",
+      "standardPrice": 350,
+      "price": 350
+    },
+    {
+      "id": "DIAMOND",
+      "name": "Diamant",
+      "standardPrice": 350,
+      "price": 350
+    },
+    {
+      "id": "ANCIENT_DEBRIS",
+      "name": "Ancient Debris",
+      "standardPrice": 1800,
+      "price": 1800
+    },
+    {
+      "id": "OAK_LOG",
+      "name": "Oak Log",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "SPRUCE_LOG",
+      "name": "Spruce Log",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "BIRCH_LOG",
+      "name": "Birch Log",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "JUNGLE_LOG",
+      "name": "Jungle Log",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "ACACIA_LOG",
+      "name": "Acacia Log",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "DARK_OAK_LOG",
+      "name": "Dark Oak Log",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "MANGROVE_LOG",
+      "name": "Mangrove Log",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "CHERRY_LOG",
+      "name": "Cherry Log",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "PALE_OAK_LOG",
+      "name": "Pale Oak Log",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "CRIMSON_STEM",
+      "name": "Crimson Stem",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "WARPED_STEM",
+      "name": "Warped Stem",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "BAMBOO",
+      "name": "Bamboo",
+      "standardPrice": 0.5,
+      "price": 0.5
+    },
+    {
+      "id": "WHEAT",
+      "name": "Wheat / Weizen",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CARROT",
+      "name": "Carrot / Karotte",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "POTATO",
+      "name": "Potato / Kartoffel",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "BEETROOT",
+      "name": "Beetroot / Rote Bete",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "NETHER_WART",
+      "name": "Nether Wart",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "COCOA_BEANS",
+      "name": "Cocoa Beans / Kakaobohnen",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "MELON",
+      "name": "Melon Block",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "PUMPKIN",
+      "name": "Pumpkin / Kürbis",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "SUGAR_CANE",
+      "name": "Sugar Cane / Zuckerrohr",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "CACTUS",
+      "name": "Cactus / Kaktus",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "KELP",
+      "name": "Kelp / Seetang",
+      "standardPrice": 0.5,
+      "price": 0.5
+    },
+    {
+      "id": "SWEET_BERRIES",
+      "name": "Sweet Berries",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "BROWN_MUSHROOM",
+      "name": "Brown Mushroom",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "RED_MUSHROOM",
+      "name": "Red Mushroom",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CHORUS_FRUIT",
+      "name": "Chorus Fruit",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "WITHER_ROSE",
+      "name": "Wither Rose",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "COD",
+      "name": "Cod / Kabeljau",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "SALMON",
+      "name": "Salmon / Lachs",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "TROPICAL_FISH",
+      "name": "Tropical Fish",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "PUFFERFISH",
+      "name": "Pufferfish / Kugelfisch",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BOWL",
+      "name": "Bowl / Schüssel",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "STICK",
+      "name": "Stick / Stock",
+      "standardPrice": 0.5,
+      "price": 0.5
+    },
+    {
+      "id": "STRING",
+      "name": "String / Faden",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "LEATHER",
+      "name": "Leather / Leder",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "INK_SAC",
+      "name": "Ink Sac / Tintensack",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "LILY_PAD",
+      "name": "Lily Pad / Seerosenblatt",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "NAME_TAG",
+      "name": "Name Tag / Namensschild",
+      "standardPrice": 100,
+      "price": 100
+    },
+    {
+      "id": "NAUTILUS_SHELL",
+      "name": "Nautilus Shell",
+      "standardPrice": 120,
+      "price": 120
+    },
+    {
+      "id": "SADDLE",
+      "name": "Saddle / Sattel",
+      "standardPrice": 80,
+      "price": 80
+    }
+  ],
+  "customItems": []
+}

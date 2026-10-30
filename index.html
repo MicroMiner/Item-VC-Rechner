@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VeloCoin · Item-Umrechner</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#172237;--field:#0c1628;--line:#30425c;--fg:#edf4ff;--sub:#a5b6ce;--gold:#f5c55c;--green:#67e5a6}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#203451 0%,var(--bg) 65%);color:var(--fg);font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh;padding:20px 12px}.wrap{max-width:1140px;margin:20px auto}.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:20px}h1{font-size:1.55rem;margin:0}small,.muted{color:var(--sub)}.brand{color:var(--gold);font-weight:800;letter-spacing:.07em}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:14px;box-shadow:0 12px 40px #0002}label{display:block;color:var(--sub);font-size:.85rem;margin:0 0 6px;font-weight:650}input,select,button{font:inherit}input,select{width:100%;color:var(--fg);border:1px solid var(--line);border-radius:10px;background:var(--field);padding:12px 13px;outline:none}input:focus,select:focus{border-color:var(--gold)}input[type=number]{font-size:1.2rem}select{margin-top:9px;max-width:100%}.fieldrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.rate{font-weight:750;color:var(--gold);font-size:1.05rem;padding-top:12px}.between{display:flex;justify-content:center;margin:-3px auto 11px}.btn{cursor:pointer;border:1px solid var(--line);border-radius:11px;padding:10px 14px;background:#253650;color:var(--fg);font-weight:650}.btn:hover{background:#34496a}.btn:focus-visible{outline:2px solid var(--gold)}.swap{background:#304762}.result{background:linear-gradient(145deg,#1b3c40,#18304b);text-align:center;border-color:#37645d}.result .big{font-size:clamp(1.5rem,6vw,2.1rem);font-weight:850;color:var(--green);overflow-wrap:anywhere;margin:7px 0}.result .line{margin:8px 0 15px}.flex{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center}.secondary{font-size:.88rem}.addgrid{display:grid;grid-template-columns:1fr 130px;gap:12px;margin-bottom:12px}.status{min-height:20px;color:var(--green);font-size:.85rem;margin:10px 0 0}.note{line-height:1.55}.foot{text-align:center;padding:8px;color:var(--sub);font-size:.8rem}.hidden{display:none}.custom-list{padding:0;margin:13px 0 0;list-style:none}.custom-list li{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding:9px 0}.custom-list button{padding:5px 9px}.original{display:block;color:var(--sub);font-size:.72rem;font-weight:450;margin-top:2px}.editor-actions{display:flex;gap:9px;flex-wrap:wrap}.editor-actions .btn{flex:1}.editor-note{font-size:.8rem;color:var(--sub);margin:8px 0 12px}.tag{border:1px solid #8c6b28;background:#5c471f70;color:#ffe1a2;border-radius:30px;font-size:.72rem;padding:3px 9px}@media(max-width:370px){.card{padding:14px}.addgrid{grid-template-columns:1fr}}
+
+/* Horizontale Rechner-Ebene und darunter die Verwaltung */
+.wrap{max-width:1460px;margin:20px auto}
+.hero{min-height:min(730px,calc(100vh - 120px));display:flex;flex-direction:column;justify-content:flex-start;padding-top:14px}
+.section-heading{color:var(--sub);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;margin:0 0 16px 4px}
+.converter-layout{display:grid;grid-template-columns:minmax(0,1fr) 65px minmax(0,1fr) minmax(0,.95fr);gap:14px;align-items:stretch}
+.converter-layout .card{margin:0;min-width:0;display:flex;flex-direction:column}
+.converter-layout .result{justify-content:center}
+.converter-layout .result .big{font-size:clamp(1.45rem,2.3vw,2.15rem)}
+.swap-slot{display:flex;align-items:center;justify-content:center}
+.swap-slot .swap{width:54px;height:54px;padding:0;font-size:1.65rem;white-space:nowrap}
+.converter-layout .fieldrow{margin-top:auto;padding-top:20px;grid-template-columns:minmax(0,1fr) minmax(0,.85fr)}
+.converter-layout .fieldrow>div{min-width:0}
+.converter-layout .rate{overflow-wrap:anywhere}
+.converter-layout select{min-height:48px}
+.management{padding-top:28px;scroll-margin-top:20px}
+.management .card{margin-bottom:18px}
+.management .card h2{font-size:1.18rem;margin:0 0 12px}
+.management .editor-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:end}
+.management .editor-grid .fieldrow{margin:0}
+.management .editor-actions{margin-top:14px}
+.management .addgrid{grid-template-columns:minmax(0,1fr) minmax(180px,.3fr)}
+.custom-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:0;margin-top:14px}
+.custom-list li{min-width:0}
+.custom-list li span{min-width:0;overflow-wrap:anywhere}
+.custom-list:empty::after{content:'Noch keine eigenen Items hinzugefügt.';color:var(--sub);font-size:.9rem;grid-column:1/-1;padding:12px 0}
+.section-line{height:1px;background:var(--line);margin:24px 0}
+ .filebox h2{font-size:1.18rem;margin:0 0 12px}.file-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.file-label{display:inline-flex;align-items:center}.file-actions input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}.file-actions input[type=file]:focus-visible+.btn{outline:2px solid var(--gold)}
+@media(max-width:1100px){.converter-layout{grid-template-columns:minmax(0,1fr) 54px minmax(0,1fr)}.converter-layout .result{grid-column:1/-1}.hero{min-height:auto;padding:24px 0 60px}.converter-layout .fieldrow{margin-top:16px}}
+@media(max-width:720px){.wrap{max-width:600px}.converter-layout{grid-template-columns:minmax(0,1fr)}.converter-layout .result{grid-column:auto}.swap-slot .swap{transform:rotate(90deg)}.hero{padding:0 0 40px}.management .editor-grid{grid-template-columns:1fr}.custom-list{grid-template-columns:1fr}.top{align-items:flex-start}.converter-layout .card{padding:18px}}
+@media(max-width:450px){.fieldrow{grid-template-columns:repeat(2,minmax(0,1fr))}.editor-actions{flex-direction:column}.addgrid,.management .addgrid{grid-template-columns:1fr}.card{padding:15px}}
+
+/* Taschenrechner direkt in der ersten Ebene */
+.calculator{width:min(100%,540px);margin:24px auto 6px;padding:16px 18px}
+.calculator h3{font-size:1rem;margin:0 0 10px}
+.calc-screen{display:flex;gap:8px;align-items:center}
+.calc-screen input{font-size:1.22rem;font-variant-numeric:tabular-nums;text-align:right;min-width:0}
+.calc-screen .btn{flex:none}
+.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}
+.calc-grid .btn{padding:9px 6px;font-size:1rem}
+.calc-grid .accent{background:#36546f;color:var(--gold)}
+.calc-grid .equals{background:#245d4b;color:#adffce}
+.calc-feedback{margin:8px 0 0;color:var(--sub);font-size:.82rem;min-height:1.2em;overflow-wrap:anywhere}
+@media(max-width:1100px){.hero{padding-top:12px}.calculator{margin-top:20px}}
+@media(max-width:720px){.hero{padding-top:0}.calculator{width:100%}}
+
+/* Desktop: kompakter vertikaler Umrechner links, Ergebnis und Rechner rechts */
+@media(min-width:721px){
+ .hero{min-height:calc(100vh - 155px);padding-top:0;padding-bottom:22px}
+ .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:stretch;flex:1;min-height:0}
+ .converter-layout{display:flex;flex-direction:column;gap:10px;min-width:0}
+ .converter-layout .card{flex:1;min-height:0;padding:17px 20px}
+ .converter-layout .fieldrow{margin-top:12px;padding-top:0}
+ .converter-layout select{min-height:43px}
+ .converter-layout input{padding:9px 12px}
+ .swap-slot{flex:0 0 auto;min-height:34px}
+ .swap-slot .swap{width:46px;height:36px;font-size:1.35rem;transform:rotate(90deg)}
+ .right-stack{display:grid;grid-template-rows:minmax(155px,.65fr) minmax(290px,1.35fr);gap:14px;min-width:0;min-height:0}
+ .right-stack .card{margin:0;min-width:0}
+ .right-stack .result{display:flex;flex-direction:column;justify-content:center;padding:16px 18px}
+ .right-stack .result .big{font-size:clamp(1.35rem,2.2vw,2rem)}
+ .right-stack .calculator{width:100%;padding:14px 18px}
+ .calculator h3{margin-bottom:5px}
+ .calculator label{margin-bottom:3px}
+ .calc-grid{gap:6px;margin-top:8px}
+ .calc-grid .btn{padding:7px 6px}
+ .calc-feedback{margin-top:5px}
+}
+@media(min-width:721px) and (max-width:1100px){
+ .hero{min-height:calc(100vh - 145px);padding:0 0 22px}
+ .converter-layout{display:flex;flex-direction:column}
+ .right-stack .result{grid-column:auto}
+}
+@media(max-width:720px){
+ .hero-grid{display:contents}
+ .converter-layout{display:contents}
+ .right-stack{display:contents}
+ .hero .card{margin-bottom:14px}
+ .hero .calculator{margin:20px auto 6px}
+ .hero .swap-slot{margin:0 auto 12px}
+}
+
+/* Breiterer und etwas flacherer Tauschen-Button auf Desktop. */
+@media (min-width:721px){
+  .swap-slot .swap{width:88px;height:30px;font-size:1.2rem;line-height:1;padding:0;display:flex;align-items:center;justify-content:center;transform:none}
+  .swap-slot .swap-icon{display:inline-block;transform:rotate(90deg)}
+  .swap-slot{min-height:30px}
+}
+
+/* Bildschirmfüllende Desktop-Ebene; darunter beginnt erst die Preisverwaltung. */
+@media (min-width:721px){
+  body{padding:0 12px}
+  .wrap{margin:0 auto;padding:12px 0 24px}
+  .top{height:88px;margin:0;min-height:0}
+  .hero{height:calc(100vh - 100px);height:calc(100dvh - 100px);min-height:0;padding:0 0 clamp(48px,6.4vh,76px);display:flex;flex-direction:column;overflow:hidden}
+  .hero>.section-heading{flex:none;margin:0 0 10px 4px}
+  .hero-grid{flex:1;min-height:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(9px,1.2vw,20px)}
+  .converter-layout{min-height:0;gap:clamp(5px,1vh,12px)}
+  .converter-layout .card{justify-content:center;flex:1;min-height:0;padding:clamp(9px,1.5vh,20px)}
+  .converter-layout .fieldrow{margin-top:clamp(7px,1.8vh,18px);padding:0}
+  .converter-layout label{margin-bottom:4px}
+  .converter-layout input,.converter-layout select{padding:clamp(7px,1.1vh,11px) 10px;min-height:0}
+  .converter-layout select{margin-top:clamp(5px,1vh,10px)}
+  .converter-layout .rate{padding-top:4px}
+  .swap-slot{min-height:28px}
+  .right-stack{min-height:0;grid-template-rows:minmax(0,.68fr) minmax(0,1.32fr);gap:clamp(8px,1.3vh,14px)}
+  .right-stack .result{min-height:0;align-items:center;justify-content:center;text-align:center;padding:clamp(8px,1.3vh,18px)}
+  .right-stack .result .big{margin:clamp(3px,.8vh,8px) 0;font-size:clamp(1.05rem,2.05vw,2rem)}
+  .right-stack .result .line{margin:4px 0 9px}
+  .right-stack .result .flex{justify-content:center}
+  .right-stack .calculator{min-height:0;margin:0;width:100%;padding:clamp(9px,1.5vh,18px);display:flex;flex-direction:column;justify-content:center}
+  .calculator h3{text-align:center;margin:0 0 5px}
+  .calculator .calc-screen{width:100%}
+  .calculator .calc-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(5px,.8vh,10px);margin-top:clamp(6px,1vh,12px);min-height:0}
+  .calculator .calc-grid .btn{display:flex;align-items:center;justify-content:center;height:clamp(38px,5.6vh,60px);min-width:0;padding:0 5px;line-height:1;font-size:clamp(1rem,1.4vw,1.2rem)}
+  .calculator .calc-feedback{text-align:center;margin:5px 0 0;font-size:.75rem}
+  .management{padding-top:30px}
+}
+@media (min-width:721px) and (max-height:700px){
+ .top{height:65px}
+ .top h1{font-size:1.3rem}
+ .hero{height:calc(100vh - 77px);height:calc(100dvh - 77px)}
+ .hero{padding-bottom:clamp(32px,5.2vh,48px)}
+ .hero>.section-heading{margin-bottom:6px}
+ .converter-layout .card{padding:8px 12px}
+ .converter-layout .fieldrow{margin-top:5px}
+ .converter-layout .fieldrow input{font-size:1rem}
+ .converter-layout .rate{font-size:.9rem}
+ .right-stack .result .big{font-size:clamp(1rem,1.8vw,1.55rem)}
+ .right-stack .calculator{padding:7px 12px}
+ .calculator h3{font-size:.9rem;margin:0 0 2px}
+ .calculator .calc-screen input{padding:6px 8px}
+ .calculator .calc-grid{gap:4px;margin-top:5px}
+ .calculator .calc-grid .btn{height:clamp(31px,5.2vh,42px)}
+ .calculator .calc-feedback{font-size:.7rem;margin:3px 0 0}
+ .btn{padding:7px 10px}
+}
+
+/* Admin: zweite Ebene bleibt sichtbar, aber unzugänglich, bis der Server das Passwort bestätigt. */
+.management{position:relative;isolation:isolate;scroll-margin-top:12px}
+.management .admin-inner{transition:filter .2s ease,opacity .2s ease}
+.management.locked .admin-inner{filter:blur(8px);opacity:.47;user-select:none;pointer-events:none}
+.admin-overlay{display:none;position:absolute;z-index:10;inset:0;align-items:flex-start;justify-content:center;padding:clamp(72px,16vh,180px) 12px 12px}
+.management.locked .admin-overlay{display:flex}
+.admin-login{width:min(440px,100%);background:rgba(13,24,43,.97);border:1px solid #627796;border-radius:20px;box-shadow:0 15px 65px #0009;padding:clamp(20px,4vw,34px);text-align:center;backdrop-filter:blur(10px)}
+.admin-lock-icon{font-size:2rem}.admin-login h2{margin:9px 0}.admin-login p{color:var(--sub);font-size:.92rem}
+.admin-login label{text-align:left}.admin-login input{text-align:center}.admin-unlock{width:100%;margin-top:13px;background:#416e5e;border-color:#568d75}
+.admin-login .status{color:#f8b4b4}
+@media(max-width:720px){.admin-overlay{padding-top:80px}.management.locked .admin-inner{filter:blur(6px)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div><div class="brand">VELOCITY ECONOMY</div><h1>Item-Umrechner</h1><small>1 Dirt = 1 VC · Minecraft</small></div><span class="tag">Online · Gemeinsame Preisliste</span></header>
+<section class="hero" aria-label="Item-Umrechner"><h2 class="section-heading">01 · Umrechnung</h2>
+<div class="hero-grid"><div class="converter-layout">
+<section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><input id="fromSearch" type="search" placeholder="z. B. Diamant, Eisen, Holz …" autocomplete="off"><select id="fromItem" aria-label="Ausgangs-Item"></select><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="any" value="1" inputmode="decimal"></div><div><label>Wert pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
+<div class="swap-slot"><button class="btn swap" id="swap" type="button" title="Items tauschen" aria-label="Items tauschen"><span class="swap-icon">⇄</span></button></div>
+<section class="card"><label for="toSearch">Ziel-Item suchen</label><input id="toSearch" type="search" placeholder="z. B. Dirt, Gold, Weizen …" autocomplete="off"><select id="toItem" aria-label="Ziel-Item"></select><div class="fieldrow"><div><label for="toQty">Zielmenge (auch änderbar)</label><input id="toQty" type="number" min="0" step="any" inputmode="decimal"></div><div><label>Wert pro Item</label><div id="toRate" class="rate"></div></div></div></section>
+</div><div class="right-stack"><section class="card result" aria-live="polite"><div class="muted">UMRECHNUNG</div><div class="big" id="result">JSON-Datei verbinden</div><div class="line muted" id="total">350 VC Gesamtwert</div><div class="flex"><button class="btn" id="copy" type="button">Ergebnis kopieren</button><button class="btn" id="reset" type="button">Zurücksetzen</button></div><div id="copyStatus" class="status" aria-live="polite"></div></section>
+<section class="card calculator" aria-label="Taschenrechner">
+<h3>Mini-Taschenrechner</h3>
+<label for="calcInput">Rechnung</label>
+<div class="calc-screen"><input id="calcInput" type="text" inputmode="decimal" placeholder="z. B. 350 * 64" autocomplete="off" aria-label="Rechnung eingeben"><button class="btn" id="calcClear" type="button">C</button></div>
+<div class="calc-grid" id="calcKeys">
+<button class="btn" type="button" data-key="7">7</button><button class="btn" type="button" data-key="8">8</button><button class="btn" type="button" data-key="9">9</button><button class="btn accent" type="button" data-key="/">÷</button>
+<button class="btn" type="button" data-key="4">4</button><button class="btn" type="button" data-key="5">5</button><button class="btn" type="button" data-key="6">6</button><button class="btn accent" type="button" data-key="*">×</button>
+<button class="btn" type="button" data-key="1">1</button><button class="btn" type="button" data-key="2">2</button><button class="btn" type="button" data-key="3">3</button><button class="btn accent" type="button" data-key="-">−</button>
+<button class="btn" type="button" data-key="0">0</button><button class="btn" type="button" data-key=".">.</button><button class="btn equals" type="button" data-key="=">=</button><button class="btn accent" type="button" data-key="+">+</button>
+</div><div id="calcFeedback" class="calc-feedback" aria-live="polite">Addition, Subtraktion, Multiplikation und Division · Enter = Ergebnis</div>
+</section>
+</div></div>
+</section>
+<section class="management locked" id="management" aria-label="Items und Preise verwalten">
+<div class="admin-overlay" id="adminOverlay"><form class="admin-login" id="adminLogin"><div class="admin-lock-icon">🔒</div><h2>Preisverwaltung gesperrt</h2><p>Nur autorisierte Personen dürfen die zentrale Preisliste ändern.</p><label for="adminPassword">Admin-Passwort</label><input id="adminPassword" type="password" required autocomplete="off" placeholder="Passwort eingeben"><button type="submit" class="btn admin-unlock">Verwaltung entsperren</button><div class="status" id="adminStatus" role="status"></div></form></div>
+<div class="admin-inner" id="adminInner" inert><h2 class="section-heading">02 · Preise &amp; Items verwalten</h2>
+<section class="card"><h2>Bestehende Itempreise anpassen</h2><p class="editor-note">Änderungen gelten sofort für beide Seiten des Umrechners. Der ursprüngliche Preis bleibt in Klammern sichtbar.</p>
+<div class="editor-grid"><div><label for="editSearch">Item suchen</label><input id="editSearch" type="search" placeholder="z. B. Diamant, Dirt, Gold …" autocomplete="off"><label for="editItem" style="margin-top:12px">Item auswählen</label><select id="editItem"></select></div>
+<div><div class="fieldrow"><div><label for="editValue">Neuer Wert in VC</label><input id="editValue" type="number" min="0.000001" step="any" inputmode="decimal"></div><div><label>Standardwert</label><div id="editDefault" class="rate"></div></div><div class="editor-actions"><button class="btn" id="saveEdit" type="button">Preis übernehmen</button><button class="btn" id="restoreEdit" type="button">Standard wiederherstellen</button></div></div></div>
+<div id="editStatus" class="status" aria-live="polite"></div><div id="modifiedCount" class="editor-note"></div></section>
+<section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div><label for="newValue">Wert in VC</label><input id="newValue" type="number" step="any" min="0.000001" value="10"></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
+<section class="card"><h2>Hinzugefügte Items</h2><p class="editor-note">Deine eigenen Items auf voller Breite in zwei Spalten. Die Preise kannst du oben unter «Bestehende Itempreise anpassen» bearbeiten.</p><ul id="customList" class="custom-list"></ul></section>
+<section class="card"><h2>Gemeinsame Online-Preisliste</h2><p class="editor-note">Änderungen werden nach Freigabe direkt ins GitHub-Repository geschrieben. Alle Besucher sehen die aktualisierten Preise beim nächsten Laden der Website.</p><div class="flex"><button class="btn" id="reloadData" type="button">Aktuelle Online-Liste laden</button><button class="btn" id="exportData" type="button">JSON-Sicherung herunterladen</button><button class="btn" id="adminLogout" type="button">Verwaltung sperren</button></div><div class="status" id="fileStatus" role="status"></div></section></div></section>
+<section class="card note"><strong>Hinweis zu den Preisen</strong><p class="muted secondary">Die Werte stammen aus unserer vorläufigen VeloCoin-Preisliste. Sie sind Materialwerte, keine Joblöhne. Für „Diamant“ gilt hier vorläufig derselbe Referenzwert wie für „Diamond Ore“ (350 VC). Unbekannte Itemwerte können ergänzt werden. Die ursprünglichen Standardpreise stehen zusammen mit deinen aktuellen Preisen in der separaten JSON-Datei.</p></section><footer class="foot">VeloCoin · GitHub Pages · Öffentliche Preisliste</footer>
+</main>
+<script src="config.js"></script>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+let defaults=[],custom=[],overrides={};
+let fileHandle=null, loading=false, writeChain=Promise.resolve();
+const fmt=n=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:4}).format(n);
+const num=v=>{const x=Number(String(v).replace(',','.'));return Number.isFinite(x)&&x>=0?x:0};
+const list=()=>[...defaults.map(x=>[x[0],x[1],overrides[x[0]]??x[2]]),...custom];
+const get=id=>list().find(x=>x[0]===id)||list()[0]||['DIRT','Dirt',1];
+const original=id=>defaults.find(x=>x[0]===id)?.[2];
+const wasChanged=id=>original(id)!==undefined&&Object.hasOwn(overrides,id);
+const priceLabel=x=>`${x[1]} · ${fmt(x[2])} VC${wasChanged(x[0])?' (Standard: '+fmt(original(x[0]))+' VC)':''}`;
+const rateMarkup=x=>`${fmt(x[2])} VC${wasChanged(x[0])?'<span class="original">(Standard: '+fmt(original(x[0]))+' VC)</span>':''}`;
+const status=message=>$('fileStatus').textContent=message;
+function currentPayload(){return {format:'VeloCoin-Preisliste',version:2,baseCurrency:'VC',baseItem:'DIRT',items:defaults.map(x=>({id:x[0],name:x[1],standardPrice:x[2],price:overrides[x[0]]??x[2]})),customItems:custom.map(x=>({id:x[0],name:x[1],price:x[2]}))}}
+function parsePayload(data){
+ if(!data||data.format!=='VeloCoin-Preisliste'||data.version!==2||!Array.isArray(data.items)||!Array.isArray(data.customItems))throw Error('Ungültiges JSON-Format. Bitte Version 2 verwenden.');
+ if(!data.items.length||data.items.length>3000||data.customItems.length>3000)throw Error('Ungültige Anzahl von Items.');
+ const seen=new Set(),std=[],ovs={},cus=[];
+ for(const item of data.items){if(!item||typeof item.id!=='string'||!/^[A-Z][A-Z0-9_]*$/.test(item.id)||seen.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100||!Number.isFinite(item.standardPrice)||item.standardPrice<=0||!Number.isFinite(item.price)||item.price<=0)throw Error('Ungültiger Standard-Item-Eintrag.');seen.add(item.id);std.push([item.id,item.name,item.standardPrice]);if(item.price!==item.standardPrice)ovs[item.id]=item.price}
+ for(const item of data.customItems){if(!item||typeof item.id!=='string'||!/^CUSTOM_[a-zA-Z0-9_-]+$/.test(item.id)||seen.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100||!Number.isFinite(item.price)||item.price<=0)throw Error('Ungültiger eigener Item-Eintrag.');seen.add(item.id);cus.push([item.id,item.name,item.price])}
+ if(!seen.has('DIRT'))throw Error('Das Basis-Item DIRT fehlt.');
+ return {std,ovs,cus};
+}
+function applyData(data){const parsed=parsePayload(data);defaults=parsed.std;overrides=parsed.ovs;custom=parsed.cus;for(const id of ['fromSearch','toSearch','editSearch'])$(id).value='';redraw();}
+let apiUrl=(window.VELOCITY_API_URL||'').replace(/\/$/,'');
+let adminSecret='';
+let remoteSha='';
+const management=$('management'),adminInner=$('adminInner');
+function setUnlocked(unlocked){management.classList.toggle('locked',!unlocked);adminInner.inert=!unlocked;$('adminPassword').value='';if(!unlocked)adminSecret=''}
+async function loadRemote(){
+ const endpoint=apiUrl?apiUrl+'/prices':'./VeloCoin_Preisliste.json';
+ const r=await fetch(endpoint,{cache:'no-store'});
+ if(!r.ok)throw Error('Preisliste nicht verfügbar (HTTP '+r.status+')');
+ const body=await r.json();const data=apiUrl?body.data:body;
+ applyData(data);remoteSha=apiUrl?(body.sha||''):'';
+ status('Preisliste geladen · '+new Date().toLocaleTimeString('de-CH'));
+}
+async function requestAdmin(password){
+ if(!apiUrl)throw Error('API-Adresse in config.js fehlt.');
+ const r=await fetch(apiUrl+'/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password})});
+ if(!r.ok)throw Error(r.status===401?'Passwort ungültig.':'Anmeldung derzeit nicht möglich (HTTP '+r.status+').');
+ return true;
+}
+function save(){
+ if(!adminSecret){status('Verwaltung ist gesperrt.');return false}
+ const snapshot=currentPayload();
+ writeChain=writeChain.then(async()=>{
+  const r=await fetch(apiUrl+'/prices',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:adminSecret,sha:remoteSha,data:snapshot})});
+  const answer=await r.json().catch(()=>({}));
+  if(!r.ok)throw Error(answer.error||'HTTP '+r.status);
+  remoteSha=answer.sha;status('Online gespeichert · '+new Date().toLocaleTimeString('de-CH'));
+ }).catch(async err=>{status('Speichern fehlgeschlagen: '+err.message+' · Die Online-Liste wird neu geladen.');try{await loadRemote()}catch(e){status('Speichern fehlgeschlagen: '+err.message+'; auch Neuladen fehlgeschlagen.')}});
+ return true;
+}
+const saveOverrides=save;
+function renderSelect(side){const s=$(side+'Item'),q=$(side+'Search').value.trim().toLocaleLowerCase(),keep=s.value||(side==='from'?'DIAMOND':'DIRT');s.replaceChildren();const found=list().filter(x=>(x[0]+' '+x[1]).toLocaleLowerCase().includes(q)||x[0]===keep);for(const item of found){const o=document.createElement('option');o.value=item[0];o.textContent=priceLabel(item);s.append(o)}s.value=keep;if(!s.value&&found.length)s.selectedIndex=0}
+function update(source='from'){const a=get($('fromItem').value),b=get($('toItem').value);$('fromRate').innerHTML=rateMarkup(a);$('toRate').innerHTML=rateMarkup(b);let amount;if(source==='to'){amount=num($('toQty').value)*b[2]/a[2];$('fromQty').value=Number(amount.toFixed(8))}else{amount=num($('fromQty').value);$('toQty').value=Number((amount*a[2]/b[2]).toFixed(8))}const dest=amount*a[2]/b[2];$('result').textContent=`${fmt(amount)} × ${a[1]} = ${fmt(dest)} × ${b[1]}`;$('total').textContent=`${fmt(amount*a[2])} VC Gesamtwert`}
+function redraw(){renderSelect('from');renderSelect('to');update();renderCustom();renderEditor()}
+function renderEditor(){const sel=$('editItem'),search=$('editSearch').value.trim().toLocaleLowerCase(),keep=sel.value||'DIAMOND';sel.replaceChildren();const options=list().filter(x=>(x[0]+' '+x[1]).toLocaleLowerCase().includes(search)||x[0]===keep);for(const item of options){const o=document.createElement('option');o.value=item[0];o.textContent=priceLabel(item);sel.append(o)}sel.value=keep;if(!sel.value&&options.length)sel.selectedIndex=0;syncEditor();$('modifiedCount').textContent=`${Object.keys(overrides).length} Standardpreis(e) individuell angepasst.`}
+function syncEditor(){const id=$('editItem').value;if(!id)return;const item=get(id);$('editValue').value=item[2];const base=original(id);$('editDefault').textContent=base===undefined?'Eigenes Item':fmt(base)+' VC';$('restoreEdit').disabled=base===undefined||!wasChanged(id)}
+function refreshPrices(){const from=$('fromItem').value,to=$('toItem').value,edit=$('editItem').value;renderSelect('from');renderSelect('to');$('fromItem').value=from;$('toItem').value=to;update();renderEditor();$('editItem').value=edit;syncEditor()}
+function renderCustom(){const ul=$('customList');ul.replaceChildren();for(const item of custom){const li=document.createElement('li'),txt=document.createElement('span'),del=document.createElement('button');txt.textContent=`${item[1]} · ${fmt(item[2])} VC`;del.className='btn';del.textContent='Löschen';del.type='button';del.addEventListener('click',()=>{custom=custom.filter(x=>x[0]!==item[0]);save();redraw()});li.append(txt,del);ul.append(li)}}
+for(const side of ['from','to']){$(side+'Search').addEventListener('input',()=>{renderSelect(side);update()});$(side+'Item').addEventListener('change',()=>update())}
+$('fromQty').addEventListener('input',()=>update('from'));$('toQty').addEventListener('input',()=>update('to'));
+$('swap').addEventListener('click',()=>{const a=$('fromItem').value,b=$('toItem').value,q=$('toQty').value;$('fromSearch').value='';$('toSearch').value='';renderSelect('from');renderSelect('to');$('fromItem').value=b;$('toItem').value=a;$('fromQty').value=q;update()});
+$('reset').addEventListener('click',()=>{$('fromSearch').value='';$('toSearch').value='';$('fromQty').value='1';renderSelect('from');renderSelect('to');$('fromItem').value='DIAMOND';$('toItem').value='DIRT';update()});
+$('copy').addEventListener('click',async()=>{const msg=$('result').textContent+' ('+$('total').textContent+')';try{await navigator.clipboard.writeText(msg);$('copyStatus').textContent='Ergebnis kopiert.'}catch(e){$('copyStatus').textContent='Kopieren nicht unterstützt.'}});
+$('add').addEventListener('click',()=>{const name=$('newName').value.trim(),price=num($('newValue').value),msg=$('addStatus');if(!name||price<=0){msg.textContent='Bitte gültigen Itemnamen und positiven VC-Wert eingeben.';return}const id='CUSTOM_'+Date.now()+'_'+Math.random().toString(36).slice(2,8);custom.push([id,name,price]);save();$('fromSearch').value='';redraw();$('fromItem').value=id;update();$('newName').value='';msg.textContent='Eigenes Item hinzugefügt.'});
+$('editSearch').addEventListener('input',renderEditor);$('editItem').addEventListener('change',syncEditor);
+$('saveEdit').addEventListener('click',()=>{const id=$('editItem').value,price=num($('editValue').value),msg=$('editStatus');if(!(price>0)){msg.textContent='Bitte einen Preis grösser als 0 eingeben.';return}const base=original(id);if(base===undefined){const item=custom.find(x=>x[0]===id);if(!item)return;item[2]=price}else if(price===base)delete overrides[id];else overrides[id]=price;save();msg.textContent='Preis übernommen.';refreshPrices();renderCustom()});
+$('restoreEdit').addEventListener('click',()=>{const id=$('editItem').value;if(original(id)===undefined)return;delete overrides[id];save();$('editStatus').textContent='Standardpreis wiederhergestellt.';refreshPrices()});
+function exportList(){const blob=new Blob([JSON.stringify(currentPayload(),null,2)+'\n'],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='VeloCoin_Preisliste.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);status('JSON-Sicherung heruntergeladen.')}
+$('exportData').addEventListener('click',exportList);
+$('reloadData').addEventListener('click',async()=>{if(!confirm('Nicht gespeicherte Änderungen durch aktuelle Online-Werte ersetzen?'))return;try{await writeChain;await loadRemote()}catch(err){status(err.message)}});
+$('adminLogin').addEventListener('submit',async e=>{e.preventDefault();const pw=$('adminPassword').value;const msg=$('adminStatus');msg.textContent='Zugang wird geprüft …';try{await requestAdmin(pw);adminSecret=pw;setUnlocked(true);msg.textContent='';status('Verwaltung entsperrt. Änderungen werden online gespeichert.')}catch(err){msg.textContent=err.message;}});
+$('adminLogout').addEventListener('click',()=>{setUnlocked(false);$('adminStatus').textContent='Verwaltung gesperrt.'});
+async function init(){setUnlocked(false);try{await loadRemote()}catch(err){status('Laden fehlgeschlagen: '+err.message);$('result').textContent='Preisliste nicht verfügbar';}}
+init();
+
+// Kompakter Taschenrechner ohne eval; Operatorpriorität und Klammern unterstützt.
+(function(){
+ const inp=document.getElementById('calcInput'),feedback=document.getElementById('calcFeedback');
+ function calculate(expression){
+   const raw=expression.replace(/,/g,'.').replace(/[×x]/g,'*').replace(/÷/g,'/').replace(/−/g,'-');
+   const tokens=raw.match(/(?:\d+(?:\.\d*)?|\.\d+)|[+*/()\-]/g)||[];
+   if(tokens.join('')!==raw.replace(/\s+/g,''))throw Error('Ungültige Eingabe');
+   if(!tokens.length)throw Error('Bitte Rechnung eingeben');
+   let i=0;
+   function atom(){let t=tokens[i++];if(t==='+')return atom();if(t==='-')return -atom();if(t==='('){let v=add();if(tokens[i++]!==')')throw Error('Klammer fehlt');return v;}if(t===undefined||!/^((\d+\.?\d*)|(\.\d+))$/.test(t))throw Error('Ungültige Rechnung');return Number(t)}
+   function multiply(){let v=atom();while(tokens[i]==='*'||tokens[i]==='/'){const op=tokens[i++],w=atom();if(op==='/'&&w===0)throw Error('Division durch null');v=op==='*'?v*w:v/w;}return v}
+   function add(){let v=multiply();while(tokens[i]==='+'||tokens[i]==='-'){const op=tokens[i++],w=multiply();v=op==='+'?v+w:v-w}return v}
+   const result=add();if(i!==tokens.length||!Number.isFinite(result))throw Error('Ungültige Rechnung');return result;
+ }
+ function solve(){try{const x=calculate(inp.value);inp.value=Number(x.toPrecision(12)).toString();feedback.textContent='Ergebnis: '+new Intl.NumberFormat('de-CH',{maximumFractionDigits:10}).format(x);feedback.style.color='var(--green)'}catch(e){feedback.textContent=e.message;feedback.style.color='#ffadad'}}
+ document.getElementById('calcKeys').addEventListener('click',e=>{const btn=e.target.closest('button[data-key]');if(!btn)return;const key=btn.dataset.key;if(key==='=')solve();else{inp.value+=key;feedback.textContent='';inp.focus()}});
+ document.getElementById('calcClear').addEventListener('click',()=>{inp.value='';feedback.textContent='Rechner geleert';feedback.style.color='var(--sub)';inp.focus()});
+ inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();solve()}});
+})();
+</script></body></html>

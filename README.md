@@ -1,0 +1,46 @@
+# VeloCity – GitHub Pages mit geschützter Preisverwaltung
+
+## Was das Paket macht
+
+- **GitHub Pages** zeigt den öffentlichen Umrechner (`index.html`) und die veröffentlichte Preisliste.
+- Der Browser lädt aktuelle Preise über einen **Cloudflare Worker**. Wenn die API-Adresse noch nicht konfiguriert ist, liest er die beigefügte JSON-Datei direkt, aber das Bearbeiten bleibt gesperrt.
+- Ebene 2 ist bis zum Passwort-Check unscharf. Die Prüfung erfolgt **auf dem Worker**, nicht im HTML.
+- Der Worker schreibt Änderungen via **GitHub Contents API** zurück in dieselbe JSON-Datei. Standardwerte bleiben in `standardPrice` erhalten; Anpassungen stehen in `price`.
+- Die Preise gelten für alle Besucher. Nach Änderung lädt jeder Besucher die neue Fassung beim nächsten Seitenaufruf.
+
+## 1. GitHub Pages einrichten
+
+1. Erstelle ein **öffentliches GitHub-Repository**, z. B. `velocity-rechner`.
+2. Lade aus diesem Paket `index.html`, `config.js` und `VeloCoin_Preisliste.json` ins Stammverzeichnis des Repositories hoch. Die Dateien aus `worker/` brauchst du NICHT als öffentliche Website-Dateien.
+3. Auf GitHub **Settings → Pages → Build and deployment → Deploy from a branch**: `main` und `/ (root)` wählen.
+4. Deine Website lautet z. B. `https://DEIN_GITHUB_NAME.github.io/velocity-rechner/`.
+
+## 2. GitHub-Token (nur für den Worker) erstellen
+
+Erstelle in GitHub unter **Settings → Developer settings → Personal access tokens → Fine-grained tokens** einen Token, nur für dieses Repository, mit **Repository permission: Contents – Read and write**. Bewahre ihn geheim auf. Gib ihn NIEMALS in `index.html`, `config.js`, in GitHub-Commits oder im Browser ein.
+
+## 3. Cloudflare Worker einrichten
+
+1. Kostenloses Cloudflare-Konto eröffnen und einen Worker anlegen (Dashboard → Workers & Pages). Den Inhalt von `worker/worker.js` als Worker-Code verwenden. Alternativ mit Wrangler aus dem Ordner `worker` deployen: `npx wrangler deploy`.
+2. In `worker/wrangler.toml` (oder im Cloudflare-Dashboard unter Settings → Variables) konfigurieren:
+   - `GITHUB_OWNER`: GitHub-Benutzername
+   - `GITHUB_REPO`: Repositoryname
+   - `GITHUB_BRANCH`: `main`
+   - `SITE_ORIGIN`: **exakt** `https://DEIN_GITHUB_NAME.github.io` (ohne Pfad / ohne abschliessenden Slash)
+3. In Cloudflare **Settings → Variables and Secrets** zwei **Secrets** hinzufügen (nicht einfache öffentliche Variablen):
+   - `ADMIN_PASSWORD`: ein langes, einzigartiges Passwort (am besten zufällig, mindestens 16 Zeichen)
+   - `GITHUB_TOKEN`: der GitHub-Token aus Schritt 2
+   Mit Wrangler: `npx wrangler secret put ADMIN_PASSWORD` und `npx wrangler secret put GITHUB_TOKEN`.
+4. Worker deployen, seine `https://...workers.dev`-Adresse kopieren und in `config.js` bei `window.VELOCITY_API_URL` eintragen; `config.js` erneut auf GitHub hochladen.
+5. Website laden, nach unten scrollen, Passwort eingeben und Änderungen ausprobieren.
+
+## Hinweise zur Sicherheit
+
+- **Nur Unschärfe wäre KEIN Schutz.** Der eigentliche Schreibschutz kommt von der Passwortprüfung im Worker und dem privaten GitHub-Token.
+- Das Admin-Passwort wird nicht im Browser gespeichert; nach dem Neuladen ist die zweite Ebene wieder gesperrt.
+- Die JSON ist absichtlich öffentlich: andere Spieler können sie lesen und kopieren, aber nicht ohne gültige Server-Anmeldung verändern.
+- Jeder, der das gemeinsame Passwort kennt, kann alle Preise verändern. Verwende ein starkes Passwort und ändere es bei Bedarf in Cloudflare. Für individuelle Accounts, Audit-Protokolle oder Sperrung einzelner Personen wären getrennte Login-Konten nötig.
+- Bei mehreren gleichzeitigen Bearbeitern schützt die GitHub-Dateiversion (`sha`) vor unbemerktem Überschreiben. Im Konflikt wird die aktuelle Liste neu geladen.
+- Für öffentliche, stark frequentierte Webseiten empfehlen sich zusätzlich Cloudflare Rate Limiting / Turnstile, damit Passwörter nicht unbegrenzt ausprobiert werden können.
+- Bei jeder Änderung entsteht ein Commit im GitHub-Repository. Das Ergebnis ist normalerweise über GitHub Pages nach dem nächsten Deployment sichtbar; der Worker liefert neue Daten unmittelbar nach dem GitHub-Commit.
+- Wenn du eine eigene Domain verwendest, muss `SITE_ORIGIN` genau auf diese Domain geändert werden.

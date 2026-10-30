@@ -1,0 +1,8619 @@
+{
+  "format": "VeloCoin-Preisliste",
+  "version": 2,
+  "baseCurrency": "VC",
+  "baseItem": "DIRT",
+  "items": [
+    {
+      "id": "DIRT",
+      "name": "Erde",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "STONE",
+      "name": "Stein",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "DEEPSLATE",
+      "name": "Tiefenschiefer",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "GRANITE",
+      "name": "Granit",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "DIORITE",
+      "name": "Diorit",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "ANDESITE",
+      "name": "Andesit",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "TUFF",
+      "name": "Tuff",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "NETHERRACK",
+      "name": "Netherrack",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "BLACKSTONE",
+      "name": "Schwarzstein",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "GRAVEL",
+      "name": "Kies",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "SAND",
+      "name": "Sand",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CALCITE",
+      "name": "Kalzit",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "DRIPSTONE_BLOCK",
+      "name": "Tropfsteinblock",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "OBSIDIAN",
+      "name": "Obsidian",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "DIAMOND",
+      "name": "Diamant",
+      "standardPrice": 350,
+      "price": 8192
+    },
+    {
+      "id": "ANCIENT_DEBRIS",
+      "name": "Antiker Schrott",
+      "standardPrice": 1800,
+      "price": 262144
+    },
+    {
+      "id": "OAK_LOG",
+      "name": "Eichenstamm",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "SPRUCE_LOG",
+      "name": "Fichtenstamm",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "BIRCH_LOG",
+      "name": "Birkenstamm",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "JUNGLE_LOG",
+      "name": "Tropenbaumstamm",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "ACACIA_LOG",
+      "name": "Akazienstamm",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "DARK_OAK_LOG",
+      "name": "Schwarzeichenstamm",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "MANGROVE_LOG",
+      "name": "Mangrovenstamm",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "CHERRY_LOG",
+      "name": "Kirschstamm",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "PALE_OAK_LOG",
+      "name": "Blasseichenstamm",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "CRIMSON_STEM",
+      "name": "Karmesin Stiel",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "WARPED_STEM",
+      "name": "Wirr Stiel",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "BAMBOO",
+      "name": "Bambus",
+      "standardPrice": 0.5,
+      "price": 0.5
+    },
+    {
+      "id": "WHEAT",
+      "name": "Weizen",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CARROT",
+      "name": "Karotte",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "POTATO",
+      "name": "Kartoffel",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "BEETROOT",
+      "name": "Rote Bete",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "NETHER_WART",
+      "name": "Netherwarze",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "COCOA_BEANS",
+      "name": "Kakaobohnen",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "MELON",
+      "name": "Melone",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "PUMPKIN",
+      "name": "Kürbis",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "SUGAR_CANE",
+      "name": "Zuckerrohr",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "CACTUS",
+      "name": "Kaktus",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "KELP",
+      "name": "Seetang",
+      "standardPrice": 0.5,
+      "price": 0.5
+    },
+    {
+      "id": "SWEET_BERRIES",
+      "name": "Süssbeeren",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "BROWN_MUSHROOM",
+      "name": "Brauner Pilz",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "RED_MUSHROOM",
+      "name": "Roter Pilz",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CHORUS_FRUIT",
+      "name": "Chorusfrucht",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "WITHER_ROSE",
+      "name": "Witherrose",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "COD",
+      "name": "Kabeljau",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "SALMON",
+      "name": "Lachs",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "TROPICAL_FISH",
+      "name": "Tropenfisch",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "PUFFERFISH",
+      "name": "Kugelfisch",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BOWL",
+      "name": "Schüssel",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "STICK",
+      "name": "Stock",
+      "standardPrice": 0.5,
+      "price": 0.5
+    },
+    {
+      "id": "STRING",
+      "name": "Faden",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "LEATHER",
+      "name": "Leder",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "INK_SAC",
+      "name": "Tintensack",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "LILY_PAD",
+      "name": "Seerosenblatt",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "NAME_TAG",
+      "name": "Namensschild",
+      "standardPrice": 100,
+      "price": 100
+    },
+    {
+      "id": "NAUTILUS_SHELL",
+      "name": "Nautilusschale",
+      "standardPrice": 120,
+      "price": 120
+    },
+    {
+      "id": "SADDLE",
+      "name": "Sattel",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "IRON_INGOT",
+      "name": "Eisenbarren",
+      "standardPrice": 256,
+      "price": 256
+    },
+    {
+      "id": "RAW_IRON",
+      "name": "Roheisen",
+      "standardPrice": 256,
+      "price": 256
+    },
+    {
+      "id": "IRON_NUGGET",
+      "name": "Eisenklumpen",
+      "standardPrice": 28.5,
+      "price": 28.5
+    },
+    {
+      "id": "IRON_BLOCK",
+      "name": "Eisenblock",
+      "standardPrice": 2304,
+      "price": 2304
+    },
+    {
+      "id": "DIAMOND_BLOCK",
+      "name": "Diamantblock",
+      "standardPrice": 73728,
+      "price": 73728
+    },
+    {
+      "id": "COAL",
+      "name": "Kohle",
+      "standardPrice": 16,
+      "price": 16
+    },
+    {
+      "id": "CHARCOAL",
+      "name": "Charcoal",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "COAL_BLOCK",
+      "name": "Kohleblock",
+      "standardPrice": 144,
+      "price": 144
+    },
+    {
+      "id": "RAW_COPPER",
+      "name": "Rohkupfer",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "COPPER_INGOT",
+      "name": "Kupferbarren",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "COPPER_NUGGET",
+      "name": "Kupferklumpen",
+      "standardPrice": 1.35,
+      "price": 1.35
+    },
+    {
+      "id": "COPPER_BLOCK",
+      "name": "Kupferblock",
+      "standardPrice": 108,
+      "price": 108
+    },
+    {
+      "id": "RAW_COPPER_BLOCK",
+      "name": "Roh Kupfer Block",
+      "standardPrice": 108,
+      "price": 108
+    },
+    {
+      "id": "RAW_IRON_BLOCK",
+      "name": "Roh Eisen Block",
+      "standardPrice": 2304,
+      "price": 2304
+    },
+    {
+      "id": "GOLD_INGOT",
+      "name": "Goldbarren",
+      "standardPrice": 500,
+      "price": 500
+    },
+    {
+      "id": "RAW_GOLD",
+      "name": "Rohgold",
+      "standardPrice": 500,
+      "price": 500
+    },
+    {
+      "id": "GOLD_NUGGET",
+      "name": "Goldklumpen",
+      "standardPrice": 55.5,
+      "price": 55.5
+    },
+    {
+      "id": "GOLD_BLOCK",
+      "name": "Goldblock",
+      "standardPrice": 4500,
+      "price": 4500
+    },
+    {
+      "id": "RAW_GOLD_BLOCK",
+      "name": "Roh Gold Block",
+      "standardPrice": 4500,
+      "price": 4500
+    },
+    {
+      "id": "REDSTONE",
+      "name": "Redstone-Staub",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "REDSTONE_BLOCK",
+      "name": "Redstone-Block",
+      "standardPrice": 45,
+      "price": 45
+    },
+    {
+      "id": "LAPIS_LAZULI",
+      "name": "Lapislazuli",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "LAPIS_BLOCK",
+      "name": "Lapislazuliblock",
+      "standardPrice": 72,
+      "price": 72
+    },
+    {
+      "id": "EMERALD",
+      "name": "Smaragd",
+      "standardPrice": 1000,
+      "price": 1000
+    },
+    {
+      "id": "EMERALD_BLOCK",
+      "name": "Smaragdblock",
+      "standardPrice": 9000,
+      "price": 9000
+    },
+    {
+      "id": "QUARTZ",
+      "name": "Netherquarz",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "QUARTZ_BLOCK",
+      "name": "Quarzblock",
+      "standardPrice": 36,
+      "price": 36
+    },
+    {
+      "id": "NETHERITE_SCRAP",
+      "name": "Netheritbruchstück",
+      "standardPrice": 262144,
+      "price": 262144
+    },
+    {
+      "id": "NETHERITE_INGOT",
+      "name": "Netheritbarren",
+      "standardPrice": 1052000,
+      "price": 1052000
+    },
+    {
+      "id": "NETHERITE_BLOCK",
+      "name": "Netheritblock",
+      "standardPrice": 9468000,
+      "price": 9468000
+    },
+    {
+      "id": "FLINT",
+      "name": "Feuerstein",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CLAY_BALL",
+      "name": "Tonklumpen",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CLAY",
+      "name": "Ton",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BRICK",
+      "name": "Ziegel",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "BRICKS",
+      "name": "Ziegelsteine",
+      "standardPrice": 16,
+      "price": 16
+    },
+    {
+      "id": "BONE",
+      "name": "Knochen",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "BONE_MEAL",
+      "name": "Knochenmehl",
+      "standardPrice": 2.7,
+      "price": 2.7
+    },
+    {
+      "id": "ENDER_EYE",
+      "name": "Enderauge",
+      "standardPrice": 65,
+      "price": 65
+    },
+    {
+      "id": "BLAZE_ROD",
+      "name": "Lohenrute",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "BLAZE_POWDER",
+      "name": "Lohenstaub",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "GHAST_TEAR",
+      "name": "Ghastträne",
+      "standardPrice": 90,
+      "price": 90
+    },
+    {
+      "id": "SLIME_BALL",
+      "name": "Schleimball",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "MAGMA_CREAM",
+      "name": "Magmacreme",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "GUNPOWDER",
+      "name": "Schwarzpulver",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "AMETHYST_SHARD",
+      "name": "Amethyst Shard",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "AMETHYST_BLOCK",
+      "name": "Amethyst Block",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "ECHO_SHARD",
+      "name": "Echoscherbe",
+      "standardPrice": 400,
+      "price": 400
+    },
+    {
+      "id": "DISC_FRAGMENT_5",
+      "name": "Plattenbruchstück",
+      "standardPrice": 350,
+      "price": 350
+    },
+    {
+      "id": "HEAVY_CORE",
+      "name": "Schwerer Kern",
+      "standardPrice": 4500,
+      "price": 4500
+    },
+    {
+      "id": "BREEZE_ROD",
+      "name": "Böenrute",
+      "standardPrice": 100,
+      "price": 100
+    },
+    {
+      "id": "WIND_CHARGE",
+      "name": "Windladung",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "NETHER_STAR",
+      "name": "Netherstern",
+      "standardPrice": 12500,
+      "price": 12500
+    },
+    {
+      "id": "DRAGON_BREATH",
+      "name": "Drachenatem",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "DRAGON_EGG",
+      "name": "Drachenei",
+      "standardPrice": 25000,
+      "price": 25000
+    },
+    {
+      "id": "ELYTRA",
+      "name": "Elytren",
+      "standardPrice": 24000,
+      "price": 24000
+    },
+    {
+      "id": "TOTEM_OF_UNDYING",
+      "name": "Totem der Unsterblichkeit",
+      "standardPrice": 3000,
+      "price": 3000
+    },
+    {
+      "id": "SHULKER_SHELL",
+      "name": "Shulker Shell",
+      "standardPrice": 500,
+      "price": 500
+    },
+    {
+      "id": "HEART_OF_THE_SEA",
+      "name": "Herz des Meeres",
+      "standardPrice": 6500,
+      "price": 6500
+    },
+    {
+      "id": "PRISMARINE_SHARD",
+      "name": "Prismarin Shard",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "PRISMARINE_CRYSTALS",
+      "name": "Prismarin Crystals",
+      "standardPrice": 24,
+      "price": 24
+    },
+    {
+      "id": "SPONGE",
+      "name": "Schwamm",
+      "standardPrice": 800,
+      "price": 800
+    },
+    {
+      "id": "WET_SPONGE",
+      "name": "Nasser Schwamm",
+      "standardPrice": 800,
+      "price": 800
+    },
+    {
+      "id": "CONDUIT",
+      "name": "Aquisator",
+      "standardPrice": 7000,
+      "price": 7000
+    },
+    {
+      "id": "TURTLE_SCUTE",
+      "name": "Schildkröte Scute",
+      "standardPrice": 35,
+      "price": 35
+    },
+    {
+      "id": "ARMADILLO_SCUTE",
+      "name": "Gürteltier Scute",
+      "standardPrice": 30,
+      "price": 30
+    },
+    {
+      "id": "RABBIT_HIDE",
+      "name": "Kaninchenfell",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "RABBIT_FOOT",
+      "name": "Hasenpfote",
+      "standardPrice": 35,
+      "price": 35
+    },
+    {
+      "id": "FEATHER",
+      "name": "Feder",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "EGG",
+      "name": "Ei",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "MILK_BUCKET",
+      "name": "Milcheimer",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "BUCKET",
+      "name": "Eimer",
+      "standardPrice": 768,
+      "price": 768
+    },
+    {
+      "id": "WATER_BUCKET",
+      "name": "Wassereimer",
+      "standardPrice": 769,
+      "price": 769
+    },
+    {
+      "id": "LAVA_BUCKET",
+      "name": "Lavaeimer",
+      "standardPrice": 785,
+      "price": 785
+    },
+    {
+      "id": "POWDER_SNOW_BUCKET",
+      "name": "Pulverschneeeimer",
+      "standardPrice": 780,
+      "price": 780
+    },
+    {
+      "id": "COD_BUCKET",
+      "name": "Kabeljaueimer",
+      "standardPrice": 780,
+      "price": 780
+    },
+    {
+      "id": "SALMON_BUCKET",
+      "name": "Lachseimer",
+      "standardPrice": 780,
+      "price": 780
+    },
+    {
+      "id": "PUFFERFISH_BUCKET",
+      "name": "Kugelfischeimer",
+      "standardPrice": 785,
+      "price": 785
+    },
+    {
+      "id": "TROPICAL_FISH_BUCKET",
+      "name": "Tropenfischeimer",
+      "standardPrice": 790,
+      "price": 790
+    },
+    {
+      "id": "AXOLOTL_BUCKET",
+      "name": "Axolotleimer",
+      "standardPrice": 1200,
+      "price": 1200
+    },
+    {
+      "id": "TADPOLE_BUCKET",
+      "name": "Kaulquappeneimer",
+      "standardPrice": 850,
+      "price": 850
+    },
+    {
+      "id": "SPIDER_EYE",
+      "name": "Spinnenauge",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "FERMENTED_SPIDER_EYE",
+      "name": "Fermentiertes Spinnenauge",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "ROTTEN_FLESH",
+      "name": "Verrottet Flesh",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "LEATHER_BOOTS",
+      "name": "Leder Stiefel",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "RABBIT",
+      "name": "Rohes Kaninchenfleisch",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "BEEF",
+      "name": "Rohes Rindfleisch",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "PORKCHOP",
+      "name": "Rohes Schweinefleisch",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "MUTTON",
+      "name": "Rohes Hammelfleisch",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "CHICKEN",
+      "name": "Rohes Hühnchen",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "HONEYCOMB",
+      "name": "Honigwabe",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "HONEY_BOTTLE",
+      "name": "Honig Flasche",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "GLASS_BOTTLE",
+      "name": "Glasflasche",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "PAPER",
+      "name": "Papier",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "BOOK",
+      "name": "Buch",
+      "standardPrice": 13,
+      "price": 13
+    },
+    {
+      "id": "BOOKSHELF",
+      "name": "Bookshelf",
+      "standardPrice": 43,
+      "price": 43
+    },
+    {
+      "id": "ENCHANTED_BOOK",
+      "name": "Verzaubertes Buch",
+      "standardPrice": 200,
+      "price": 200
+    },
+    {
+      "id": "EXPERIENCE_BOTTLE",
+      "name": "Erfahrungsfläschchen",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "NETHERITE_UPGRADE_SMITHING_TEMPLATE",
+      "name": "Netheritaufwertung (Schmiedevorlage)",
+      "standardPrice": 1500,
+      "price": 1500
+    },
+    {
+      "id": "TRIDENT",
+      "name": "Dreizack",
+      "standardPrice": 7000,
+      "price": 7000
+    },
+    {
+      "id": "MACE",
+      "name": "Streitkolben",
+      "standardPrice": 9000,
+      "price": 9000
+    },
+    {
+      "id": "COBBLESTONE",
+      "name": "Bruchstein",
+      "standardPrice": 1.4,
+      "price": 1.4
+    },
+    {
+      "id": "COBBLED_DEEPSLATE",
+      "name": "Bruch Tiefenschiefer",
+      "standardPrice": 1.4,
+      "price": 1.4
+    },
+    {
+      "id": "MOSSY_COBBLESTONE",
+      "name": "Bemooster Bruchstein",
+      "standardPrice": 1.4,
+      "price": 1.4
+    },
+    {
+      "id": "MOSSY_STONE_BRICKS",
+      "name": "Bemoost Steinziegel",
+      "standardPrice": 1.4,
+      "price": 1.4
+    },
+    {
+      "id": "STONE_BRICKS",
+      "name": "Steinziegel",
+      "standardPrice": 2.2,
+      "price": 2.2
+    },
+    {
+      "id": "CRACKED_STONE_BRICKS",
+      "name": "Rissig Steinziegel",
+      "standardPrice": 2.2,
+      "price": 2.2
+    },
+    {
+      "id": "CHISELED_STONE_BRICKS",
+      "name": "Gemeißelt Steinziegel",
+      "standardPrice": 2.2,
+      "price": 2.2
+    },
+    {
+      "id": "SMOOTH_STONE",
+      "name": "Glatt Stein",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "POLISHED_ANDESITE",
+      "name": "Poliert Andesit",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "POLISHED_DIORITE",
+      "name": "Poliert Diorit",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "POLISHED_GRANITE",
+      "name": "Poliert Granit",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "POLISHED_TUFF",
+      "name": "Poliert Tuff",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "POLISHED_DEEPSLATE",
+      "name": "Poliert Tiefenschiefer",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "CHISELED_TUFF",
+      "name": "Gemeißelt Tuff",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "TUFF_BRICKS",
+      "name": "Tuff Ziegel",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CHISELED_TUFF_BRICKS",
+      "name": "Gemeißelt Tuff Ziegel",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "DEEPSLATE_BRICKS",
+      "name": "Tiefenschiefer Ziegel",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "DEEPSLATE_TILES",
+      "name": "Tiefenschiefer Tiles",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CRACKED_DEEPSLATE_BRICKS",
+      "name": "Rissig Tiefenschiefer Ziegel",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CRACKED_DEEPSLATE_TILES",
+      "name": "Rissig Tiefenschiefer Tiles",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CHISELED_DEEPSLATE",
+      "name": "Gemeißelt Tiefenschiefer",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "BASALT",
+      "name": "Basalt",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "SMOOTH_BASALT",
+      "name": "Glatt Basalt",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "POLISHED_BASALT",
+      "name": "Poliert Basalt",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "END_STONE",
+      "name": "Endstein",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "END_STONE_BRICKS",
+      "name": "End Steinziegel",
+      "standardPrice": 5.5,
+      "price": 5.5
+    },
+    {
+      "id": "PURPUR_BLOCK",
+      "name": "Purpur Block",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "PURPUR_PILLAR",
+      "name": "Purpur Pillar",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "SOUL_SAND",
+      "name": "Seelensand",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "SOUL_SOIL",
+      "name": "Seelenerde",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "CRIMSON_NYLIUM",
+      "name": "Karmesin Nylium",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "WARPED_NYLIUM",
+      "name": "Wirr Nylium",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "NETHER_BRICKS",
+      "name": "Netherziegelblock",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "RED_NETHER_BRICKS",
+      "name": "Rot Nether Ziegel",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "GILDED_BLACKSTONE",
+      "name": "Gilded Schwarzstein",
+      "standardPrice": 45,
+      "price": 45
+    },
+    {
+      "id": "POLISHED_BLACKSTONE",
+      "name": "Poliert Schwarzstein",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "POLISHED_BLACKSTONE_BRICKS",
+      "name": "Poliert Schwarzstein Ziegel",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "CHISELED_POLISHED_BLACKSTONE",
+      "name": "Gemeißelt Poliert Schwarzstein",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "CRACKED_POLISHED_BLACKSTONE_BRICKS",
+      "name": "Rissig Poliert Schwarzstein Ziegel",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "MAGMA_BLOCK",
+      "name": "Magma Block",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "ICE",
+      "name": "Eis",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "PACKED_ICE",
+      "name": "Kompakt Eis",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BLUE_ICE",
+      "name": "Blau Eis",
+      "standardPrice": 90,
+      "price": 90
+    },
+    {
+      "id": "SNOW_BLOCK",
+      "name": "Schnee Block",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "SNOW",
+      "name": "Schnee",
+      "standardPrice": 0.5,
+      "price": 0.5
+    },
+    {
+      "id": "POWDER_SNOW",
+      "name": "Pulverschnee",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "MUD",
+      "name": "Mud",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "PACKED_MUD",
+      "name": "Kompakt Mud",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "MUD_BRICKS",
+      "name": "Mud Ziegel",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "ROOTED_DIRT",
+      "name": "Wurzelerde",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "COARSE_DIRT",
+      "name": "Grobe Erde",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "GRASS_BLOCK",
+      "name": "Grasblock",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "PODZOL",
+      "name": "Podsol",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "MYCELIUM",
+      "name": "Myzel",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "MOSS_BLOCK",
+      "name": "Moos Block",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "PALE_MOSS_BLOCK",
+      "name": "Blass Moos Block",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "MOSS_CARPET",
+      "name": "Moos Teppich",
+      "standardPrice": 0.5,
+      "price": 0.5
+    },
+    {
+      "id": "PALE_MOSS_CARPET",
+      "name": "Blass Moos Teppich",
+      "standardPrice": 0.5,
+      "price": 0.5
+    },
+    {
+      "id": "TERRACOTTA",
+      "name": "Keramik",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "GLASS",
+      "name": "Glas",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "GLASS_PANE",
+      "name": "Glas Scheibe",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "GLOWSTONE",
+      "name": "Glowstone",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "SHROOMLIGHT",
+      "name": "Shroomlight",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "SEA_LANTERN",
+      "name": "Seelaterne",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "PEARLESCENT_FROGLIGHT",
+      "name": "Perlmutt Froschlicht",
+      "standardPrice": 60,
+      "price": 60
+    },
+    {
+      "id": "VERDANT_FROGLIGHT",
+      "name": "Grün Froschlicht",
+      "standardPrice": 60,
+      "price": 60
+    },
+    {
+      "id": "OCHRE_FROGLIGHT",
+      "name": "Ocker Froschlicht",
+      "standardPrice": 60,
+      "price": 60
+    },
+    {
+      "id": "PRISMARINE",
+      "name": "Prismarin",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "PRISMARINE_BRICKS",
+      "name": "Prismarin Ziegel",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "DARK_PRISMARINE",
+      "name": "Dunkel Prismarin",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "NETHER_WART_BLOCK",
+      "name": "Nether Warze Block",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "WARPED_WART_BLOCK",
+      "name": "Wirr Warze Block",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "HONEY_BLOCK",
+      "name": "Honig Block",
+      "standardPrice": 32,
+      "price": 32
+    },
+    {
+      "id": "HONEYCOMB_BLOCK",
+      "name": "Honigwabe Block",
+      "standardPrice": 32,
+      "price": 32
+    },
+    {
+      "id": "SLIME_BLOCK",
+      "name": "Schleim Block",
+      "standardPrice": 72,
+      "price": 72
+    },
+    {
+      "id": "BONE_BLOCK",
+      "name": "Knochen Block",
+      "standardPrice": 72,
+      "price": 72
+    },
+    {
+      "id": "BAMBOO_BLOCK",
+      "name": "Bambus Block",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "STRIPPED_BAMBOO_BLOCK",
+      "name": "Entrindet Bambus Block",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "BAMBOO_PLANKS",
+      "name": "Bambus Holzbretter",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "BAMBOO_MOSAIC",
+      "name": "Bambus Mosaic",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "SANDSTONE",
+      "name": "Sandstein",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "RED_SANDSTONE",
+      "name": "Rot Sandstein",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "SMOOTH_SANDSTONE",
+      "name": "Glatt Sandstein",
+      "standardPrice": 8.5,
+      "price": 8.5
+    },
+    {
+      "id": "SMOOTH_RED_SANDSTONE",
+      "name": "Glatt Rot Sandstein",
+      "standardPrice": 8.5,
+      "price": 8.5
+    },
+    {
+      "id": "CUT_SANDSTONE",
+      "name": "Geschnitten Sandstein",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "CUT_RED_SANDSTONE",
+      "name": "Geschnitten Rot Sandstein",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "CHISELED_SANDSTONE",
+      "name": "Gemeißelt Sandstein",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "CHISELED_RED_SANDSTONE",
+      "name": "Gemeißelt Rot Sandstein",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "QUARTZ_BRICKS",
+      "name": "Quarz Ziegel",
+      "standardPrice": 37,
+      "price": 37
+    },
+    {
+      "id": "CHISELED_QUARTZ_BLOCK",
+      "name": "Gemeißelt Quarz Block",
+      "standardPrice": 37,
+      "price": 37
+    },
+    {
+      "id": "QUARTZ_PILLAR",
+      "name": "Quarz Pillar",
+      "standardPrice": 37,
+      "price": 37
+    },
+    {
+      "id": "SMOOTH_QUARTZ",
+      "name": "Glatt Quarz",
+      "standardPrice": 37,
+      "price": 37
+    },
+    {
+      "id": "SCULK",
+      "name": "Sculk",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "SCULK_VEIN",
+      "name": "Sculk Vein",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "SCULK_SENSOR",
+      "name": "Sculk Sensor",
+      "standardPrice": 130,
+      "price": 130
+    },
+    {
+      "id": "CALIBRATED_SCULK_SENSOR",
+      "name": "Calibrated Sculk Sensor",
+      "standardPrice": 150,
+      "price": 150
+    },
+    {
+      "id": "SCULK_CATALYST",
+      "name": "Sculk Catalyst",
+      "standardPrice": 280,
+      "price": 280
+    },
+    {
+      "id": "SCULK_SHRIEKER",
+      "name": "Sculk Shrieker",
+      "standardPrice": 200,
+      "price": 200
+    },
+    {
+      "id": "AMETHYST_CLUSTER",
+      "name": "Amethyst Cluster",
+      "standardPrice": 120,
+      "price": 120
+    },
+    {
+      "id": "POINTED_DRIPSTONE",
+      "name": "Spitzer Tropfstein",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "SMALL_DRIPLEAF",
+      "name": "Klein Dripleaf",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "BIG_DRIPLEAF",
+      "name": "Groß Dripleaf",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "HANGING_ROOTS",
+      "name": "Hänge Wurzeln",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "GLOW_LICHEN",
+      "name": "Leucht Lichen",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "SPORE_BLOSSOM",
+      "name": "Spore Blossom",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "TWISTING_VINES",
+      "name": "Twisting Ranken",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "WEEPING_VINES",
+      "name": "Weeping Ranken",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "VINE",
+      "name": "Vine",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "SEA_PICKLE",
+      "name": "Sea Pickle",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "LILY_OF_THE_VALLEY",
+      "name": "Lily Of The Valley",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "FLOWERING_AZALEA",
+      "name": "Flowering Azalea",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "AZALEA",
+      "name": "Azalea",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "MANGROVE_ROOTS",
+      "name": "Mangroven Wurzeln",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "MUDDY_MANGROVE_ROOTS",
+      "name": "Muddy Mangroven Wurzeln",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "CHORUS_FLOWER",
+      "name": "Chorus Blume",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "CHORUS_PLANT",
+      "name": "Chorus Plant",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "END_ROD",
+      "name": "End Stab",
+      "standardPrice": 18,
+      "price": 18
+    },
+    {
+      "id": "CRYING_OBSIDIAN",
+      "name": "Crying Obsidian",
+      "standardPrice": 65,
+      "price": 65
+    },
+    {
+      "id": "LODESTONE",
+      "name": "Leitstein",
+      "standardPrice": 1600,
+      "price": 1600
+    },
+    {
+      "id": "RESPAWN_ANCHOR",
+      "name": "Seelenanker",
+      "standardPrice": 180,
+      "price": 180
+    },
+    {
+      "id": "BEACON",
+      "name": "Leuchtfeuer",
+      "standardPrice": 12800,
+      "price": 12800
+    },
+    {
+      "id": "END_CRYSTAL",
+      "name": "Enderkristall",
+      "standardPrice": 400,
+      "price": 400
+    },
+    {
+      "id": "DRIED_KELP",
+      "name": "Getrocknet Seetang",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "DRIED_KELP_BLOCK",
+      "name": "Getrocknet Seetangblock",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "OAK_WOOD",
+      "name": "Eichen Holz",
+      "standardPrice": 5.0,
+      "price": 5.0
+    },
+    {
+      "id": "OAK_STEM",
+      "name": "Eichen Stiel",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "OAK_HYPHAE",
+      "name": "Eichen Hyphen",
+      "standardPrice": 5.0,
+      "price": 5.0
+    },
+    {
+      "id": "OAK_STRIPPED_LOG",
+      "name": "Eichen Entrindet Stamm",
+      "standardPrice": 4.2,
+      "price": 4.2
+    },
+    {
+      "id": "OAK_STRIPPED_WOOD",
+      "name": "Eichen Entrindet Holz",
+      "standardPrice": 5.2,
+      "price": 5.2
+    },
+    {
+      "id": "OAK_STRIPPED_STEM",
+      "name": "Eichen Entrindet Stiel",
+      "standardPrice": 4.2,
+      "price": 4.2
+    },
+    {
+      "id": "OAK_STRIPPED_HYPHAE",
+      "name": "Eichen Entrindet Hyphen",
+      "standardPrice": 5.2,
+      "price": 5.2
+    },
+    {
+      "id": "OAK_PLANKS",
+      "name": "Eichenholzbretter",
+      "standardPrice": 1.28,
+      "price": 1.28
+    },
+    {
+      "id": "OAK_SLAB",
+      "name": "Eichen Stufe",
+      "standardPrice": 0.64,
+      "price": 0.64
+    },
+    {
+      "id": "OAK_STAIRS",
+      "name": "Eichen Treppe",
+      "standardPrice": 1.92,
+      "price": 1.92
+    },
+    {
+      "id": "OAK_FENCE",
+      "name": "Eichen Zaun",
+      "standardPrice": 1.8,
+      "price": 1.8
+    },
+    {
+      "id": "OAK_FENCE_GATE",
+      "name": "Eichen Zaun Tor",
+      "standardPrice": 4.4,
+      "price": 4.4
+    },
+    {
+      "id": "OAK_DOOR",
+      "name": "Eichen Tür",
+      "standardPrice": 3.2,
+      "price": 3.2
+    },
+    {
+      "id": "OAK_TRAPDOOR",
+      "name": "Eichen Falltür",
+      "standardPrice": 2.6,
+      "price": 2.6
+    },
+    {
+      "id": "OAK_BUTTON",
+      "name": "Eichen Knopf",
+      "standardPrice": 0.28,
+      "price": 0.28
+    },
+    {
+      "id": "OAK_PRESSURE_PLATE",
+      "name": "Eichen Druckplatte",
+      "standardPrice": 2.4,
+      "price": 2.4
+    },
+    {
+      "id": "OAK_SIGN",
+      "name": "Eichenschild",
+      "standardPrice": 3.2,
+      "price": 3.2
+    },
+    {
+      "id": "OAK_HANGING_SIGN",
+      "name": "Eichen Hängeschild",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "OAK_BOAT",
+      "name": "Eichen Boot",
+      "standardPrice": 7.2,
+      "price": 7.2
+    },
+    {
+      "id": "OAK_CHEST_BOAT",
+      "name": "Eichen Truhe Boot",
+      "standardPrice": 10.8,
+      "price": 10.8
+    },
+    {
+      "id": "OAK_SHELF",
+      "name": "Eichen Regal",
+      "standardPrice": 6.0,
+      "price": 6.0
+    },
+    {
+      "id": "OAK_SAPLING",
+      "name": "Eichen Setzling",
+      "standardPrice": 4.8,
+      "price": 4.8
+    },
+    {
+      "id": "OAK_LEAVES",
+      "name": "Eichen Laub",
+      "standardPrice": 1.2,
+      "price": 1.2
+    },
+    {
+      "id": "SPRUCE_WOOD",
+      "name": "Fichten Holz",
+      "standardPrice": 5.0,
+      "price": 5.0
+    },
+    {
+      "id": "SPRUCE_STEM",
+      "name": "Fichten Stiel",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "SPRUCE_HYPHAE",
+      "name": "Fichten Hyphen",
+      "standardPrice": 5.0,
+      "price": 5.0
+    },
+    {
+      "id": "SPRUCE_STRIPPED_LOG",
+      "name": "Fichten Entrindet Stamm",
+      "standardPrice": 4.2,
+      "price": 4.2
+    },
+    {
+      "id": "SPRUCE_STRIPPED_WOOD",
+      "name": "Fichten Entrindet Holz",
+      "standardPrice": 5.2,
+      "price": 5.2
+    },
+    {
+      "id": "SPRUCE_STRIPPED_STEM",
+      "name": "Fichten Entrindet Stiel",
+      "standardPrice": 4.2,
+      "price": 4.2
+    },
+    {
+      "id": "SPRUCE_STRIPPED_HYPHAE",
+      "name": "Fichten Entrindet Hyphen",
+      "standardPrice": 5.2,
+      "price": 5.2
+    },
+    {
+      "id": "SPRUCE_PLANKS",
+      "name": "Fichtenholzbretter",
+      "standardPrice": 1.28,
+      "price": 1.28
+    },
+    {
+      "id": "SPRUCE_SLAB",
+      "name": "Fichten Stufe",
+      "standardPrice": 0.64,
+      "price": 0.64
+    },
+    {
+      "id": "SPRUCE_STAIRS",
+      "name": "Fichten Treppe",
+      "standardPrice": 1.92,
+      "price": 1.92
+    },
+    {
+      "id": "SPRUCE_FENCE",
+      "name": "Fichten Zaun",
+      "standardPrice": 1.8,
+      "price": 1.8
+    },
+    {
+      "id": "SPRUCE_FENCE_GATE",
+      "name": "Fichten Zaun Tor",
+      "standardPrice": 4.4,
+      "price": 4.4
+    },
+    {
+      "id": "SPRUCE_DOOR",
+      "name": "Fichten Tür",
+      "standardPrice": 3.2,
+      "price": 3.2
+    },
+    {
+      "id": "SPRUCE_TRAPDOOR",
+      "name": "Fichten Falltür",
+      "standardPrice": 2.6,
+      "price": 2.6
+    },
+    {
+      "id": "SPRUCE_BUTTON",
+      "name": "Fichten Knopf",
+      "standardPrice": 0.28,
+      "price": 0.28
+    },
+    {
+      "id": "SPRUCE_PRESSURE_PLATE",
+      "name": "Fichten Druckplatte",
+      "standardPrice": 2.4,
+      "price": 2.4
+    },
+    {
+      "id": "SPRUCE_SIGN",
+      "name": "Fichten Schild",
+      "standardPrice": 3.2,
+      "price": 3.2
+    },
+    {
+      "id": "SPRUCE_HANGING_SIGN",
+      "name": "Fichten Hängeschild",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "SPRUCE_BOAT",
+      "name": "Fichten Boot",
+      "standardPrice": 7.2,
+      "price": 7.2
+    },
+    {
+      "id": "SPRUCE_CHEST_BOAT",
+      "name": "Fichten Truhe Boot",
+      "standardPrice": 10.8,
+      "price": 10.8
+    },
+    {
+      "id": "SPRUCE_SHELF",
+      "name": "Fichten Regal",
+      "standardPrice": 6.0,
+      "price": 6.0
+    },
+    {
+      "id": "SPRUCE_SAPLING",
+      "name": "Fichten Setzling",
+      "standardPrice": 4.8,
+      "price": 4.8
+    },
+    {
+      "id": "SPRUCE_LEAVES",
+      "name": "Fichten Laub",
+      "standardPrice": 1.2,
+      "price": 1.2
+    },
+    {
+      "id": "BIRCH_WOOD",
+      "name": "Birken Holz",
+      "standardPrice": 5.0,
+      "price": 5.0
+    },
+    {
+      "id": "BIRCH_STEM",
+      "name": "Birken Stiel",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "BIRCH_HYPHAE",
+      "name": "Birken Hyphen",
+      "standardPrice": 5.0,
+      "price": 5.0
+    },
+    {
+      "id": "BIRCH_STRIPPED_LOG",
+      "name": "Birken Entrindet Stamm",
+      "standardPrice": 4.2,
+      "price": 4.2
+    },
+    {
+      "id": "BIRCH_STRIPPED_WOOD",
+      "name": "Birken Entrindet Holz",
+      "standardPrice": 5.2,
+      "price": 5.2
+    },
+    {
+      "id": "BIRCH_STRIPPED_STEM",
+      "name": "Birken Entrindet Stiel",
+      "standardPrice": 4.2,
+      "price": 4.2
+    },
+    {
+      "id": "BIRCH_STRIPPED_HYPHAE",
+      "name": "Birken Entrindet Hyphen",
+      "standardPrice": 5.2,
+      "price": 5.2
+    },
+    {
+      "id": "BIRCH_PLANKS",
+      "name": "Birkenholzbretter",
+      "standardPrice": 1.28,
+      "price": 1.28
+    },
+    {
+      "id": "BIRCH_SLAB",
+      "name": "Birken Stufe",
+      "standardPrice": 0.64,
+      "price": 0.64
+    },
+    {
+      "id": "BIRCH_STAIRS",
+      "name": "Birken Treppe",
+      "standardPrice": 1.92,
+      "price": 1.92
+    },
+    {
+      "id": "BIRCH_FENCE",
+      "name": "Birken Zaun",
+      "standardPrice": 1.8,
+      "price": 1.8
+    },
+    {
+      "id": "BIRCH_FENCE_GATE",
+      "name": "Birken Zaun Tor",
+      "standardPrice": 4.4,
+      "price": 4.4
+    },
+    {
+      "id": "BIRCH_DOOR",
+      "name": "Birken Tür",
+      "standardPrice": 3.2,
+      "price": 3.2
+    },
+    {
+      "id": "BIRCH_TRAPDOOR",
+      "name": "Birken Falltür",
+      "standardPrice": 2.6,
+      "price": 2.6
+    },
+    {
+      "id": "BIRCH_BUTTON",
+      "name": "Birken Knopf",
+      "standardPrice": 0.28,
+      "price": 0.28
+    },
+    {
+      "id": "BIRCH_PRESSURE_PLATE",
+      "name": "Birken Druckplatte",
+      "standardPrice": 2.4,
+      "price": 2.4
+    },
+    {
+      "id": "BIRCH_SIGN",
+      "name": "Birken Schild",
+      "standardPrice": 3.2,
+      "price": 3.2
+    },
+    {
+      "id": "BIRCH_HANGING_SIGN",
+      "name": "Birken Hängeschild",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "BIRCH_BOAT",
+      "name": "Birken Boot",
+      "standardPrice": 7.2,
+      "price": 7.2
+    },
+    {
+      "id": "BIRCH_CHEST_BOAT",
+      "name": "Birken Truhe Boot",
+      "standardPrice": 10.8,
+      "price": 10.8
+    },
+    {
+      "id": "BIRCH_SHELF",
+      "name": "Birken Regal",
+      "standardPrice": 6.0,
+      "price": 6.0
+    },
+    {
+      "id": "BIRCH_SAPLING",
+      "name": "Birken Setzling",
+      "standardPrice": 4.8,
+      "price": 4.8
+    },
+    {
+      "id": "BIRCH_LEAVES",
+      "name": "Birken Laub",
+      "standardPrice": 1.2,
+      "price": 1.2
+    },
+    {
+      "id": "JUNGLE_WOOD",
+      "name": "Tropen Holz",
+      "standardPrice": 3.75,
+      "price": 3.75
+    },
+    {
+      "id": "JUNGLE_STEM",
+      "name": "Tropen Stiel",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "JUNGLE_HYPHAE",
+      "name": "Tropen Hyphen",
+      "standardPrice": 3.75,
+      "price": 3.75
+    },
+    {
+      "id": "JUNGLE_STRIPPED_LOG",
+      "name": "Tropen Entrindet Stamm",
+      "standardPrice": 3.15,
+      "price": 3.15
+    },
+    {
+      "id": "JUNGLE_STRIPPED_WOOD",
+      "name": "Tropen Entrindet Holz",
+      "standardPrice": 3.9,
+      "price": 3.9
+    },
+    {
+      "id": "JUNGLE_STRIPPED_STEM",
+      "name": "Tropen Entrindet Stiel",
+      "standardPrice": 3.15,
+      "price": 3.15
+    },
+    {
+      "id": "JUNGLE_STRIPPED_HYPHAE",
+      "name": "Tropen Entrindet Hyphen",
+      "standardPrice": 3.9,
+      "price": 3.9
+    },
+    {
+      "id": "JUNGLE_PLANKS",
+      "name": "Tropenholzbretter",
+      "standardPrice": 0.96,
+      "price": 0.96
+    },
+    {
+      "id": "JUNGLE_SLAB",
+      "name": "Tropen Stufe",
+      "standardPrice": 0.48,
+      "price": 0.48
+    },
+    {
+      "id": "JUNGLE_STAIRS",
+      "name": "Tropen Treppe",
+      "standardPrice": 1.44,
+      "price": 1.44
+    },
+    {
+      "id": "JUNGLE_FENCE",
+      "name": "Tropen Zaun",
+      "standardPrice": 1.35,
+      "price": 1.35
+    },
+    {
+      "id": "JUNGLE_FENCE_GATE",
+      "name": "Tropen Zaun Tor",
+      "standardPrice": 3.3,
+      "price": 3.3
+    },
+    {
+      "id": "JUNGLE_DOOR",
+      "name": "Tropen Tür",
+      "standardPrice": 2.4,
+      "price": 2.4
+    },
+    {
+      "id": "JUNGLE_TRAPDOOR",
+      "name": "Tropen Falltür",
+      "standardPrice": 1.95,
+      "price": 1.95
+    },
+    {
+      "id": "JUNGLE_BUTTON",
+      "name": "Tropen Knopf",
+      "standardPrice": 0.21,
+      "price": 0.21
+    },
+    {
+      "id": "JUNGLE_PRESSURE_PLATE",
+      "name": "Tropen Druckplatte",
+      "standardPrice": 1.8,
+      "price": 1.8
+    },
+    {
+      "id": "JUNGLE_SIGN",
+      "name": "Tropen Schild",
+      "standardPrice": 2.4,
+      "price": 2.4
+    },
+    {
+      "id": "JUNGLE_HANGING_SIGN",
+      "name": "Tropen Hängeschild",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "JUNGLE_BOAT",
+      "name": "Tropen Boot",
+      "standardPrice": 5.4,
+      "price": 5.4
+    },
+    {
+      "id": "JUNGLE_CHEST_BOAT",
+      "name": "Tropen Truhe Boot",
+      "standardPrice": 8.1,
+      "price": 8.1
+    },
+    {
+      "id": "JUNGLE_SHELF",
+      "name": "Tropen Regal",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "JUNGLE_SAPLING",
+      "name": "Tropen Setzling",
+      "standardPrice": 3.6,
+      "price": 3.6
+    },
+    {
+      "id": "JUNGLE_LEAVES",
+      "name": "Tropen Laub",
+      "standardPrice": 0.9,
+      "price": 0.9
+    },
+    {
+      "id": "ACACIA_WOOD",
+      "name": "Akazien Holz",
+      "standardPrice": 6.25,
+      "price": 6.25
+    },
+    {
+      "id": "ACACIA_STEM",
+      "name": "Akazien Stiel",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "ACACIA_HYPHAE",
+      "name": "Akazien Hyphen",
+      "standardPrice": 6.25,
+      "price": 6.25
+    },
+    {
+      "id": "ACACIA_STRIPPED_LOG",
+      "name": "Akazien Entrindet Stamm",
+      "standardPrice": 5.25,
+      "price": 5.25
+    },
+    {
+      "id": "ACACIA_STRIPPED_WOOD",
+      "name": "Akazien Entrindet Holz",
+      "standardPrice": 6.5,
+      "price": 6.5
+    },
+    {
+      "id": "ACACIA_STRIPPED_STEM",
+      "name": "Akazien Entrindet Stiel",
+      "standardPrice": 5.25,
+      "price": 5.25
+    },
+    {
+      "id": "ACACIA_STRIPPED_HYPHAE",
+      "name": "Akazien Entrindet Hyphen",
+      "standardPrice": 6.5,
+      "price": 6.5
+    },
+    {
+      "id": "ACACIA_PLANKS",
+      "name": "Akazienholzbretter",
+      "standardPrice": 1.6,
+      "price": 1.6
+    },
+    {
+      "id": "ACACIA_SLAB",
+      "name": "Akazien Stufe",
+      "standardPrice": 0.8,
+      "price": 0.8
+    },
+    {
+      "id": "ACACIA_STAIRS",
+      "name": "Akazien Treppe",
+      "standardPrice": 2.4,
+      "price": 2.4
+    },
+    {
+      "id": "ACACIA_FENCE",
+      "name": "Akazien Zaun",
+      "standardPrice": 2.25,
+      "price": 2.25
+    },
+    {
+      "id": "ACACIA_FENCE_GATE",
+      "name": "Akazien Zaun Tor",
+      "standardPrice": 5.5,
+      "price": 5.5
+    },
+    {
+      "id": "ACACIA_DOOR",
+      "name": "Akazien Tür",
+      "standardPrice": 4.0,
+      "price": 4.0
+    },
+    {
+      "id": "ACACIA_TRAPDOOR",
+      "name": "Akazien Falltür",
+      "standardPrice": 3.25,
+      "price": 3.25
+    },
+    {
+      "id": "ACACIA_BUTTON",
+      "name": "Akazien Knopf",
+      "standardPrice": 0.35,
+      "price": 0.35
+    },
+    {
+      "id": "ACACIA_PRESSURE_PLATE",
+      "name": "Akazien Druckplatte",
+      "standardPrice": 3.0,
+      "price": 3.0
+    },
+    {
+      "id": "ACACIA_SIGN",
+      "name": "Akazien Schild",
+      "standardPrice": 4.0,
+      "price": 4.0
+    },
+    {
+      "id": "ACACIA_HANGING_SIGN",
+      "name": "Akazien Hängeschild",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "ACACIA_BOAT",
+      "name": "Akazien Boot",
+      "standardPrice": 9.0,
+      "price": 9.0
+    },
+    {
+      "id": "ACACIA_CHEST_BOAT",
+      "name": "Akazien Truhe Boot",
+      "standardPrice": 13.5,
+      "price": 13.5
+    },
+    {
+      "id": "ACACIA_SHELF",
+      "name": "Akazien Regal",
+      "standardPrice": 7.5,
+      "price": 7.5
+    },
+    {
+      "id": "ACACIA_SAPLING",
+      "name": "Akazien Setzling",
+      "standardPrice": 6.0,
+      "price": 6.0
+    },
+    {
+      "id": "ACACIA_LEAVES",
+      "name": "Akazien Laub",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "DARK_OAK_WOOD",
+      "name": "Schwarzeichen Holz",
+      "standardPrice": 3.75,
+      "price": 3.75
+    },
+    {
+      "id": "DARK_OAK_STEM",
+      "name": "Schwarzeichen Stiel",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "DARK_OAK_HYPHAE",
+      "name": "Schwarzeichen Hyphen",
+      "standardPrice": 3.75,
+      "price": 3.75
+    },
+    {
+      "id": "DARK_OAK_STRIPPED_LOG",
+      "name": "Schwarzeichen Entrindet Stamm",
+      "standardPrice": 3.15,
+      "price": 3.15
+    },
+    {
+      "id": "DARK_OAK_STRIPPED_WOOD",
+      "name": "Schwarzeichen Entrindet Holz",
+      "standardPrice": 3.9,
+      "price": 3.9
+    },
+    {
+      "id": "DARK_OAK_STRIPPED_STEM",
+      "name": "Schwarzeichen Entrindet Stiel",
+      "standardPrice": 3.15,
+      "price": 3.15
+    },
+    {
+      "id": "DARK_OAK_STRIPPED_HYPHAE",
+      "name": "Schwarzeichen Entrindet Hyphen",
+      "standardPrice": 3.9,
+      "price": 3.9
+    },
+    {
+      "id": "DARK_OAK_PLANKS",
+      "name": "Schwarzeichenholzbretter",
+      "standardPrice": 0.96,
+      "price": 0.96
+    },
+    {
+      "id": "DARK_OAK_SLAB",
+      "name": "Schwarzeichen Stufe",
+      "standardPrice": 0.48,
+      "price": 0.48
+    },
+    {
+      "id": "DARK_OAK_STAIRS",
+      "name": "Schwarzeichen Treppe",
+      "standardPrice": 1.44,
+      "price": 1.44
+    },
+    {
+      "id": "DARK_OAK_FENCE",
+      "name": "Schwarzeichen Zaun",
+      "standardPrice": 1.35,
+      "price": 1.35
+    },
+    {
+      "id": "DARK_OAK_FENCE_GATE",
+      "name": "Schwarzeichen Zaun Tor",
+      "standardPrice": 3.3,
+      "price": 3.3
+    },
+    {
+      "id": "DARK_OAK_DOOR",
+      "name": "Schwarzeichen Tür",
+      "standardPrice": 2.4,
+      "price": 2.4
+    },
+    {
+      "id": "DARK_OAK_TRAPDOOR",
+      "name": "Schwarzeichen Falltür",
+      "standardPrice": 1.95,
+      "price": 1.95
+    },
+    {
+      "id": "DARK_OAK_BUTTON",
+      "name": "Schwarzeichen Knopf",
+      "standardPrice": 0.21,
+      "price": 0.21
+    },
+    {
+      "id": "DARK_OAK_PRESSURE_PLATE",
+      "name": "Schwarzeichen Druckplatte",
+      "standardPrice": 1.8,
+      "price": 1.8
+    },
+    {
+      "id": "DARK_OAK_SIGN",
+      "name": "Schwarzeichen Schild",
+      "standardPrice": 2.4,
+      "price": 2.4
+    },
+    {
+      "id": "DARK_OAK_HANGING_SIGN",
+      "name": "Schwarzeichen Hängeschild",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "DARK_OAK_BOAT",
+      "name": "Schwarzeichen Boot",
+      "standardPrice": 5.4,
+      "price": 5.4
+    },
+    {
+      "id": "DARK_OAK_CHEST_BOAT",
+      "name": "Schwarzeichen Truhe Boot",
+      "standardPrice": 8.1,
+      "price": 8.1
+    },
+    {
+      "id": "DARK_OAK_SHELF",
+      "name": "Schwarzeichen Regal",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "DARK_OAK_SAPLING",
+      "name": "Schwarzeichen Setzling",
+      "standardPrice": 3.6,
+      "price": 3.6
+    },
+    {
+      "id": "DARK_OAK_LEAVES",
+      "name": "Schwarzeichen Laub",
+      "standardPrice": 0.9,
+      "price": 0.9
+    },
+    {
+      "id": "MANGROVE_WOOD",
+      "name": "Mangroven Holz",
+      "standardPrice": 7.5,
+      "price": 7.5
+    },
+    {
+      "id": "MANGROVE_STEM",
+      "name": "Mangroven Stiel",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "MANGROVE_HYPHAE",
+      "name": "Mangroven Hyphen",
+      "standardPrice": 7.5,
+      "price": 7.5
+    },
+    {
+      "id": "MANGROVE_STRIPPED_LOG",
+      "name": "Mangroven Entrindet Stamm",
+      "standardPrice": 6.3,
+      "price": 6.3
+    },
+    {
+      "id": "MANGROVE_STRIPPED_WOOD",
+      "name": "Mangroven Entrindet Holz",
+      "standardPrice": 7.8,
+      "price": 7.8
+    },
+    {
+      "id": "MANGROVE_STRIPPED_STEM",
+      "name": "Mangroven Entrindet Stiel",
+      "standardPrice": 6.3,
+      "price": 6.3
+    },
+    {
+      "id": "MANGROVE_STRIPPED_HYPHAE",
+      "name": "Mangroven Entrindet Hyphen",
+      "standardPrice": 7.8,
+      "price": 7.8
+    },
+    {
+      "id": "MANGROVE_PLANKS",
+      "name": "Mangrovenholzbretter",
+      "standardPrice": 1.92,
+      "price": 1.92
+    },
+    {
+      "id": "MANGROVE_SLAB",
+      "name": "Mangroven Stufe",
+      "standardPrice": 0.96,
+      "price": 0.96
+    },
+    {
+      "id": "MANGROVE_STAIRS",
+      "name": "Mangroven Treppe",
+      "standardPrice": 2.88,
+      "price": 2.88
+    },
+    {
+      "id": "MANGROVE_FENCE",
+      "name": "Mangroven Zaun",
+      "standardPrice": 2.7,
+      "price": 2.7
+    },
+    {
+      "id": "MANGROVE_FENCE_GATE",
+      "name": "Mangroven Zaun Tor",
+      "standardPrice": 6.6,
+      "price": 6.6
+    },
+    {
+      "id": "MANGROVE_DOOR",
+      "name": "Mangroven Tür",
+      "standardPrice": 4.8,
+      "price": 4.8
+    },
+    {
+      "id": "MANGROVE_TRAPDOOR",
+      "name": "Mangroven Falltür",
+      "standardPrice": 3.9,
+      "price": 3.9
+    },
+    {
+      "id": "MANGROVE_BUTTON",
+      "name": "Mangroven Knopf",
+      "standardPrice": 0.42,
+      "price": 0.42
+    },
+    {
+      "id": "MANGROVE_PRESSURE_PLATE",
+      "name": "Mangroven Druckplatte",
+      "standardPrice": 3.6,
+      "price": 3.6
+    },
+    {
+      "id": "MANGROVE_SIGN",
+      "name": "Mangroven Schild",
+      "standardPrice": 4.8,
+      "price": 4.8
+    },
+    {
+      "id": "MANGROVE_HANGING_SIGN",
+      "name": "Mangroven Hängeschild",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "MANGROVE_BOAT",
+      "name": "Mangroven Boot",
+      "standardPrice": 10.8,
+      "price": 10.8
+    },
+    {
+      "id": "MANGROVE_CHEST_BOAT",
+      "name": "Mangroven Truhe Boot",
+      "standardPrice": 16.2,
+      "price": 16.2
+    },
+    {
+      "id": "MANGROVE_SHELF",
+      "name": "Mangroven Regal",
+      "standardPrice": 9.0,
+      "price": 9.0
+    },
+    {
+      "id": "MANGROVE_SAPLING",
+      "name": "Mangroven Setzling",
+      "standardPrice": 7.2,
+      "price": 7.2
+    },
+    {
+      "id": "MANGROVE_LEAVES",
+      "name": "Mangroven Laub",
+      "standardPrice": 1.8,
+      "price": 1.8
+    },
+    {
+      "id": "CHERRY_WOOD",
+      "name": "Kirsch Holz",
+      "standardPrice": 7.5,
+      "price": 7.5
+    },
+    {
+      "id": "CHERRY_STEM",
+      "name": "Kirsch Stiel",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "CHERRY_HYPHAE",
+      "name": "Kirsch Hyphen",
+      "standardPrice": 7.5,
+      "price": 7.5
+    },
+    {
+      "id": "CHERRY_STRIPPED_LOG",
+      "name": "Kirsch Entrindet Stamm",
+      "standardPrice": 6.3,
+      "price": 6.3
+    },
+    {
+      "id": "CHERRY_STRIPPED_WOOD",
+      "name": "Kirsch Entrindet Holz",
+      "standardPrice": 7.8,
+      "price": 7.8
+    },
+    {
+      "id": "CHERRY_STRIPPED_STEM",
+      "name": "Kirsch Entrindet Stiel",
+      "standardPrice": 6.3,
+      "price": 6.3
+    },
+    {
+      "id": "CHERRY_STRIPPED_HYPHAE",
+      "name": "Kirsch Entrindet Hyphen",
+      "standardPrice": 7.8,
+      "price": 7.8
+    },
+    {
+      "id": "CHERRY_PLANKS",
+      "name": "Kirschholzbretter",
+      "standardPrice": 1.92,
+      "price": 1.92
+    },
+    {
+      "id": "CHERRY_SLAB",
+      "name": "Kirsch Stufe",
+      "standardPrice": 0.96,
+      "price": 0.96
+    },
+    {
+      "id": "CHERRY_STAIRS",
+      "name": "Kirsch Treppe",
+      "standardPrice": 2.88,
+      "price": 2.88
+    },
+    {
+      "id": "CHERRY_FENCE",
+      "name": "Kirsch Zaun",
+      "standardPrice": 2.7,
+      "price": 2.7
+    },
+    {
+      "id": "CHERRY_FENCE_GATE",
+      "name": "Kirsch Zaun Tor",
+      "standardPrice": 6.6,
+      "price": 6.6
+    },
+    {
+      "id": "CHERRY_DOOR",
+      "name": "Kirsch Tür",
+      "standardPrice": 4.8,
+      "price": 4.8
+    },
+    {
+      "id": "CHERRY_TRAPDOOR",
+      "name": "Kirsch Falltür",
+      "standardPrice": 3.9,
+      "price": 3.9
+    },
+    {
+      "id": "CHERRY_BUTTON",
+      "name": "Kirsch Knopf",
+      "standardPrice": 0.42,
+      "price": 0.42
+    },
+    {
+      "id": "CHERRY_PRESSURE_PLATE",
+      "name": "Kirsch Druckplatte",
+      "standardPrice": 3.6,
+      "price": 3.6
+    },
+    {
+      "id": "CHERRY_SIGN",
+      "name": "Kirschholzschild",
+      "standardPrice": 4.8,
+      "price": 4.8
+    },
+    {
+      "id": "CHERRY_HANGING_SIGN",
+      "name": "Kirsch Hängeschild",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "CHERRY_BOAT",
+      "name": "Kirsch Boot",
+      "standardPrice": 10.8,
+      "price": 10.8
+    },
+    {
+      "id": "CHERRY_CHEST_BOAT",
+      "name": "Kirsch Truhe Boot",
+      "standardPrice": 16.2,
+      "price": 16.2
+    },
+    {
+      "id": "CHERRY_SHELF",
+      "name": "Kirsch Regal",
+      "standardPrice": 9.0,
+      "price": 9.0
+    },
+    {
+      "id": "CHERRY_SAPLING",
+      "name": "Kirsch Setzling",
+      "standardPrice": 7.2,
+      "price": 7.2
+    },
+    {
+      "id": "CHERRY_LEAVES",
+      "name": "Kirsch Laub",
+      "standardPrice": 1.8,
+      "price": 1.8
+    },
+    {
+      "id": "PALE_OAK_WOOD",
+      "name": "Blasseichen Holz",
+      "standardPrice": 7.5,
+      "price": 7.5
+    },
+    {
+      "id": "PALE_OAK_STEM",
+      "name": "Blasseichen Stiel",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "PALE_OAK_HYPHAE",
+      "name": "Blasseichen Hyphen",
+      "standardPrice": 7.5,
+      "price": 7.5
+    },
+    {
+      "id": "PALE_OAK_STRIPPED_LOG",
+      "name": "Blasseichen Entrindet Stamm",
+      "standardPrice": 6.3,
+      "price": 6.3
+    },
+    {
+      "id": "PALE_OAK_STRIPPED_WOOD",
+      "name": "Blasseichen Entrindet Holz",
+      "standardPrice": 7.8,
+      "price": 7.8
+    },
+    {
+      "id": "PALE_OAK_STRIPPED_STEM",
+      "name": "Blasseichen Entrindet Stiel",
+      "standardPrice": 6.3,
+      "price": 6.3
+    },
+    {
+      "id": "PALE_OAK_STRIPPED_HYPHAE",
+      "name": "Blasseichen Entrindet Hyphen",
+      "standardPrice": 7.8,
+      "price": 7.8
+    },
+    {
+      "id": "PALE_OAK_PLANKS",
+      "name": "Blasseichenholzbretter",
+      "standardPrice": 1.92,
+      "price": 1.92
+    },
+    {
+      "id": "PALE_OAK_SLAB",
+      "name": "Blasseichen Stufe",
+      "standardPrice": 0.96,
+      "price": 0.96
+    },
+    {
+      "id": "PALE_OAK_STAIRS",
+      "name": "Blasseichen Treppe",
+      "standardPrice": 2.88,
+      "price": 2.88
+    },
+    {
+      "id": "PALE_OAK_FENCE",
+      "name": "Blasseichen Zaun",
+      "standardPrice": 2.7,
+      "price": 2.7
+    },
+    {
+      "id": "PALE_OAK_FENCE_GATE",
+      "name": "Blasseichen Zaun Tor",
+      "standardPrice": 6.6,
+      "price": 6.6
+    },
+    {
+      "id": "PALE_OAK_DOOR",
+      "name": "Blasseichen Tür",
+      "standardPrice": 4.8,
+      "price": 4.8
+    },
+    {
+      "id": "PALE_OAK_TRAPDOOR",
+      "name": "Blasseichen Falltür",
+      "standardPrice": 3.9,
+      "price": 3.9
+    },
+    {
+      "id": "PALE_OAK_BUTTON",
+      "name": "Blasseichen Knopf",
+      "standardPrice": 0.42,
+      "price": 0.42
+    },
+    {
+      "id": "PALE_OAK_PRESSURE_PLATE",
+      "name": "Blasseichen Druckplatte",
+      "standardPrice": 3.6,
+      "price": 3.6
+    },
+    {
+      "id": "PALE_OAK_SIGN",
+      "name": "Blasseichen Schild",
+      "standardPrice": 4.8,
+      "price": 4.8
+    },
+    {
+      "id": "PALE_OAK_HANGING_SIGN",
+      "name": "Blasseichen Hängeschild",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "PALE_OAK_BOAT",
+      "name": "Blasseichen Boot",
+      "standardPrice": 10.8,
+      "price": 10.8
+    },
+    {
+      "id": "PALE_OAK_CHEST_BOAT",
+      "name": "Blasseichen Truhe Boot",
+      "standardPrice": 16.2,
+      "price": 16.2
+    },
+    {
+      "id": "PALE_OAK_SHELF",
+      "name": "Blasseichen Regal",
+      "standardPrice": 9.0,
+      "price": 9.0
+    },
+    {
+      "id": "PALE_OAK_SAPLING",
+      "name": "Blasseichen Setzling",
+      "standardPrice": 7.2,
+      "price": 7.2
+    },
+    {
+      "id": "PALE_OAK_LEAVES",
+      "name": "Blasseichen Laub",
+      "standardPrice": 1.8,
+      "price": 1.8
+    },
+    {
+      "id": "CRIMSON_HYPHAE",
+      "name": "Karmesin Hyphen",
+      "standardPrice": 6.25,
+      "price": 6.25
+    },
+    {
+      "id": "CRIMSON_STRIPPED_STEM",
+      "name": "Karmesin Entrindet Stiel",
+      "standardPrice": 5.25,
+      "price": 5.25
+    },
+    {
+      "id": "CRIMSON_STRIPPED_HYPHAE",
+      "name": "Karmesin Entrindet Hyphen",
+      "standardPrice": 6.5,
+      "price": 6.5
+    },
+    {
+      "id": "CRIMSON_PLANKS",
+      "name": "Karmesin Holzbretter",
+      "standardPrice": 1.6,
+      "price": 1.6
+    },
+    {
+      "id": "CRIMSON_SLAB",
+      "name": "Karmesin Stufe",
+      "standardPrice": 0.8,
+      "price": 0.8
+    },
+    {
+      "id": "CRIMSON_STAIRS",
+      "name": "Karmesin Treppe",
+      "standardPrice": 2.4,
+      "price": 2.4
+    },
+    {
+      "id": "CRIMSON_FENCE",
+      "name": "Karmesin Zaun",
+      "standardPrice": 2.25,
+      "price": 2.25
+    },
+    {
+      "id": "CRIMSON_FENCE_GATE",
+      "name": "Karmesin Zaun Tor",
+      "standardPrice": 5.5,
+      "price": 5.5
+    },
+    {
+      "id": "CRIMSON_DOOR",
+      "name": "Karmesin Tür",
+      "standardPrice": 4.0,
+      "price": 4.0
+    },
+    {
+      "id": "CRIMSON_TRAPDOOR",
+      "name": "Karmesin Falltür",
+      "standardPrice": 3.25,
+      "price": 3.25
+    },
+    {
+      "id": "CRIMSON_BUTTON",
+      "name": "Karmesin Knopf",
+      "standardPrice": 0.35,
+      "price": 0.35
+    },
+    {
+      "id": "CRIMSON_PRESSURE_PLATE",
+      "name": "Karmesin Druckplatte",
+      "standardPrice": 3.0,
+      "price": 3.0
+    },
+    {
+      "id": "CRIMSON_SIGN",
+      "name": "Karmesin Schild",
+      "standardPrice": 4.0,
+      "price": 4.0
+    },
+    {
+      "id": "CRIMSON_HANGING_SIGN",
+      "name": "Karmesin Hängeschild",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "CRIMSON_SHELF",
+      "name": "Karmesin Regal",
+      "standardPrice": 7.5,
+      "price": 7.5
+    },
+    {
+      "id": "CRIMSON_LEAVES",
+      "name": "Karmesin Laub",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "WARPED_HYPHAE",
+      "name": "Wirr Hyphen",
+      "standardPrice": 6.25,
+      "price": 6.25
+    },
+    {
+      "id": "WARPED_STRIPPED_STEM",
+      "name": "Wirr Entrindet Stiel",
+      "standardPrice": 5.25,
+      "price": 5.25
+    },
+    {
+      "id": "WARPED_STRIPPED_HYPHAE",
+      "name": "Wirr Entrindet Hyphen",
+      "standardPrice": 6.5,
+      "price": 6.5
+    },
+    {
+      "id": "WARPED_PLANKS",
+      "name": "Wirr Holzbretter",
+      "standardPrice": 1.6,
+      "price": 1.6
+    },
+    {
+      "id": "WARPED_SLAB",
+      "name": "Wirr Stufe",
+      "standardPrice": 0.8,
+      "price": 0.8
+    },
+    {
+      "id": "WARPED_STAIRS",
+      "name": "Wirr Treppe",
+      "standardPrice": 2.4,
+      "price": 2.4
+    },
+    {
+      "id": "WARPED_FENCE",
+      "name": "Wirr Zaun",
+      "standardPrice": 2.25,
+      "price": 2.25
+    },
+    {
+      "id": "WARPED_FENCE_GATE",
+      "name": "Wirr Zaun Tor",
+      "standardPrice": 5.5,
+      "price": 5.5
+    },
+    {
+      "id": "WARPED_DOOR",
+      "name": "Wirr Tür",
+      "standardPrice": 4.0,
+      "price": 4.0
+    },
+    {
+      "id": "WARPED_TRAPDOOR",
+      "name": "Wirr Falltür",
+      "standardPrice": 3.25,
+      "price": 3.25
+    },
+    {
+      "id": "WARPED_BUTTON",
+      "name": "Wirr Knopf",
+      "standardPrice": 0.35,
+      "price": 0.35
+    },
+    {
+      "id": "WARPED_PRESSURE_PLATE",
+      "name": "Wirr Druckplatte",
+      "standardPrice": 3.0,
+      "price": 3.0
+    },
+    {
+      "id": "WARPED_SIGN",
+      "name": "Wirr Schild",
+      "standardPrice": 4.0,
+      "price": 4.0
+    },
+    {
+      "id": "WARPED_HANGING_SIGN",
+      "name": "Wirr Hängeschild",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "WARPED_SHELF",
+      "name": "Wirr Regal",
+      "standardPrice": 7.5,
+      "price": 7.5
+    },
+    {
+      "id": "WARPED_LEAVES",
+      "name": "Wirr Laub",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "BAMBOO_SLAB",
+      "name": "Bambus Stufe",
+      "standardPrice": 0.32,
+      "price": 0.32
+    },
+    {
+      "id": "BAMBOO_STAIRS",
+      "name": "Bambus Treppe",
+      "standardPrice": 0.96,
+      "price": 0.96
+    },
+    {
+      "id": "BAMBOO_FENCE",
+      "name": "Bambus Zaun",
+      "standardPrice": 0.9,
+      "price": 0.9
+    },
+    {
+      "id": "BAMBOO_FENCE_GATE",
+      "name": "Bambus Zaun Tor",
+      "standardPrice": 2.2,
+      "price": 2.2
+    },
+    {
+      "id": "BAMBOO_DOOR",
+      "name": "Bambus Tür",
+      "standardPrice": 1.6,
+      "price": 1.6
+    },
+    {
+      "id": "BAMBOO_TRAPDOOR",
+      "name": "Bambus Falltür",
+      "standardPrice": 1.3,
+      "price": 1.3
+    },
+    {
+      "id": "BAMBOO_BUTTON",
+      "name": "Bambus Knopf",
+      "standardPrice": 0.14,
+      "price": 0.14
+    },
+    {
+      "id": "BAMBOO_PRESSURE_PLATE",
+      "name": "Bambus Druckplatte",
+      "standardPrice": 1.2,
+      "price": 1.2
+    },
+    {
+      "id": "BAMBOO_SIGN",
+      "name": "Bambus Schild",
+      "standardPrice": 1.6,
+      "price": 1.6
+    },
+    {
+      "id": "BAMBOO_HANGING_SIGN",
+      "name": "Bambus Hängeschild",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "BAMBOO_BOAT",
+      "name": "Bambus Boot",
+      "standardPrice": 3.6,
+      "price": 3.6
+    },
+    {
+      "id": "BAMBOO_CHEST_BOAT",
+      "name": "Bambus Truhe Boot",
+      "standardPrice": 5.4,
+      "price": 5.4
+    },
+    {
+      "id": "BAMBOO_SHELF",
+      "name": "Bambus Regal",
+      "standardPrice": 3.0,
+      "price": 3.0
+    },
+    {
+      "id": "POPLAR_LOG",
+      "name": "Pappel Stamm",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "POPLAR_WOOD",
+      "name": "Pappel Holz",
+      "standardPrice": 7.5,
+      "price": 7.5
+    },
+    {
+      "id": "POPLAR_STEM",
+      "name": "Pappel Stiel",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "POPLAR_HYPHAE",
+      "name": "Pappel Hyphen",
+      "standardPrice": 7.5,
+      "price": 7.5
+    },
+    {
+      "id": "POPLAR_STRIPPED_LOG",
+      "name": "Pappel Entrindet Stamm",
+      "standardPrice": 6.3,
+      "price": 6.3
+    },
+    {
+      "id": "POPLAR_STRIPPED_WOOD",
+      "name": "Pappel Entrindet Holz",
+      "standardPrice": 7.8,
+      "price": 7.8
+    },
+    {
+      "id": "POPLAR_STRIPPED_STEM",
+      "name": "Pappel Entrindet Stiel",
+      "standardPrice": 6.3,
+      "price": 6.3
+    },
+    {
+      "id": "POPLAR_STRIPPED_HYPHAE",
+      "name": "Pappel Entrindet Hyphen",
+      "standardPrice": 7.8,
+      "price": 7.8
+    },
+    {
+      "id": "POPLAR_PLANKS",
+      "name": "Pappel Holzbretter",
+      "standardPrice": 1.92,
+      "price": 1.92
+    },
+    {
+      "id": "POPLAR_SLAB",
+      "name": "Pappel Stufe",
+      "standardPrice": 0.96,
+      "price": 0.96
+    },
+    {
+      "id": "POPLAR_STAIRS",
+      "name": "Pappel Treppe",
+      "standardPrice": 2.88,
+      "price": 2.88
+    },
+    {
+      "id": "POPLAR_FENCE",
+      "name": "Pappel Zaun",
+      "standardPrice": 2.7,
+      "price": 2.7
+    },
+    {
+      "id": "POPLAR_FENCE_GATE",
+      "name": "Pappel Zaun Tor",
+      "standardPrice": 6.6,
+      "price": 6.6
+    },
+    {
+      "id": "POPLAR_DOOR",
+      "name": "Pappel Tür",
+      "standardPrice": 4.8,
+      "price": 4.8
+    },
+    {
+      "id": "POPLAR_TRAPDOOR",
+      "name": "Pappel Falltür",
+      "standardPrice": 3.9,
+      "price": 3.9
+    },
+    {
+      "id": "POPLAR_BUTTON",
+      "name": "Pappel Knopf",
+      "standardPrice": 0.42,
+      "price": 0.42
+    },
+    {
+      "id": "POPLAR_PRESSURE_PLATE",
+      "name": "Pappel Druckplatte",
+      "standardPrice": 3.6,
+      "price": 3.6
+    },
+    {
+      "id": "POPLAR_SIGN",
+      "name": "Pappel Schild",
+      "standardPrice": 4.8,
+      "price": 4.8
+    },
+    {
+      "id": "POPLAR_HANGING_SIGN",
+      "name": "Pappel Hängeschild",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "POPLAR_BOAT",
+      "name": "Pappel Boot",
+      "standardPrice": 10.8,
+      "price": 10.8
+    },
+    {
+      "id": "POPLAR_CHEST_BOAT",
+      "name": "Pappel Truhe Boot",
+      "standardPrice": 16.2,
+      "price": 16.2
+    },
+    {
+      "id": "POPLAR_SAPLING",
+      "name": "Pappel Setzling",
+      "standardPrice": 7.2,
+      "price": 7.2
+    },
+    {
+      "id": "POPLAR_LEAVES",
+      "name": "Pappel Laub",
+      "standardPrice": 1.8,
+      "price": 1.8
+    },
+    {
+      "id": "MANGROVE_PROPAGULE",
+      "name": "Mangroven Keimling",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "CRIMSON_FUNGUS",
+      "name": "Karmesin Pilz",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "WARPED_FUNGUS",
+      "name": "Wirr Pilz",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "STONE_SLAB",
+      "name": "Stein Stufe",
+      "standardPrice": 1.0,
+      "price": 1.0
+    },
+    {
+      "id": "STONE_STAIRS",
+      "name": "Stein Treppe",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "STONE_WALL",
+      "name": "Stein Wand",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "COBBLESTONE_SLAB",
+      "name": "Bruchstein Stufe",
+      "standardPrice": 0.7,
+      "price": 0.7
+    },
+    {
+      "id": "COBBLESTONE_STAIRS",
+      "name": "Bruchstein Treppe",
+      "standardPrice": 1.05,
+      "price": 1.05
+    },
+    {
+      "id": "COBBLESTONE_WALL",
+      "name": "Bruchstein Wand",
+      "standardPrice": 1.4,
+      "price": 1.4
+    },
+    {
+      "id": "MOSSY_COBBLESTONE_SLAB",
+      "name": "Bemoost Bruchstein Stufe",
+      "standardPrice": 1.25,
+      "price": 1.25
+    },
+    {
+      "id": "MOSSY_COBBLESTONE_STAIRS",
+      "name": "Bemoost Bruchstein Treppe",
+      "standardPrice": 1.875,
+      "price": 1.875
+    },
+    {
+      "id": "MOSSY_COBBLESTONE_WALL",
+      "name": "Bemoost Bruchstein Wand",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "STONE_BRICK_SLAB",
+      "name": "Steinziegelstufe",
+      "standardPrice": 1.1,
+      "price": 1.1
+    },
+    {
+      "id": "STONE_BRICK_STAIRS",
+      "name": "Steinziegeltreppe",
+      "standardPrice": 1.65,
+      "price": 1.65
+    },
+    {
+      "id": "STONE_BRICK_WALL",
+      "name": "Stein Ziegel Wand",
+      "standardPrice": 2.2,
+      "price": 2.2
+    },
+    {
+      "id": "MOSSY_STONE_BRICK_SLAB",
+      "name": "Bemoost Stein Ziegel Stufe",
+      "standardPrice": 1.4,
+      "price": 1.4
+    },
+    {
+      "id": "MOSSY_STONE_BRICK_STAIRS",
+      "name": "Bemoost Stein Ziegel Treppe",
+      "standardPrice": 2.1,
+      "price": 2.1
+    },
+    {
+      "id": "MOSSY_STONE_BRICK_WALL",
+      "name": "Bemoost Stein Ziegel Wand",
+      "standardPrice": 2.8,
+      "price": 2.8
+    },
+    {
+      "id": "GRANITE_SLAB",
+      "name": "Granit Stufe",
+      "standardPrice": 1.0,
+      "price": 1.0
+    },
+    {
+      "id": "GRANITE_STAIRS",
+      "name": "Granit Treppe",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "GRANITE_WALL",
+      "name": "Granit Wand",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "POLISHED_GRANITE_SLAB",
+      "name": "Poliert Granit Stufe",
+      "standardPrice": 1.25,
+      "price": 1.25
+    },
+    {
+      "id": "POLISHED_GRANITE_STAIRS",
+      "name": "Poliert Granit Treppe",
+      "standardPrice": 1.875,
+      "price": 1.875
+    },
+    {
+      "id": "POLISHED_GRANITE_WALL",
+      "name": "Poliert Granit Wand",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "ANDESITE_SLAB",
+      "name": "Andesit Stufe",
+      "standardPrice": 1.0,
+      "price": 1.0
+    },
+    {
+      "id": "ANDESITE_STAIRS",
+      "name": "Andesit Treppe",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "ANDESITE_WALL",
+      "name": "Andesit Wand",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "POLISHED_ANDESITE_SLAB",
+      "name": "Poliert Andesit Stufe",
+      "standardPrice": 1.25,
+      "price": 1.25
+    },
+    {
+      "id": "POLISHED_ANDESITE_STAIRS",
+      "name": "Poliert Andesit Treppe",
+      "standardPrice": 1.875,
+      "price": 1.875
+    },
+    {
+      "id": "POLISHED_ANDESITE_WALL",
+      "name": "Poliert Andesit Wand",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "DIORITE_SLAB",
+      "name": "Diorit Stufe",
+      "standardPrice": 1.0,
+      "price": 1.0
+    },
+    {
+      "id": "DIORITE_STAIRS",
+      "name": "Diorit Treppe",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "DIORITE_WALL",
+      "name": "Diorit Wand",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "POLISHED_DIORITE_SLAB",
+      "name": "Poliert Diorit Stufe",
+      "standardPrice": 1.25,
+      "price": 1.25
+    },
+    {
+      "id": "POLISHED_DIORITE_STAIRS",
+      "name": "Poliert Diorit Treppe",
+      "standardPrice": 1.875,
+      "price": 1.875
+    },
+    {
+      "id": "POLISHED_DIORITE_WALL",
+      "name": "Poliert Diorit Wand",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "DEEPSLATE_SLAB",
+      "name": "Tiefenschiefer Stufe",
+      "standardPrice": 1.0,
+      "price": 1.0
+    },
+    {
+      "id": "DEEPSLATE_STAIRS",
+      "name": "Tiefenschiefer Treppe",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "DEEPSLATE_WALL",
+      "name": "Tiefenschiefer Wand",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "COBBLED_DEEPSLATE_SLAB",
+      "name": "Bruch Tiefenschiefer Stufe",
+      "standardPrice": 0.7,
+      "price": 0.7
+    },
+    {
+      "id": "COBBLED_DEEPSLATE_STAIRS",
+      "name": "Bruch Tiefenschiefer Treppe",
+      "standardPrice": 1.05,
+      "price": 1.05
+    },
+    {
+      "id": "COBBLED_DEEPSLATE_WALL",
+      "name": "Bruch Tiefenschiefer Wand",
+      "standardPrice": 1.4,
+      "price": 1.4
+    },
+    {
+      "id": "POLISHED_DEEPSLATE_SLAB",
+      "name": "Poliert Tiefenschiefer Stufe",
+      "standardPrice": 1.25,
+      "price": 1.25
+    },
+    {
+      "id": "POLISHED_DEEPSLATE_STAIRS",
+      "name": "Poliert Tiefenschiefer Treppe",
+      "standardPrice": 1.875,
+      "price": 1.875
+    },
+    {
+      "id": "POLISHED_DEEPSLATE_WALL",
+      "name": "Poliert Tiefenschiefer Wand",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "DEEPSLATE_BRICK_SLAB",
+      "name": "Tiefenschiefer Ziegel Stufe",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "DEEPSLATE_BRICK_STAIRS",
+      "name": "Tiefenschiefer Ziegel Treppe",
+      "standardPrice": 2.25,
+      "price": 2.25
+    },
+    {
+      "id": "DEEPSLATE_BRICK_WALL",
+      "name": "Tiefenschiefer Ziegel Wand",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "DEEPSLATE_TILE_SLAB",
+      "name": "Tiefenschiefer Tile Stufe",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "DEEPSLATE_TILE_STAIRS",
+      "name": "Tiefenschiefer Tile Treppe",
+      "standardPrice": 2.25,
+      "price": 2.25
+    },
+    {
+      "id": "DEEPSLATE_TILE_WALL",
+      "name": "Tiefenschiefer Tile Wand",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "TUFF_SLAB",
+      "name": "Tuff Stufe",
+      "standardPrice": 1.0,
+      "price": 1.0
+    },
+    {
+      "id": "TUFF_STAIRS",
+      "name": "Tuff Treppe",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "TUFF_WALL",
+      "name": "Tuff Wand",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "POLISHED_TUFF_SLAB",
+      "name": "Poliert Tuff Stufe",
+      "standardPrice": 1.25,
+      "price": 1.25
+    },
+    {
+      "id": "POLISHED_TUFF_STAIRS",
+      "name": "Poliert Tuff Treppe",
+      "standardPrice": 1.875,
+      "price": 1.875
+    },
+    {
+      "id": "POLISHED_TUFF_WALL",
+      "name": "Poliert Tuff Wand",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "TUFF_BRICK_SLAB",
+      "name": "Tuff Ziegel Stufe",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "TUFF_BRICK_STAIRS",
+      "name": "Tuff Ziegel Treppe",
+      "standardPrice": 2.25,
+      "price": 2.25
+    },
+    {
+      "id": "TUFF_BRICK_WALL",
+      "name": "Tuff Ziegel Wand",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "BRICK_SLAB",
+      "name": "Ziegel Stufe",
+      "standardPrice": 8.0,
+      "price": 8.0
+    },
+    {
+      "id": "BRICK_STAIRS",
+      "name": "Ziegel Treppe",
+      "standardPrice": 12.0,
+      "price": 12.0
+    },
+    {
+      "id": "BRICK_WALL",
+      "name": "Ziegel Wand",
+      "standardPrice": 16,
+      "price": 16
+    },
+    {
+      "id": "MUD_BRICK_SLAB",
+      "name": "Mud Ziegel Stufe",
+      "standardPrice": 1.25,
+      "price": 1.25
+    },
+    {
+      "id": "MUD_BRICK_STAIRS",
+      "name": "Mud Ziegel Treppe",
+      "standardPrice": 1.875,
+      "price": 1.875
+    },
+    {
+      "id": "MUD_BRICK_WALL",
+      "name": "Mud Ziegel Wand",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "SANDSTONE_SLAB",
+      "name": "Sandstein Stufe",
+      "standardPrice": 4.0,
+      "price": 4.0
+    },
+    {
+      "id": "SANDSTONE_STAIRS",
+      "name": "Sandstein Treppe",
+      "standardPrice": 6.0,
+      "price": 6.0
+    },
+    {
+      "id": "SANDSTONE_WALL",
+      "name": "Sandstein Wand",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "SMOOTH_SANDSTONE_SLAB",
+      "name": "Glatt Sandstein Stufe",
+      "standardPrice": 4.25,
+      "price": 4.25
+    },
+    {
+      "id": "SMOOTH_SANDSTONE_STAIRS",
+      "name": "Glatt Sandstein Treppe",
+      "standardPrice": 6.375,
+      "price": 6.375
+    },
+    {
+      "id": "SMOOTH_SANDSTONE_WALL",
+      "name": "Glatt Sandstein Wand",
+      "standardPrice": 8.5,
+      "price": 8.5
+    },
+    {
+      "id": "RED_SANDSTONE_SLAB",
+      "name": "Rot Sandstein Stufe",
+      "standardPrice": 4.0,
+      "price": 4.0
+    },
+    {
+      "id": "RED_SANDSTONE_STAIRS",
+      "name": "Rot Sandstein Treppe",
+      "standardPrice": 6.0,
+      "price": 6.0
+    },
+    {
+      "id": "RED_SANDSTONE_WALL",
+      "name": "Rot Sandstein Wand",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "SMOOTH_RED_SANDSTONE_SLAB",
+      "name": "Glatt Rot Sandstein Stufe",
+      "standardPrice": 4.25,
+      "price": 4.25
+    },
+    {
+      "id": "SMOOTH_RED_SANDSTONE_STAIRS",
+      "name": "Glatt Rot Sandstein Treppe",
+      "standardPrice": 6.375,
+      "price": 6.375
+    },
+    {
+      "id": "SMOOTH_RED_SANDSTONE_WALL",
+      "name": "Glatt Rot Sandstein Wand",
+      "standardPrice": 8.5,
+      "price": 8.5
+    },
+    {
+      "id": "NETHER_BRICK_SLAB",
+      "name": "Nether Ziegel Stufe",
+      "standardPrice": 2.0,
+      "price": 2.0
+    },
+    {
+      "id": "NETHER_BRICK_STAIRS",
+      "name": "Nether Ziegel Treppe",
+      "standardPrice": 3.0,
+      "price": 3.0
+    },
+    {
+      "id": "NETHER_BRICK_WALL",
+      "name": "Nether Ziegel Wand",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "RED_NETHER_BRICK_SLAB",
+      "name": "Rot Nether Ziegel Stufe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "RED_NETHER_BRICK_STAIRS",
+      "name": "Rot Nether Ziegel Treppe",
+      "standardPrice": 3.75,
+      "price": 3.75
+    },
+    {
+      "id": "RED_NETHER_BRICK_WALL",
+      "name": "Rot Nether Ziegel Wand",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "BLACKSTONE_SLAB",
+      "name": "Schwarzstein Stufe",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "BLACKSTONE_STAIRS",
+      "name": "Schwarzstein Treppe",
+      "standardPrice": 2.25,
+      "price": 2.25
+    },
+    {
+      "id": "BLACKSTONE_WALL",
+      "name": "Schwarzstein Wand",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "POLISHED_BLACKSTONE_SLAB",
+      "name": "Poliert Schwarzstein Stufe",
+      "standardPrice": 2.0,
+      "price": 2.0
+    },
+    {
+      "id": "POLISHED_BLACKSTONE_STAIRS",
+      "name": "Poliert Schwarzstein Treppe",
+      "standardPrice": 3.0,
+      "price": 3.0
+    },
+    {
+      "id": "POLISHED_BLACKSTONE_WALL",
+      "name": "Poliert Schwarzstein Wand",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "POLISHED_BLACKSTONE_BRICK_SLAB",
+      "name": "Poliert Schwarzstein Ziegel Stufe",
+      "standardPrice": 2.0,
+      "price": 2.0
+    },
+    {
+      "id": "POLISHED_BLACKSTONE_BRICK_STAIRS",
+      "name": "Poliert Schwarzstein Ziegel Treppe",
+      "standardPrice": 3.0,
+      "price": 3.0
+    },
+    {
+      "id": "POLISHED_BLACKSTONE_BRICK_WALL",
+      "name": "Poliert Schwarzstein Ziegel Wand",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "END_STONE_BRICK_SLAB",
+      "name": "End Stein Ziegel Stufe",
+      "standardPrice": 2.75,
+      "price": 2.75
+    },
+    {
+      "id": "END_STONE_BRICK_STAIRS",
+      "name": "End Stein Ziegel Treppe",
+      "standardPrice": 4.125,
+      "price": 4.125
+    },
+    {
+      "id": "END_STONE_BRICK_WALL",
+      "name": "End Stein Ziegel Wand",
+      "standardPrice": 5.5,
+      "price": 5.5
+    },
+    {
+      "id": "PURPUR_SLAB",
+      "name": "Purpur Stufe",
+      "standardPrice": 6.0,
+      "price": 6.0
+    },
+    {
+      "id": "PURPUR_STAIRS",
+      "name": "Purpur Treppe",
+      "standardPrice": 9.0,
+      "price": 9.0
+    },
+    {
+      "id": "PURPUR_WALL",
+      "name": "Purpur Wand",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "PRISMARINE_SLAB",
+      "name": "Prismarin Stufe",
+      "standardPrice": 20.0,
+      "price": 20.0
+    },
+    {
+      "id": "PRISMARINE_STAIRS",
+      "name": "Prismarin Treppe",
+      "standardPrice": 30.0,
+      "price": 30.0
+    },
+    {
+      "id": "PRISMARINE_WALL",
+      "name": "Prismarin Wand",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "PRISMARINE_BRICK_SLAB",
+      "name": "Prismarin Ziegel Stufe",
+      "standardPrice": 21.5,
+      "price": 21.5
+    },
+    {
+      "id": "PRISMARINE_BRICK_STAIRS",
+      "name": "Prismarin Ziegel Treppe",
+      "standardPrice": 32.25,
+      "price": 32.25
+    },
+    {
+      "id": "PRISMARINE_BRICK_WALL",
+      "name": "Prismarin Ziegel Wand",
+      "standardPrice": 43,
+      "price": 43
+    },
+    {
+      "id": "DARK_PRISMARINE_SLAB",
+      "name": "Dunkel Prismarin Stufe",
+      "standardPrice": 27.5,
+      "price": 27.5
+    },
+    {
+      "id": "DARK_PRISMARINE_STAIRS",
+      "name": "Dunkel Prismarin Treppe",
+      "standardPrice": 41.25,
+      "price": 41.25
+    },
+    {
+      "id": "DARK_PRISMARINE_WALL",
+      "name": "Dunkel Prismarin Wand",
+      "standardPrice": 55,
+      "price": 55
+    },
+    {
+      "id": "QUARTZ_SLAB",
+      "name": "Quarz Stufe",
+      "standardPrice": 18.0,
+      "price": 18.0
+    },
+    {
+      "id": "QUARTZ_STAIRS",
+      "name": "Quarz Treppe",
+      "standardPrice": 27.0,
+      "price": 27.0
+    },
+    {
+      "id": "QUARTZ_WALL",
+      "name": "Quarz Wand",
+      "standardPrice": 36,
+      "price": 36
+    },
+    {
+      "id": "SMOOTH_QUARTZ_SLAB",
+      "name": "Glatt Quarz Stufe",
+      "standardPrice": 18.5,
+      "price": 18.5
+    },
+    {
+      "id": "SMOOTH_QUARTZ_STAIRS",
+      "name": "Glatt Quarz Treppe",
+      "standardPrice": 27.75,
+      "price": 27.75
+    },
+    {
+      "id": "SMOOTH_QUARTZ_WALL",
+      "name": "Glatt Quarz Wand",
+      "standardPrice": 37,
+      "price": 37
+    },
+    {
+      "id": "CUT_COPPER_SLAB",
+      "name": "Geschnitten Kupfer Stufe",
+      "standardPrice": 54.0,
+      "price": 54.0
+    },
+    {
+      "id": "CUT_COPPER_STAIRS",
+      "name": "Geschnitten Kupfer Treppe",
+      "standardPrice": 81.0,
+      "price": 81.0
+    },
+    {
+      "id": "CUT_COPPER_WALL",
+      "name": "Geschnitten Kupfer Wand",
+      "standardPrice": 108,
+      "price": 108
+    },
+    {
+      "id": "EXPOSED_CUT_COPPER_SLAB",
+      "name": "Angelaufen Geschnitten Kupfer Stufe",
+      "standardPrice": 57.5,
+      "price": 57.5
+    },
+    {
+      "id": "EXPOSED_CUT_COPPER_STAIRS",
+      "name": "Angelaufen Geschnitten Kupfer Treppe",
+      "standardPrice": 86.25,
+      "price": 86.25
+    },
+    {
+      "id": "EXPOSED_CUT_COPPER_WALL",
+      "name": "Angelaufen Geschnitten Kupfer Wand",
+      "standardPrice": 115,
+      "price": 115
+    },
+    {
+      "id": "WEATHERED_CUT_COPPER_SLAB",
+      "name": "Verwittert Geschnitten Kupfer Stufe",
+      "standardPrice": 60.0,
+      "price": 60.0
+    },
+    {
+      "id": "WEATHERED_CUT_COPPER_STAIRS",
+      "name": "Verwittert Geschnitten Kupfer Treppe",
+      "standardPrice": 90.0,
+      "price": 90.0
+    },
+    {
+      "id": "WEATHERED_CUT_COPPER_WALL",
+      "name": "Verwittert Geschnitten Kupfer Wand",
+      "standardPrice": 120,
+      "price": 120
+    },
+    {
+      "id": "OXIDIZED_CUT_COPPER_SLAB",
+      "name": "Oxidiert Geschnitten Kupfer Stufe",
+      "standardPrice": 65.0,
+      "price": 65.0
+    },
+    {
+      "id": "OXIDIZED_CUT_COPPER_STAIRS",
+      "name": "Oxidiert Geschnitten Kupfer Treppe",
+      "standardPrice": 97.5,
+      "price": 97.5
+    },
+    {
+      "id": "OXIDIZED_CUT_COPPER_WALL",
+      "name": "Oxidiert Geschnitten Kupfer Wand",
+      "standardPrice": 130,
+      "price": 130
+    },
+    {
+      "id": "RESIN_BRICK_SLAB",
+      "name": "Harz Ziegel Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "RESIN_BRICK_STAIRS",
+      "name": "Harz Ziegel Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "RESIN_BRICK_WALL",
+      "name": "Harz Ziegel Wand",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "WHITE_WOOL",
+      "name": "Weiß Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "WHITE_WOOL_SLAB",
+      "name": "Weiß Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "WHITE_WOOL_STAIRS",
+      "name": "Weiß Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "WHITE_CARPET",
+      "name": "Weiß Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "WHITE_BED",
+      "name": "Weiß Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "WHITE_BANNER",
+      "name": "Weiß Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "WHITE_CANDLE",
+      "name": "Weiß Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "WHITE_STAINED_GLASS",
+      "name": "Weiß Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "WHITE_STAINED_GLASS_PANE",
+      "name": "Weiß Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "WHITE_TERRACOTTA",
+      "name": "Weiß Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "WHITE_GLAZED_TERRACOTTA",
+      "name": "Weiß Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "WHITE_CONCRETE_POWDER",
+      "name": "Weiß Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "WHITE_CONCRETE",
+      "name": "Weiß Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "WHITE_CONCRETE_SLAB",
+      "name": "Weiß Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "WHITE_CONCRETE_STAIRS",
+      "name": "Weiß Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "WHITE_SHULKER_BOX",
+      "name": "Weiß Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "WHITE_DYE",
+      "name": "Weiß Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "WHITE_BUNDLE",
+      "name": "Weiß Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "WHITE_CUSHION",
+      "name": "Weiß Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "WHITE_HARNESS",
+      "name": "Weiß Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "WHITE_POPLAR_LEAVES",
+      "name": "Weiß Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "ORANGE_WOOL",
+      "name": "Orange Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "ORANGE_WOOL_SLAB",
+      "name": "Orange Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "ORANGE_WOOL_STAIRS",
+      "name": "Orange Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "ORANGE_CARPET",
+      "name": "Orange Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "ORANGE_BED",
+      "name": "Orange Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "ORANGE_BANNER",
+      "name": "Orange Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "ORANGE_CANDLE",
+      "name": "Orange Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "ORANGE_STAINED_GLASS",
+      "name": "Orange Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "ORANGE_STAINED_GLASS_PANE",
+      "name": "Orange Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "ORANGE_TERRACOTTA",
+      "name": "Orange Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "ORANGE_GLAZED_TERRACOTTA",
+      "name": "Orange Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "ORANGE_CONCRETE_POWDER",
+      "name": "Orange Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "ORANGE_CONCRETE",
+      "name": "Orange Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "ORANGE_CONCRETE_SLAB",
+      "name": "Orange Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "ORANGE_CONCRETE_STAIRS",
+      "name": "Orange Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "ORANGE_SHULKER_BOX",
+      "name": "Orange Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "ORANGE_DYE",
+      "name": "Orange Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "ORANGE_BUNDLE",
+      "name": "Orange Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "ORANGE_CUSHION",
+      "name": "Orange Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "ORANGE_HARNESS",
+      "name": "Orange Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "ORANGE_POPLAR_LEAVES",
+      "name": "Orange Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "MAGENTA_WOOL",
+      "name": "Magenta Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "MAGENTA_WOOL_SLAB",
+      "name": "Magenta Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "MAGENTA_WOOL_STAIRS",
+      "name": "Magenta Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "MAGENTA_CARPET",
+      "name": "Magenta Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "MAGENTA_BED",
+      "name": "Magenta Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "MAGENTA_BANNER",
+      "name": "Magenta Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "MAGENTA_CANDLE",
+      "name": "Magenta Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "MAGENTA_STAINED_GLASS",
+      "name": "Magenta Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "MAGENTA_STAINED_GLASS_PANE",
+      "name": "Magenta Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "MAGENTA_TERRACOTTA",
+      "name": "Magenta Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "MAGENTA_GLAZED_TERRACOTTA",
+      "name": "Magenta Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "MAGENTA_CONCRETE_POWDER",
+      "name": "Magenta Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "MAGENTA_CONCRETE",
+      "name": "Magenta Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "MAGENTA_CONCRETE_SLAB",
+      "name": "Magenta Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "MAGENTA_CONCRETE_STAIRS",
+      "name": "Magenta Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "MAGENTA_SHULKER_BOX",
+      "name": "Magenta Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "MAGENTA_DYE",
+      "name": "Magenta Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "MAGENTA_BUNDLE",
+      "name": "Magenta Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "MAGENTA_CUSHION",
+      "name": "Magenta Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "MAGENTA_HARNESS",
+      "name": "Magenta Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "MAGENTA_POPLAR_LEAVES",
+      "name": "Magenta Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "LIGHT_BLUE_WOOL",
+      "name": "Hellblau Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "LIGHT_BLUE_WOOL_SLAB",
+      "name": "Hellblau Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "LIGHT_BLUE_WOOL_STAIRS",
+      "name": "Hellblau Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "LIGHT_BLUE_CARPET",
+      "name": "Hellblau Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "LIGHT_BLUE_BED",
+      "name": "Hellblau Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "LIGHT_BLUE_BANNER",
+      "name": "Hellblau Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "LIGHT_BLUE_CANDLE",
+      "name": "Hellblau Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "LIGHT_BLUE_STAINED_GLASS",
+      "name": "Hellblau Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "LIGHT_BLUE_STAINED_GLASS_PANE",
+      "name": "Hellblau Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "LIGHT_BLUE_TERRACOTTA",
+      "name": "Hellblau Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "LIGHT_BLUE_GLAZED_TERRACOTTA",
+      "name": "Hellblau Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "LIGHT_BLUE_CONCRETE_POWDER",
+      "name": "Hellblau Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "LIGHT_BLUE_CONCRETE",
+      "name": "Hellblau Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "LIGHT_BLUE_CONCRETE_SLAB",
+      "name": "Hellblau Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "LIGHT_BLUE_CONCRETE_STAIRS",
+      "name": "Hellblau Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "LIGHT_BLUE_SHULKER_BOX",
+      "name": "Hellblau Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "LIGHT_BLUE_DYE",
+      "name": "Hellblau Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "LIGHT_BLUE_BUNDLE",
+      "name": "Hellblau Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "LIGHT_BLUE_CUSHION",
+      "name": "Hellblau Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "LIGHT_BLUE_HARNESS",
+      "name": "Hellblau Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "LIGHT_BLUE_POPLAR_LEAVES",
+      "name": "Hellblau Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "YELLOW_WOOL",
+      "name": "Gelb Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "YELLOW_WOOL_SLAB",
+      "name": "Gelb Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "YELLOW_WOOL_STAIRS",
+      "name": "Gelb Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "YELLOW_CARPET",
+      "name": "Gelb Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "YELLOW_BED",
+      "name": "Gelb Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "YELLOW_BANNER",
+      "name": "Gelb Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "YELLOW_CANDLE",
+      "name": "Gelb Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "YELLOW_STAINED_GLASS",
+      "name": "Gelb Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "YELLOW_STAINED_GLASS_PANE",
+      "name": "Gelb Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "YELLOW_TERRACOTTA",
+      "name": "Gelb Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "YELLOW_GLAZED_TERRACOTTA",
+      "name": "Gelb Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "YELLOW_CONCRETE_POWDER",
+      "name": "Gelb Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "YELLOW_CONCRETE",
+      "name": "Gelb Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "YELLOW_CONCRETE_SLAB",
+      "name": "Gelb Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "YELLOW_CONCRETE_STAIRS",
+      "name": "Gelb Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "YELLOW_SHULKER_BOX",
+      "name": "Gelb Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "YELLOW_DYE",
+      "name": "Gelb Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "YELLOW_BUNDLE",
+      "name": "Gelb Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "YELLOW_CUSHION",
+      "name": "Gelb Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "YELLOW_HARNESS",
+      "name": "Gelb Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "YELLOW_POPLAR_LEAVES",
+      "name": "Gelb Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "LIME_WOOL",
+      "name": "Hellgrün Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "LIME_WOOL_SLAB",
+      "name": "Hellgrün Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "LIME_WOOL_STAIRS",
+      "name": "Hellgrün Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "LIME_CARPET",
+      "name": "Hellgrün Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "LIME_BED",
+      "name": "Hellgrün Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "LIME_BANNER",
+      "name": "Hellgrün Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "LIME_CANDLE",
+      "name": "Hellgrün Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "LIME_STAINED_GLASS",
+      "name": "Hellgrün Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "LIME_STAINED_GLASS_PANE",
+      "name": "Hellgrün Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "LIME_TERRACOTTA",
+      "name": "Hellgrün Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "LIME_GLAZED_TERRACOTTA",
+      "name": "Hellgrün Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "LIME_CONCRETE_POWDER",
+      "name": "Hellgrün Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "LIME_CONCRETE",
+      "name": "Hellgrün Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "LIME_CONCRETE_SLAB",
+      "name": "Hellgrün Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "LIME_CONCRETE_STAIRS",
+      "name": "Hellgrün Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "LIME_SHULKER_BOX",
+      "name": "Hellgrün Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "LIME_DYE",
+      "name": "Hellgrün Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "LIME_BUNDLE",
+      "name": "Hellgrün Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "LIME_CUSHION",
+      "name": "Hellgrün Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "LIME_HARNESS",
+      "name": "Hellgrün Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "LIME_POPLAR_LEAVES",
+      "name": "Hellgrün Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "PINK_WOOL",
+      "name": "Rosa Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "PINK_WOOL_SLAB",
+      "name": "Rosa Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "PINK_WOOL_STAIRS",
+      "name": "Rosa Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "PINK_CARPET",
+      "name": "Rosa Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "PINK_BED",
+      "name": "Rosa Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "PINK_BANNER",
+      "name": "Rosa Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "PINK_CANDLE",
+      "name": "Rosa Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "PINK_STAINED_GLASS",
+      "name": "Rosa Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "PINK_STAINED_GLASS_PANE",
+      "name": "Rosa Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "PINK_TERRACOTTA",
+      "name": "Rosa Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "PINK_GLAZED_TERRACOTTA",
+      "name": "Rosa Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "PINK_CONCRETE_POWDER",
+      "name": "Rosa Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "PINK_CONCRETE",
+      "name": "Rosa Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "PINK_CONCRETE_SLAB",
+      "name": "Rosa Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "PINK_CONCRETE_STAIRS",
+      "name": "Rosa Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "PINK_SHULKER_BOX",
+      "name": "Rosa Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "PINK_DYE",
+      "name": "Rosa Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "PINK_BUNDLE",
+      "name": "Rosa Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "PINK_CUSHION",
+      "name": "Rosa Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "PINK_HARNESS",
+      "name": "Rosa Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "PINK_POPLAR_LEAVES",
+      "name": "Rosa Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "GRAY_WOOL",
+      "name": "Grau Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "GRAY_WOOL_SLAB",
+      "name": "Grau Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "GRAY_WOOL_STAIRS",
+      "name": "Grau Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "GRAY_CARPET",
+      "name": "Grau Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "GRAY_BED",
+      "name": "Grau Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "GRAY_BANNER",
+      "name": "Grau Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "GRAY_CANDLE",
+      "name": "Grau Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "GRAY_STAINED_GLASS",
+      "name": "Grau Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "GRAY_STAINED_GLASS_PANE",
+      "name": "Grau Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "GRAY_TERRACOTTA",
+      "name": "Grau Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "GRAY_GLAZED_TERRACOTTA",
+      "name": "Grau Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "GRAY_CONCRETE_POWDER",
+      "name": "Grau Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "GRAY_CONCRETE",
+      "name": "Grau Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "GRAY_CONCRETE_SLAB",
+      "name": "Grau Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "GRAY_CONCRETE_STAIRS",
+      "name": "Grau Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "GRAY_SHULKER_BOX",
+      "name": "Grau Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "GRAY_DYE",
+      "name": "Grau Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "GRAY_BUNDLE",
+      "name": "Grau Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "GRAY_CUSHION",
+      "name": "Grau Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "GRAY_HARNESS",
+      "name": "Grau Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "GRAY_POPLAR_LEAVES",
+      "name": "Grau Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "LIGHT_GRAY_WOOL",
+      "name": "Hellgrau Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "LIGHT_GRAY_WOOL_SLAB",
+      "name": "Hellgrau Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "LIGHT_GRAY_WOOL_STAIRS",
+      "name": "Hellgrau Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "LIGHT_GRAY_CARPET",
+      "name": "Hellgrau Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "LIGHT_GRAY_BED",
+      "name": "Hellgrau Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "LIGHT_GRAY_BANNER",
+      "name": "Hellgrau Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "LIGHT_GRAY_CANDLE",
+      "name": "Hellgrau Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "LIGHT_GRAY_STAINED_GLASS",
+      "name": "Hellgrau Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "LIGHT_GRAY_STAINED_GLASS_PANE",
+      "name": "Hellgrau Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "LIGHT_GRAY_TERRACOTTA",
+      "name": "Hellgrau Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "LIGHT_GRAY_GLAZED_TERRACOTTA",
+      "name": "Hellgrau Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "LIGHT_GRAY_CONCRETE_POWDER",
+      "name": "Hellgrau Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "LIGHT_GRAY_CONCRETE",
+      "name": "Hellgrau Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "LIGHT_GRAY_CONCRETE_SLAB",
+      "name": "Hellgrau Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "LIGHT_GRAY_CONCRETE_STAIRS",
+      "name": "Hellgrau Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "LIGHT_GRAY_SHULKER_BOX",
+      "name": "Hellgrau Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "LIGHT_GRAY_DYE",
+      "name": "Hellgrau Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "LIGHT_GRAY_BUNDLE",
+      "name": "Hellgrau Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "LIGHT_GRAY_CUSHION",
+      "name": "Hellgrau Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "LIGHT_GRAY_HARNESS",
+      "name": "Hellgrau Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "LIGHT_GRAY_POPLAR_LEAVES",
+      "name": "Hellgrau Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CYAN_WOOL",
+      "name": "Türkis Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "CYAN_WOOL_SLAB",
+      "name": "Türkis Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "CYAN_WOOL_STAIRS",
+      "name": "Türkis Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "CYAN_CARPET",
+      "name": "Türkis Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "CYAN_BED",
+      "name": "Türkis Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "CYAN_BANNER",
+      "name": "Türkis Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "CYAN_CANDLE",
+      "name": "Türkis Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "CYAN_STAINED_GLASS",
+      "name": "Türkis Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "CYAN_STAINED_GLASS_PANE",
+      "name": "Türkis Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "CYAN_TERRACOTTA",
+      "name": "Türkis Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "CYAN_GLAZED_TERRACOTTA",
+      "name": "Türkis Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "CYAN_CONCRETE_POWDER",
+      "name": "Türkis Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "CYAN_CONCRETE",
+      "name": "Türkis Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "CYAN_CONCRETE_SLAB",
+      "name": "Türkis Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "CYAN_CONCRETE_STAIRS",
+      "name": "Türkis Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "CYAN_SHULKER_BOX",
+      "name": "Türkis Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "CYAN_DYE",
+      "name": "Türkis Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "CYAN_BUNDLE",
+      "name": "Türkis Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "CYAN_CUSHION",
+      "name": "Türkis Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "CYAN_HARNESS",
+      "name": "Türkis Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "CYAN_POPLAR_LEAVES",
+      "name": "Türkis Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "PURPLE_WOOL",
+      "name": "Violett Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "PURPLE_WOOL_SLAB",
+      "name": "Violett Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "PURPLE_WOOL_STAIRS",
+      "name": "Violett Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "PURPLE_CARPET",
+      "name": "Violett Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "PURPLE_BED",
+      "name": "Violett Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "PURPLE_BANNER",
+      "name": "Violett Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "PURPLE_CANDLE",
+      "name": "Violett Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "PURPLE_STAINED_GLASS",
+      "name": "Violett Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "PURPLE_STAINED_GLASS_PANE",
+      "name": "Violett Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "PURPLE_TERRACOTTA",
+      "name": "Violett Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "PURPLE_GLAZED_TERRACOTTA",
+      "name": "Violett Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "PURPLE_CONCRETE_POWDER",
+      "name": "Violett Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "PURPLE_CONCRETE",
+      "name": "Violett Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "PURPLE_CONCRETE_SLAB",
+      "name": "Violett Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "PURPLE_CONCRETE_STAIRS",
+      "name": "Violett Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "PURPLE_SHULKER_BOX",
+      "name": "Violett Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "PURPLE_DYE",
+      "name": "Violett Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "PURPLE_BUNDLE",
+      "name": "Violett Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "PURPLE_CUSHION",
+      "name": "Violett Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "PURPLE_HARNESS",
+      "name": "Violett Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "PURPLE_POPLAR_LEAVES",
+      "name": "Violett Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "BLUE_WOOL",
+      "name": "Blau Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "BLUE_WOOL_SLAB",
+      "name": "Blau Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "BLUE_WOOL_STAIRS",
+      "name": "Blau Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "BLUE_CARPET",
+      "name": "Blau Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "BLUE_BED",
+      "name": "Blau Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "BLUE_BANNER",
+      "name": "Blau Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "BLUE_CANDLE",
+      "name": "Blau Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BLUE_STAINED_GLASS",
+      "name": "Blau Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "BLUE_STAINED_GLASS_PANE",
+      "name": "Blau Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "BLUE_TERRACOTTA",
+      "name": "Blau Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BLUE_GLAZED_TERRACOTTA",
+      "name": "Blau Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "BLUE_CONCRETE_POWDER",
+      "name": "Blau Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "BLUE_CONCRETE",
+      "name": "Blau Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "BLUE_CONCRETE_SLAB",
+      "name": "Blau Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "BLUE_CONCRETE_STAIRS",
+      "name": "Blau Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "BLUE_SHULKER_BOX",
+      "name": "Blau Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "BLUE_DYE",
+      "name": "Blau Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "BLUE_BUNDLE",
+      "name": "Blau Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "BLUE_CUSHION",
+      "name": "Blau Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BLUE_HARNESS",
+      "name": "Blau Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "BLUE_POPLAR_LEAVES",
+      "name": "Blau Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "BROWN_WOOL",
+      "name": "Braun Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "BROWN_WOOL_SLAB",
+      "name": "Braun Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "BROWN_WOOL_STAIRS",
+      "name": "Braun Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "BROWN_CARPET",
+      "name": "Braun Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "BROWN_BED",
+      "name": "Braun Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "BROWN_BANNER",
+      "name": "Braun Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "BROWN_CANDLE",
+      "name": "Braun Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BROWN_STAINED_GLASS",
+      "name": "Braun Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "BROWN_STAINED_GLASS_PANE",
+      "name": "Braun Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "BROWN_TERRACOTTA",
+      "name": "Braun Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BROWN_GLAZED_TERRACOTTA",
+      "name": "Braun Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "BROWN_CONCRETE_POWDER",
+      "name": "Braun Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "BROWN_CONCRETE",
+      "name": "Braun Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "BROWN_CONCRETE_SLAB",
+      "name": "Braun Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "BROWN_CONCRETE_STAIRS",
+      "name": "Braun Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "BROWN_SHULKER_BOX",
+      "name": "Braun Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "BROWN_DYE",
+      "name": "Braun Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "BROWN_BUNDLE",
+      "name": "Braun Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "BROWN_CUSHION",
+      "name": "Braun Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BROWN_HARNESS",
+      "name": "Braun Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "BROWN_POPLAR_LEAVES",
+      "name": "Braun Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "GREEN_WOOL",
+      "name": "Grün Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "GREEN_WOOL_SLAB",
+      "name": "Grün Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "GREEN_WOOL_STAIRS",
+      "name": "Grün Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "GREEN_CARPET",
+      "name": "Grün Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "GREEN_BED",
+      "name": "Grün Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "GREEN_BANNER",
+      "name": "Grün Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "GREEN_CANDLE",
+      "name": "Grün Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "GREEN_STAINED_GLASS",
+      "name": "Grün Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "GREEN_STAINED_GLASS_PANE",
+      "name": "Grün Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "GREEN_TERRACOTTA",
+      "name": "Grün Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "GREEN_GLAZED_TERRACOTTA",
+      "name": "Grün Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "GREEN_CONCRETE_POWDER",
+      "name": "Grün Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "GREEN_CONCRETE",
+      "name": "Grün Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "GREEN_CONCRETE_SLAB",
+      "name": "Grün Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "GREEN_CONCRETE_STAIRS",
+      "name": "Grün Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "GREEN_SHULKER_BOX",
+      "name": "Grün Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "GREEN_DYE",
+      "name": "Grün Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "GREEN_BUNDLE",
+      "name": "Grün Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "GREEN_CUSHION",
+      "name": "Grün Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "GREEN_HARNESS",
+      "name": "Grün Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "GREEN_POPLAR_LEAVES",
+      "name": "Grün Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "RED_WOOL",
+      "name": "Rot Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "RED_WOOL_SLAB",
+      "name": "Rot Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "RED_WOOL_STAIRS",
+      "name": "Rot Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "RED_CARPET",
+      "name": "Rot Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "RED_BED",
+      "name": "Rot Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "RED_BANNER",
+      "name": "Rot Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "RED_CANDLE",
+      "name": "Rot Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "RED_STAINED_GLASS",
+      "name": "Rot Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "RED_STAINED_GLASS_PANE",
+      "name": "Rot Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "RED_TERRACOTTA",
+      "name": "Rot Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "RED_GLAZED_TERRACOTTA",
+      "name": "Rot Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "RED_CONCRETE_POWDER",
+      "name": "Rot Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "RED_CONCRETE",
+      "name": "Rot Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "RED_CONCRETE_SLAB",
+      "name": "Rot Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "RED_CONCRETE_STAIRS",
+      "name": "Rot Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "RED_SHULKER_BOX",
+      "name": "Rot Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "RED_DYE",
+      "name": "Rot Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "RED_BUNDLE",
+      "name": "Rot Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "RED_CUSHION",
+      "name": "Rot Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "RED_HARNESS",
+      "name": "Rot Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "RED_POPLAR_LEAVES",
+      "name": "Rot Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "BLACK_WOOL",
+      "name": "Schwarz Wolle",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "BLACK_WOOL_SLAB",
+      "name": "Schwarz Wolle Stufe",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "BLACK_WOOL_STAIRS",
+      "name": "Schwarz Wolle Treppe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "BLACK_CARPET",
+      "name": "Schwarz Teppich",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "BLACK_BED",
+      "name": "Schwarz Bett",
+      "standardPrice": 26,
+      "price": 26
+    },
+    {
+      "id": "BLACK_BANNER",
+      "name": "Schwarz Banner",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "BLACK_CANDLE",
+      "name": "Schwarz Kerze",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BLACK_STAINED_GLASS",
+      "name": "Schwarz Gefärbt Glas",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "BLACK_STAINED_GLASS_PANE",
+      "name": "Schwarz Gefärbt Glas Scheibe",
+      "standardPrice": 2.5,
+      "price": 2.5
+    },
+    {
+      "id": "BLACK_TERRACOTTA",
+      "name": "Schwarz Keramik",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BLACK_GLAZED_TERRACOTTA",
+      "name": "Schwarz Glasiert Keramik",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "BLACK_CONCRETE_POWDER",
+      "name": "Schwarz Beton Pulver",
+      "standardPrice": 7,
+      "price": 7
+    },
+    {
+      "id": "BLACK_CONCRETE",
+      "name": "Schwarz Beton",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "BLACK_CONCRETE_SLAB",
+      "name": "Schwarz Beton Stufe",
+      "standardPrice": 4.5,
+      "price": 4.5
+    },
+    {
+      "id": "BLACK_CONCRETE_STAIRS",
+      "name": "Schwarz Beton Treppe",
+      "standardPrice": 6.75,
+      "price": 6.75
+    },
+    {
+      "id": "BLACK_SHULKER_BOX",
+      "name": "Schwarz Shulkerkiste",
+      "standardPrice": 680,
+      "price": 680
+    },
+    {
+      "id": "BLACK_DYE",
+      "name": "Schwarz Farbstoff",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "BLACK_BUNDLE",
+      "name": "Schwarz Bundle",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "BLACK_CUSHION",
+      "name": "Schwarz Cushion",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BLACK_HARNESS",
+      "name": "Schwarz Harness",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "BLACK_POPLAR_LEAVES",
+      "name": "Schwarz Pappel Laub",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "DANDELION",
+      "name": "Dandelion",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "POPPY",
+      "name": "Poppy",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "BLUE_ORCHID",
+      "name": "Blau Orchid",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "ALLIUM",
+      "name": "Allium",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "AZURE_BLUET",
+      "name": "Azure Bluet",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "OXEYE_DAISY",
+      "name": "Oxeye Daisy",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "CORNFLOWER",
+      "name": "Cornflower",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "RED_TULIP",
+      "name": "Rot Tulip",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "ORANGE_TULIP",
+      "name": "Orange Tulip",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "WHITE_TULIP",
+      "name": "Weiß Tulip",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "PINK_TULIP",
+      "name": "Rosa Tulip",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "SUNFLOWER",
+      "name": "Sunflower",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "LILAC",
+      "name": "Lilac",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "ROSE_BUSH",
+      "name": "Rose Bush",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "PEONY",
+      "name": "Peony",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "PINK_PETALS",
+      "name": "Rosa Petals",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "WILDFLOWERS",
+      "name": "Wildflowers",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "TORCHFLOWER",
+      "name": "Fackellilie",
+      "standardPrice": 35,
+      "price": 35
+    },
+    {
+      "id": "PITCHER_PLANT",
+      "name": "Kannenpflanze",
+      "standardPrice": 35,
+      "price": 35
+    },
+    {
+      "id": "PITCHER_POD",
+      "name": "Kannenpflanzenkapsel",
+      "standardPrice": 35,
+      "price": 35
+    },
+    {
+      "id": "TORCHFLOWER_SEEDS",
+      "name": "Fackelliliensamen",
+      "standardPrice": 35,
+      "price": 35
+    },
+    {
+      "id": "OPEN_EYEBLOSSOM",
+      "name": "Open Eyeblossom",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "CLOSED_EYEBLOSSOM",
+      "name": "Closed Eyeblossom",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "CACTUS_FLOWER",
+      "name": "Kaktus Blume",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "GOLDEN_DANDELION",
+      "name": "Golden Dandelion",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "GRASS",
+      "name": "Gras",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "SHORT_GRASS",
+      "name": "Kurz Gras",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "TALL_GRASS",
+      "name": "Hoch Gras",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "FERN",
+      "name": "Farn",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "LARGE_FERN",
+      "name": "Large Farn",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "DEAD_BUSH",
+      "name": "Tote Bush",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "BUSH",
+      "name": "Bush",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "FIREFLY_BUSH",
+      "name": "Firefly Bush",
+      "standardPrice": 1.5,
+      "price": 1.5
+    },
+    {
+      "id": "SEAGRASS",
+      "name": "Seagrass",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "MUSHROOM_STEM",
+      "name": "Pilz Stiel",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "BROWN_MUSHROOM_BLOCK",
+      "name": "Brauner Pilz Block",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "RED_MUSHROOM_BLOCK",
+      "name": "Roter Pilz Block",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "CRAFTING_TABLE",
+      "name": "Werkbank",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "FURNACE",
+      "name": "Ofen",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "BLAST_FURNACE",
+      "name": "Schmelzofen",
+      "standardPrice": 800,
+      "price": 800
+    },
+    {
+      "id": "SMOKER",
+      "name": "Räucherofen",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "CAMPFIRE",
+      "name": "Campfire",
+      "standardPrice": 18,
+      "price": 18
+    },
+    {
+      "id": "SOUL_CAMPFIRE",
+      "name": "Seelen Campfire",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "CHEST",
+      "name": "Truhe",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "TRAPPED_CHEST",
+      "name": "Trapped Truhe",
+      "standardPrice": 22,
+      "price": 22
+    },
+    {
+      "id": "BARREL",
+      "name": "Fass",
+      "standardPrice": 11,
+      "price": 11
+    },
+    {
+      "id": "HOPPER",
+      "name": "Trichter",
+      "standardPrice": 1300,
+      "price": 1300
+    },
+    {
+      "id": "DISPENSER",
+      "name": "Werfer",
+      "standardPrice": 35,
+      "price": 35
+    },
+    {
+      "id": "DROPPER",
+      "name": "Spender",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "OBSERVER",
+      "name": "Beobachter",
+      "standardPrice": 30,
+      "price": 30
+    },
+    {
+      "id": "PISTON",
+      "name": "Kolben",
+      "standardPrice": 55,
+      "price": 55
+    },
+    {
+      "id": "STICKY_PISTON",
+      "name": "Klebrig Kolben",
+      "standardPrice": 64,
+      "price": 64
+    },
+    {
+      "id": "REPEATER",
+      "name": "Verstärker",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "COMPARATOR",
+      "name": "Komparator",
+      "standardPrice": 60,
+      "price": 60
+    },
+    {
+      "id": "DAYLIGHT_DETECTOR",
+      "name": "Tageslicht Detektor",
+      "standardPrice": 55,
+      "price": 55
+    },
+    {
+      "id": "TARGET",
+      "name": "Zielblock",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "TRIPWIRE_HOOK",
+      "name": "Stolperdraht Haken",
+      "standardPrice": 120,
+      "price": 120
+    },
+    {
+      "id": "LEVER",
+      "name": "Hebel",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "STONE_BUTTON",
+      "name": "Stein Knopf",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "STONE_PRESSURE_PLATE",
+      "name": "Stein Druckplatte",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "LIGHT_WEIGHTED_PRESSURE_PLATE",
+      "name": "Licht Weighted Druckplatte",
+      "standardPrice": 1000,
+      "price": 1000
+    },
+    {
+      "id": "HEAVY_WEIGHTED_PRESSURE_PLATE",
+      "name": "Schwer Weighted Druckplatte",
+      "standardPrice": 800,
+      "price": 800
+    },
+    {
+      "id": "RAIL",
+      "name": "Schiene",
+      "standardPrice": 100,
+      "price": 100
+    },
+    {
+      "id": "POWERED_RAIL",
+      "name": "Antriebs Schiene",
+      "standardPrice": 1000,
+      "price": 1000
+    },
+    {
+      "id": "DETECTOR_RAIL",
+      "name": "Detektor Schiene",
+      "standardPrice": 280,
+      "price": 280
+    },
+    {
+      "id": "ACTIVATOR_RAIL",
+      "name": "Aktivierungs Schiene",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "MINECART",
+      "name": "Lore",
+      "standardPrice": 1280,
+      "price": 1280
+    },
+    {
+      "id": "CHEST_MINECART",
+      "name": "Güterlore",
+      "standardPrice": 1292,
+      "price": 1292
+    },
+    {
+      "id": "HOPPER_MINECART",
+      "name": "Trichterlore",
+      "standardPrice": 2580,
+      "price": 2580
+    },
+    {
+      "id": "TNT_MINECART",
+      "name": "TNT-Lore",
+      "standardPrice": 1400,
+      "price": 1400
+    },
+    {
+      "id": "FURNACE_MINECART",
+      "name": "Antriebslore",
+      "standardPrice": 1300,
+      "price": 1300
+    },
+    {
+      "id": "TNT",
+      "name": "TNT",
+      "standardPrice": 100,
+      "price": 100
+    },
+    {
+      "id": "REDSTONE_TORCH",
+      "name": "Redstone Fackel",
+      "standardPrice": 6,
+      "price": 6
+    },
+    {
+      "id": "REDSTONE_LAMP",
+      "name": "Redstone Lamp",
+      "standardPrice": 38,
+      "price": 38
+    },
+    {
+      "id": "TORCH",
+      "name": "Fackel",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "SOUL_TORCH",
+      "name": "Seelen Fackel",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "LANTERN",
+      "name": "Laterne",
+      "standardPrice": 260,
+      "price": 260
+    },
+    {
+      "id": "SOUL_LANTERN",
+      "name": "Seelen Laterne",
+      "standardPrice": 270,
+      "price": 270
+    },
+    {
+      "id": "COPPER_LANTERN",
+      "name": "Kupfer Laterne",
+      "standardPrice": 75,
+      "price": 75
+    },
+    {
+      "id": "CHAIN",
+      "name": "Kette",
+      "standardPrice": 300,
+      "price": 300
+    },
+    {
+      "id": "IRON_BARS",
+      "name": "Eisen Stäbe",
+      "standardPrice": 150,
+      "price": 150
+    },
+    {
+      "id": "IRON_DOOR",
+      "name": "Eisen Tür",
+      "standardPrice": 520,
+      "price": 520
+    },
+    {
+      "id": "IRON_TRAPDOOR",
+      "name": "Eisen Falltür",
+      "standardPrice": 1050,
+      "price": 1050
+    },
+    {
+      "id": "CAULDRON",
+      "name": "Kessel",
+      "standardPrice": 1800,
+      "price": 1800
+    },
+    {
+      "id": "BREWING_STAND",
+      "name": "Braustand",
+      "standardPrice": 790,
+      "price": 790
+    },
+    {
+      "id": "ENCHANTING_TABLE",
+      "name": "Zaubertisch",
+      "standardPrice": 16900,
+      "price": 16900
+    },
+    {
+      "id": "ANVIL",
+      "name": "Amboss",
+      "standardPrice": 7950,
+      "price": 7950
+    },
+    {
+      "id": "CHIPPED_ANVIL",
+      "name": "Angeschlagen Amboss",
+      "standardPrice": 5300,
+      "price": 5300
+    },
+    {
+      "id": "DAMAGED_ANVIL",
+      "name": "Beschädigt Amboss",
+      "standardPrice": 2700,
+      "price": 2700
+    },
+    {
+      "id": "GRINDSTONE",
+      "name": "Schleifstein",
+      "standardPrice": 280,
+      "price": 280
+    },
+    {
+      "id": "SMITHING_TABLE",
+      "name": "Schmiedetisch",
+      "standardPrice": 525,
+      "price": 525
+    },
+    {
+      "id": "CARTOGRAPHY_TABLE",
+      "name": "Kartentisch",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "FLETCHING_TABLE",
+      "name": "Bognertisch",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "LOOM",
+      "name": "Webstuhl",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "STONECUTTER",
+      "name": "Steinsäge",
+      "standardPrice": 260,
+      "price": 260
+    },
+    {
+      "id": "COMPOSTER",
+      "name": "Komposter",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "LECTERN",
+      "name": "Lesepult",
+      "standardPrice": 24,
+      "price": 24
+    },
+    {
+      "id": "JUKEBOX",
+      "name": "Plattenspieler",
+      "standardPrice": 8300,
+      "price": 8300
+    },
+    {
+      "id": "NOTE_BLOCK",
+      "name": "Notenblock",
+      "standardPrice": 260,
+      "price": 260
+    },
+    {
+      "id": "BELL",
+      "name": "Bell",
+      "standardPrice": 900,
+      "price": 900
+    },
+    {
+      "id": "DECORATED_POT",
+      "name": "Decorated Pot",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "FLOWER_POT",
+      "name": "Blume Pot",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "ARMOR_STAND",
+      "name": "Rüstung Stand",
+      "standardPrice": 12,
+      "price": 12
+    },
+    {
+      "id": "ITEM_FRAME",
+      "name": "Gegenstand Rahmen",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "GLOW_ITEM_FRAME",
+      "name": "Leucht Gegenstand Rahmen",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "PAINTING",
+      "name": "Painting",
+      "standardPrice": 18,
+      "price": 18
+    },
+    {
+      "id": "LADDER",
+      "name": "Ladder",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "SCAFFOLDING",
+      "name": "Scaffolding",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "COBWEB",
+      "name": "Cobweb",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "SHEARS",
+      "name": "Schere",
+      "standardPrice": 520,
+      "price": 520
+    },
+    {
+      "id": "FLINT_AND_STEEL",
+      "name": "Feuerstein And Stahl",
+      "standardPrice": 265,
+      "price": 265
+    },
+    {
+      "id": "FISHING_ROD",
+      "name": "Angel",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "CARROT_ON_A_STICK",
+      "name": "Karotte On A Stock",
+      "standardPrice": 30,
+      "price": 30
+    },
+    {
+      "id": "WARPED_FUNGUS_ON_A_STICK",
+      "name": "Wirr Pilz On A Stock",
+      "standardPrice": 35,
+      "price": 35
+    },
+    {
+      "id": "LEAD",
+      "name": "Leine",
+      "standardPrice": 18,
+      "price": 18
+    },
+    {
+      "id": "COMPASS",
+      "name": "Kompass",
+      "standardPrice": 1050,
+      "price": 1050
+    },
+    {
+      "id": "RECOVERY_COMPASS",
+      "name": "Recovery Kompass",
+      "standardPrice": 4400,
+      "price": 4400
+    },
+    {
+      "id": "CLOCK",
+      "name": "Uhr",
+      "standardPrice": 2100,
+      "price": 2100
+    },
+    {
+      "id": "SPYGLASS",
+      "name": "Spyglass",
+      "standardPrice": 45,
+      "price": 45
+    },
+    {
+      "id": "BRUSH",
+      "name": "Pinsel",
+      "standardPrice": 275,
+      "price": 275
+    },
+    {
+      "id": "MAP",
+      "name": "Leere Karte",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "FILLED_MAP",
+      "name": "Karte",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "WRITABLE_BOOK",
+      "name": "Buch und Feder",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "WRITTEN_BOOK",
+      "name": "Beschriebenes Buch",
+      "standardPrice": 30,
+      "price": 30
+    },
+    {
+      "id": "BREAD",
+      "name": "Bread",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "COOKIE",
+      "name": "Cookie",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "CAKE",
+      "name": "Cake",
+      "standardPrice": 60,
+      "price": 60
+    },
+    {
+      "id": "PUMPKIN_PIE",
+      "name": "Kürbiskuchen",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "MUSHROOM_STEW",
+      "name": "Pilzsuppe",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "RABBIT_STEW",
+      "name": "Kaninchenragout",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "BEETROOT_SOUP",
+      "name": "Borschtsch",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "SUSPICIOUS_STEW",
+      "name": "Seltsame Suppe",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "GOLDEN_APPLE",
+      "name": "Goldener Apfel",
+      "standardPrice": 4100,
+      "price": 4100
+    },
+    {
+      "id": "ENCHANTED_GOLDEN_APPLE",
+      "name": "Verzauberter goldener Apfel",
+      "standardPrice": 90000,
+      "price": 90000
+    },
+    {
+      "id": "GOLDEN_CARROT",
+      "name": "Golden Karotte",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "GLISTERING_MELON_SLICE",
+      "name": "Glitzernd Melone Slice",
+      "standardPrice": 500,
+      "price": 500
+    },
+    {
+      "id": "MELON_SLICE",
+      "name": "Melone Slice",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "APPLE",
+      "name": "Apple",
+      "standardPrice": 5,
+      "price": 5
+    },
+    {
+      "id": "GLOW_BERRIES",
+      "name": "Leuchtbeeren",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "POISONOUS_POTATO",
+      "name": "Poisonous Kartoffel",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "WHEAT_SEEDS",
+      "name": "Weizen Samen",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "BEETROOT_SEEDS",
+      "name": "Rote Bete Samen",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "PUMPKIN_SEEDS",
+      "name": "Kürbis Samen",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "MELON_SEEDS",
+      "name": "Melone Samen",
+      "standardPrice": 2,
+      "price": 2
+    },
+    {
+      "id": "HAY_BLOCK",
+      "name": "Hay Block",
+      "standardPrice": 27,
+      "price": 27
+    },
+    {
+      "id": "SUGAR",
+      "name": "Zucker",
+      "standardPrice": 1,
+      "price": 1
+    },
+    {
+      "id": "POTION",
+      "name": "Trank",
+      "standardPrice": 20,
+      "price": 20
+    },
+    {
+      "id": "SPLASH_POTION",
+      "name": "Wurf Trank",
+      "standardPrice": 30,
+      "price": 30
+    },
+    {
+      "id": "LINGERING_POTION",
+      "name": "Verweil Trank",
+      "standardPrice": 55,
+      "price": 55
+    },
+    {
+      "id": "TIPPED_ARROW",
+      "name": "Getränkt Pfeil",
+      "standardPrice": 13,
+      "price": 13
+    },
+    {
+      "id": "ARROW",
+      "name": "Pfeil",
+      "standardPrice": 3,
+      "price": 3
+    },
+    {
+      "id": "SPECTRAL_ARROW",
+      "name": "Spectral Pfeil",
+      "standardPrice": 8,
+      "price": 8
+    },
+    {
+      "id": "FIREWORK_ROCKET",
+      "name": "Feuerwerk Rakete",
+      "standardPrice": 15,
+      "price": 15
+    },
+    {
+      "id": "FIREWORK_STAR",
+      "name": "Feuerwerk Stern",
+      "standardPrice": 14,
+      "price": 14
+    },
+    {
+      "id": "FIRE_CHARGE",
+      "name": "Feuerkugel",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "SNOWBALL",
+      "name": "Schneeball",
+      "standardPrice": 0.5,
+      "price": 0.5
+    },
+    {
+      "id": "BOW",
+      "name": "Bogen",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "CROSSBOW",
+      "name": "Armbrust",
+      "standardPrice": 1200,
+      "price": 1200
+    },
+    {
+      "id": "SHIELD",
+      "name": "Schild",
+      "standardPrice": 280,
+      "price": 280
+    },
+    {
+      "id": "OMINOUS_BOTTLE",
+      "name": "Unheilvoll Flasche",
+      "standardPrice": 160,
+      "price": 160
+    },
+    {
+      "id": "TRIAL_KEY",
+      "name": "Prüfungsschlüssel",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "OMINOUS_TRIAL_KEY",
+      "name": "Unheilvoller Prüfungsschlüssel",
+      "standardPrice": 220,
+      "price": 220
+    },
+    {
+      "id": "CREAKING_HEART",
+      "name": "Knarrendes Herz",
+      "standardPrice": 900,
+      "price": 900
+    },
+    {
+      "id": "RESIN_CLUMP",
+      "name": "Harz Clump",
+      "standardPrice": 10,
+      "price": 10
+    },
+    {
+      "id": "RESIN_BLOCK",
+      "name": "Harz Block",
+      "standardPrice": 90,
+      "price": 90
+    },
+    {
+      "id": "RESIN_BRICK",
+      "name": "Harz Ziegel",
+      "standardPrice": 9,
+      "price": 9
+    },
+    {
+      "id": "SNIFFER_EGG",
+      "name": "Schnüffler-Ei",
+      "standardPrice": 800,
+      "price": 800
+    },
+    {
+      "id": "TURTLE_EGG",
+      "name": "Schildkrötenei",
+      "standardPrice": 60,
+      "price": 60
+    },
+    {
+      "id": "FROGSPAWN",
+      "name": "Frogspawn",
+      "standardPrice": 100,
+      "price": 100
+    },
+    {
+      "id": "DRAGON_HEAD",
+      "name": "Drache Head",
+      "standardPrice": 8000,
+      "price": 8000
+    },
+    {
+      "id": "PLAYER_HEAD",
+      "name": "Player Head",
+      "standardPrice": 5000,
+      "price": 5000
+    },
+    {
+      "id": "SKELETON_SKULL",
+      "name": "Skelett Skull",
+      "standardPrice": 100,
+      "price": 100
+    },
+    {
+      "id": "WITHER_SKELETON_SKULL",
+      "name": "Wither Skelett Skull",
+      "standardPrice": 1200,
+      "price": 1200
+    },
+    {
+      "id": "ZOMBIE_HEAD",
+      "name": "Zombie Head",
+      "standardPrice": 100,
+      "price": 100
+    },
+    {
+      "id": "CREEPER_HEAD",
+      "name": "Creeper Head",
+      "standardPrice": 150,
+      "price": 150
+    },
+    {
+      "id": "PIGLIN_HEAD",
+      "name": "Piglin Head",
+      "standardPrice": 180,
+      "price": 180
+    },
+    {
+      "id": "LIGHTNING_ROD",
+      "name": "Blitz Stab",
+      "standardPrice": 45,
+      "price": 45
+    },
+    {
+      "id": "TINTED_GLASS",
+      "name": "Tinted Glas",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "COPPER_GRATE",
+      "name": "Kupfer Gitter",
+      "standardPrice": 108,
+      "price": 108
+    },
+    {
+      "id": "COPPER_BULB",
+      "name": "Kupfer Leuchte",
+      "standardPrice": 145,
+      "price": 145
+    },
+    {
+      "id": "COPPER_DOOR",
+      "name": "Kupfer Tür",
+      "standardPrice": 72,
+      "price": 72
+    },
+    {
+      "id": "COPPER_TRAPDOOR",
+      "name": "Kupfer Falltür",
+      "standardPrice": 108,
+      "price": 108
+    },
+    {
+      "id": "COPPER_CHEST",
+      "name": "Kupfer Truhe",
+      "standardPrice": 140,
+      "price": 140
+    },
+    {
+      "id": "NETHER_BRICK",
+      "name": "Netherziegel",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "SPEAR",
+      "name": "Speer",
+      "standardPrice": 200,
+      "price": 200
+    },
+    {
+      "id": "COPPER",
+      "name": "Kupfer",
+      "standardPrice": 108,
+      "price": 108
+    },
+    {
+      "id": "WAXED_COPPER",
+      "name": "Gewachst Kupfer",
+      "standardPrice": 113,
+      "price": 113
+    },
+    {
+      "id": "CUT_COPPER",
+      "name": "Geschnitten Kupfer",
+      "standardPrice": 108,
+      "price": 108
+    },
+    {
+      "id": "WAXED_CUT_COPPER",
+      "name": "Gewachst Geschnitten Kupfer",
+      "standardPrice": 113,
+      "price": 113
+    },
+    {
+      "id": "CHISELED_COPPER",
+      "name": "Gemeißelt Kupfer",
+      "standardPrice": 108,
+      "price": 108
+    },
+    {
+      "id": "WAXED_CHISELED_COPPER",
+      "name": "Gewachst Gemeißelt Kupfer",
+      "standardPrice": 113,
+      "price": 113
+    },
+    {
+      "id": "WAXED_COPPER_GRATE",
+      "name": "Gewachst Kupfer Gitter",
+      "standardPrice": 113,
+      "price": 113
+    },
+    {
+      "id": "WAXED_COPPER_BULB",
+      "name": "Gewachst Kupfer Leuchte",
+      "standardPrice": 150,
+      "price": 150
+    },
+    {
+      "id": "WAXED_COPPER_DOOR",
+      "name": "Gewachst Kupfer Tür",
+      "standardPrice": 77,
+      "price": 77
+    },
+    {
+      "id": "WAXED_COPPER_TRAPDOOR",
+      "name": "Gewachst Kupfer Falltür",
+      "standardPrice": 113,
+      "price": 113
+    },
+    {
+      "id": "WAXED_COPPER_LANTERN",
+      "name": "Gewachst Kupfer Laterne",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "WAXED_COPPER_CHEST",
+      "name": "Gewachst Kupfer Truhe",
+      "standardPrice": 145,
+      "price": 145
+    },
+    {
+      "id": "WAXED_CUT_COPPER_STAIRS",
+      "name": "Gewachst Geschnitten Kupfer Treppe",
+      "standardPrice": 86,
+      "price": 86
+    },
+    {
+      "id": "WAXED_CUT_COPPER_SLAB",
+      "name": "Gewachst Geschnitten Kupfer Stufe",
+      "standardPrice": 59,
+      "price": 59
+    },
+    {
+      "id": "COPPER_CHAIN",
+      "name": "Kupfer Kette",
+      "standardPrice": 100,
+      "price": 100
+    },
+    {
+      "id": "WAXED_COPPER_CHAIN",
+      "name": "Gewachst Kupfer Kette",
+      "standardPrice": 105,
+      "price": 105
+    },
+    {
+      "id": "COPPER_BARS",
+      "name": "Kupfer Stäbe",
+      "standardPrice": 70,
+      "price": 70
+    },
+    {
+      "id": "WAXED_COPPER_BARS",
+      "name": "Gewachst Kupfer Stäbe",
+      "standardPrice": 75,
+      "price": 75
+    },
+    {
+      "id": "EXPOSED_COPPER",
+      "name": "Angelaufen Kupfer",
+      "standardPrice": 118,
+      "price": 118
+    },
+    {
+      "id": "WAXED_EXPOSED_COPPER",
+      "name": "Gewachst Angelaufen Kupfer",
+      "standardPrice": 123,
+      "price": 123
+    },
+    {
+      "id": "EXPOSED_CUT_COPPER",
+      "name": "Angelaufen Geschnitten Kupfer",
+      "standardPrice": 118,
+      "price": 118
+    },
+    {
+      "id": "WAXED_EXPOSED_CUT_COPPER",
+      "name": "Gewachst Angelaufen Geschnitten Kupfer",
+      "standardPrice": 123,
+      "price": 123
+    },
+    {
+      "id": "EXPOSED_CHISELED_COPPER",
+      "name": "Angelaufen Gemeißelt Kupfer",
+      "standardPrice": 118,
+      "price": 118
+    },
+    {
+      "id": "WAXED_EXPOSED_CHISELED_COPPER",
+      "name": "Gewachst Angelaufen Gemeißelt Kupfer",
+      "standardPrice": 123,
+      "price": 123
+    },
+    {
+      "id": "EXPOSED_COPPER_GRATE",
+      "name": "Angelaufen Kupfer Gitter",
+      "standardPrice": 118,
+      "price": 118
+    },
+    {
+      "id": "WAXED_EXPOSED_COPPER_GRATE",
+      "name": "Gewachst Angelaufen Kupfer Gitter",
+      "standardPrice": 123,
+      "price": 123
+    },
+    {
+      "id": "EXPOSED_COPPER_BULB",
+      "name": "Angelaufen Kupfer Leuchte",
+      "standardPrice": 155,
+      "price": 155
+    },
+    {
+      "id": "WAXED_EXPOSED_COPPER_BULB",
+      "name": "Gewachst Angelaufen Kupfer Leuchte",
+      "standardPrice": 160,
+      "price": 160
+    },
+    {
+      "id": "EXPOSED_COPPER_DOOR",
+      "name": "Angelaufen Kupfer Tür",
+      "standardPrice": 82,
+      "price": 82
+    },
+    {
+      "id": "WAXED_EXPOSED_COPPER_DOOR",
+      "name": "Gewachst Angelaufen Kupfer Tür",
+      "standardPrice": 87,
+      "price": 87
+    },
+    {
+      "id": "EXPOSED_COPPER_TRAPDOOR",
+      "name": "Angelaufen Kupfer Falltür",
+      "standardPrice": 118,
+      "price": 118
+    },
+    {
+      "id": "WAXED_EXPOSED_COPPER_TRAPDOOR",
+      "name": "Gewachst Angelaufen Kupfer Falltür",
+      "standardPrice": 123,
+      "price": 123
+    },
+    {
+      "id": "EXPOSED_COPPER_LANTERN",
+      "name": "Angelaufen Kupfer Laterne",
+      "standardPrice": 85,
+      "price": 85
+    },
+    {
+      "id": "WAXED_EXPOSED_COPPER_LANTERN",
+      "name": "Gewachst Angelaufen Kupfer Laterne",
+      "standardPrice": 90,
+      "price": 90
+    },
+    {
+      "id": "EXPOSED_COPPER_CHEST",
+      "name": "Angelaufen Kupfer Truhe",
+      "standardPrice": 150,
+      "price": 150
+    },
+    {
+      "id": "WAXED_EXPOSED_COPPER_CHEST",
+      "name": "Gewachst Angelaufen Kupfer Truhe",
+      "standardPrice": 155,
+      "price": 155
+    },
+    {
+      "id": "WAXED_EXPOSED_CUT_COPPER_STAIRS",
+      "name": "Gewachst Angelaufen Geschnitten Kupfer Treppe",
+      "standardPrice": 96,
+      "price": 96
+    },
+    {
+      "id": "WAXED_EXPOSED_CUT_COPPER_SLAB",
+      "name": "Gewachst Angelaufen Geschnitten Kupfer Stufe",
+      "standardPrice": 69,
+      "price": 69
+    },
+    {
+      "id": "EXPOSED_COPPER_CHAIN",
+      "name": "Angelaufen Kupfer Kette",
+      "standardPrice": 110,
+      "price": 110
+    },
+    {
+      "id": "WAXED_EXPOSED_COPPER_CHAIN",
+      "name": "Gewachst Angelaufen Kupfer Kette",
+      "standardPrice": 115,
+      "price": 115
+    },
+    {
+      "id": "EXPOSED_COPPER_BARS",
+      "name": "Angelaufen Kupfer Stäbe",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "WAXED_EXPOSED_COPPER_BARS",
+      "name": "Gewachst Angelaufen Kupfer Stäbe",
+      "standardPrice": 85,
+      "price": 85
+    },
+    {
+      "id": "WEATHERED_COPPER",
+      "name": "Verwittert Kupfer",
+      "standardPrice": 128,
+      "price": 128
+    },
+    {
+      "id": "WAXED_WEATHERED_COPPER",
+      "name": "Gewachst Verwittert Kupfer",
+      "standardPrice": 133,
+      "price": 133
+    },
+    {
+      "id": "WEATHERED_CUT_COPPER",
+      "name": "Verwittert Geschnitten Kupfer",
+      "standardPrice": 128,
+      "price": 128
+    },
+    {
+      "id": "WAXED_WEATHERED_CUT_COPPER",
+      "name": "Gewachst Verwittert Geschnitten Kupfer",
+      "standardPrice": 133,
+      "price": 133
+    },
+    {
+      "id": "WEATHERED_CHISELED_COPPER",
+      "name": "Verwittert Gemeißelt Kupfer",
+      "standardPrice": 128,
+      "price": 128
+    },
+    {
+      "id": "WAXED_WEATHERED_CHISELED_COPPER",
+      "name": "Gewachst Verwittert Gemeißelt Kupfer",
+      "standardPrice": 133,
+      "price": 133
+    },
+    {
+      "id": "WEATHERED_COPPER_GRATE",
+      "name": "Verwittert Kupfer Gitter",
+      "standardPrice": 128,
+      "price": 128
+    },
+    {
+      "id": "WAXED_WEATHERED_COPPER_GRATE",
+      "name": "Gewachst Verwittert Kupfer Gitter",
+      "standardPrice": 133,
+      "price": 133
+    },
+    {
+      "id": "WEATHERED_COPPER_BULB",
+      "name": "Verwittert Kupfer Leuchte",
+      "standardPrice": 165,
+      "price": 165
+    },
+    {
+      "id": "WAXED_WEATHERED_COPPER_BULB",
+      "name": "Gewachst Verwittert Kupfer Leuchte",
+      "standardPrice": 170,
+      "price": 170
+    },
+    {
+      "id": "WEATHERED_COPPER_DOOR",
+      "name": "Verwittert Kupfer Tür",
+      "standardPrice": 92,
+      "price": 92
+    },
+    {
+      "id": "WAXED_WEATHERED_COPPER_DOOR",
+      "name": "Gewachst Verwittert Kupfer Tür",
+      "standardPrice": 97,
+      "price": 97
+    },
+    {
+      "id": "WEATHERED_COPPER_TRAPDOOR",
+      "name": "Verwittert Kupfer Falltür",
+      "standardPrice": 128,
+      "price": 128
+    },
+    {
+      "id": "WAXED_WEATHERED_COPPER_TRAPDOOR",
+      "name": "Gewachst Verwittert Kupfer Falltür",
+      "standardPrice": 133,
+      "price": 133
+    },
+    {
+      "id": "WEATHERED_COPPER_LANTERN",
+      "name": "Verwittert Kupfer Laterne",
+      "standardPrice": 95,
+      "price": 95
+    },
+    {
+      "id": "WAXED_WEATHERED_COPPER_LANTERN",
+      "name": "Gewachst Verwittert Kupfer Laterne",
+      "standardPrice": 100,
+      "price": 100
+    },
+    {
+      "id": "WEATHERED_COPPER_CHEST",
+      "name": "Verwittert Kupfer Truhe",
+      "standardPrice": 160,
+      "price": 160
+    },
+    {
+      "id": "WAXED_WEATHERED_COPPER_CHEST",
+      "name": "Gewachst Verwittert Kupfer Truhe",
+      "standardPrice": 165,
+      "price": 165
+    },
+    {
+      "id": "WAXED_WEATHERED_CUT_COPPER_STAIRS",
+      "name": "Gewachst Verwittert Geschnitten Kupfer Treppe",
+      "standardPrice": 106,
+      "price": 106
+    },
+    {
+      "id": "WAXED_WEATHERED_CUT_COPPER_SLAB",
+      "name": "Gewachst Verwittert Geschnitten Kupfer Stufe",
+      "standardPrice": 79,
+      "price": 79
+    },
+    {
+      "id": "WEATHERED_COPPER_CHAIN",
+      "name": "Verwittert Kupfer Kette",
+      "standardPrice": 120,
+      "price": 120
+    },
+    {
+      "id": "WAXED_WEATHERED_COPPER_CHAIN",
+      "name": "Gewachst Verwittert Kupfer Kette",
+      "standardPrice": 125,
+      "price": 125
+    },
+    {
+      "id": "WEATHERED_COPPER_BARS",
+      "name": "Verwittert Kupfer Stäbe",
+      "standardPrice": 90,
+      "price": 90
+    },
+    {
+      "id": "WAXED_WEATHERED_COPPER_BARS",
+      "name": "Gewachst Verwittert Kupfer Stäbe",
+      "standardPrice": 95,
+      "price": 95
+    },
+    {
+      "id": "OXIDIZED_COPPER",
+      "name": "Oxidiert Kupfer",
+      "standardPrice": 138,
+      "price": 138
+    },
+    {
+      "id": "WAXED_OXIDIZED_COPPER",
+      "name": "Gewachst Oxidiert Kupfer",
+      "standardPrice": 143,
+      "price": 143
+    },
+    {
+      "id": "OXIDIZED_CUT_COPPER",
+      "name": "Oxidiert Geschnitten Kupfer",
+      "standardPrice": 138,
+      "price": 138
+    },
+    {
+      "id": "WAXED_OXIDIZED_CUT_COPPER",
+      "name": "Gewachst Oxidiert Geschnitten Kupfer",
+      "standardPrice": 143,
+      "price": 143
+    },
+    {
+      "id": "OXIDIZED_CHISELED_COPPER",
+      "name": "Oxidiert Gemeißelt Kupfer",
+      "standardPrice": 138,
+      "price": 138
+    },
+    {
+      "id": "WAXED_OXIDIZED_CHISELED_COPPER",
+      "name": "Gewachst Oxidiert Gemeißelt Kupfer",
+      "standardPrice": 143,
+      "price": 143
+    },
+    {
+      "id": "OXIDIZED_COPPER_GRATE",
+      "name": "Oxidiert Kupfer Gitter",
+      "standardPrice": 138,
+      "price": 138
+    },
+    {
+      "id": "WAXED_OXIDIZED_COPPER_GRATE",
+      "name": "Gewachst Oxidiert Kupfer Gitter",
+      "standardPrice": 143,
+      "price": 143
+    },
+    {
+      "id": "OXIDIZED_COPPER_BULB",
+      "name": "Oxidiert Kupfer Leuchte",
+      "standardPrice": 175,
+      "price": 175
+    },
+    {
+      "id": "WAXED_OXIDIZED_COPPER_BULB",
+      "name": "Gewachst Oxidiert Kupfer Leuchte",
+      "standardPrice": 180,
+      "price": 180
+    },
+    {
+      "id": "OXIDIZED_COPPER_DOOR",
+      "name": "Oxidiert Kupfer Tür",
+      "standardPrice": 102,
+      "price": 102
+    },
+    {
+      "id": "WAXED_OXIDIZED_COPPER_DOOR",
+      "name": "Gewachst Oxidiert Kupfer Tür",
+      "standardPrice": 107,
+      "price": 107
+    },
+    {
+      "id": "OXIDIZED_COPPER_TRAPDOOR",
+      "name": "Oxidiert Kupfer Falltür",
+      "standardPrice": 138,
+      "price": 138
+    },
+    {
+      "id": "WAXED_OXIDIZED_COPPER_TRAPDOOR",
+      "name": "Gewachst Oxidiert Kupfer Falltür",
+      "standardPrice": 143,
+      "price": 143
+    },
+    {
+      "id": "OXIDIZED_COPPER_LANTERN",
+      "name": "Oxidiert Kupfer Laterne",
+      "standardPrice": 105,
+      "price": 105
+    },
+    {
+      "id": "WAXED_OXIDIZED_COPPER_LANTERN",
+      "name": "Gewachst Oxidiert Kupfer Laterne",
+      "standardPrice": 110,
+      "price": 110
+    },
+    {
+      "id": "OXIDIZED_COPPER_CHEST",
+      "name": "Oxidiert Kupfer Truhe",
+      "standardPrice": 170,
+      "price": 170
+    },
+    {
+      "id": "WAXED_OXIDIZED_COPPER_CHEST",
+      "name": "Gewachst Oxidiert Kupfer Truhe",
+      "standardPrice": 175,
+      "price": 175
+    },
+    {
+      "id": "WAXED_OXIDIZED_CUT_COPPER_STAIRS",
+      "name": "Gewachst Oxidiert Geschnitten Kupfer Treppe",
+      "standardPrice": 116,
+      "price": 116
+    },
+    {
+      "id": "WAXED_OXIDIZED_CUT_COPPER_SLAB",
+      "name": "Gewachst Oxidiert Geschnitten Kupfer Stufe",
+      "standardPrice": 89,
+      "price": 89
+    },
+    {
+      "id": "OXIDIZED_COPPER_CHAIN",
+      "name": "Oxidiert Kupfer Kette",
+      "standardPrice": 130,
+      "price": 130
+    },
+    {
+      "id": "WAXED_OXIDIZED_COPPER_CHAIN",
+      "name": "Gewachst Oxidiert Kupfer Kette",
+      "standardPrice": 135,
+      "price": 135
+    },
+    {
+      "id": "OXIDIZED_COPPER_BARS",
+      "name": "Oxidiert Kupfer Stäbe",
+      "standardPrice": 100,
+      "price": 100
+    },
+    {
+      "id": "WAXED_OXIDIZED_COPPER_BARS",
+      "name": "Gewachst Oxidiert Kupfer Stäbe",
+      "standardPrice": 105,
+      "price": 105
+    },
+    {
+      "id": "WOODEN_SWORD",
+      "name": "Wooden Schwert",
+      "standardPrice": 22,
+      "price": 22
+    },
+    {
+      "id": "WOODEN_SHOVEL",
+      "name": "Wooden Schaufel",
+      "standardPrice": 16,
+      "price": 16
+    },
+    {
+      "id": "WOODEN_PICKAXE",
+      "name": "Wooden Spitzhacke",
+      "standardPrice": 28,
+      "price": 28
+    },
+    {
+      "id": "WOODEN_AXE",
+      "name": "Wooden Axt",
+      "standardPrice": 28,
+      "price": 28
+    },
+    {
+      "id": "WOODEN_HOE",
+      "name": "Wooden Hacke",
+      "standardPrice": 22,
+      "price": 22
+    },
+    {
+      "id": "WOODEN_SPEAR",
+      "name": "Wooden Speer",
+      "standardPrice": 22,
+      "price": 22
+    },
+    {
+      "id": "STONE_SWORD",
+      "name": "Stein Schwert",
+      "standardPrice": 34,
+      "price": 34
+    },
+    {
+      "id": "STONE_SHOVEL",
+      "name": "Stein Schaufel",
+      "standardPrice": 22,
+      "price": 22
+    },
+    {
+      "id": "STONE_PICKAXE",
+      "name": "Stein Spitzhacke",
+      "standardPrice": 46,
+      "price": 46
+    },
+    {
+      "id": "STONE_AXE",
+      "name": "Stein Axt",
+      "standardPrice": 46,
+      "price": 46
+    },
+    {
+      "id": "STONE_HOE",
+      "name": "Stein Hacke",
+      "standardPrice": 34,
+      "price": 34
+    },
+    {
+      "id": "STONE_SPEAR",
+      "name": "Stein Speer",
+      "standardPrice": 34,
+      "price": 34
+    },
+    {
+      "id": "COPPER_SWORD",
+      "name": "Kupfer Schwert",
+      "standardPrice": 34,
+      "price": 34
+    },
+    {
+      "id": "COPPER_SHOVEL",
+      "name": "Kupfer Schaufel",
+      "standardPrice": 22,
+      "price": 22
+    },
+    {
+      "id": "COPPER_PICKAXE",
+      "name": "Kupfer Spitzhacke",
+      "standardPrice": 46,
+      "price": 46
+    },
+    {
+      "id": "COPPER_AXE",
+      "name": "Kupfer Axt",
+      "standardPrice": 46,
+      "price": 46
+    },
+    {
+      "id": "COPPER_HOE",
+      "name": "Kupfer Hacke",
+      "standardPrice": 34,
+      "price": 34
+    },
+    {
+      "id": "COPPER_SPEAR",
+      "name": "Kupfer Speer",
+      "standardPrice": 34,
+      "price": 34
+    },
+    {
+      "id": "COPPER_HELMET",
+      "name": "Kupfer Helm",
+      "standardPrice": 80,
+      "price": 80
+    },
+    {
+      "id": "COPPER_CHESTPLATE",
+      "name": "Kupfer Brustplatte",
+      "standardPrice": 116,
+      "price": 116
+    },
+    {
+      "id": "COPPER_LEGGINGS",
+      "name": "Kupfer Beinschutz",
+      "standardPrice": 104,
+      "price": 104
+    },
+    {
+      "id": "COPPER_BOOTS",
+      "name": "Kupfer Stiefel",
+      "standardPrice": 68,
+      "price": 68
+    },
+    {
+      "id": "COPPER_HORSE_ARMOR",
+      "name": "Kupfer Pferd Rüstung",
+      "standardPrice": 92,
+      "price": 92
+    },
+    {
+      "id": "IRON_SWORD",
+      "name": "Eisen Schwert",
+      "standardPrice": 522,
+      "price": 522
+    },
+    {
+      "id": "IRON_SHOVEL",
+      "name": "Eisen Schaufel",
+      "standardPrice": 266,
+      "price": 266
+    },
+    {
+      "id": "IRON_PICKAXE",
+      "name": "Eisen Spitzhacke",
+      "standardPrice": 778,
+      "price": 778
+    },
+    {
+      "id": "IRON_AXE",
+      "name": "Eisen Axt",
+      "standardPrice": 778,
+      "price": 778
+    },
+    {
+      "id": "IRON_HOE",
+      "name": "Eisen Hacke",
+      "standardPrice": 522,
+      "price": 522
+    },
+    {
+      "id": "IRON_SPEAR",
+      "name": "Eisen Speer",
+      "standardPrice": 522,
+      "price": 522
+    },
+    {
+      "id": "IRON_HELMET",
+      "name": "Eisen Helm",
+      "standardPrice": 1300,
+      "price": 1300
+    },
+    {
+      "id": "IRON_CHESTPLATE",
+      "name": "Eisen Brustplatte",
+      "standardPrice": 2068,
+      "price": 2068
+    },
+    {
+      "id": "IRON_LEGGINGS",
+      "name": "Eisen Beinschutz",
+      "standardPrice": 1812,
+      "price": 1812
+    },
+    {
+      "id": "IRON_BOOTS",
+      "name": "Eisen Stiefel",
+      "standardPrice": 1044,
+      "price": 1044
+    },
+    {
+      "id": "IRON_HORSE_ARMOR",
+      "name": "Eisen Pferd Rüstung",
+      "standardPrice": 1556,
+      "price": 1556
+    },
+    {
+      "id": "GOLDEN_SWORD",
+      "name": "Golden Schwert",
+      "standardPrice": 1010,
+      "price": 1010
+    },
+    {
+      "id": "GOLDEN_SHOVEL",
+      "name": "Golden Schaufel",
+      "standardPrice": 510,
+      "price": 510
+    },
+    {
+      "id": "GOLDEN_PICKAXE",
+      "name": "Golden Spitzhacke",
+      "standardPrice": 1510,
+      "price": 1510
+    },
+    {
+      "id": "GOLDEN_AXE",
+      "name": "Golden Axt",
+      "standardPrice": 1510,
+      "price": 1510
+    },
+    {
+      "id": "GOLDEN_HOE",
+      "name": "Golden Hacke",
+      "standardPrice": 1010,
+      "price": 1010
+    },
+    {
+      "id": "GOLDEN_SPEAR",
+      "name": "Golden Speer",
+      "standardPrice": 1010,
+      "price": 1010
+    },
+    {
+      "id": "GOLDEN_HELMET",
+      "name": "Golden Helm",
+      "standardPrice": 2520,
+      "price": 2520
+    },
+    {
+      "id": "GOLDEN_CHESTPLATE",
+      "name": "Golden Brustplatte",
+      "standardPrice": 4020,
+      "price": 4020
+    },
+    {
+      "id": "GOLDEN_LEGGINGS",
+      "name": "Golden Beinschutz",
+      "standardPrice": 3520,
+      "price": 3520
+    },
+    {
+      "id": "GOLDEN_BOOTS",
+      "name": "Golden Stiefel",
+      "standardPrice": 2020,
+      "price": 2020
+    },
+    {
+      "id": "GOLDEN_HORSE_ARMOR",
+      "name": "Golden Pferd Rüstung",
+      "standardPrice": 3020,
+      "price": 3020
+    },
+    {
+      "id": "DIAMOND_SWORD",
+      "name": "Diamant Schwert",
+      "standardPrice": 16394,
+      "price": 16394
+    },
+    {
+      "id": "DIAMOND_SHOVEL",
+      "name": "Diamant Schaufel",
+      "standardPrice": 8202,
+      "price": 8202
+    },
+    {
+      "id": "DIAMOND_PICKAXE",
+      "name": "Diamant Spitzhacke",
+      "standardPrice": 24586,
+      "price": 24586
+    },
+    {
+      "id": "DIAMOND_AXE",
+      "name": "Diamant Axt",
+      "standardPrice": 24586,
+      "price": 24586
+    },
+    {
+      "id": "DIAMOND_HOE",
+      "name": "Diamant Hacke",
+      "standardPrice": 16394,
+      "price": 16394
+    },
+    {
+      "id": "DIAMOND_SPEAR",
+      "name": "Diamant Speer",
+      "standardPrice": 16394,
+      "price": 16394
+    },
+    {
+      "id": "DIAMOND_HELMET",
+      "name": "Diamant Helm",
+      "standardPrice": 40980,
+      "price": 40980
+    },
+    {
+      "id": "DIAMOND_CHESTPLATE",
+      "name": "Diamant Brustplatte",
+      "standardPrice": 65556,
+      "price": 65556
+    },
+    {
+      "id": "DIAMOND_LEGGINGS",
+      "name": "Diamant Beinschutz",
+      "standardPrice": 57364,
+      "price": 57364
+    },
+    {
+      "id": "DIAMOND_BOOTS",
+      "name": "Diamant Stiefel",
+      "standardPrice": 32788,
+      "price": 32788
+    },
+    {
+      "id": "DIAMOND_HORSE_ARMOR",
+      "name": "Diamant Pferd Rüstung",
+      "standardPrice": 49172,
+      "price": 49172
+    },
+    {
+      "id": "NETHERITE_SWORD",
+      "name": "Netherit Schwert",
+      "standardPrice": 2104010,
+      "price": 2104010
+    },
+    {
+      "id": "NETHERITE_SHOVEL",
+      "name": "Netherit Schaufel",
+      "standardPrice": 1052010,
+      "price": 1052010
+    },
+    {
+      "id": "NETHERITE_PICKAXE",
+      "name": "Netherit Spitzhacke",
+      "standardPrice": 3156010,
+      "price": 3156010
+    },
+    {
+      "id": "NETHERITE_AXE",
+      "name": "Netherit Axt",
+      "standardPrice": 3156010,
+      "price": 3156010
+    },
+    {
+      "id": "NETHERITE_HOE",
+      "name": "Netherit Hacke",
+      "standardPrice": 2104010,
+      "price": 2104010
+    },
+    {
+      "id": "NETHERITE_SPEAR",
+      "name": "Netherit Speer",
+      "standardPrice": 2104010,
+      "price": 2104010
+    },
+    {
+      "id": "NETHERITE_HELMET",
+      "name": "Netherit Helm",
+      "standardPrice": 5260020,
+      "price": 5260020
+    },
+    {
+      "id": "NETHERITE_CHESTPLATE",
+      "name": "Netherit Brustplatte",
+      "standardPrice": 8416020,
+      "price": 8416020
+    },
+    {
+      "id": "NETHERITE_LEGGINGS",
+      "name": "Netherit Beinschutz",
+      "standardPrice": 7364020,
+      "price": 7364020
+    },
+    {
+      "id": "NETHERITE_BOOTS",
+      "name": "Netherit Stiefel",
+      "standardPrice": 4208020,
+      "price": 4208020
+    },
+    {
+      "id": "NETHERITE_HORSE_ARMOR",
+      "name": "Netherit Pferd Rüstung",
+      "standardPrice": 6312020,
+      "price": 6312020
+    },
+    {
+      "id": "LEATHER_HELMET",
+      "name": "Leder Helm",
+      "standardPrice": 25,
+      "price": 25
+    },
+    {
+      "id": "LEATHER_CHESTPLATE",
+      "name": "Leder Brustplatte",
+      "standardPrice": 40,
+      "price": 40
+    },
+    {
+      "id": "LEATHER_LEGGINGS",
+      "name": "Leder Beinschutz",
+      "standardPrice": 35,
+      "price": 35
+    },
+    {
+      "id": "TURTLE_HELMET",
+      "name": "Schildkröte Helm",
+      "standardPrice": 200,
+      "price": 200
+    },
+    {
+      "id": "WOLF_ARMOR",
+      "name": "Wolf Rüstung",
+      "standardPrice": 220,
+      "price": 220
+    },
+    {
+      "id": "COAST_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Coast Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "DUNE_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Dune Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "EYE_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Auge Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "HOST_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Host Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "RAISER_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Raiser Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "RIB_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Rib Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 850,
+      "price": 850
+    },
+    {
+      "id": "SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Sentry Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Shaper Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Silence Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 850,
+      "price": 850
+    },
+    {
+      "id": "SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Snout Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Spire Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 850,
+      "price": 850
+    },
+    {
+      "id": "TIDE_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Tide Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "VEX_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Plagegeist Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "WARD_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Ward Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Wayfinder Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "WILD_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Wild Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "BOLT_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Bolt Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "FLOW_ARMOR_TRIM_SMITHING_TEMPLATE",
+      "name": "Flow Rüstungsbesatz-Schmiedevorlage",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "ANGLER_POTTERY_SHERD",
+      "name": "Angler-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "ARCHER_POTTERY_SHERD",
+      "name": "Archer-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "ARMS_UP_POTTERY_SHERD",
+      "name": "Arms Up-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "BLADE_POTTERY_SHERD",
+      "name": "Blade-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "BREWER_POTTERY_SHERD",
+      "name": "Brewer-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "BURN_POTTERY_SHERD",
+      "name": "Burn-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "DANGER_POTTERY_SHERD",
+      "name": "Danger-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "EXPLORER_POTTERY_SHERD",
+      "name": "Explorer-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "FLOW_POTTERY_SHERD",
+      "name": "Flow-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "FRIEND_POTTERY_SHERD",
+      "name": "Friend-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "GUSTER_POTTERY_SHERD",
+      "name": "Guster-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "HEART_POTTERY_SHERD",
+      "name": "Herz-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "HEARTBREAK_POTTERY_SHERD",
+      "name": "Heartbreak-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "HOWL_POTTERY_SHERD",
+      "name": "Howl-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "MINER_POTTERY_SHERD",
+      "name": "Miner-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "MOURNER_POTTERY_SHERD",
+      "name": "Mourner-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "PLENTY_POTTERY_SHERD",
+      "name": "Plenty-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "PRIZE_POTTERY_SHERD",
+      "name": "Prize-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "SHEAF_POTTERY_SHERD",
+      "name": "Sheaf-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "SHELTER_POTTERY_SHERD",
+      "name": "Shelter-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "SKULL_POTTERY_SHERD",
+      "name": "Skull-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "SNORT_POTTERY_SHERD",
+      "name": "Snort-Töpferscherbe",
+      "standardPrice": 50,
+      "price": 50
+    },
+    {
+      "id": "MUSIC_DISC_13",
+      "name": "Schallplatte 13",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "MUSIC_DISC_CAT",
+      "name": "Schallplatte Cat",
+      "standardPrice": 250,
+      "price": 250
+    },
+    {
+      "id": "MUSIC_DISC_BLOCKS",
+      "name": "Schallplatte Blocks",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_CHIRP",
+      "name": "Schallplatte Chirp",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_FAR",
+      "name": "Schallplatte Far",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_MALL",
+      "name": "Schallplatte Mall",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_MELLOHI",
+      "name": "Schallplatte Mellohi",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_STAL",
+      "name": "Schallplatte Stal",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_STRAD",
+      "name": "Schallplatte Strad",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_WARD",
+      "name": "Schallplatte Ward",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_11",
+      "name": "Schallplatte 11",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_WAIT",
+      "name": "Schallplatte Wait",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_OTHERSIDE",
+      "name": "Schallplatte Otherside",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_5",
+      "name": "Schallplatte 5",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_PIGSTEP",
+      "name": "Schallplatte Pigstep",
+      "standardPrice": 800,
+      "price": 800
+    },
+    {
+      "id": "MUSIC_DISC_RELIC",
+      "name": "Schallplatte Relic",
+      "standardPrice": 800,
+      "price": 800
+    },
+    {
+      "id": "MUSIC_DISC_CREATOR",
+      "name": "Schallplatte Creator",
+      "standardPrice": 800,
+      "price": 800
+    },
+    {
+      "id": "MUSIC_DISC_CREATOR_MUSIC_BOX",
+      "name": "Schallplatte Creator Music Box",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_PRECIPICE",
+      "name": "Schallplatte Precipice",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_LAVA_CHICKEN",
+      "name": "Schallplatte Lava Chicken",
+      "standardPrice": 450,
+      "price": 450
+    },
+    {
+      "id": "MUSIC_DISC_TEARS",
+      "name": "Schallplatte Tears",
+      "standardPrice": 800,
+      "price": 800
+    },
+    {
+      "id": "TALL_DRY_GRASS",
+      "name": "Hoch Trocken Gras",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "SHORT_DRY_GRASS",
+      "name": "Kurz Trocken Gras",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "LEAF_LITTER",
+      "name": "Leaf Litter",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "PALE_HANGING_MOSS",
+      "name": "Blass Hänge Moos",
+      "standardPrice": 4,
+      "price": 4
+    },
+    {
+      "id": "RED_SAND",
+      "name": "Rot Sand",
+      "standardPrice": 5,
+      "price": 5
+    }
+  ],
+  "customItems": [
+    {
+      "id": "CUSTOM_1793323957536_9w82wq",
+      "name": "Enderperle",
+      "price": 45
+    }
+  ]
+}

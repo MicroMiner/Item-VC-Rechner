@@ -161,9 +161,9 @@
 <header class="top"><div><div class="brand">VELOCITY ECONOMY</div><h1>Item-Umrechner</h1><small>1 Dirt = 1 VC · Minecraft</small></div><span class="tag">Online · Gemeinsame Preisliste</span></header>
 <section class="hero" aria-label="Item-Umrechner"><h2 class="section-heading">01 · Umrechnung</h2>
 <div class="hero-grid"><div class="converter-layout">
-<section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><input id="fromSearch" type="search" placeholder="z. B. Diamant, Eisen, Holz …" autocomplete="off"><select id="fromItem" aria-label="Ausgangs-Item"></select><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="any" value="1" inputmode="decimal"></div><div><label>Wert pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
+<section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><input id="fromSearch" type="search" placeholder="z. B. Diamant, Eisen, Holz …" autocomplete="off"><select id="fromItem" aria-label="Ausgangs-Item"></select><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"></div><div><label>Wert pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
 <div class="swap-slot"><button class="btn swap" id="swap" type="button" title="Items tauschen" aria-label="Items tauschen"><span class="swap-icon">⇄</span></button></div>
-<section class="card"><label for="toSearch">Ziel-Item suchen</label><input id="toSearch" type="search" placeholder="z. B. Dirt, Gold, Weizen …" autocomplete="off"><select id="toItem" aria-label="Ziel-Item"></select><div class="fieldrow"><div><label for="toQty">Zielmenge (auch änderbar)</label><input id="toQty" type="number" min="0" step="any" inputmode="decimal"></div><div><label>Wert pro Item</label><div id="toRate" class="rate"></div></div></div></section>
+<section class="card"><label for="toSearch">Ziel-Item suchen</label><input id="toSearch" type="search" placeholder="z. B. Dirt, Gold, Weizen …" autocomplete="off"><select id="toItem" aria-label="Ziel-Item"></select><div class="fieldrow"><div><label for="toQty">Zielmenge (ganze Stücke)</label><input id="toQty" type="number" min="0" step="1" inputmode="numeric"></div><div><label>Wert pro Item</label><div id="toRate" class="rate"></div></div></div></section>
 </div><div class="right-stack"><section class="card result" aria-live="polite"><div class="muted">UMRECHNUNG</div><div class="big" id="result">JSON-Datei verbinden</div><div class="line muted" id="total">350 VC Gesamtwert</div><div class="flex"><button class="btn" id="copy" type="button">Ergebnis kopieren</button><button class="btn" id="reset" type="button">Zurücksetzen</button></div><div id="copyStatus" class="status" aria-live="polite"></div></section>
 <section class="card calculator" aria-label="Taschenrechner">
 <h3>Mini-Taschenrechner</h3>
@@ -183,12 +183,12 @@
 <div class="admin-inner" id="adminInner" inert><h2 class="section-heading">02 · Preise &amp; Items verwalten</h2>
 <section class="card"><h2>Bestehende Itempreise anpassen</h2><p class="editor-note">Änderungen gelten sofort für beide Seiten des Umrechners. Der ursprüngliche Preis bleibt in Klammern sichtbar.</p>
 <div class="editor-grid"><div><label for="editSearch">Item suchen</label><input id="editSearch" type="search" placeholder="z. B. Diamant, Dirt, Gold …" autocomplete="off"><label for="editItem" style="margin-top:12px">Item auswählen</label><select id="editItem"></select></div>
-<div><div class="fieldrow"><div><label for="editValue">Neuer Wert in VC</label><input id="editValue" type="number" min="0.000001" step="any" inputmode="decimal"></div><div><label>Standardwert</label><div id="editDefault" class="rate"></div></div><div class="editor-actions"><button class="btn" id="saveEdit" type="button">Preis übernehmen</button><button class="btn" id="restoreEdit" type="button">Standard wiederherstellen</button></div></div></div>
+<div><div class="fieldrow"><div><label for="editValue">Neuer Wert in VC</label><input id="editValue" type="number" min="0.01" step="0.01" inputmode="decimal"></div><div><label>Standardwert</label><div id="editDefault" class="rate"></div></div><div class="editor-actions"><button class="btn" id="saveEdit" type="button">Preis übernehmen</button><button class="btn" id="restoreEdit" type="button">Standard wiederherstellen</button></div></div></div>
 <div id="editStatus" class="status" aria-live="polite"></div><div id="modifiedCount" class="editor-note"></div></section>
-<section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div><label for="newValue">Wert in VC</label><input id="newValue" type="number" step="any" min="0.000001" value="10"></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
+<section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div><label for="newValue">Wert in VC</label><input id="newValue" type="number" step="0.01" min="0.01" value="10" inputmode="decimal"></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
 <section class="card"><h2>Hinzugefügte Items</h2><p class="editor-note">Deine eigenen Items auf voller Breite in zwei Spalten. Die Preise kannst du oben unter «Bestehende Itempreise anpassen» bearbeiten.</p><ul id="customList" class="custom-list"></ul></section>
 <section class="card"><h2>Gemeinsame Online-Preisliste</h2><p class="editor-note">Änderungen werden nach Freigabe direkt ins GitHub-Repository geschrieben. Alle Besucher sehen die aktualisierten Preise beim nächsten Laden der Website.</p><div class="flex"><button class="btn" id="reloadData" type="button">Aktuelle Online-Liste laden</button><button class="btn" id="exportData" type="button">JSON-Sicherung herunterladen</button><button class="btn" id="adminLogout" type="button">Verwaltung sperren</button></div><div class="status" id="fileStatus" role="status"></div></section></div></section>
-<section class="card note"><strong>Hinweis zu den Preisen</strong><p class="muted secondary">Die Werte stammen aus unserer vorläufigen VeloCoin-Preisliste. Sie sind Materialwerte, keine Joblöhne. Für „Diamant“ gilt hier vorläufig derselbe Referenzwert wie für „Diamond Ore“ (350 VC). Unbekannte Itemwerte können ergänzt werden. Die ursprünglichen Standardpreise stehen zusammen mit deinen aktuellen Preisen in der separaten JSON-Datei.</p></section><footer class="foot">VeloCoin · GitHub Pages · Öffentliche Preisliste</footer>
+<section class="card note"><strong>Hinweis zu den Preisen</strong><p class="muted secondary">Die Werte stammen aus unserer vorläufigen VeloCoin-Preisliste. Sie sind Materialwerte, keine Joblöhne. Die Itempreise werden mit maximal zwei Nachkommastellen gepflegt. Unbekannte Itemwerte können ergänzt werden. Die ursprünglichen Standardpreise stehen zusammen mit deinen aktuellen Preisen in der separaten JSON-Datei.</p></section><footer class="foot">VeloCoin · GitHub Pages · Öffentliche Preisliste</footer>
 </main>
 <script src="config.js"></script>
 <script>
@@ -196,22 +196,26 @@
 const $=id=>document.getElementById(id);
 let defaults=[],custom=[],overrides={};
 let fileHandle=null, loading=false, writeChain=Promise.resolve();
-const fmt=n=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:4}).format(n);
+const fmt=n=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:2}).format(n);
+const fmtPrice=n=>new Intl.NumberFormat('de-CH',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+const whole=v=>{const n=Number(String(v).replace(',','.'));return Number.isFinite(n)&&n>=0?Math.floor(n):0};
+const cents=v=>Math.round((v+Number.EPSILON)*100)/100;
+const validCents=v=>Number.isFinite(v)&&v>=0.01&&Math.abs(v*100-Math.round(v*100))<1e-6;
 const num=v=>{const x=Number(String(v).replace(',','.'));return Number.isFinite(x)&&x>=0?x:0};
 const list=()=>[...defaults.map(x=>[x[0],x[1],overrides[x[0]]??x[2]]),...custom];
 const get=id=>list().find(x=>x[0]===id)||list()[0]||['DIRT','Dirt',1];
 const original=id=>defaults.find(x=>x[0]===id)?.[2];
 const wasChanged=id=>original(id)!==undefined&&Object.hasOwn(overrides,id);
-const priceLabel=x=>`${x[1]} · ${fmt(x[2])} VC${wasChanged(x[0])?' (Standard: '+fmt(original(x[0]))+' VC)':''}`;
-const rateMarkup=x=>`${fmt(x[2])} VC${wasChanged(x[0])?'<span class="original">(Standard: '+fmt(original(x[0]))+' VC)</span>':''}`;
+const priceLabel=x=>`${x[1]} · ${fmtPrice(x[2])} VC${wasChanged(x[0])?' (Standard: '+fmtPrice(original(x[0]))+' VC)':''}`;
+const rateMarkup=x=>`${fmtPrice(x[2])} VC${wasChanged(x[0])?'<span class="original">(Standard: '+fmtPrice(original(x[0]))+' VC)</span>':''}`;
 const status=message=>$('fileStatus').textContent=message;
 function currentPayload(){return {format:'VeloCoin-Preisliste',version:2,baseCurrency:'VC',baseItem:'DIRT',items:defaults.map(x=>({id:x[0],name:x[1],standardPrice:x[2],price:overrides[x[0]]??x[2]})),customItems:custom.map(x=>({id:x[0],name:x[1],price:x[2]}))}}
 function parsePayload(data){
  if(!data||data.format!=='VeloCoin-Preisliste'||data.version!==2||!Array.isArray(data.items)||!Array.isArray(data.customItems))throw Error('Ungültiges JSON-Format. Bitte Version 2 verwenden.');
  if(!data.items.length||data.items.length>3000||data.customItems.length>3000)throw Error('Ungültige Anzahl von Items.');
  const seen=new Set(),std=[],ovs={},cus=[];
- for(const item of data.items){if(!item||typeof item.id!=='string'||!/^[A-Z][A-Z0-9_]*$/.test(item.id)||seen.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100||!Number.isFinite(item.standardPrice)||item.standardPrice<=0||!Number.isFinite(item.price)||item.price<=0)throw Error('Ungültiger Standard-Item-Eintrag.');seen.add(item.id);std.push([item.id,item.name,item.standardPrice]);if(item.price!==item.standardPrice)ovs[item.id]=item.price}
- for(const item of data.customItems){if(!item||typeof item.id!=='string'||!/^CUSTOM_[a-zA-Z0-9_-]+$/.test(item.id)||seen.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100||!Number.isFinite(item.price)||item.price<=0)throw Error('Ungültiger eigener Item-Eintrag.');seen.add(item.id);cus.push([item.id,item.name,item.price])}
+ for(const item of data.items){if(!item||typeof item.id!=='string'||!/^[A-Z][A-Z0-9_]*$/.test(item.id)||seen.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100||!Number.isFinite(item.standardPrice)||!validCents(item.standardPrice)||!Number.isFinite(item.price)||!validCents(item.price))throw Error('Ungültiger Standard-Item-Eintrag.');seen.add(item.id);std.push([item.id,item.name,item.standardPrice]);if(item.price!==item.standardPrice)ovs[item.id]=item.price}
+ for(const item of data.customItems){if(!item||typeof item.id!=='string'||!/^CUSTOM_[a-zA-Z0-9_-]+$/.test(item.id)||seen.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100||!Number.isFinite(item.price)||!validCents(item.price))throw Error('Ungültiger eigener Item-Eintrag.');seen.add(item.id);cus.push([item.id,item.name,item.price])}
  if(!seen.has('DIRT'))throw Error('Das Basis-Item DIRT fehlt.');
  return {std,ovs,cus};
 }
@@ -248,20 +252,35 @@ function save(){
 }
 const saveOverrides=save;
 function renderSelect(side){const s=$(side+'Item'),q=$(side+'Search').value.trim().toLocaleLowerCase(),keep=s.value||(side==='from'?'DIAMOND':'DIRT');s.replaceChildren();const found=list().filter(x=>(x[0]+' '+x[1]).toLocaleLowerCase().includes(q)||x[0]===keep);for(const item of found){const o=document.createElement('option');o.value=item[0];o.textContent=priceLabel(item);s.append(o)}s.value=keep;if(!s.value&&found.length)s.selectedIndex=0}
-function update(source='from'){const a=get($('fromItem').value),b=get($('toItem').value);$('fromRate').innerHTML=rateMarkup(a);$('toRate').innerHTML=rateMarkup(b);let amount;if(source==='to'){amount=num($('toQty').value)*b[2]/a[2];$('fromQty').value=Number(amount.toFixed(8))}else{amount=num($('fromQty').value);$('toQty').value=Number((amount*a[2]/b[2]).toFixed(8))}const dest=amount*a[2]/b[2];$('result').textContent=`${fmt(amount)} × ${a[1]} = ${fmt(dest)} × ${b[1]}`;$('total').textContent=`${fmt(amount*a[2])} VC Gesamtwert`}
+function update(source='from'){
+ const a=get($('fromItem').value),b=get($('toItem').value);
+ $('fromRate').innerHTML=rateMarkup(a);$('toRate').innerHTML=rateMarkup(b);
+ let amount;
+ if(source==='to'){
+  const wanted=whole($('toQty').value);$('toQty').value=wanted;
+  amount=wanted===0?0:Math.ceil((wanted*b[2]/a[2])-1e-10);
+  $('fromQty').value=amount;
+ }else{
+  amount=whole($('fromQty').value);$('fromQty').value=amount;
+ }
+ const dest=Math.max(0,Math.floor(amount*a[2]/b[2]+1e-10));
+ $('toQty').value=dest;
+ $('result').textContent=`${fmt(amount)} × ${a[1]} = ${fmt(dest)} × ${b[1]}`;
+ $('total').textContent=`${fmtPrice(amount*a[2])} VC Gesamtwert`;
+}
 function redraw(){renderSelect('from');renderSelect('to');update();renderCustom();renderEditor()}
 function renderEditor(){const sel=$('editItem'),search=$('editSearch').value.trim().toLocaleLowerCase(),keep=sel.value||'DIAMOND';sel.replaceChildren();const options=list().filter(x=>(x[0]+' '+x[1]).toLocaleLowerCase().includes(search)||x[0]===keep);for(const item of options){const o=document.createElement('option');o.value=item[0];o.textContent=priceLabel(item);sel.append(o)}sel.value=keep;if(!sel.value&&options.length)sel.selectedIndex=0;syncEditor();$('modifiedCount').textContent=`${Object.keys(overrides).length} Standardpreis(e) individuell angepasst.`}
-function syncEditor(){const id=$('editItem').value;if(!id)return;const item=get(id);$('editValue').value=item[2];const base=original(id);$('editDefault').textContent=base===undefined?'Eigenes Item':fmt(base)+' VC';$('restoreEdit').disabled=base===undefined||!wasChanged(id)}
+function syncEditor(){const id=$('editItem').value;if(!id)return;const item=get(id);$('editValue').value=item[2];const base=original(id);$('editDefault').textContent=base===undefined?'Eigenes Item':fmtPrice(base)+' VC';$('restoreEdit').disabled=base===undefined||!wasChanged(id)}
 function refreshPrices(){const from=$('fromItem').value,to=$('toItem').value,edit=$('editItem').value;renderSelect('from');renderSelect('to');$('fromItem').value=from;$('toItem').value=to;update();renderEditor();$('editItem').value=edit;syncEditor()}
-function renderCustom(){const ul=$('customList');ul.replaceChildren();for(const item of custom){const li=document.createElement('li'),txt=document.createElement('span'),del=document.createElement('button');txt.textContent=`${item[1]} · ${fmt(item[2])} VC`;del.className='btn';del.textContent='Löschen';del.type='button';del.addEventListener('click',()=>{custom=custom.filter(x=>x[0]!==item[0]);save();redraw()});li.append(txt,del);ul.append(li)}}
+function renderCustom(){const ul=$('customList');ul.replaceChildren();for(const item of custom){const li=document.createElement('li'),txt=document.createElement('span'),del=document.createElement('button');txt.textContent=`${item[1]} · ${fmtPrice(item[2])} VC`;del.className='btn';del.textContent='Löschen';del.type='button';del.addEventListener('click',()=>{custom=custom.filter(x=>x[0]!==item[0]);save();redraw()});li.append(txt,del);ul.append(li)}}
 for(const side of ['from','to']){$(side+'Search').addEventListener('input',()=>{renderSelect(side);update()});$(side+'Item').addEventListener('change',()=>update())}
 $('fromQty').addEventListener('input',()=>update('from'));$('toQty').addEventListener('input',()=>update('to'));
 $('swap').addEventListener('click',()=>{const a=$('fromItem').value,b=$('toItem').value,q=$('toQty').value;$('fromSearch').value='';$('toSearch').value='';renderSelect('from');renderSelect('to');$('fromItem').value=b;$('toItem').value=a;$('fromQty').value=q;update()});
 $('reset').addEventListener('click',()=>{$('fromSearch').value='';$('toSearch').value='';$('fromQty').value='1';renderSelect('from');renderSelect('to');$('fromItem').value='DIAMOND';$('toItem').value='DIRT';update()});
 $('copy').addEventListener('click',async()=>{const msg=$('result').textContent+' ('+$('total').textContent+')';try{await navigator.clipboard.writeText(msg);$('copyStatus').textContent='Ergebnis kopiert.'}catch(e){$('copyStatus').textContent='Kopieren nicht unterstützt.'}});
-$('add').addEventListener('click',()=>{const name=$('newName').value.trim(),price=num($('newValue').value),msg=$('addStatus');if(!name||price<=0){msg.textContent='Bitte gültigen Itemnamen und positiven VC-Wert eingeben.';return}const id='CUSTOM_'+Date.now()+'_'+Math.random().toString(36).slice(2,8);custom.push([id,name,price]);save();$('fromSearch').value='';redraw();$('fromItem').value=id;update();$('newName').value='';msg.textContent='Eigenes Item hinzugefügt.'});
+$('add').addEventListener('click',()=>{const name=$('newName').value.trim(),raw=num($('newValue').value),price=cents(raw),msg=$('addStatus');if(!name||!validCents(raw)){msg.textContent='Bitte einen Namen und einen Preis ab 0.01 VC mit maximal zwei Nachkommastellen eingeben.';return}const id='CUSTOM_'+Date.now()+'_'+Math.random().toString(36).slice(2,8);custom.push([id,name,price]);save();$('fromSearch').value='';redraw();$('fromItem').value=id;update();$('newName').value='';msg.textContent='Eigenes Item hinzugefügt.'});
 $('editSearch').addEventListener('input',renderEditor);$('editItem').addEventListener('change',syncEditor);
-$('saveEdit').addEventListener('click',()=>{const id=$('editItem').value,price=num($('editValue').value),msg=$('editStatus');if(!(price>0)){msg.textContent='Bitte einen Preis grösser als 0 eingeben.';return}const base=original(id);if(base===undefined){const item=custom.find(x=>x[0]===id);if(!item)return;item[2]=price}else if(price===base)delete overrides[id];else overrides[id]=price;save();msg.textContent='Preis übernommen.';refreshPrices();renderCustom()});
+$('saveEdit').addEventListener('click',()=>{const id=$('editItem').value,raw=num($('editValue').value),price=cents(raw),msg=$('editStatus');if(!validCents(raw)){msg.textContent='Bitte einen Preis mit maximal zwei Nachkommastellen und mindestens 0.01 VC eingeben.';return}const base=original(id);if(base===undefined){const item=custom.find(x=>x[0]===id);if(!item)return;item[2]=price}else if(price===base)delete overrides[id];else overrides[id]=price;save();msg.textContent='Preis übernommen.';refreshPrices();renderCustom()});
 $('restoreEdit').addEventListener('click',()=>{const id=$('editItem').value;if(original(id)===undefined)return;delete overrides[id];save();$('editStatus').textContent='Standardpreis wiederhergestellt.';refreshPrices()});
 function exportList(){const blob=new Blob([JSON.stringify(currentPayload(),null,2)+'\n'],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='VeloCoin_Preisliste.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);status('JSON-Sicherung heruntergeladen.')}
 $('exportData').addEventListener('click',exportList);

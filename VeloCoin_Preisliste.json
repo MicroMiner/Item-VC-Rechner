@@ -8609,5 +8609,11 @@
       "price": 5
     }
   ],
-  "customItems": []
+  "customItems": [
+    {
+      "id": "CUSTOM_1793331404143_fddqs7",
+      "name": "Enderperle",
+      "price": 45
+    }
+  ]
 }

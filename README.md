@@ -91,3 +91,6 @@ Standardmässig vergleicht der Rechner den Verkaufswert beider Items: `Menge × 
 Die Preisliste wurde anhand der bereitgestellten Shop-CSV und materialbasierter Rezepte neu berechnet. Alle Preise liegen auf Cent-Beträgen ab 0.01 VC; Buy ist auf 500’000 VC begrenzt, bei einem Kontolimit von 10 Mio. VC. CSV-Referenzen behalten unterschiedliche Handelsspannen; Aufschläge werden nicht über Herstellungsketten mehrfach multipliziert. Varianten von Tränken, Effektpfeilen und verzauberten Büchern sind getrennte Einträge.
 
 Die vollständigen Regeln, gezielten CSV-Korrekturen und Schätzungen stehen in [pricing/README.md](pricing/README.md). Der [Änderungsbericht](pricing/price-changes.csv) enthält alle Vorher-/Nachher-Preise. Leere CSV-Verkaufspreise und Einträge ohne verifizierte Serverrezepte sind ausdrücklich als Vorschläge zu behandeln. Die Quelldatei bleibt unverändert.
+
+
+Die Symboltaste im Ergebnis übernimmt das Ziel-Item und seine berechnete Menge als neuen Ausgang. Das Ziel-Item bleibt ausgewählt. Unter der Ausgangsmenge addieren die Schnellwahltasten 1, 3, 5, 10, 15, 20, 30, 50 und 100 ihren jeweiligen Wert zur Eingabe. Die Löschtaste leert das Mengenfeld; eine leere Eingabe wird als null berechnet. Die direkte Mengeneingabe bleibt möglich.

@@ -157,6 +157,7 @@
 @media(max-width:720px){.admin-overlay{padding-top:80px}.management.locked .admin-inner{filter:blur(6px)}}
 .list-loader{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}.list-loader>div{flex:0 1 360px;min-width:0;max-width:100%}.list-loader select{margin-top:0}.list-loader .btn{flex:none}
 .mode-switch{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:8px 0;font-size:.85rem;cursor:pointer}.mode-switch input{width:18px;height:18px;padding:0;margin:0;accent-color:var(--gold)}
+.quantity-shortcuts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin-top:8px}.quantity-shortcuts .btn{min-width:0;padding:7px 2px;border-radius:4px;font-size:.85rem;line-height:1.2}.quantity-shortcuts .quantity-clear{color:#ffb9b9}.result .icon-button{display:inline-flex;align-items:center;justify-content:center;padding:10px}.icon-button svg{width:20px;height:20px}.btn:disabled{opacity:.45;cursor:default}
 </style>
 </head>
 <body>
@@ -164,10 +165,10 @@
 <header class="top"><div><div class="brand">VELOCITY ECONOMY</div><h1>Item-Umrechner</h1><small>1 Dirt = 1 VC · Minecraft</small></div><span class="tag">Online · Gemeinsame Preisliste</span></header>
 <section class="hero" aria-label="Item-Umrechner"><h2 class="section-heading">01 · Umrechnung</h2>
 <div class="hero-grid"><div class="converter-layout">
-<section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><input id="fromSearch" type="search" placeholder="z. B. Diamant, Eisen, Holz …" autocomplete="off"><select id="fromItem" aria-label="Ausgangs-Item"></select><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"></div><div><label>Verkaufspreis pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
+<section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><input id="fromSearch" type="search" placeholder="z. B. Diamant, Eisen, Holz …" autocomplete="off"><select id="fromItem" aria-label="Ausgangs-Item"></select><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"><div class="quantity-shortcuts" id="quantityShortcuts" role="group" aria-label="Menge addieren"><button class="btn" type="button" data-amount="1" aria-label="1 zur Menge addieren">1</button><button class="btn" type="button" data-amount="3" aria-label="3 zur Menge addieren">3</button><button class="btn" type="button" data-amount="5" aria-label="5 zur Menge addieren">5</button><button class="btn" type="button" data-amount="10" aria-label="10 zur Menge addieren">10</button><button class="btn" type="button" data-amount="15" aria-label="15 zur Menge addieren">15</button><button class="btn" type="button" data-amount="20" aria-label="20 zur Menge addieren">20</button><button class="btn" type="button" data-amount="30" aria-label="30 zur Menge addieren">30</button><button class="btn" type="button" data-amount="50" aria-label="50 zur Menge addieren">50</button><button class="btn" type="button" data-amount="100" aria-label="100 zur Menge addieren">100</button><button class="btn quantity-clear" id="clearQty" type="button" title="Mengeneingabe löschen" aria-label="Mengeneingabe löschen">⌫</button></div></div><div><label>Verkaufspreis pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
 <div class="swap-slot"><button class="btn swap" id="swap" type="button" title="Items tauschen" aria-label="Items tauschen"><span class="swap-icon">⇄</span></button></div>
 <section class="card"><label for="toSearch">Ziel-Item suchen</label><input id="toSearch" type="search" placeholder="z. B. Dirt, Gold, Weizen …" autocomplete="off"><select id="toItem" aria-label="Ziel-Item"></select><div class="fieldrow" style="grid-template-columns:1fr"><div><label id="toRateLabel">Verkaufswert pro Item</label><div id="toRate" class="rate"></div></div></div></section>
-</div><div class="right-stack"><section class="card result" aria-live="polite"><div class="muted" id="resultMode">WERTVERGLEICH · SELL → SELL</div><label class="mode-switch" for="shopMode"><input id="shopMode" type="checkbox" role="switch">Shop-Umrechnung (verkaufen → kaufen)</label><div class="big" id="result">Preisliste wird geladen …</div><div class="line muted" id="total"></div><div class="flex"><button class="btn" id="copy" type="button">Ergebnis kopieren</button><button class="btn" id="reset" type="button">Zurücksetzen</button></div><div id="copyStatus" class="status" aria-live="polite"></div></section>
+</div><div class="right-stack"><section class="card result" aria-live="polite"><div class="muted" id="resultMode">WERTVERGLEICH · SELL → SELL</div><label class="mode-switch" for="shopMode"><input id="shopMode" type="checkbox" role="switch">Shop-Umrechnung (verkaufen → kaufen)</label><div class="big" id="result">Preisliste wird geladen …</div><div class="line muted" id="total"></div><div class="flex"><button class="btn" id="copy" type="button">Ergebnis kopieren</button><button class="btn icon-button" id="useResult" type="button" title="Ergebnis als Ausgang übernehmen" aria-label="Ergebnis als Ausgang übernehmen" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 14-5-5 5-5M4 9h12a4 4 0 0 1 4 4v7"/></svg></button><button class="btn" id="reset" type="button">Zurücksetzen</button></div><div id="copyStatus" class="status" aria-live="polite"></div></section>
 <section class="card calculator" aria-label="Taschenrechner">
 <h3>Mini-Taschenrechner</h3>
 <label for="calcInput">Rechnung</label>
@@ -289,6 +290,7 @@ function save(){
 }
 const saveOverrides=save;
 function renderSelect(side){const s=$(side+'Item'),q=$(side+'Search').value.trim().toLocaleLowerCase(),keep=s.value||(side==='from'?'DIAMOND':'DIRT');s.replaceChildren();const found=list().filter(x=>(x.id+' '+x.name).toLocaleLowerCase().includes(q)||x.id===keep);for(const item of found){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);s.append(o)}s.value=keep;if(!s.value&&found.length)s.selectedIndex=0}
+let latestConversion=null;
 function update(){
  const a=get($('fromItem').value),b=get($('toItem').value),shop=$('shopMode').checked;
  const targetPrice=shop?b.buy:b.sell;
@@ -297,9 +299,11 @@ function update(){
  $('resultMode').textContent=shop?'SHOP · SELL → BUY':'WERTVERGLEICH · SELL → SELL';
  $('fromQty').step=shop?'1':'any';
  const amount=shop?whole($('fromQty').value):num($('fromQty').value);
- $('fromQty').value=amount;
+ if($('fromQty').value!=='')$('fromQty').value=amount;
  const value=amount*a.sell,ratio=value/targetPrice;
  const dest=shop?Math.max(0,Math.floor(ratio+1e-10)):ratio;
+ latestConversion=list().length&&Number.isFinite(dest)?{itemId:b.id,amount:dest}:null;
+ $('useResult').disabled=!latestConversion;
  $('result').textContent=shop?`${fmt(amount)} × ${a.name} verkaufen → ${fmt(dest)} × ${b.name} kaufen`:`${fmt(amount)} × ${a.name} = ${fmt(dest)} × ${b.name}`;
  $('total').textContent=shop?`${fmtPrice(value)} VC Verkaufserlös · ${fmtPrice(Math.max(0,value-dest*targetPrice))} VC Rest`:`${fmtPrice(value)} VC Verkaufswert · Beide Items zum Sell-Preis`;
 }
@@ -311,6 +315,18 @@ function refreshPrices(){const from=$('fromItem').value,to=$('toItem').value,edi
 function renderCustom(){const ul=$('customList');ul.replaceChildren();for(const item of custom){const li=document.createElement('li'),txt=document.createElement('span'),del=document.createElement('button');txt.textContent=`${item.name} · Buy ${fmtPrice(item.buy)} / Sell ${fmtPrice(item.sell)} VC`;del.className='btn';del.textContent='Löschen';del.type='button';del.addEventListener('click',()=>{custom=custom.filter(x=>x.id!==item.id);save();redraw()});li.append(txt,del);ul.append(li)}}
 for(const side of ['from','to']){$(side+'Search').addEventListener('input',()=>{renderSelect(side);update()});$(side+'Item').addEventListener('change',()=>update())}
 $('fromQty').addEventListener('input',()=>update());
+$('quantityShortcuts').addEventListener('click',e=>{
+ const button=e.target.closest('button[data-amount]');if(!button)return;
+ const amount=num($('fromQty').value)+Number(button.dataset.amount);
+ if(!Number.isFinite(amount))return;
+ $('fromQty').value=amount;update();
+});
+$('clearQty').addEventListener('click',()=>{$('fromQty').value='';update();$('fromQty').focus();});
+$('useResult').addEventListener('click',()=>{
+ if(!latestConversion)return;
+ const {itemId,amount}=latestConversion;
+ $('fromSearch').value='';renderSelect('from');$('fromItem').value=itemId;$('fromQty').value=amount;update();
+});
 $('swap').addEventListener('click',()=>{const a=$('fromItem').value,b=$('toItem').value;$('fromSearch').value='';$('toSearch').value='';renderSelect('from');renderSelect('to');$('fromItem').value=b;$('toItem').value=a;update()});
 $('reset').addEventListener('click',()=>{$('shopMode').checked=false;$('fromSearch').value='';$('toSearch').value='';$('fromQty').value='1';renderSelect('from');renderSelect('to');$('fromItem').value=list().some(x=>x.id==='DIAMOND')?'DIAMOND':list()[0].id;$('toItem').value='DIRT';update()});
 $('copy').addEventListener('click',async()=>{const msg=$('result').textContent+' ('+$('total').textContent+')';try{await navigator.clipboard.writeText(msg);$('copyStatus').textContent='Ergebnis kopiert.'}catch(e){$('copyStatus').textContent='Kopieren nicht unterstützt.'}});

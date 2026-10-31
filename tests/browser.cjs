@@ -10,8 +10,8 @@ const data=JSON.parse(fs.readFileSync(path.join(root,'preislisten/VeloCoin_Preis
 assert.equal(await p.locator('#shopMode').isChecked(),false);
 await p.locator('#fromQty').fill('3');assert.equal(Number(await p.locator('#toQty').inputValue()),1500);
 assert.match(await p.locator('#toRate').textContent(),/Sell/);
-// Shop: sell the diamonds, buy dirt at 10 VC each.
-await p.locator('#shopMode').check();assert.equal(Number(await p.locator('#toQty').inputValue()),150);
+// Shop uses the selected price list's Buy price for the target item.
+await p.locator('#shopMode').check();assert.equal(Number(await p.locator('#toQty').inputValue()),Math.floor(3*data.items.find(x=>x.id==='DIAMOND').sell/data.items.find(x=>x.id==='DIRT').buy));
 assert.match(await p.locator('#toRate').textContent(),/Buy/);
 await p.locator('#fromQty').fill('0');assert.equal(Number(await p.locator('#toQty').inputValue()),0);
 // Remainder and insufficient funds: 501 dirt sell for 501 VC, stone costs 20 VC.

@@ -84,3 +84,10 @@ Website-Dateien, Ordner und Worker müssen für die neue Listen-API gemeinsam ve
 ## Wertvergleich und Shop-Umrechnung
 
 Standardmässig vergleicht der Rechner den Verkaufswert beider Items: `Menge × Sell(A) / Sell(B)`. Dieser Gegenwert darf Bruchteile enthalten. Der Schalter „Shop-Umrechnung“ berechnet stattdessen `floor(Menge × Sell(A) / Buy(B))`: Die angegebene ganze Menge wird verkauft, davon werden so viele ganze Ziel-Items wie möglich gekauft. Nicht ausgegebene VC werden als Rest angezeigt. Bei Eingabe einer gewünschten Zielmenge berechnet der Shop-Modus die nötige Verkaufsmenge aufgerundet. „Zurücksetzen“ aktiviert wieder den Sell-/Sell-Vergleich.
+
+
+## Neue Preisbasis aus shops.csv
+
+Die Preisliste wurde anhand der bereitgestellten Shop-CSV und materialbasierter Rezepte neu berechnet. Alle Preise liegen auf Cent-Beträgen ab 0.01 VC; Buy ist auf 500’000 VC begrenzt, bei einem Kontolimit von 10 Mio. VC. CSV-Referenzen behalten unterschiedliche Handelsspannen; Aufschläge werden nicht über Herstellungsketten mehrfach multipliziert. Varianten von Tränken, Effektpfeilen und verzauberten Büchern sind getrennte Einträge.
+
+Die vollständigen Regeln, gezielten CSV-Korrekturen und Schätzungen stehen in [pricing/README.md](pricing/README.md). Der [Änderungsbericht](pricing/price-changes.csv) enthält alle Vorher-/Nachher-Preise. Leere CSV-Verkaufspreise und Einträge ohne verifizierte Serverrezepte sind ausdrücklich als Vorschläge zu behandeln. Die Quelldatei bleibt unverändert.

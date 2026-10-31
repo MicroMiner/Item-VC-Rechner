@@ -1,0 +1,460 @@
+shop,icon,key,name,buy,sell,amount
+Animal & Horses,saddle,armadillo_spawn_egg,&fArmadillo Spawn Egg,12000.0,1200.0,1
+Animal & Horses,saddle,axolotl_bucket,&fAxolotl Bucket,15000.0,1500.0,1
+Animal & Horses,saddle,carrot_on_a_stick,&fCarrot On A Stick,300.0,30.0,1
+Animal & Horses,saddle,diamond_horse_armor,&fDiamond Horse Armor,5000.0,,1
+Animal & Horses,saddle,donkey_spawn_egg,&fDonkey Spawn Egg,1500.0,,1
+Animal & Horses,saddle,fox_spawn_egg,&fFox Spawn Egg,9000.0,900.0,1
+Animal & Horses,saddle,goat_spawn_egg,&fGoat Spawn Egg,1000.0,,1
+Animal & Horses,saddle,golden_horse_armor,&fGolden Horse Armor,1500.0,,1
+Animal & Horses,saddle,horse_spawn_egg,&fHorse Spawn Egg,2500.0,,1
+Animal & Horses,saddle,iron_horse_armor,&fIron Horse Armor,750.0,,1
+Animal & Horses,saddle,lead,&fLead,50.0,10.0,1
+Animal & Horses,saddle,leather_horse_armor,&fLeather Horse Armor,1000.0,100.0,1
+Animal & Horses,saddle,llama_spawn_egg,&fLlama Spawn Egg,1500.0,,1
+Animal & Horses,saddle,saddle,&fSaddle,250.0,50.0,1
+Animal & Horses,saddle,tadpole_bucket,&fTadpole Bucket,12000.0,1200.0,1
+Animal & Horses,saddle,warped_fungus_on_a_stick,&fWarped Fungus On A Stick,500.0,50.0,1
+Animal & Horses,saddle,wolf_armor,&fWolf Armor,5000.0,500.0,1
+Building Materials,bricks,acacia_log,&fAcacia Log,50.0,5.0,1
+Building Materials,bricks,acacia_planks,&fAcacia Planks,45.0,4.5,1
+Building Materials,bricks,acacia_sapling,&fAcacia Sapling,35.0,3.5,1
+Building Materials,bricks,acacia_wood,&fAcacia Wood,55.0,5.5,1
+Building Materials,bricks,andesite,&fAndesite,40.0,2.0,1
+Building Materials,bricks,azalea,&fAzalea,35.0,3.5,1
+Building Materials,bricks,azalea_leaves,&fAzalea Leaves,35.0,3.5,1
+Building Materials,bricks,bamboo_block,&fBamboo Block,50.0,5.0,1
+Building Materials,bricks,birch_log,&fBirch Log,50.0,5.0,1
+Building Materials,bricks,birch_planks,&fBirch Planks,45.0,4.5,1
+Building Materials,bricks,birch_sapling,&fBirch Sapling,35.0,3.5,1
+Building Materials,bricks,birch_wood,&fBirch Wood,55.0,5.5,1
+Building Materials,bricks,blue_ice,&fBlue Ice,120.0,15.0,1
+Building Materials,bricks,brain_coral,&fBrain Coral,20.0,2.0,1
+Building Materials,bricks,brain_coral_block,&fBrain Coral Block,40.0,5.0,1
+Building Materials,bricks,brick,&fBrick,100.0,1.0,1
+Building Materials,bricks,bubble_coral,&fBubble Coral,20.0,2.0,1
+Building Materials,bricks,bubble_coral_block,&fBubble Coral Block,40.0,5.0,1
+Building Materials,bricks,calcite,&fCalcite,50.0,2.0,1
+Building Materials,bricks,charcoal,&fCharcoal,50.0,5.0,1
+Building Materials,bricks,cherry_log,&fCherry Log,50.0,5.0,1
+Building Materials,bricks,cherry_planks,&fCherry Planks,55.0,5.5,1
+Building Materials,bricks,cherry_sapling,&fCherry Sapling,40.0,4.0,1
+Building Materials,bricks,cherry_wood,&fCherry Wood,65.0,6.5,1
+Building Materials,bricks,clay,&fClay,70.0,3.0,1
+Building Materials,bricks,coarse_dirt,&fCoarse Dirt,25.0,2.5,1
+Building Materials,bricks,cobblestone,&fCobblestone,20.0,1.0,1
+Building Materials,bricks,crimson_stem,&fCrimson Stem,50.0,5.0,1
+Building Materials,bricks,dark_oak_log,&fDark Oak Log,50.0,5.0,1
+Building Materials,bricks,dark_oak_planks,&fDark Oak Planks,50.0,5.0,1
+Building Materials,bricks,dark_oak_sapling,&fDark Oak Sapling,40.0,4.0,1
+Building Materials,bricks,dark_oak_wood,&fDark Oak Wood,60.0,6.0,1
+Building Materials,bricks,dark_prismarine,&fDark Prismarine,40.0,5.0,1
+Building Materials,bricks,deepslate,&fDeepslate,40.0,2.0,1
+Building Materials,bricks,diorite,&fDiorite,40.0,2.0,1
+Building Materials,bricks,dirt,&fDirt,10.0,1.0,1
+Building Materials,bricks,dripstone_block,&fDripstone Block,45.0,4.5,1
+Building Materials,bricks,fire_coral,&fFire Coral,20.0,2.0,1
+Building Materials,bricks,fire_coral_block,&fFire Coral Block,40.0,5.0,1
+Building Materials,bricks,flowering_azalea,&fFlowering Azalea,45.0,4.5,1
+Building Materials,bricks,flowering_azalea_leaves,&fFlowering Azalea Leaves,45.0,4.5,1
+Building Materials,bricks,glass,&fGlass,70.0,5.0,1
+Building Materials,bricks,granite,&fGranite,40.0,2.0,1
+Building Materials,bricks,grass_block,&fGrass Block,20.0,2.0,1
+Building Materials,bricks,gravel,&fGravel,30.0,1.0,1
+Building Materials,bricks,heart_of_the_sea,&fHeart of the Sea,2500.0,25.0,1
+Building Materials,bricks,horn_coral,&fHorn Coral,20.0,2.0,1
+Building Materials,bricks,horn_coral_block,&fHorn Coral Block,40.0,5.0,1
+Building Materials,bricks,jungle_log,&fJungle Log,50.0,5.0,1
+Building Materials,bricks,jungle_planks,&fJungle Planks,45.0,4.5,1
+Building Materials,bricks,jungle_sapling,&fJungle Sapling,35.0,3.5,1
+Building Materials,bricks,jungle_wood,&fJungle Wood,55.0,5.5,1
+Building Materials,bricks,mangrove_log,&fMangrove Log,50.0,5.0,1
+Building Materials,bricks,mangrove_planks,&fMangrove Planks,55.0,5.5,1
+Building Materials,bricks,mangrove_propagule,&fMangrove Propagule,45.0,4.5,1
+Building Materials,bricks,mangrove_wood,&fMangrove Wood,65.0,6.5,1
+Building Materials,bricks,moss_block,&fMoss Block,30.0,3.0,1
+Building Materials,bricks,mud,&fMud,20.0,2.0,1
+Building Materials,bricks,mud_bricks,&fMud Bricks,50.0,4.0,1
+Building Materials,bricks,mycelium,&fMycelium,100.0,10.0,1
+Building Materials,bricks,nautilus_shell,&fNautilus Shell,200.0,50.0,1
+Building Materials,bricks,oak_log,&fOak Log,50.0,5.0,1
+Building Materials,bricks,oak_planks,&fOak Planks,40.0,4.0,1
+Building Materials,bricks,oak_sapling,&fOak Sapling,30.0,3.0,1
+Building Materials,bricks,oak_wood,&fOak Wood,50.0,5.0,1
+Building Materials,bricks,packed_mud,&fPacked Mud,30.0,3.0,1
+Building Materials,bricks,podzol,&fPodzol,35.0,3.5,1
+Building Materials,bricks,prismarine,&fPrismarine,30.0,5.0,1
+Building Materials,bricks,prismarine_bricks,&fPrismarine Bricks,40.0,5.0,1
+Building Materials,bricks,quartz_block,&fQuartz Block,120.0,12.0,1
+Building Materials,bricks,red_sand,&fRed Sand,70.0,3.0,1
+Building Materials,bricks,red_sandstone,&fRed Sandstone,55.0,5.5,1
+Building Materials,bricks,rooted_dirt,&fRooted Dirt,30.0,3.0,1
+Building Materials,bricks,sand,&fSand,50.0,1.0,1
+Building Materials,bricks,sandstone,&fSandstone,45.0,4.5,1
+Building Materials,bricks,sea_lantern,&fSea Lantern,80.0,20.0,1
+Building Materials,bricks,sponge,&fSponge,250.0,50.0,1
+Building Materials,bricks,spruce_log,&fSpruce Log,50.0,5.0,1
+Building Materials,bricks,spruce_planks,&fSpruce Planks,45.0,4.5,1
+Building Materials,bricks,spruce_sapling,&fSpruce Sapling,35.0,3.5,1
+Building Materials,bricks,spruce_wood,&fSpruce Wood,55.0,5.5,1
+Building Materials,bricks,stone,&fStone,20.0,1.0,1
+Building Materials,bricks,stone_bricks,&fStone Bricks,45.0,4.5,1
+Building Materials,bricks,terracotta,&fTerracotta,100.0,2.0,1
+Building Materials,bricks,tube_coral,&fTube Coral,20.0,2.0,1
+Building Materials,bricks,tube_coral_block,&fTube Coral Block,40.0,5.0,1
+Building Materials,bricks,tuff,&fTuff,50.0,2.0,1
+Building Materials,bricks,turtle_egg,&fTurtle Egg,500.0,100.0,1
+Building Materials,bricks,vine,&fVines,20.0,2.0,1
+Building Materials,bricks,warped_stem,&fWarped Stem,50.0,5.0,1
+Building Materials,bricks,wet_sponge,&fWet Sponge,250.0,50.0,1
+Colors & Decoration,white_dye,allium,&fAllium,20.0,2.0,1
+Colors & Decoration,white_dye,azure_bluet,&fAzure Bluet,20.0,2.0,1
+Colors & Decoration,white_dye,black_concrete_powder,&fBlack Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,black_dye,&fBlack Dye,20.0,2.0,1
+Colors & Decoration,white_dye,black_glazed_terracotta,&fBlack Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,black_terracotta,&fBlack Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,black_wool,&fBlack Wool,25.0,2.5,1
+Colors & Decoration,white_dye,blue_concrete_powder,&fBlue Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,blue_dye,&fBlue Dye,20.0,2.0,1
+Colors & Decoration,white_dye,blue_glazed_terracotta,&fBlue Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,blue_orchid,&fBlue Orchid,20.0,2.0,1
+Colors & Decoration,white_dye,blue_terracotta,&fBlue Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,blue_wool,&fBlue Wool,25.0,2.5,1
+Colors & Decoration,white_dye,brown_concrete_powder,&fBrown Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,brown_dye,&fBrown Dye,20.0,2.0,1
+Colors & Decoration,white_dye,brown_glazed_terracotta,&fBrown Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,brown_terracotta,&fBrown Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,brown_wool,&fBrown Wool,25.0,2.5,1
+Colors & Decoration,white_dye,candle,&fCandle,30.0,5.0,1
+Colors & Decoration,white_dye,cornflower,&fCornflower,20.0,2.0,1
+Colors & Decoration,white_dye,cyan_concrete_powder,&fCyan Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,cyan_dye,&fCyan Dye,20.0,2.0,1
+Colors & Decoration,white_dye,cyan_glazed_terracotta,&fCyan Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,cyan_terracotta,&fCyan Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,cyan_wool,&fCyan Wool,25.0,2.5,1
+Colors & Decoration,white_dye,dandelion,&fDandelion,20.0,2.0,1
+Colors & Decoration,white_dye,flower_pot,&fFlower Pot,50.0,10.0,1
+Colors & Decoration,white_dye,glow_item_frame,&fGlow Item Frame,200.0,50.0,1
+Colors & Decoration,white_dye,gray_concrete_powder,&fGray Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,gray_dye,&fGray Dye,20.0,2.0,1
+Colors & Decoration,white_dye,gray_glazed_terracotta,&fGray Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,gray_terracotta,&fGray Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,gray_wool,&fGray Wool,25.0,2.5,1
+Colors & Decoration,white_dye,green_concrete_powder,&fGreen Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,green_dye,&fGreen Dye,20.0,2.0,1
+Colors & Decoration,white_dye,green_glazed_terracotta,&fGreen Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,green_terracotta,&fGreen Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,green_wool,&fGreen Wool,25.0,2.5,1
+Colors & Decoration,white_dye,iron_chain,&fChain,50.0,10.0,1
+Colors & Decoration,white_dye,item_frame,&fItem Frame,80.0,20.0,1
+Colors & Decoration,white_dye,ladder,&fLadder,20.0,2.0,1
+Colors & Decoration,white_dye,lantern,&fLantern,50.0,10.0,1
+Colors & Decoration,white_dye,light_blue_concrete_powder,&fLight Blue Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,light_blue_dye,&fLight Blue Dye,20.0,2.0,1
+Colors & Decoration,white_dye,light_blue_glazed_terracotta,&fLight Blue Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,light_blue_terracotta,&fLight Blue Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,light_blue_wool,&fLight Blue Wool,25.0,2.5,1
+Colors & Decoration,white_dye,light_gray_concrete_powder,&fLight Gray Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,light_gray_dye,&fLight Gray Dye,20.0,2.0,1
+Colors & Decoration,white_dye,light_gray_glazed_terracotta,&fLight Gray Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,light_gray_terracotta,&fLight Gray Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,light_gray_wool,&fLight Gray Wool,25.0,2.5,1
+Colors & Decoration,white_dye,lilac,&fLilac,20.0,2.0,1
+Colors & Decoration,white_dye,lily_of_the_valley,&fLily of the Valley,20.0,2.0,1
+Colors & Decoration,white_dye,lime_concrete_powder,&fLime Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,lime_dye,&fLime Dye,20.0,2.0,1
+Colors & Decoration,white_dye,lime_glazed_terracotta,&fLime Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,lime_terracotta,&fLime Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,lime_wool,&fLime Wool,25.0,2.5,1
+Colors & Decoration,white_dye,magenta_concrete_powder,&fMagenta Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,magenta_dye,&fMagenta Dye,20.0,2.0,1
+Colors & Decoration,white_dye,magenta_glazed_terracotta,&fMagenta Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,magenta_terracotta,&fMagenta Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,magenta_wool,&fMagenta Wool,25.0,2.5,1
+Colors & Decoration,white_dye,oak_sign,&fOak Sign,30.0,5.0,1
+Colors & Decoration,white_dye,oak_trapdoor,&fTrapdoor,30.0,5.0,1
+Colors & Decoration,white_dye,orange_concrete_powder,&fOrange Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,orange_dye,&fOrange Dye,20.0,2.0,1
+Colors & Decoration,white_dye,orange_glazed_terracotta,&fOrange Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,orange_terracotta,&fOrange Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,orange_tulip,&fOrange Tulip,20.0,2.0,1
+Colors & Decoration,white_dye,orange_wool,&fOrange Wool,25.0,2.5,1
+Colors & Decoration,white_dye,oxeye_daisy,&fOxeye Daisy,20.0,2.0,1
+Colors & Decoration,white_dye,peony,&fPeony,20.0,2.0,1
+Colors & Decoration,white_dye,pink_concrete_powder,&fPink Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,pink_dye,&fPink Dye,20.0,2.0,1
+Colors & Decoration,white_dye,pink_glazed_terracotta,&fPink Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,pink_terracotta,&fPink Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,pink_tulip,&fPink Tulip,20.0,2.0,1
+Colors & Decoration,white_dye,pink_wool,&fPink Wool,25.0,2.5,1
+Colors & Decoration,white_dye,pitcher_plant,&fPitcher Plant,20.0,2.0,1
+Colors & Decoration,white_dye,poppy,&fPoppy,20.0,2.0,1
+Colors & Decoration,white_dye,purple_concrete_powder,&fPurple Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,purple_dye,&fPurple Dye,20.0,2.0,1
+Colors & Decoration,white_dye,purple_glazed_terracotta,&fPurple Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,purple_terracotta,&fPurple Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,purple_wool,&fPurple Wool,25.0,2.5,1
+Colors & Decoration,white_dye,red_bed,&fRed Bed,120.0,12.0,1
+Colors & Decoration,white_dye,red_concrete_powder,&fRed Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,red_dye,&fRed Dye,20.0,2.0,1
+Colors & Decoration,white_dye,red_glazed_terracotta,&fRed Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,red_terracotta,&fRed Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,red_tulip,&fRed Tulip,20.0,2.0,1
+Colors & Decoration,white_dye,red_wool,&fRed Wool,25.0,2.5,1
+Colors & Decoration,white_dye,rose_bush,&fRose Bush,20.0,2.0,1
+Colors & Decoration,white_dye,shield,&fShield,30.0,5.0,1
+Colors & Decoration,white_dye,soul_lantern,&fSoul Lantern,50.0,10.0,1
+Colors & Decoration,white_dye,sunflower,&fSunflower,20.0,2.0,1
+Colors & Decoration,white_dye,torchflower,&fTorchflower,20.0,2.0,1
+Colors & Decoration,white_dye,white_concrete_powder,&fWhite Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,white_dye,&fWhite Dye,20.0,2.0,1
+Colors & Decoration,white_dye,white_glazed_terracotta,&fWhite Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,white_terracotta,&fWhite Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,white_tulip,&fWhite Tulip,20.0,2.0,1
+Colors & Decoration,white_dye,white_wool,&fWhite Wool,25.0,2.5,1
+Colors & Decoration,white_dye,yellow_concrete_powder,&fYellow Concrete Powder,30.0,3.0,1
+Colors & Decoration,white_dye,yellow_dye,&fYellow Dye,20.0,2.0,1
+Colors & Decoration,white_dye,yellow_glazed_terracotta,&fYellow Glazed Terracotta,80.0,8.0,1
+Colors & Decoration,white_dye,yellow_terracotta,&fYellow Terracotta,55.0,5.5,1
+Colors & Decoration,white_dye,yellow_wool,&fYellow Wool,25.0,2.5,1
+End,end_stone,chorus_flower,&fChorus Flower,30.0,5.0,1
+End,end_stone,chorus_fruit,&fChorus Fruit,20.0,4.0,1
+End,end_stone,chorus_plant,&fChorus Plant,70.0,7.0,1
+End,end_stone,dragon_breath,&fDragon's Breath,500.0,120.0,1
+End,end_stone,end_crystal,&fEnd Crystal,75000.0,7500.0,1
+End,end_stone,end_rod,&fEnd Rod,120.0,20.0,1
+End,end_stone,end_stone,&fEnd Stone,10.0,2.0,1
+End,end_stone,ender_eye,&fEye of Ender,250.0,50.0,1
+End,end_stone,shulker_shell,&fShulker Shell,750.0,200.0,1
+Farming,wheat,apple,&fApple,20.0,5.0,1
+Farming,wheat,baked_potato,&fBaked Potato,25.0,6.0,1
+Farming,wheat,bamboo,&fBamboo,10.0,1.0,1
+Farming,wheat,beef,&fRaw Beef,45.0,4.5,1
+Farming,wheat,beetroot,&fBeetroot,10.0,2.0,1
+Farming,wheat,beetroot_seeds,&fBeetroot Seeds,10.0,1.0,1
+Farming,wheat,beetroot_soup,&fBeetroot Soup,70.0,7.0,1
+Farming,wheat,bread,&fBread,35.0,3.5,1
+Farming,wheat,brown_mushroom,&fBrown Mushroom,25.0,2.5,1
+Farming,wheat,brown_mushroom_block,&fBrown Mushroom Block,35.0,3.5,1
+Farming,wheat,cactus,&fCactus,25.0,2.5,1
+Farming,wheat,cake,&fCake,180.0,18.0,1
+Farming,wheat,carrot,&fCarrot,10.0,2.0,1
+Farming,wheat,chicken,&fRaw Chicken,40.0,4.0,1
+Farming,wheat,cocoa_beans,&fCocoa Beans,20.0,3.0,1
+Farming,wheat,cod,&fRaw Cod,30.0,3.0,1
+Farming,wheat,cooked_beef,&fCooked Beef,35.0,8.0,1
+Farming,wheat,cooked_chicken,&fCooked Chicken,30.0,7.0,1
+Farming,wheat,cooked_cod,&fCooked Cod,30.0,7.0,1
+Farming,wheat,cooked_mutton,&fCooked Mutton,35.0,8.0,1
+Farming,wheat,cooked_porkchop,&fCooked Porkchop,35.0,8.0,1
+Farming,wheat,cooked_rabbit,&fCooked Rabbit,40.0,9.0,1
+Farming,wheat,cooked_salmon,&fCooked Salmon,35.0,8.0,1
+Farming,wheat,cookie,&fCookie,20.0,2.0,1
+Farming,wheat,dried_kelp,&fDried Kelp,20.0,2.0,1
+Farming,wheat,dried_kelp_block,&fDried Kelp Block,120.0,12.0,1
+Farming,wheat,egg,&fEgg,10.0,2.0,1
+Farming,wheat,glow_berries,&fGlow Berries,20.0,3.0,1
+Farming,wheat,golden_carrot,&fGolden Carrot,80.0,20.0,1
+Farming,wheat,hay_block,&fHay Block,180.0,18.0,1
+Farming,wheat,honey_bottle,&fHoney Bottle,60.0,10.0,1
+Farming,wheat,honeycomb,&fHoneycomb,40.0,8.0,1
+Farming,wheat,kelp,&fKelp,10.0,1.0,1
+Farming,wheat,melon,&fMelon,20.0,3.0,1
+Farming,wheat,melon_seeds,&fMelon Seeds,25.0,2.5,1
+Farming,wheat,melon_slice,&fMelon Slice,10.0,1.0,1
+Farming,wheat,milk_bucket,&fMilk Bucket,60.0,10.0,1
+Farming,wheat,mushroom_stew,&fMushroom Stew,80.0,8.0,1
+Farming,wheat,mutton,&fRaw Mutton,45.0,4.5,1
+Farming,wheat,nether_wart,&fNether Wart,60.0,6.0,1
+Farming,wheat,paper,&fPaper,20.0,2.0,1
+Farming,wheat,porkchop,&fRaw Porkchop,45.0,4.5,1
+Farming,wheat,potato,&fPotato,10.0,2.0,1
+Farming,wheat,pufferfish,&fPufferfish,80.0,8.0,1
+Farming,wheat,pumpkin,&fPumpkin,20.0,5.0,1
+Farming,wheat,pumpkin_pie,&fPumpkin Pie,55.0,5.5,1
+Farming,wheat,pumpkin_seeds,&fPumpkin Seeds,25.0,2.5,1
+Farming,wheat,rabbit,&fRaw Rabbit,55.0,5.5,1
+Farming,wheat,rabbit_stew,&fRabbit Stew,140.0,14.0,1
+Farming,wheat,red_mushroom,&fRed Mushroom,25.0,2.5,1
+Farming,wheat,red_mushroom_block,&fRed Mushroom Block,35.0,3.5,1
+Farming,wheat,salmon,&fRaw Salmon,45.0,4.5,1
+Farming,wheat,seagrass,&fSeagrass,10.0,1.0,1
+Farming,wheat,sugar,&fSugar,15.0,1.5,1
+Farming,wheat,sugar_cane,&fSugar Cane,10.0,2.0,1
+Farming,wheat,sweet_berries,&fSweet Berries,10.0,2.0,1
+Farming,wheat,tropical_fish,&fTropical Fish,80.0,8.0,1
+Farming,wheat,wheat,&fWheat,10.0,2.0,1
+Farming,wheat,wheat_seeds,&fWheat Seeds,10.0,1.0,1
+Luxury & Special,nether_star,beacon,&fBeacon,250000.0,,1
+Luxury & Special,nether_star,dragon_head,&fDragon Head,150000.0,15000.0,1
+Luxury & Special,nether_star,elytra,&fElytra,900000.0,90000.0,1
+Luxury & Special,nether_star,enchanted_golden_apple,&fEnchanted Golden Apple,25000.0,,1
+Luxury & Special,nether_star,ender_chest,&fEnder Chest,350.0,80.0,1
+Luxury & Special,nether_star,firework_rocket,&fFirework Rocket,150.0,15.0,1
+Luxury & Special,nether_star,lodestone,&fLodestone,50000.0,5000.0,1
+Luxury & Special,nether_star,name_tag,&fName Tag,150.0,30.0,1
+Luxury & Special,nether_star,nether_star,&fNether Star,250000.0,,1
+Luxury & Special,nether_star,tnt,&fTnt,2500.0,250.0,1
+Luxury & Special,nether_star,trident,&fTrident,50000.0,,1
+Mining & Resources,diamond,amethyst_block,&fAmethyst Block,300.0,60.0,1
+Mining & Resources,diamond,amethyst_cluster,&fAmethyst Cluster,180.0,18.0,1
+Mining & Resources,diamond,amethyst_shard,&fAmethyst Shard,100.0,20.0,1
+Mining & Resources,diamond,coal,&fCoal,70.0,20.0,1
+Mining & Resources,diamond,coal_block,&fCoal Block,180.0,18.0,1
+Mining & Resources,diamond,copper_block,&fCopper Block,630.0,180.0,1
+Mining & Resources,diamond,copper_ingot,&fCopper Ingot,70.0,20.0,1
+Mining & Resources,diamond,diamond,&fDiamond,1500.0,500.0,1
+Mining & Resources,diamond,diamond_block,&fDiamond Block,13500.0,4500.0,1
+Mining & Resources,diamond,echo_shard,&fEcho Shard,15000.0,1500.0,1
+Mining & Resources,diamond,emerald,&fEmerald,1000.0,100.0,1
+Mining & Resources,diamond,emerald_block,&fEmerald Block,9000.0,900.0,1
+Mining & Resources,diamond,flint,&fFlint,20.0,1.0,1
+Mining & Resources,diamond,glowstone_dust,&fGlowstone Dust,50.0,10.0,1
+Mining & Resources,diamond,gold_block,&fGold Block,2250.0,180.0,1
+Mining & Resources,diamond,gold_ingot,&fGold Ingot,250.0,20.0,1
+Mining & Resources,diamond,iron_block,&fIron Block,2250.0,180.0,1
+Mining & Resources,diamond,iron_ingot,&fIron Ingot,250.0,20.0,1
+Mining & Resources,diamond,lapis_block,&fLapis Block,400.0,40.0,1
+Mining & Resources,diamond,lapis_lazuli,&fLapis Lazuli,70.0,10.0,1
+Mining & Resources,diamond,netherite_block,&fNetherite Block,720000.0,7200.0,1
+Mining & Resources,diamond,netherite_ingot,&fNetherite Ingot,80000.0,800.0,1
+Mining & Resources,diamond,netherite_scrap,&fNetherite Scrap,20000.0,200.0,1
+Mining & Resources,diamond,obsidian,&fObsidian,300.0,80.0,1
+Mining & Resources,diamond,redstone,&fRedstone Dust,50.0,10.0,1
+Mining & Resources,diamond,redstone_block,&fRedstone Block,300.0,30.0,1
+Mob Drops,rotten_flesh,armadillo_scute,&fArmadillo Scute,1500.0,150.0,1
+Mob Drops,rotten_flesh,arrow,&fArrow,10.0,2.0,1
+Mob Drops,rotten_flesh,blaze_powder,&fBlaze Powder,180.0,18.0,1
+Mob Drops,rotten_flesh,blaze_rod,&fBlaze Rod,150.0,40.0,1
+Mob Drops,rotten_flesh,bone,&fBone,20.0,3.0,1
+Mob Drops,rotten_flesh,bone_meal,&fBone Meal,10.0,2.0,1
+Mob Drops,rotten_flesh,cod,&fCod,30.0,3.0,1
+Mob Drops,rotten_flesh,ender_pearl,&fEnder Pearl,120.0,30.0,1
+Mob Drops,rotten_flesh,feather,&fFeather,20.0,3.0,1
+Mob Drops,rotten_flesh,fermented_spider_eye,&fFermented Spider Eye,120.0,12.0,1
+Mob Drops,rotten_flesh,ghast_tear,&fGhast Tear,300.0,80.0,1
+Mob Drops,rotten_flesh,glow_ink_sac,&fGlow Ink Sac,50.0,10.0,1
+Mob Drops,rotten_flesh,gunpowder,&fGunpowder,50.0,10.0,1
+Mob Drops,rotten_flesh,ink_sac,&fInk Sac,20.0,3.0,1
+Mob Drops,rotten_flesh,leather,&fLeather,50.0,10.0,1
+Mob Drops,rotten_flesh,magma_cream,&fMagma Cream,80.0,20.0,1
+Mob Drops,rotten_flesh,phantom_membrane,&fPhantom Membrane,200.0,50.0,1
+Mob Drops,rotten_flesh,prismarine_crystals,&fPrismarine Crystals,30.0,5.0,1
+Mob Drops,rotten_flesh,prismarine_shard,&fPrismarine Shard,30.0,5.0,1
+Mob Drops,rotten_flesh,rabbit_hide,&fRabbit Hide,30.0,5.0,1
+Mob Drops,rotten_flesh,rotten_flesh,&fRotten Flesh,25.0,2.5,1
+Mob Drops,rotten_flesh,salmon,&fSalmon,45.0,4.5,1
+Mob Drops,rotten_flesh,slime_ball,&fSlimeball,50.0,10.0,1
+Mob Drops,rotten_flesh,slime_block,&fSlime Block,180.0,18.0,1
+Mob Drops,rotten_flesh,spider_eye,&fSpider Eye,30.0,5.0,1
+Mob Drops,rotten_flesh,string,&fString,20.0,3.0,1
+Mob Drops,rotten_flesh,totem_of_undying,&fTotem of Undying,1750.0,400.0,1
+Nether,netherrack,ancient_debris,&fAncient Debris,20000.0,200.0,1
+Nether,netherrack,basalt,&fBasalt,10.0,2.0,1
+Nether,netherrack,blackstone,&fBlackstone,10.0,2.0,1
+Nether,netherrack,crimson_hyphae,&fCrimson Hyphae,60.0,6.0,1
+Nether,netherrack,crimson_planks,&fCrimson Planks,50.0,5.0,1
+Nether,netherrack,crying_obsidian,&fCrying Obsidian,1000.0,20.0,1
+Nether,netherrack,glowstone,&fGlowstone,20.0,3.0,1
+Nether,netherrack,gold_nugget,&fGold Nugget,10.0,1.0,1
+Nether,netherrack,magma_block,&fMagma Block,40.0,6.0,1
+Nether,netherrack,nether_bricks,&fNether Bricks,30.0,4.0,1
+Nether,netherrack,nether_wart_block,&fNether Wart Block,10.0,2.0,1
+Nether,netherrack,netherrack,&fNetherrack,10.0,1.0,1
+Nether,netherrack,quartz,&fNether Quartz,40.0,5.0,1
+Nether,netherrack,respawn_anchor,&fRespawn Anchor,300.0,60.0,1
+Nether,netherrack,shroomlight,&fShroomlight,60.0,10.0,1
+Nether,netherrack,soul_sand,&fSoul Sand,20.0,3.0,1
+Nether,netherrack,soul_soil,&fSoul Soil,20.0,3.0,1
+Nether,netherrack,soul_torch,&fSoul Torch,35.0,3.5,1
+Nether,netherrack,warped_hyphae,&fWarped Hyphae,60.0,6.0,1
+Nether,netherrack,warped_planks,&fWarped Planks,50.0,5.0,1
+Potions & Brewing,brewing_stand,brewing_stand,&fBrewing Stand,200.0,50.0,1
+Potions & Brewing,brewing_stand,cauldron,&fCauldron,120.0,30.0,1
+Potions & Brewing,brewing_stand,glass_bottle,&fGlass Bottle,20.0,2.0,1
+Potions & Brewing,brewing_stand,rabbit_foot,&fRabbit's Foot,200.0,50.0,1
+Potions & Brewing,brewing_stand,turtle_scute,&fTurtle Scute,1200.0,120.0,1
+Potions & Brewing,pufferfish,pufferfish,&fPufferfish,80,8,1
+Potions & Brewing,potion,potion,&fPotion of Swiftness II,350,35.0,1
+Potions & Brewing,potion,potion,&fPotion of Slowness IV,350,35.0,1
+Potions & Brewing,potion,potion,&fPotion of Strength II,400,40.0,1
+Potions & Brewing,potion,potion,&fPotion of Jump Boost II,350,35.0,1
+Potions & Brewing,potion,potion,&fPotion of Regeneration II,450,45.0,1
+Potions & Brewing,potion,potion,&fPotion of Fire Resistance,250,25.0,1
+Potions & Brewing,potion,potion,&fPotion of Water Breathing,250,25.0,1
+Potions & Brewing,potion,potion,&fPotion of Night Vision,250,25.0,1
+Potions & Brewing,potion,potion,&fPotion of Invisibility,300,30.0,1
+Potions & Brewing,potion,potion,&fPotion of Healing II,450,45.0,1
+Potions & Brewing,potion,potion,&fPotion of Harming II,500,50.0,1
+Potions & Brewing,potion,potion,&fPotion of Poison II,400,40.0,1
+Potions & Brewing,potion,potion,&fPotion of Weakness,200,20.0,1
+Potions & Brewing,potion,potion,&fPotion of Slow Falling,300,30.0,1
+Potions & Brewing,potion,potion,&fPotion of Turtle Master II,750,75.0,1
+Potions & Brewing,potion,potion,&fPotion of Wind Charging,350,35.0,1
+Potions & Brewing,potion,potion,&fPotion of Weaving,350,35.0,1
+Potions & Brewing,potion,potion,&fPotion of Oozing,350,35.0,1
+Potions & Brewing,potion,potion,&fPotion of Infestation,350,35.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Swiftness II,350,35.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Slowness IV,350,35.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Strength II,400,40.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Jump Boost II,350,35.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Regeneration II,450,45.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Fire Resistance,250,25.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Water Breathing,250,25.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Night Vision,250,25.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Invisibility,300,30.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Healing II,450,45.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Harming II,500,50.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Poison II,400,40.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Weakness,200,20.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Slow Falling,300,30.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Turtle Master II,750,75.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Wind Charging,350,35.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Weaving,350,35.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Oozing,350,35.0,1
+Potions & Brewing,tipped_arrow,tipped_arrow,&fTipped Arrow – Infestation,350,35.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Aqua Affinity 1,500,5.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Bane of Arthropods 5,750,7.5,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Blast Protection 4,750,7.5,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Breach 4,150,15.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Channeling 1,200,2.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Binding Curse 1,200,0.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Vanishing Curse 1,200,2.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Density 5,150,15.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Depth Strider 3,100,10.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Efficiency 5,120,12.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Feather Falling 4,100,10.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Fire Aspect 2,90,9.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Fire Protection 4,75,7.5,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Flame 1,80,8.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Fortune 3,180,18.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Frost Walker 2,100,10.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Impaling 5,100,10.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Infinity 1,200,20.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Knockback 2,65,6.5,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Looting 3,180,18.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Loyalty 3,120,12.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Luck of the Sea 3,90,9.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Lure 3,90,9.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Mending 1,300,30.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Multishot 1,120,12.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Piercing 4,90,9.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Power 5,120,12.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Projectile Protection 4,75,7.5,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Protection 4,120,12.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Punch 2,65,6.5,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Quick Charge 3,90,9.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Respiration 3,100,10.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Riptide 3,120,12.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Sharpness 5,200,20.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Silk Touch 1,250,25.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Smite 5,75,7.5,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Soul Speed 3,150,15.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Sweeping Edge 3,120,12.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Swift Sneak 3,250,25.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Thorns 3,100,10.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Unbreaking 3,150,15.0,1
+Enchanted Books,enchanted_book,enchanted_book,&fEnchanted Book – Wind Burst 3,300,30.0,1
+Nether,froglight,ochre_froglight,&fOchre Froglight,50.0,5.0,1
+Nether,froglight,verdant_froglight,&fVerdant Froglight,50.0,5.0,1
+Nether,froglight,pearlescent_froglight,&fPearlescent Froglight,50.0,5.0,1

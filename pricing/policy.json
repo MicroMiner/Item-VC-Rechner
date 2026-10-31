@@ -1,0 +1,352 @@
+{
+  "maximumBuy": "500000",
+  "processingBuyFactor": "1.10",
+  "processingSellFactor": "0.85",
+  "saleSafetyFactor": "0.90",
+  "overrides": {
+    "DIRT": [
+      3,
+      1
+    ]
+  },
+  "services": [
+    "FUEL_UNIT",
+    "WATER_SERVICE",
+    "LAVA_SERVICE",
+    "WRITING_SERVICE"
+  ],
+  "fallbacks": {
+    "FUEL_UNIT": [
+      2.25,
+      0.225
+    ],
+    "WATER_SERVICE": [
+      1,
+      0.1
+    ],
+    "LAVA_SERVICE": [
+      30,
+      3
+    ],
+    "WRITING_SERVICE": [
+      20,
+      2
+    ],
+    "RAW_IRON": [
+      200,
+      16
+    ],
+    "RAW_GOLD": [
+      200,
+      16
+    ],
+    "RAW_COPPER": [
+      55,
+      16
+    ],
+    "PALE_OAK_LOG": [
+      50,
+      5
+    ],
+    "PALE_OAK_WOOD": [
+      65,
+      6.5
+    ],
+    "PALE_OAK_PLANKS": [
+      55,
+      5.5
+    ],
+    "WARPED_WART_BLOCK": [
+      10,
+      2
+    ],
+    "POPLAR_LOG": [
+      50,
+      5
+    ],
+    "POPLAR_LEAVES": [
+      30,
+      3
+    ],
+    "SHORT_GRASS": [
+      10,
+      1
+    ],
+    "TALL_GRASS": [
+      15,
+      1.5
+    ],
+    "FERN": [
+      15,
+      1.5
+    ],
+    "LARGE_FERN": [
+      20,
+      2
+    ],
+    "DEAD_BUSH": [
+      10,
+      1
+    ],
+    "BUSH": [
+      15,
+      1.5
+    ],
+    "FIREFLY_BUSH": [
+      25,
+      2.5
+    ],
+    "LILY_PAD": [
+      20,
+      2
+    ],
+    "SMALL_DRIPLEAF": [
+      25,
+      2.5
+    ],
+    "BIG_DRIPLEAF": [
+      35,
+      3.5
+    ],
+    "HANGING_ROOTS": [
+      15,
+      1.5
+    ],
+    "GLOW_LICHEN": [
+      25,
+      2.5
+    ],
+    "SPORE_BLOSSOM": [
+      100,
+      10
+    ],
+    "TWISTING_VINES": [
+      20,
+      2
+    ],
+    "WEEPING_VINES": [
+      20,
+      2
+    ],
+    "CRIMSON_FUNGUS": [
+      35,
+      3.5
+    ],
+    "WARPED_FUNGUS": [
+      35,
+      3.5
+    ],
+    "MANGROVE_ROOTS": [
+      20,
+      2
+    ],
+    "MUSHROOM_STEM": [
+      30,
+      3
+    ],
+    "SNOWBALL": [
+      2,
+      0.2
+    ],
+    "SNOW_BLOCK": [
+      8,
+      0.8
+    ],
+    "POWDER_SNOW": [
+      10,
+      1
+    ],
+    "ICE": [
+      10,
+      1
+    ],
+    "SCULK": [
+      30,
+      3
+    ],
+    "SCULK_VEIN": [
+      15,
+      1.5
+    ],
+    "SCULK_CATALYST": [
+      250,
+      25
+    ],
+    "SCULK_SHRIEKER": [
+      350,
+      35
+    ],
+    "GILDED_BLACKSTONE": [
+      100,
+      10
+    ],
+    "HEAVY_CORE": [
+      100000,
+      10000
+    ],
+    "BREEZE_ROD": [
+      500,
+      100
+    ],
+    "DRAGON_EGG": [
+      1000000,
+      100000
+    ],
+    "HEART_OF_THE_SEA": [
+      2500,
+      25
+    ],
+    "DISC_FRAGMENT_5": [
+      250,
+      25
+    ],
+    "EXPERIENCE_BOTTLE": [
+      150,
+      15
+    ],
+    "ENCHANTED_BOOK": [
+      300,
+      30
+    ],
+    "OBSIDIAN": [
+      300,
+      80
+    ],
+    "OMINOUS_BOTTLE": [
+      500,
+      50
+    ],
+    "TRIAL_KEY": [
+      1000,
+      100
+    ],
+    "OMINOUS_TRIAL_KEY": [
+      5000,
+      500
+    ],
+    "SNIFFER_EGG": [
+      5000,
+      500
+    ],
+    "FROGSPAWN": [
+      1000,
+      100
+    ],
+    "POISONOUS_POTATO": [
+      5,
+      0.5
+    ],
+    "TORCHFLOWER_SEEDS": [
+      100,
+      10
+    ],
+    "PITCHER_POD": [
+      100,
+      10
+    ],
+    "GOLDEN_DANDELION": [
+      100,
+      10
+    ],
+    "PALE_HANGING_MOSS": [
+      20,
+      2
+    ],
+    "TALL_DRY_GRASS": [
+      15,
+      1.5
+    ],
+    "SHORT_DRY_GRASS": [
+      10,
+      1
+    ],
+    "LEAF_LITTER": [
+      10,
+      1
+    ],
+    "BELL": [
+      2500,
+      250
+    ],
+    "COBWEB": [
+      40,
+      4
+    ],
+    "COD_BUCKET": [
+      90,
+      9
+    ],
+    "SALMON_BUCKET": [
+      105,
+      10.5
+    ],
+    "PUFFERFISH_BUCKET": [
+      140,
+      14
+    ],
+    "TROPICAL_FISH_BUCKET": [
+      140,
+      14
+    ],
+    "CHIPPED_ANVIL": [
+      4000,
+      200
+    ],
+    "DAMAGED_ANVIL": [
+      2000,
+      100
+    ],
+    "COBBLED_DEEPSLATE": [
+      35,
+      1.8
+    ],
+    "COPPER_HORSE_ARMOR": [
+      490,
+      49
+    ],
+    "PALE_MOSS_BLOCK": [
+      30,
+      3
+    ],
+    "PINK_PETALS": [
+      10,
+      1
+    ],
+    "WILDFLOWERS": [
+      10,
+      1
+    ],
+    "CACTUS_FLOWER": [
+      20,
+      2
+    ],
+    "OPEN_EYEBLOSSOM": [
+      30,
+      3
+    ],
+    "CLOSED_EYEBLOSSOM": [
+      30,
+      3
+    ],
+    "POINTED_DRIPSTONE": [
+      15,
+      1.5
+    ],
+    "SCULK_SENSOR": [
+      250,
+      25
+    ],
+    "SEA_PICKLE": [
+      20,
+      2
+    ],
+    "WITHER_ROSE": [
+      500,
+      50
+    ],
+    "RESIN_CLUMP": [
+      20,
+      2
+    ]
+  }
+}

@@ -26,7 +26,8 @@
 .management .editor-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:end}
 .management .editor-grid .fieldrow{margin:0}
 .management .editor-actions{margin-top:14px}
-.management .addgrid{grid-template-columns:minmax(0,1fr) minmax(180px,.3fr)}
+.management .addgrid{grid-template-columns:minmax(0,1fr) minmax(260px,.65fr)}
+.management .addgrid .fieldrow{gap:8px}.management .fieldrow input{min-width:0;padding:9px 10px;font-size:1rem}.management .fieldrow .original{min-height:1em}
 .custom-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:0;margin-top:14px}
 .custom-list li{min-width:0}
 .custom-list li span{min-width:0;overflow-wrap:anywhere}
@@ -161,9 +162,9 @@
 <header class="top"><div><div class="brand">VELOCITY ECONOMY</div><h1>Item-Umrechner</h1><small>1 Dirt = 1 VC · Minecraft</small></div><span class="tag">Online · Gemeinsame Preisliste</span></header>
 <section class="hero" aria-label="Item-Umrechner"><h2 class="section-heading">01 · Umrechnung</h2>
 <div class="hero-grid"><div class="converter-layout">
-<section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><input id="fromSearch" type="search" placeholder="z. B. Diamant, Eisen, Holz …" autocomplete="off"><select id="fromItem" aria-label="Ausgangs-Item"></select><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"></div><div><label>Wert pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
+<section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><input id="fromSearch" type="search" placeholder="z. B. Diamant, Eisen, Holz …" autocomplete="off"><select id="fromItem" aria-label="Ausgangs-Item"></select><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"></div><div><label>Verkaufspreis pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
 <div class="swap-slot"><button class="btn swap" id="swap" type="button" title="Items tauschen" aria-label="Items tauschen"><span class="swap-icon">⇄</span></button></div>
-<section class="card"><label for="toSearch">Ziel-Item suchen</label><input id="toSearch" type="search" placeholder="z. B. Dirt, Gold, Weizen …" autocomplete="off"><select id="toItem" aria-label="Ziel-Item"></select><div class="fieldrow"><div><label for="toQty">Zielmenge (ganze Stücke)</label><input id="toQty" type="number" min="0" step="1" inputmode="numeric"></div><div><label>Wert pro Item</label><div id="toRate" class="rate"></div></div></div></section>
+<section class="card"><label for="toSearch">Ziel-Item suchen</label><input id="toSearch" type="search" placeholder="z. B. Dirt, Gold, Weizen …" autocomplete="off"><select id="toItem" aria-label="Ziel-Item"></select><div class="fieldrow"><div><label for="toQty">Zielmenge (ganze Stücke)</label><input id="toQty" type="number" min="0" step="1" inputmode="numeric"></div><div><label>Kaufpreis pro Item</label><div id="toRate" class="rate"></div></div></div></section>
 </div><div class="right-stack"><section class="card result" aria-live="polite"><div class="muted">UMRECHNUNG</div><div class="big" id="result">JSON-Datei verbinden</div><div class="line muted" id="total">350 VC Gesamtwert</div><div class="flex"><button class="btn" id="copy" type="button">Ergebnis kopieren</button><button class="btn" id="reset" type="button">Zurücksetzen</button></div><div id="copyStatus" class="status" aria-live="polite"></div></section>
 <section class="card calculator" aria-label="Taschenrechner">
 <h3>Mini-Taschenrechner</h3>
@@ -181,45 +182,52 @@
 <section class="management locked" id="management" aria-label="Items und Preise verwalten">
 <div class="admin-overlay" id="adminOverlay"><form class="admin-login" id="adminLogin"><div class="admin-lock-icon">🔒</div><h2>Preisverwaltung gesperrt</h2><p>Nur autorisierte Personen dürfen die zentrale Preisliste ändern.</p><label for="adminPassword">Admin-Passwort</label><input id="adminPassword" type="password" required autocomplete="off" placeholder="Passwort eingeben"><button type="submit" class="btn admin-unlock">Verwaltung entsperren</button><div class="status" id="adminStatus" role="status"></div></form></div>
 <div class="admin-inner" id="adminInner" inert><h2 class="section-heading">02 · Preise &amp; Items verwalten</h2>
-<section class="card"><h2>Bestehende Itempreise anpassen</h2><p class="editor-note">Änderungen gelten sofort für beide Seiten des Umrechners. Der ursprüngliche Preis bleibt in Klammern sichtbar.</p>
+<section class="card"><h2>Bestehende Itempreise anpassen</h2><p class="editor-note">Änderungen gelten sofort für beide Seiten des Umrechners. Die ursprünglichen Kauf- und Verkaufspreise bleiben in Klammern sichtbar.</p>
 <div class="editor-grid"><div><label for="editSearch">Item suchen</label><input id="editSearch" type="search" placeholder="z. B. Diamant, Dirt, Gold …" autocomplete="off"><label for="editItem" style="margin-top:12px">Item auswählen</label><select id="editItem"></select></div>
-<div><div class="fieldrow"><div><label for="editValue">Neuer Wert in VC</label><input id="editValue" type="number" min="0.01" step="0.01" inputmode="decimal"></div><div><label>Standardwert</label><div id="editDefault" class="rate"></div></div><div class="editor-actions"><button class="btn" id="saveEdit" type="button">Preis übernehmen</button><button class="btn" id="restoreEdit" type="button">Standard wiederherstellen</button></div></div></div>
+<div><div class="fieldrow"><div><label for="editBuy">Buy · Kaufpreis (VC)</label><input id="editBuy" type="number" min="0.01" step="0.01" inputmode="decimal"><span id="editBuyDefault" class="original"></span></div><div><label for="editSell">Sell · Verkaufspreis (VC)</label><input id="editSell" type="number" min="0.01" step="0.01" inputmode="decimal"><span id="editSellDefault" class="original"></span></div></div><div class="editor-actions"><button class="btn" id="saveEdit" type="button">Preis übernehmen</button><button class="btn" id="restoreEdit" type="button">Standard wiederherstellen</button></div></div></div>
 <div id="editStatus" class="status" aria-live="polite"></div><div id="modifiedCount" class="editor-note"></div></section>
-<section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div><label for="newValue">Wert in VC</label><input id="newValue" type="number" step="0.01" min="0.01" value="10" inputmode="decimal"></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
+<section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div class="fieldrow" style="margin:0"><div><label for="newBuy">Buy (VC)</label><input id="newBuy" type="number" step="0.01" min="0.01" value="10" inputmode="decimal"></div><div><label for="newSell">Sell (VC)</label><input id="newSell" type="number" step="0.01" min="0.01" value="5" inputmode="decimal"></div></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
 <section class="card"><h2>Hinzugefügte Items</h2><p class="editor-note">Deine eigenen Items auf voller Breite in zwei Spalten. Die Preise kannst du oben unter «Bestehende Itempreise anpassen» bearbeiten.</p><ul id="customList" class="custom-list"></ul></section>
 <section class="card"><h2>Gemeinsame Online-Preisliste</h2><p class="editor-note">Änderungen werden nach Freigabe direkt ins GitHub-Repository geschrieben. Alle Besucher sehen die aktualisierten Preise beim nächsten Laden der Website.</p><div class="flex"><button class="btn" id="reloadData" type="button">Aktuelle Online-Liste laden</button><button class="btn" id="exportData" type="button">JSON-Sicherung herunterladen</button><button class="btn" id="adminLogout" type="button">Verwaltung sperren</button></div><div class="status" id="fileStatus" role="status"></div></section></div></section>
-<section class="card note"><strong>Hinweis zu den Preisen</strong><p class="muted secondary">Die Werte stammen aus unserer vorläufigen VeloCoin-Preisliste. Sie sind Materialwerte, keine Joblöhne. Die Itempreise werden mit maximal zwei Nachkommastellen gepflegt. Unbekannte Itemwerte können ergänzt werden. Die ursprünglichen Standardpreise stehen zusammen mit deinen aktuellen Preisen in der separaten JSON-Datei.</p></section><footer class="foot">VeloCoin · GitHub Pages · Öffentliche Preisliste</footer>
+<section class="card note"><strong>Hinweis zu den Preisen</strong><p class="muted secondary">Die Werte stammen aus unserer vorläufigen VeloCoin-Preisliste. Sie sind Materialwerte, keine Joblöhne. Die Itempreise werden mit maximal zwei Nachkommastellen gepflegt. Unbekannte Itemwerte können ergänzt werden. Die Standardwerte für Buy und Sell bleiben beim Bearbeiten separat gespeichert und werden in der Verwaltung angezeigt.</p></section><footer class="foot">VeloCoin · GitHub Pages · Öffentliche Preisliste</footer>
 </main>
 <script src="config.js"></script>
 <script>
 'use strict';
 const $=id=>document.getElementById(id);
-let defaults=[],custom=[],overrides={};
-let fileHandle=null, loading=false, writeChain=Promise.resolve();
+// Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
+let defaults=[],custom=[];
+let fileHandle=null,loading=false,writeChain=Promise.resolve();
 const fmt=n=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:2}).format(n);
 const fmtPrice=n=>new Intl.NumberFormat('de-CH',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
 const whole=v=>{const n=Number(String(v).replace(',','.'));return Number.isFinite(n)&&n>=0?Math.floor(n):0};
 const cents=v=>Math.round((v+Number.EPSILON)*100)/100;
 const validCents=v=>Number.isFinite(v)&&v>=0.01&&Math.abs(v*100-Math.round(v*100))<1e-6;
 const num=v=>{const x=Number(String(v).replace(',','.'));return Number.isFinite(x)&&x>=0?x:0};
-const list=()=>[...defaults.map(x=>[x[0],x[1],overrides[x[0]]??x[2]]),...custom];
-const get=id=>list().find(x=>x[0]===id)||list()[0]||['DIRT','Dirt',1];
-const original=id=>defaults.find(x=>x[0]===id)?.[2];
-const wasChanged=id=>original(id)!==undefined&&Object.hasOwn(overrides,id);
-const priceLabel=x=>`${x[1]} · ${fmtPrice(x[2])} VC${wasChanged(x[0])?' (Standard: '+fmtPrice(original(x[0]))+' VC)':''}`;
-const rateMarkup=x=>`${fmtPrice(x[2])} VC${wasChanged(x[0])?'<span class="original">(Standard: '+fmtPrice(original(x[0]))+' VC)</span>':''}`;
+const list=()=>[...defaults,...custom];
+const get=id=>list().find(x=>x.id===id)||list()[0]||{id:'DIRT',name:'Erde',buy:1,sell:1};
+const wasChanged=id=>{const x=list().find(x=>x.id===id);return !!x&&(x.buy!==x.defaultBuy||x.sell!==x.defaultSell)};
+const priceLabel=x=>`${x.name} · Buy ${fmtPrice(x.buy)} / Sell ${fmtPrice(x.sell)} VC`;
+const rateMarkup=(x,side)=>`${fmtPrice(side==='from'?x.sell:x.buy)} VC <span class="original">${side==='from'?'Sell':'Buy'}${wasChanged(x.id)?' · Standard: '+fmtPrice(side==='from'?x.defaultSell:x.defaultBuy)+' VC':''}</span>`;
 const status=message=>$('fileStatus').textContent=message;
-function currentPayload(){return {format:'VeloCoin-Preisliste',version:2,baseCurrency:'VC',baseItem:'DIRT',items:defaults.map(x=>({id:x[0],name:x[1],standardPrice:x[2],price:overrides[x[0]]??x[2]})),customItems:custom.map(x=>({id:x[0],name:x[1],price:x[2]}))}}
+function currentPayload(){const entry=x=>({id:x.id,name:x.name,buy:x.buy,sell:x.sell,defaultBuy:x.defaultBuy,defaultSell:x.defaultSell});return {format:'VeloCoin-Preisliste',version:2,baseCurrency:'VC',baseItem:'DIRT',items:defaults.map(entry),customItems:custom.map(entry)}}
 function parsePayload(data){
  if(!data||data.format!=='VeloCoin-Preisliste'||data.version!==2||!Array.isArray(data.items)||!Array.isArray(data.customItems))throw Error('Ungültiges JSON-Format. Bitte Version 2 verwenden.');
  if(!data.items.length||data.items.length>3000||data.customItems.length>3000)throw Error('Ungültige Anzahl von Items.');
- const seen=new Set(),std=[],ovs={},cus=[];
- for(const item of data.items){if(!item||typeof item.id!=='string'||!/^[A-Z][A-Z0-9_]*$/.test(item.id)||seen.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100||!Number.isFinite(item.standardPrice)||!validCents(item.standardPrice)||!Number.isFinite(item.price)||!validCents(item.price))throw Error('Ungültiger Standard-Item-Eintrag.');seen.add(item.id);std.push([item.id,item.name,item.standardPrice]);if(item.price!==item.standardPrice)ovs[item.id]=item.price}
- for(const item of data.customItems){if(!item||typeof item.id!=='string'||!/^CUSTOM_[a-zA-Z0-9_-]+$/.test(item.id)||seen.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100||!Number.isFinite(item.price)||!validCents(item.price))throw Error('Ungültiger eigener Item-Eintrag.');seen.add(item.id);cus.push([item.id,item.name,item.price])}
+ const seen=new Set(),std=[],cus=[];
+ for(const [items,target,isCustom] of [[data.items,std,false],[data.customItems,cus,true]])for(const item of items){
+  if(!item||typeof item.id!=='string'||!(isCustom?/^CUSTOM_[a-zA-Z0-9_-]+$/:/^[A-Z][A-Z0-9_]*$/).test(item.id)||seen.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100)throw Error('Ungültiger Item-Eintrag.');
+  // Unterstützt auch ältere Listen mit standardPrice/price.
+  const buy=item.buy??item.standardPrice??item.price;
+  const sell=item.sell??item.price??item.buy;
+  const defaultBuy=item.defaultBuy??buy,defaultSell=item.defaultSell??sell;
+  if(![buy,sell,defaultBuy,defaultSell].every(validCents))throw Error('Ungültiger Kauf-/Verkaufspreis bei '+item.id);
+  seen.add(item.id);target.push({id:item.id,name:item.name,buy,sell,defaultBuy,defaultSell,isCustom});
+ }
  if(!seen.has('DIRT'))throw Error('Das Basis-Item DIRT fehlt.');
- return {std,ovs,cus};
+ return {std,cus};
 }
-function applyData(data){const parsed=parsePayload(data);defaults=parsed.std;overrides=parsed.ovs;custom=parsed.cus;for(const id of ['fromSearch','toSearch','editSearch'])$(id).value='';redraw();}
+function applyData(data){const parsed=parsePayload(data);defaults=parsed.std;custom=parsed.cus;for(const id of ['fromSearch','toSearch','editSearch'])$(id).value='';redraw()}
 let apiUrl=(window.VELOCITY_API_URL||'').replace(/\/$/,'');
 let adminSecret='';
 let remoteSha='';
@@ -251,37 +259,31 @@ function save(){
  return true;
 }
 const saveOverrides=save;
-function renderSelect(side){const s=$(side+'Item'),q=$(side+'Search').value.trim().toLocaleLowerCase(),keep=s.value||(side==='from'?'DIAMOND':'DIRT');s.replaceChildren();const found=list().filter(x=>(x[0]+' '+x[1]).toLocaleLowerCase().includes(q)||x[0]===keep);for(const item of found){const o=document.createElement('option');o.value=item[0];o.textContent=priceLabel(item);s.append(o)}s.value=keep;if(!s.value&&found.length)s.selectedIndex=0}
+function renderSelect(side){const s=$(side+'Item'),q=$(side+'Search').value.trim().toLocaleLowerCase(),keep=s.value||(side==='from'?'DIAMOND':'DIRT');s.replaceChildren();const found=list().filter(x=>(x.id+' '+x.name).toLocaleLowerCase().includes(q)||x.id===keep);for(const item of found){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);s.append(o)}s.value=keep;if(!s.value&&found.length)s.selectedIndex=0}
 function update(source='from'){
  const a=get($('fromItem').value),b=get($('toItem').value);
- $('fromRate').innerHTML=rateMarkup(a);$('toRate').innerHTML=rateMarkup(b);
+ $('fromRate').innerHTML=rateMarkup(a,'from');$('toRate').innerHTML=rateMarkup(b,'to');
  let amount;
- if(source==='to'){
-  const wanted=whole($('toQty').value);$('toQty').value=wanted;
-  amount=wanted===0?0:Math.ceil((wanted*b[2]/a[2])-1e-10);
-  $('fromQty').value=amount;
- }else{
-  amount=whole($('fromQty').value);$('fromQty').value=amount;
- }
- const dest=Math.max(0,Math.floor(amount*a[2]/b[2]+1e-10));
- $('toQty').value=dest;
- $('result').textContent=`${fmt(amount)} × ${a[1]} = ${fmt(dest)} × ${b[1]}`;
- $('total').textContent=`${fmtPrice(amount*a[2])} VC Gesamtwert`;
+ if(source==='to'){const wanted=whole($('toQty').value);$('toQty').value=wanted;amount=wanted===0?0:Math.ceil((wanted*b.buy/a.sell)-1e-10);$('fromQty').value=amount}
+ else{amount=whole($('fromQty').value);$('fromQty').value=amount}
+ const dest=Math.max(0,Math.floor(amount*a.sell/b.buy+1e-10));$('toQty').value=dest;
+ $('result').textContent=`${fmt(amount)} × ${a.name} = ${fmt(dest)} × ${b.name}`;
+ $('total').textContent=`${fmtPrice(amount*a.sell)} VC Verkaufswert · Ziel zum Kaufpreis`;
 }
 function redraw(){renderSelect('from');renderSelect('to');update();renderCustom();renderEditor()}
-function renderEditor(){const sel=$('editItem'),search=$('editSearch').value.trim().toLocaleLowerCase(),keep=sel.value||'DIAMOND';sel.replaceChildren();const options=list().filter(x=>(x[0]+' '+x[1]).toLocaleLowerCase().includes(search)||x[0]===keep);for(const item of options){const o=document.createElement('option');o.value=item[0];o.textContent=priceLabel(item);sel.append(o)}sel.value=keep;if(!sel.value&&options.length)sel.selectedIndex=0;syncEditor();$('modifiedCount').textContent=`${Object.keys(overrides).length} Standardpreis(e) individuell angepasst.`}
-function syncEditor(){const id=$('editItem').value;if(!id)return;const item=get(id);$('editValue').value=item[2];const base=original(id);$('editDefault').textContent=base===undefined?'Eigenes Item':fmtPrice(base)+' VC';$('restoreEdit').disabled=base===undefined||!wasChanged(id)}
+function renderEditor(){const sel=$('editItem'),search=$('editSearch').value.trim().toLocaleLowerCase(),keep=sel.value||'DIAMOND';sel.replaceChildren();const options=list().filter(x=>(x.id+' '+x.name).toLocaleLowerCase().includes(search)||x.id===keep);for(const item of options){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);sel.append(o)}sel.value=keep;if(!sel.value&&options.length)sel.selectedIndex=0;syncEditor();$('modifiedCount').textContent=`${list().filter(x=>wasChanged(x.id)).length} Item(s) mit geändertem Buy/Sell-Preis.`}
+function syncEditor(){const id=$('editItem').value;if(!id)return;const x=get(id);$('editBuy').value=x.buy;$('editSell').value=x.sell;$('editBuyDefault').textContent='Standard: '+fmtPrice(x.defaultBuy)+' VC';$('editSellDefault').textContent='Standard: '+fmtPrice(x.defaultSell)+' VC';$('restoreEdit').disabled=!wasChanged(id)}
 function refreshPrices(){const from=$('fromItem').value,to=$('toItem').value,edit=$('editItem').value;renderSelect('from');renderSelect('to');$('fromItem').value=from;$('toItem').value=to;update();renderEditor();$('editItem').value=edit;syncEditor()}
-function renderCustom(){const ul=$('customList');ul.replaceChildren();for(const item of custom){const li=document.createElement('li'),txt=document.createElement('span'),del=document.createElement('button');txt.textContent=`${item[1]} · ${fmtPrice(item[2])} VC`;del.className='btn';del.textContent='Löschen';del.type='button';del.addEventListener('click',()=>{custom=custom.filter(x=>x[0]!==item[0]);save();redraw()});li.append(txt,del);ul.append(li)}}
+function renderCustom(){const ul=$('customList');ul.replaceChildren();for(const item of custom){const li=document.createElement('li'),txt=document.createElement('span'),del=document.createElement('button');txt.textContent=`${item.name} · Buy ${fmtPrice(item.buy)} / Sell ${fmtPrice(item.sell)} VC`;del.className='btn';del.textContent='Löschen';del.type='button';del.addEventListener('click',()=>{custom=custom.filter(x=>x.id!==item.id);save();redraw()});li.append(txt,del);ul.append(li)}}
 for(const side of ['from','to']){$(side+'Search').addEventListener('input',()=>{renderSelect(side);update()});$(side+'Item').addEventListener('change',()=>update())}
 $('fromQty').addEventListener('input',()=>update('from'));$('toQty').addEventListener('input',()=>update('to'));
 $('swap').addEventListener('click',()=>{const a=$('fromItem').value,b=$('toItem').value,q=$('toQty').value;$('fromSearch').value='';$('toSearch').value='';renderSelect('from');renderSelect('to');$('fromItem').value=b;$('toItem').value=a;$('fromQty').value=q;update()});
 $('reset').addEventListener('click',()=>{$('fromSearch').value='';$('toSearch').value='';$('fromQty').value='1';renderSelect('from');renderSelect('to');$('fromItem').value='DIAMOND';$('toItem').value='DIRT';update()});
 $('copy').addEventListener('click',async()=>{const msg=$('result').textContent+' ('+$('total').textContent+')';try{await navigator.clipboard.writeText(msg);$('copyStatus').textContent='Ergebnis kopiert.'}catch(e){$('copyStatus').textContent='Kopieren nicht unterstützt.'}});
-$('add').addEventListener('click',()=>{const name=$('newName').value.trim(),raw=num($('newValue').value),price=cents(raw),msg=$('addStatus');if(!name||!validCents(raw)){msg.textContent='Bitte einen Namen und einen Preis ab 0.01 VC mit maximal zwei Nachkommastellen eingeben.';return}const id='CUSTOM_'+Date.now()+'_'+Math.random().toString(36).slice(2,8);custom.push([id,name,price]);save();$('fromSearch').value='';redraw();$('fromItem').value=id;update();$('newName').value='';msg.textContent='Eigenes Item hinzugefügt.'});
+$('add').addEventListener('click',()=>{const name=$('newName').value.trim(),buyRaw=num($('newBuy').value),sellRaw=num($('newSell').value),msg=$('addStatus');if(!name||!validCents(buyRaw)||!validCents(sellRaw)){msg.textContent='Bitte Namen und beide Preise ab 0.01 VC mit höchstens zwei Nachkommastellen eingeben.';return}const id='CUSTOM_'+Date.now()+'_'+Math.random().toString(36).slice(2,8),buy=cents(buyRaw),sell=cents(sellRaw);custom.push({id,name,buy,sell,defaultBuy:buy,defaultSell:sell,isCustom:true});save();$('fromSearch').value='';redraw();$('fromItem').value=id;update();$('newName').value='';msg.textContent='Eigenes Item hinzugefügt.'});
 $('editSearch').addEventListener('input',renderEditor);$('editItem').addEventListener('change',syncEditor);
-$('saveEdit').addEventListener('click',()=>{const id=$('editItem').value,raw=num($('editValue').value),price=cents(raw),msg=$('editStatus');if(!validCents(raw)){msg.textContent='Bitte einen Preis mit maximal zwei Nachkommastellen und mindestens 0.01 VC eingeben.';return}const base=original(id);if(base===undefined){const item=custom.find(x=>x[0]===id);if(!item)return;item[2]=price}else if(price===base)delete overrides[id];else overrides[id]=price;save();msg.textContent='Preis übernommen.';refreshPrices();renderCustom()});
-$('restoreEdit').addEventListener('click',()=>{const id=$('editItem').value;if(original(id)===undefined)return;delete overrides[id];save();$('editStatus').textContent='Standardpreis wiederhergestellt.';refreshPrices()});
+$('saveEdit').addEventListener('click',()=>{const id=$('editItem').value,buyRaw=num($('editBuy').value),sellRaw=num($('editSell').value),msg=$('editStatus');if(!validCents(buyRaw)||!validCents(sellRaw)){msg.textContent='Beide Preise müssen mindestens 0.01 VC und höchstens zwei Nachkommastellen haben.';return}const x=list().find(x=>x.id===id);if(!x)return;x.buy=cents(buyRaw);x.sell=cents(sellRaw);save();msg.textContent='Buy und Sell übernommen.';refreshPrices();renderCustom()});
+$('restoreEdit').addEventListener('click',()=>{const x=list().find(x=>x.id===$('editItem').value);if(!x)return;x.buy=x.defaultBuy;x.sell=x.defaultSell;save();$('editStatus').textContent='Beide Standardpreise wiederhergestellt.';refreshPrices();renderCustom()});
 function exportList(){const blob=new Blob([JSON.stringify(currentPayload(),null,2)+'\n'],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='VeloCoin_Preisliste.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);status('JSON-Sicherung heruntergeladen.')}
 $('exportData').addEventListener('click',exportList);
 $('reloadData').addEventListener('click',async()=>{if(!confirm('Nicht gespeicherte Änderungen durch aktuelle Online-Werte ersetzen?'))return;try{await writeChain;await loadRemote()}catch(err){status(err.message)}});

@@ -160,6 +160,7 @@
 <body>
 <main class="wrap">
 <header class="top"><div><div class="brand">VELOCITY ECONOMY</div><h1>Item-Umrechner</h1><small>1 Dirt = 1 VC · Minecraft</small></div><span class="tag">Online · Gemeinsame Preisliste</span></header>
+<section class="card"><label for="priceList">Preisliste auswählen</label><select id="priceList" disabled></select><div id="listStatus" class="status" role="status"></div></section>
 <section class="hero" aria-label="Item-Umrechner"><h2 class="section-heading">01 · Umrechnung</h2>
 <div class="hero-grid"><div class="converter-layout">
 <section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><input id="fromSearch" type="search" placeholder="z. B. Diamant, Eisen, Holz …" autocomplete="off"><select id="fromItem" aria-label="Ausgangs-Item"></select><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"></div><div><label>Verkaufspreis pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
@@ -180,16 +181,16 @@
 </div></div>
 </section>
 <section class="management locked" id="management" aria-label="Items und Preise verwalten">
-<div class="admin-overlay" id="adminOverlay"><form class="admin-login" id="adminLogin"><div class="admin-lock-icon">🔒</div><h2>Preisverwaltung gesperrt</h2><p>Nur autorisierte Personen dürfen die zentrale Preisliste ändern.</p><label for="adminPassword">Admin-Passwort</label><input id="adminPassword" type="password" required autocomplete="off" placeholder="Passwort eingeben"><button type="submit" class="btn admin-unlock">Verwaltung entsperren</button><div class="status" id="adminStatus" role="status"></div></form></div>
+<div class="admin-overlay" id="adminOverlay"><form class="admin-login" id="adminLogin"><div class="admin-lock-icon">🔒</div><h2>Preisverwaltung gesperrt</h2><p>Nur autorisierte Personen dürfen die zentrale Preisliste ändern. Die Anmeldung bleibt auf diesem Gerät bis zu 30 Minuten gespeichert.</p><label for="adminPassword">Admin-Passwort</label><input id="adminPassword" type="password" required autocomplete="off" placeholder="Passwort eingeben"><button type="submit" class="btn admin-unlock">Verwaltung entsperren</button><div class="status" id="adminStatus" role="status"></div></form></div>
 <div class="admin-inner" id="adminInner" inert><h2 class="section-heading">02 · Preise &amp; Items verwalten</h2>
 <section class="card"><h2>Bestehende Itempreise anpassen</h2><p class="editor-note">Änderungen gelten sofort für beide Seiten des Umrechners. Die ursprünglichen Kauf- und Verkaufspreise bleiben in Klammern sichtbar.</p>
 <div class="editor-grid"><div><label for="editSearch">Item suchen</label><input id="editSearch" type="search" placeholder="z. B. Diamant, Dirt, Gold …" autocomplete="off"><label for="editItem" style="margin-top:12px">Item auswählen</label><select id="editItem"></select></div>
-<div><div class="fieldrow"><div><label for="editBuy">Buy · Kaufpreis (VC)</label><input id="editBuy" type="number" min="0.01" step="0.01" inputmode="decimal"><span id="editBuyDefault" class="original"></span></div><div><label for="editSell">Sell · Verkaufspreis (VC)</label><input id="editSell" type="number" min="0.01" step="0.01" inputmode="decimal"><span id="editSellDefault" class="original"></span></div></div><div class="editor-actions"><button class="btn" id="saveEdit" type="button">Preis übernehmen</button><button class="btn" id="restoreEdit" type="button">Standard wiederherstellen</button></div></div></div>
+<div><div class="fieldrow"><div><label for="editBuy">Buy · Kaufpreis (VC)</label><input id="editBuy" type="number" min="0" step="any" inputmode="decimal"><span id="editBuyDefault" class="original"></span></div><div><label for="editSell">Sell · Verkaufspreis (VC)</label><input id="editSell" type="number" min="0" step="any" inputmode="decimal"><span id="editSellDefault" class="original"></span></div></div><div class="editor-actions"><button class="btn" id="saveEdit" type="button">Preis übernehmen</button><button class="btn" id="restoreEdit" type="button">Standard wiederherstellen</button></div></div></div>
 <div id="editStatus" class="status" aria-live="polite"></div><div id="modifiedCount" class="editor-note"></div></section>
-<section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div class="fieldrow" style="margin:0"><div><label for="newBuy">Buy (VC)</label><input id="newBuy" type="number" step="0.01" min="0.01" value="10" inputmode="decimal"></div><div><label for="newSell">Sell (VC)</label><input id="newSell" type="number" step="0.01" min="0.01" value="5" inputmode="decimal"></div></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
+<section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div class="fieldrow" style="margin:0"><div><label for="newBuy">Buy (VC)</label><input id="newBuy" type="number" step="any" min="0" value="10" inputmode="decimal"></div><div><label for="newSell">Sell (VC)</label><input id="newSell" type="number" step="any" min="0" value="5" inputmode="decimal"></div></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
 <section class="card"><h2>Hinzugefügte Items</h2><p class="editor-note">Deine eigenen Items auf voller Breite in zwei Spalten. Die Preise kannst du oben unter «Bestehende Itempreise anpassen» bearbeiten.</p><ul id="customList" class="custom-list"></ul></section>
 <section class="card"><h2>Gemeinsame Online-Preisliste</h2><p class="editor-note">Änderungen werden nach Freigabe direkt ins GitHub-Repository geschrieben. Alle Besucher sehen die aktualisierten Preise beim nächsten Laden der Website.</p><div class="flex"><button class="btn" id="reloadData" type="button">Aktuelle Online-Liste laden</button><button class="btn" id="exportData" type="button">JSON-Sicherung herunterladen</button><button class="btn" id="adminLogout" type="button">Verwaltung sperren</button></div><div class="status" id="fileStatus" role="status"></div></section></div></section>
-<section class="card note"><strong>Hinweis zu den Preisen</strong><p class="muted secondary">Die Werte stammen aus unserer vorläufigen VeloCoin-Preisliste. Sie sind Materialwerte, keine Joblöhne. Die Itempreise werden mit maximal zwei Nachkommastellen gepflegt. Unbekannte Itemwerte können ergänzt werden. Die Standardwerte für Buy und Sell bleiben beim Bearbeiten separat gespeichert und werden in der Verwaltung angezeigt.</p></section><footer class="foot">VeloCoin · GitHub Pages · Öffentliche Preisliste</footer>
+<section class="card note"><strong>Hinweis zu den Preisen</strong><p class="muted secondary">Die Werte stammen aus unserer vorläufigen VeloCoin-Preisliste. Sie sind Materialwerte, keine Joblöhne. Buy und Sell können auch Preise mit weiteren Nachkommastellen enthalten. Unbekannte Itemwerte können ergänzt werden. Die Standardwerte für Buy und Sell bleiben beim Bearbeiten separat gespeichert und werden in der Verwaltung angezeigt.</p></section><footer class="foot">VeloCoin · GitHub Pages · Öffentliche Preisliste</footer>
 </main>
 <script src="config.js"></script>
 <script>
@@ -197,12 +198,11 @@
 const $=id=>document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
 let defaults=[],custom=[];
-let fileHandle=null,loading=false,writeChain=Promise.resolve();
+let writeChain=Promise.resolve();
 const fmt=n=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:2}).format(n);
-const fmtPrice=n=>new Intl.NumberFormat('de-CH',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+const fmtPrice=n=>new Intl.NumberFormat('de-CH',{minimumFractionDigits:2,maximumFractionDigits:20}).format(n);
 const whole=v=>{const n=Number(String(v).replace(',','.'));return Number.isFinite(n)&&n>=0?Math.floor(n):0};
-const cents=v=>Math.round((v+Number.EPSILON)*100)/100;
-const validCents=v=>Number.isFinite(v)&&v>=0.01&&Math.abs(v*100-Math.round(v*100))<1e-6;
+const validPrice=v=>Number.isFinite(v)&&v>0;
 const num=v=>{const x=Number(String(v).replace(',','.'));return Number.isFinite(x)&&x>=0?x:0};
 const list=()=>[...defaults,...custom];
 const get=id=>list().find(x=>x.id===id)||list()[0]||{id:'DIRT',name:'Erde',buy:1,sell:1};
@@ -218,10 +218,10 @@ function parsePayload(data){
  for(const [items,target,isCustom] of [[data.items,std,false],[data.customItems,cus,true]])for(const item of items){
   if(!item||typeof item.id!=='string'||!(isCustom?/^CUSTOM_[a-zA-Z0-9_-]+$/:/^[A-Z][A-Z0-9_]*$/).test(item.id)||seen.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100)throw Error('Ungültiger Item-Eintrag.');
   // Unterstützt auch ältere Listen mit standardPrice/price.
-  const buy=item.buy??item.standardPrice??item.price;
+  const buy=item.buy??item.standardPrice??item.price??item.sell;
   const sell=item.sell??item.price??item.buy;
   const defaultBuy=item.defaultBuy??buy,defaultSell=item.defaultSell??sell;
-  if(![buy,sell,defaultBuy,defaultSell].every(validCents))throw Error('Ungültiger Kauf-/Verkaufspreis bei '+item.id);
+  if(![buy,sell,defaultBuy,defaultSell].every(validPrice))throw Error('Ungültiger Kauf-/Verkaufspreis bei '+item.id);
   seen.add(item.id);target.push({id:item.id,name:item.name,buy,sell,defaultBuy,defaultSell,isCustom});
  }
  if(!seen.has('DIRT'))throw Error('Das Basis-Item DIRT fehlt.');
@@ -229,30 +229,55 @@ function parsePayload(data){
 }
 function applyData(data){const parsed=parsePayload(data);defaults=parsed.std;custom=parsed.cus;for(const id of ['fromSearch','toSearch','editSearch'])$(id).value='';redraw()}
 let apiUrl=(window.VELOCITY_API_URL||'').replace(/\/$/,'');
-let adminSecret='';
+let adminSession=null,sessionTimer;
+const sessionStorageKey='velocity.adminSession:'+apiUrl;
 let remoteSha='';
+let selectedFile='',switching=false;
+const validFile=name=>typeof name==='string'&&/^[a-zA-Z0-9][a-zA-Z0-9_.-]*\.json$/.test(name)&&name!=='index.json';
 const management=$('management'),adminInner=$('adminInner');
-function setUnlocked(unlocked){management.classList.toggle('locked',!unlocked);adminInner.inert=!unlocked;$('adminPassword').value='';if(!unlocked)adminSecret=''}
+function setUnlocked(unlocked,clearSaved=true){
+ management.classList.toggle('locked',!unlocked);adminInner.inert=!unlocked||switching;$('adminPassword').value='';
+ if(!unlocked){adminSession=null;clearTimeout(sessionTimer);if(clearSaved)try{localStorage.removeItem(sessionStorageKey)}catch{}}
+}
+function acceptSession(session){
+ if(typeof session.token!=='string'||!Number.isFinite(session.expiresAt)||session.expiresAt<=Date.now())throw Error('Ungültige oder abgelaufene Sitzung.');
+ adminSession={token:session.token,expiresAt:session.expiresAt};
+ try{localStorage.setItem(sessionStorageKey,JSON.stringify(adminSession))}catch{}
+ clearTimeout(sessionTimer);
+ sessionTimer=setTimeout(()=>{setUnlocked(false);$('adminStatus').textContent='Sitzung abgelaufen. Bitte erneut anmelden.';},session.expiresAt-Date.now());
+ setUnlocked(true);
+}
+async function restoreSession(){
+ if(!apiUrl)return;
+ let saved;try{saved=JSON.parse(localStorage.getItem(sessionStorageKey))}catch{}
+ if(!saved)return;
+ if(typeof saved.token!=='string'||!Number.isFinite(saved.expiresAt)||saved.expiresAt<=Date.now()){setUnlocked(false);return;}
+ try{acceptSession(await requestAdmin({token:saved.token}));$('adminStatus').textContent='';}
+ catch(err){setUnlocked(false);$('adminStatus').textContent=err.message;}
+}
 async function loadRemote(){
- const endpoint=apiUrl?apiUrl+'/prices':'./VeloCoin_Preisliste.json';
+ if(!validFile(selectedFile))throw Error('Bitte eine Preisliste auswählen.');
+ const endpoint=apiUrl?apiUrl+'/prices?file='+encodeURIComponent(selectedFile):'./preislisten/'+encodeURIComponent(selectedFile);
  const r=await fetch(endpoint,{cache:'no-store'});
  if(!r.ok)throw Error('Preisliste nicht verfügbar (HTTP '+r.status+')');
  const body=await r.json();const data=apiUrl?body.data:body;
  applyData(data);remoteSha=apiUrl?(body.sha||''):'';
  status('Preisliste geladen · '+new Date().toLocaleTimeString('de-CH'));
 }
-async function requestAdmin(password){
+async function requestAdmin(credentials){
  if(!apiUrl)throw Error('API-Adresse in config.js fehlt.');
- const r=await fetch(apiUrl+'/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password})});
- if(!r.ok)throw Error(r.status===401?'Passwort ungültig.':'Anmeldung derzeit nicht möglich (HTTP '+r.status+').');
- return true;
+ const r=await fetch(apiUrl+'/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(credentials)});
+ if(!r.ok)throw Error(r.status===401?(credentials.token?'Sitzung abgelaufen. Bitte erneut anmelden.':'Passwort ungültig.'):'Anmeldung derzeit nicht möglich (HTTP '+r.status+').');
+ return r.json();
 }
 function save(){
- if(!adminSecret){status('Verwaltung ist gesperrt.');return false}
- const snapshot=currentPayload();
+ if(!adminSession||adminSession.expiresAt<=Date.now()){setUnlocked(false);status('Bitte erneut anmelden.');return false}
+ if(switching||!validFile(selectedFile)||!remoteSha)return false;
+ const snapshot=currentPayload(),file=selectedFile,token=adminSession.token;
  writeChain=writeChain.then(async()=>{
-  const r=await fetch(apiUrl+'/prices',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:adminSecret,sha:remoteSha,data:snapshot})});
+  const r=await fetch(apiUrl+'/prices?file='+encodeURIComponent(file),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({token,sha:remoteSha,data:snapshot})});
   const answer=await r.json().catch(()=>({}));
+  if(r.status===401){setUnlocked(false);$('adminStatus').textContent='Sitzung abgelaufen. Bitte erneut anmelden.';}
   if(!r.ok)throw Error(answer.error||'HTTP '+r.status);
   remoteSha=answer.sha;status('Online gespeichert · '+new Date().toLocaleTimeString('de-CH'));
  }).catch(async err=>{status('Speichern fehlgeschlagen: '+err.message+' · Die Online-Liste wird neu geladen.');try{await loadRemote()}catch(e){status('Speichern fehlgeschlagen: '+err.message+'; auch Neuladen fehlgeschlagen.')}});
@@ -278,18 +303,39 @@ function renderCustom(){const ul=$('customList');ul.replaceChildren();for(const 
 for(const side of ['from','to']){$(side+'Search').addEventListener('input',()=>{renderSelect(side);update()});$(side+'Item').addEventListener('change',()=>update())}
 $('fromQty').addEventListener('input',()=>update('from'));$('toQty').addEventListener('input',()=>update('to'));
 $('swap').addEventListener('click',()=>{const a=$('fromItem').value,b=$('toItem').value,q=$('toQty').value;$('fromSearch').value='';$('toSearch').value='';renderSelect('from');renderSelect('to');$('fromItem').value=b;$('toItem').value=a;$('fromQty').value=q;update()});
-$('reset').addEventListener('click',()=>{$('fromSearch').value='';$('toSearch').value='';$('fromQty').value='1';renderSelect('from');renderSelect('to');$('fromItem').value='DIAMOND';$('toItem').value='DIRT';update()});
+$('reset').addEventListener('click',()=>{$('fromSearch').value='';$('toSearch').value='';$('fromQty').value='1';renderSelect('from');renderSelect('to');$('fromItem').value=list().some(x=>x.id==='DIAMOND')?'DIAMOND':list()[0].id;$('toItem').value='DIRT';update()});
 $('copy').addEventListener('click',async()=>{const msg=$('result').textContent+' ('+$('total').textContent+')';try{await navigator.clipboard.writeText(msg);$('copyStatus').textContent='Ergebnis kopiert.'}catch(e){$('copyStatus').textContent='Kopieren nicht unterstützt.'}});
-$('add').addEventListener('click',()=>{const name=$('newName').value.trim(),buyRaw=num($('newBuy').value),sellRaw=num($('newSell').value),msg=$('addStatus');if(!name||!validCents(buyRaw)||!validCents(sellRaw)){msg.textContent='Bitte Namen und beide Preise ab 0.01 VC mit höchstens zwei Nachkommastellen eingeben.';return}const id='CUSTOM_'+Date.now()+'_'+Math.random().toString(36).slice(2,8),buy=cents(buyRaw),sell=cents(sellRaw);custom.push({id,name,buy,sell,defaultBuy:buy,defaultSell:sell,isCustom:true});save();$('fromSearch').value='';redraw();$('fromItem').value=id;update();$('newName').value='';msg.textContent='Eigenes Item hinzugefügt.'});
+$('add').addEventListener('click',()=>{const name=$('newName').value.trim(),buyRaw=num($('newBuy').value),sellRaw=num($('newSell').value),msg=$('addStatus');if(!name||!validPrice(buyRaw)||!validPrice(sellRaw)){msg.textContent='Bitte Namen und beide Preise grösser als null eingeben.';return}const id='CUSTOM_'+Date.now()+'_'+Math.random().toString(36).slice(2,8),buy=buyRaw,sell=sellRaw;custom.push({id,name,buy,sell,defaultBuy:buy,defaultSell:sell,isCustom:true});save();$('fromSearch').value='';redraw();$('fromItem').value=id;update();$('newName').value='';msg.textContent='Eigenes Item hinzugefügt.'});
 $('editSearch').addEventListener('input',renderEditor);$('editItem').addEventListener('change',syncEditor);
-$('saveEdit').addEventListener('click',()=>{const id=$('editItem').value,buyRaw=num($('editBuy').value),sellRaw=num($('editSell').value),msg=$('editStatus');if(!validCents(buyRaw)||!validCents(sellRaw)){msg.textContent='Beide Preise müssen mindestens 0.01 VC und höchstens zwei Nachkommastellen haben.';return}const x=list().find(x=>x.id===id);if(!x)return;x.buy=cents(buyRaw);x.sell=cents(sellRaw);save();msg.textContent='Buy und Sell übernommen.';refreshPrices();renderCustom()});
+$('saveEdit').addEventListener('click',()=>{const id=$('editItem').value,buyRaw=num($('editBuy').value),sellRaw=num($('editSell').value),msg=$('editStatus');if(!validPrice(buyRaw)||!validPrice(sellRaw)){msg.textContent='Beide Preise müssen endliche Zahlen grösser als null sein.';return}const x=list().find(x=>x.id===id);if(!x)return;x.buy=buyRaw;x.sell=sellRaw;save();msg.textContent='Buy und Sell übernommen.';refreshPrices();renderCustom()});
 $('restoreEdit').addEventListener('click',()=>{const x=list().find(x=>x.id===$('editItem').value);if(!x)return;x.buy=x.defaultBuy;x.sell=x.defaultSell;save();$('editStatus').textContent='Beide Standardpreise wiederhergestellt.';refreshPrices();renderCustom()});
-function exportList(){const blob=new Blob([JSON.stringify(currentPayload(),null,2)+'\n'],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='VeloCoin_Preisliste.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);status('JSON-Sicherung heruntergeladen.')}
+function exportList(){const blob=new Blob([JSON.stringify(currentPayload(),null,2)+'\n'],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=selectedFile;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);status('JSON-Sicherung heruntergeladen.')}
 $('exportData').addEventListener('click',exportList);
 $('reloadData').addEventListener('click',async()=>{if(!confirm('Nicht gespeicherte Änderungen durch aktuelle Online-Werte ersetzen?'))return;try{await writeChain;await loadRemote()}catch(err){status(err.message)}});
-$('adminLogin').addEventListener('submit',async e=>{e.preventDefault();const pw=$('adminPassword').value;const msg=$('adminStatus');msg.textContent='Zugang wird geprüft …';try{await requestAdmin(pw);adminSecret=pw;setUnlocked(true);msg.textContent='';status('Verwaltung entsperrt. Änderungen werden online gespeichert.')}catch(err){msg.textContent=err.message;}});
+$('adminLogin').addEventListener('submit',async e=>{e.preventDefault();const pw=$('adminPassword').value;const msg=$('adminStatus');msg.textContent='Zugang wird geprüft …';try{acceptSession(await requestAdmin({password:pw}));msg.textContent='';status('Verwaltung entsperrt. Änderungen werden online gespeichert.')}catch(err){msg.textContent=err.message;}});
 $('adminLogout').addEventListener('click',()=>{setUnlocked(false);$('adminStatus').textContent='Verwaltung gesperrt.'});
-async function init(){setUnlocked(false);try{await loadRemote()}catch(err){status('Laden fehlgeschlagen: '+err.message);$('result').textContent='Preisliste nicht verfügbar';}}
+async function chooseList(file){
+ const previous=selectedFile;
+ switching=true;$('priceList').disabled=true;adminInner.inert=true;
+ try{await writeChain;selectedFile=file;await loadRemote();$('priceList').value=file;$('listStatus').textContent='Geladen: '+file;}
+ catch(err){selectedFile=previous;$('priceList').value=previous;$('listStatus').textContent=err.message;throw err;}
+ finally{switching=false;$('priceList').disabled=false;adminInner.inert=management.classList.contains('locked');}
+}
+$('priceList').addEventListener('change',()=>{chooseList($('priceList').value).catch(()=>{});});
+async function init(){
+ setUnlocked(false,false);
+ await restoreSession();
+ try{
+  const r=await fetch(apiUrl?apiUrl+'/lists':'./preislisten/index.json',{cache:'no-store'});
+  if(!r.ok)throw Error('Preislisten-Verzeichnis nicht verfügbar (HTTP '+r.status+').');
+  const body=await r.json();
+  if(!Array.isArray(body.lists))throw Error('Ungültiges Preislisten-Verzeichnis.');
+  const entries=body.lists.filter(x=>validFile(x.file));
+  if(!entries.length)throw Error('Keine Preislisten gefunden.');
+  for(const entry of entries){const o=document.createElement('option');o.value=entry.file;o.textContent=entry.name||entry.file;$('priceList').append(o);}
+  await chooseList(entries[0].file);
+ }catch(err){$('listStatus').textContent=err.message;status('Laden fehlgeschlagen: '+err.message);$('result').textContent='Preisliste nicht verfügbar';}
+}
 init();
 
 // Kompakter Taschenrechner ohne eval; Operatorpriorität und Klammern unterstützt.

@@ -6,25 +6,33 @@ const p=await b.newPage();p.on('dialog',dialog=>dialog.accept());const errors=[]
 await p.goto(base);await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'),{},{timeout:10000});
 assert.equal(await p.locator('#priceList').inputValue(),'VeloCoin_Preisliste.json');
 const data=JSON.parse(fs.readFileSync(path.join(root,'preislisten/VeloCoin_Preisliste.json')));
+const fmtQty=n=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:8}).format(n);
+async function assertResult(expected,shop=false){
+ const fromId=await p.locator('#fromItem').inputValue(),toId=await p.locator('#toItem').inputValue();
+ const from=data.items.find(x=>x.id===fromId),to=data.items.find(x=>x.id===toId);
+ const amount=Number(await p.locator('#fromQty').inputValue());
+ assert.equal(await p.locator('#result').textContent(),shop?`${fmtQty(amount)} × ${from.name} verkaufen → ${fmtQty(expected)} × ${to.name} kaufen`:`${fmtQty(amount)} × ${from.name} = ${fmtQty(expected)} × ${to.name}`);
+}
+assert.equal(await p.locator('#toQty').count(),0);
 // Sell-to-Sell is the default: 3 diamonds at 500 VC each equal 1500 dirt at 1 VC each.
 assert.equal(await p.locator('#shopMode').isChecked(),false);
-await p.locator('#fromQty').fill('3');assert.equal(Number(await p.locator('#toQty').inputValue()),1500);
+await p.locator('#fromQty').fill('3');await assertResult(1500);
 assert.match(await p.locator('#toRate').textContent(),/Sell/);
-// Shop uses the selected price list's Buy price for the target item.
-await p.locator('#shopMode').check();assert.equal(Number(await p.locator('#toQty').inputValue()),Math.floor(3*data.items.find(x=>x.id==='DIAMOND').sell/data.items.find(x=>x.id==='DIRT').buy));
+await p.locator('#shopMode').check();await assertResult(Math.floor(3*data.items.find(x=>x.id==='DIAMOND').sell/data.items.find(x=>x.id==='DIRT').buy),true);
 assert.match(await p.locator('#toRate').textContent(),/Buy/);
-await p.locator('#fromQty').fill('0');assert.equal(Number(await p.locator('#toQty').inputValue()),0);
+await p.locator('#fromQty').fill('0');await assertResult(0,true);
 // Remainder and insufficient funds: 501 dirt sell for 501 VC, stone costs 20 VC.
 await p.locator('#fromItem').selectOption('DIRT');await p.locator('#toItem').selectOption('STONE');
-await p.locator('#fromQty').fill('501');assert.equal(Number(await p.locator('#toQty').inputValue()),25);assert.match(await p.locator('#total').textContent(),/1\.00 VC Rest/);
-await p.locator('#fromQty').fill('1');assert.equal(Number(await p.locator('#toQty').inputValue()),0);
-await p.locator('#toQty').fill('2');assert.equal(Number(await p.locator('#fromQty').inputValue()),40);assert.equal(Number(await p.locator('#toQty').inputValue()),2);
-// Fractional comparison and reverse comparison preserve value, without rounding to whole items.
-await p.locator('#shopMode').uncheck();await p.locator('#toItem').selectOption('DIAMOND');await p.locator('#fromQty').fill('1');assert.equal(Number(await p.locator('#toQty').inputValue()),0.002);
-await p.locator('#toQty').fill('0.5');assert.equal(Number(await p.locator('#fromQty').inputValue()),250);
-await p.locator('#swap').click();assert.equal(Number(await p.locator('#fromQty').inputValue()),0.5);assert.equal(Number(await p.locator('#toQty').inputValue()),250);
-await p.locator('#shopMode').check();await p.locator('#reset').click();assert.equal(await p.locator('#shopMode').isChecked(),false);assert.equal(Number(await p.locator('#toQty').inputValue()),500);
-console.log('PASS Sell/Sell comparison, fractional values, Sell/Buy shop, whole-item rounding, remainder, zero, reverse input, swap and reset');
+await p.locator('#fromQty').fill('501');await assertResult(25,true);assert.match(await p.locator('#total').textContent(),/1\.00 VC Rest/);
+await p.locator('#fromQty').fill('1');await assertResult(0,true);
+// The result alone shows fractional comparisons; swap preserves the entered amount.
+await p.locator('#shopMode').uncheck();await p.locator('#toItem').selectOption('DIAMOND');await assertResult(0.002);
+await p.locator('#fromQty').fill('0.5');await assertResult(0.001);
+await p.locator('#swap').click();assert.equal(await p.locator('#fromItem').inputValue(),'DIAMOND');assert.equal(await p.locator('#toItem').inputValue(),'DIRT');assert.equal(await p.locator('#fromQty').inputValue(),'0.5');await assertResult(250);
+await p.locator('#fromQty').fill('7');await p.locator('#shopMode').check();
+await p.locator('#swap').click();assert.equal(await p.locator('#fromQty').inputValue(),'7');assert.equal(await p.locator('#fromItem').inputValue(),'DIRT');assert.equal(await p.locator('#toItem').inputValue(),'DIAMOND');await assertResult(0,true);
+await p.locator('#reset').click();assert.equal(await p.locator('#shopMode').isChecked(),false);await assertResult(500);
+console.log('PASS result-only target quantity, preserved source amount on swap, Sell/Sell comparison, Sell/Buy shop, fractional values, rounding, remainder, zero and reset');
 assert.equal(await p.locator('#adminInner').evaluate(e=>e.inert),true);assert.equal(await p.locator('#priceList').isDisabled(),true);assert.equal(await p.locator('#priceList').evaluate(e=>!!e.closest('#adminInner')),true);
 console.log('PASS static directory manifest, original JSON precision and conversion');
 const second=structuredClone(data);second.items.find(x=>x.id==='DIAMOND').sell=123.456;

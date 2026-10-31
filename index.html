@@ -156,6 +156,7 @@
 .admin-login .status{color:#f8b4b4}
 @media(max-width:720px){.admin-overlay{padding-top:80px}.management.locked .admin-inner{filter:blur(6px)}}
 .list-loader{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}.list-loader>div{flex:0 1 360px;min-width:0;max-width:100%}.list-loader select{margin-top:0}.list-loader .btn{flex:none}
+.mode-switch{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:8px 0;font-size:.85rem;cursor:pointer}.mode-switch input{width:18px;height:18px;padding:0;margin:0;accent-color:var(--gold)}
 </style>
 </head>
 <body>
@@ -165,8 +166,8 @@
 <div class="hero-grid"><div class="converter-layout">
 <section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><input id="fromSearch" type="search" placeholder="z. B. Diamant, Eisen, Holz …" autocomplete="off"><select id="fromItem" aria-label="Ausgangs-Item"></select><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"></div><div><label>Verkaufspreis pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
 <div class="swap-slot"><button class="btn swap" id="swap" type="button" title="Items tauschen" aria-label="Items tauschen"><span class="swap-icon">⇄</span></button></div>
-<section class="card"><label for="toSearch">Ziel-Item suchen</label><input id="toSearch" type="search" placeholder="z. B. Dirt, Gold, Weizen …" autocomplete="off"><select id="toItem" aria-label="Ziel-Item"></select><div class="fieldrow"><div><label for="toQty">Zielmenge (ganze Stücke)</label><input id="toQty" type="number" min="0" step="1" inputmode="numeric"></div><div><label>Kaufpreis pro Item</label><div id="toRate" class="rate"></div></div></div></section>
-</div><div class="right-stack"><section class="card result" aria-live="polite"><div class="muted">UMRECHNUNG</div><div class="big" id="result">JSON-Datei verbinden</div><div class="line muted" id="total">350 VC Gesamtwert</div><div class="flex"><button class="btn" id="copy" type="button">Ergebnis kopieren</button><button class="btn" id="reset" type="button">Zurücksetzen</button></div><div id="copyStatus" class="status" aria-live="polite"></div></section>
+<section class="card"><label for="toSearch">Ziel-Item suchen</label><input id="toSearch" type="search" placeholder="z. B. Dirt, Gold, Weizen …" autocomplete="off"><select id="toItem" aria-label="Ziel-Item"></select><div class="fieldrow"><div><label for="toQty" id="toQtyLabel">Gegenwert (Items)</label><input id="toQty" type="number" min="0" step="1" inputmode="numeric"></div><div><label id="toRateLabel">Verkaufswert pro Item</label><div id="toRate" class="rate"></div></div></div></section>
+</div><div class="right-stack"><section class="card result" aria-live="polite"><div class="muted" id="resultMode">WERTVERGLEICH · SELL → SELL</div><label class="mode-switch" for="shopMode"><input id="shopMode" type="checkbox" role="switch">Shop-Umrechnung (verkaufen → kaufen)</label><div class="big" id="result">Preisliste wird geladen …</div><div class="line muted" id="total"></div><div class="flex"><button class="btn" id="copy" type="button">Ergebnis kopieren</button><button class="btn" id="reset" type="button">Zurücksetzen</button></div><div id="copyStatus" class="status" aria-live="polite"></div></section>
 <section class="card calculator" aria-label="Taschenrechner">
 <h3>Mini-Taschenrechner</h3>
 <label for="calcInput">Rechnung</label>
@@ -199,7 +200,7 @@ const $=id=>document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
 let defaults=[],custom=[];
 let writeChain=Promise.resolve();
-const fmt=n=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:2}).format(n);
+const fmt=n=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:8}).format(n);
 const fmtPrice=n=>new Intl.NumberFormat('de-CH',{minimumFractionDigits:2,maximumFractionDigits:20}).format(n);
 const whole=v=>{const n=Number(String(v).replace(',','.'));return Number.isFinite(n)&&n>=0?Math.floor(n):0};
 const validPrice=v=>Number.isFinite(v)&&v>0;
@@ -208,7 +209,10 @@ const list=()=>[...defaults,...custom];
 const get=id=>list().find(x=>x.id===id)||list()[0]||{id:'DIRT',name:'Erde',buy:1,sell:1};
 const wasChanged=id=>{const x=list().find(x=>x.id===id);return !!x&&(x.buy!==x.defaultBuy||x.sell!==x.defaultSell)};
 const priceLabel=x=>`${x.name} · Buy ${fmtPrice(x.buy)} / Sell ${fmtPrice(x.sell)} VC`;
-const rateMarkup=(x,side)=>`${fmtPrice(side==='from'?x.sell:x.buy)} VC <span class="original">${side==='from'?'Sell':'Buy'}${wasChanged(x.id)?' · Standard: '+fmtPrice(side==='from'?x.defaultSell:x.defaultBuy)+' VC':''}</span>`;
+const rateMarkup=(x,side)=>{
+ const buy=side==='to'&&$('shopMode').checked;
+ return `${fmtPrice(buy?x.buy:x.sell)} VC <span class="original">${buy?'Buy':'Sell'}${wasChanged(x.id)?' · Standard: '+fmtPrice(buy?x.defaultBuy:x.defaultSell)+' VC':''}</span>`;
+};
 const status=message=>$('fileStatus').textContent=message;
 function currentPayload(){const entry=x=>({id:x.id,name:x.name,buy:x.buy,sell:x.sell,defaultBuy:x.defaultBuy,defaultSell:x.defaultSell});return {format:'VeloCoin-Preisliste',version:2,baseCurrency:'VC',baseItem:'DIRT',items:defaults.map(entry),customItems:custom.map(entry)}}
 function parsePayload(data){
@@ -286,15 +290,27 @@ function save(){
 const saveOverrides=save;
 function renderSelect(side){const s=$(side+'Item'),q=$(side+'Search').value.trim().toLocaleLowerCase(),keep=s.value||(side==='from'?'DIAMOND':'DIRT');s.replaceChildren();const found=list().filter(x=>(x.id+' '+x.name).toLocaleLowerCase().includes(q)||x.id===keep);for(const item of found){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);s.append(o)}s.value=keep;if(!s.value&&found.length)s.selectedIndex=0}
 function update(source='from'){
- const a=get($('fromItem').value),b=get($('toItem').value);
+ const a=get($('fromItem').value),b=get($('toItem').value),shop=$('shopMode').checked;
+ const targetPrice=shop?b.buy:b.sell;
  $('fromRate').innerHTML=rateMarkup(a,'from');$('toRate').innerHTML=rateMarkup(b,'to');
+ $('toRateLabel').textContent=shop?'Kaufpreis pro Item':'Verkaufswert pro Item';
+ $('toQtyLabel').textContent=shop?'Kaufbare Menge (ganze Stücke)':'Gegenwert (Items)';
+ $('resultMode').textContent=shop?'SHOP · SELL → BUY':'WERTVERGLEICH · SELL → SELL';
+ $('fromQty').step=$('toQty').step=shop?'1':'any';
  let amount;
- if(source==='to'){const wanted=whole($('toQty').value);$('toQty').value=wanted;amount=wanted===0?0:Math.ceil((wanted*b.buy/a.sell)-1e-10);$('fromQty').value=amount}
- else{amount=whole($('fromQty').value);$('fromQty').value=amount}
- const dest=Math.max(0,Math.floor(amount*a.sell/b.buy+1e-10));$('toQty').value=dest;
- $('result').textContent=`${fmt(amount)} × ${a.name} = ${fmt(dest)} × ${b.name}`;
- $('total').textContent=`${fmtPrice(amount*a.sell)} VC Verkaufswert · Ziel zum Kaufpreis`;
+ if(source==='to'){
+  const wanted=shop?whole($('toQty').value):num($('toQty').value);
+  const needed=wanted*targetPrice/a.sell;
+  amount=shop?Math.max(0,Math.ceil(needed-1e-10)):needed;
+ }else{amount=shop?whole($('fromQty').value):num($('fromQty').value)}
+ $('fromQty').value=amount;
+ const value=amount*a.sell,ratio=value/targetPrice;
+ const dest=shop?Math.max(0,Math.floor(ratio+1e-10)):ratio;
+ $('toQty').value=dest;
+ $('result').textContent=shop?`${fmt(amount)} × ${a.name} verkaufen → ${fmt(dest)} × ${b.name} kaufen`:`${fmt(amount)} × ${a.name} = ${fmt(dest)} × ${b.name}`;
+ $('total').textContent=shop?`${fmtPrice(value)} VC Verkaufserlös · ${fmtPrice(Math.max(0,value-dest*targetPrice))} VC Rest`:`${fmtPrice(value)} VC Verkaufswert · Beide Items zum Sell-Preis`;
 }
+$('shopMode').addEventListener('change',()=>update());
 function redraw(){renderSelect('from');renderSelect('to');update();renderCustom();renderEditor()}
 function renderEditor(){const sel=$('editItem'),search=$('editSearch').value.trim().toLocaleLowerCase(),keep=sel.value||'DIAMOND';sel.replaceChildren();const options=list().filter(x=>(x.id+' '+x.name).toLocaleLowerCase().includes(search)||x.id===keep);for(const item of options){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);sel.append(o)}sel.value=keep;if(!sel.value&&options.length)sel.selectedIndex=0;syncEditor();$('modifiedCount').textContent=`${list().filter(x=>wasChanged(x.id)).length} Item(s) mit geändertem Buy/Sell-Preis.`}
 function syncEditor(){const id=$('editItem').value;if(!id)return;const x=get(id);$('editBuy').value=x.buy;$('editSell').value=x.sell;$('editBuyDefault').textContent='Standard: '+fmtPrice(x.defaultBuy)+' VC';$('editSellDefault').textContent='Standard: '+fmtPrice(x.defaultSell)+' VC';$('restoreEdit').disabled=!wasChanged(id)}
@@ -303,7 +319,7 @@ function renderCustom(){const ul=$('customList');ul.replaceChildren();for(const 
 for(const side of ['from','to']){$(side+'Search').addEventListener('input',()=>{renderSelect(side);update()});$(side+'Item').addEventListener('change',()=>update())}
 $('fromQty').addEventListener('input',()=>update('from'));$('toQty').addEventListener('input',()=>update('to'));
 $('swap').addEventListener('click',()=>{const a=$('fromItem').value,b=$('toItem').value,q=$('toQty').value;$('fromSearch').value='';$('toSearch').value='';renderSelect('from');renderSelect('to');$('fromItem').value=b;$('toItem').value=a;$('fromQty').value=q;update()});
-$('reset').addEventListener('click',()=>{$('fromSearch').value='';$('toSearch').value='';$('fromQty').value='1';renderSelect('from');renderSelect('to');$('fromItem').value=list().some(x=>x.id==='DIAMOND')?'DIAMOND':list()[0].id;$('toItem').value='DIRT';update()});
+$('reset').addEventListener('click',()=>{$('shopMode').checked=false;$('fromSearch').value='';$('toSearch').value='';$('fromQty').value='1';renderSelect('from');renderSelect('to');$('fromItem').value=list().some(x=>x.id==='DIAMOND')?'DIAMOND':list()[0].id;$('toItem').value='DIRT';update()});
 $('copy').addEventListener('click',async()=>{const msg=$('result').textContent+' ('+$('total').textContent+')';try{await navigator.clipboard.writeText(msg);$('copyStatus').textContent='Ergebnis kopiert.'}catch(e){$('copyStatus').textContent='Kopieren nicht unterstützt.'}});
 $('add').addEventListener('click',()=>{const name=$('newName').value.trim(),buyRaw=num($('newBuy').value),sellRaw=num($('newSell').value),msg=$('addStatus');if(!name||!validPrice(buyRaw)||!validPrice(sellRaw)){msg.textContent='Bitte Namen und beide Preise grösser als null eingeben.';return}const id='CUSTOM_'+Date.now()+'_'+Math.random().toString(36).slice(2,8),buy=buyRaw,sell=sellRaw;custom.push({id,name,buy,sell,defaultBuy:buy,defaultSell:sell,isCustom:true});save();$('fromSearch').value='';redraw();$('fromItem').value=id;update();$('newName').value='';msg.textContent='Eigenes Item hinzugefügt.'});
 $('editSearch').addEventListener('input',renderEditor);$('editItem').addEventListener('change',syncEditor);

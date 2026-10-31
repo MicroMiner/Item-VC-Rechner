@@ -79,3 +79,8 @@ node tests/browser.cjs
 Zum manuellen lokalen Betrieb kann ein statischer HTTP-Server verwendet werden. Für den Betrieb ohne Worker muss `config.js` lokal bzw. per Serverüberschreibung eine leere API-Adresse liefern. Der Cloud-Helfer `/workspace/velocity-dev/serve.py` stellt diese Überschreibung bereit, ohne die Datei zu ändern.
 
 Website-Dateien, Ordner und Worker müssen für die neue Listen-API gemeinsam veröffentlicht werden. Ein alter Worker unterstützt die Listenauswahl noch nicht. Dieses Repository führt kein automatisches Deployment aus.
+
+
+## Wertvergleich und Shop-Umrechnung
+
+Standardmässig vergleicht der Rechner den Verkaufswert beider Items: `Menge × Sell(A) / Sell(B)`. Dieser Gegenwert darf Bruchteile enthalten. Der Schalter „Shop-Umrechnung“ berechnet stattdessen `floor(Menge × Sell(A) / Buy(B))`: Die angegebene ganze Menge wird verkauft, davon werden so viele ganze Ziel-Items wie möglich gekauft. Nicht ausgegebene VC werden als Rest angezeigt. Bei Eingabe einer gewünschten Zielmenge berechnet der Shop-Modus die nötige Verkaufsmenge aufgerundet. „Zurücksetzen“ aktiviert wieder den Sell-/Sell-Vergleich.

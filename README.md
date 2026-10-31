@@ -48,7 +48,7 @@ Erstelle in GitHub unter **Settings → Developer settings → Personal access t
 
 ## Mehrere Preislisten
 
-Die Web-App bietet oberhalb des Umrechners eine öffentliche Listenauswahl. JSON-Preislisten liegen direkt in `preislisten/`. Der Worker liefert mit `GET /lists` die Dateien dieses Ordners aus dem konfigurierten GitHub-Branch. Neue Dateien erscheinen nach dem Neuladen der Web-App automatisch. Zulässig sind Dateinamen wie `VeloCoin_Preisliste.json` oder `shop-2.json` (Buchstaben ohne Umlaute, Ziffern, `_`, `-`, `.`; erster Buchstabe oder Ziffer). Unterordner und `index.json` sind keine auswählbaren Preislisten.
+Die Web-App bietet im gesperrten Admin-Bereich bei „Liste laden“ eine kompakte Listenauswahl. Nach dem Login eine Liste auswählen und mit „Liste laden“ übernehmen; ohne Login wird die erste verfügbare Liste automatisch für den öffentlichen Umrechner geladen. JSON-Preislisten liegen direkt in `preislisten/`. Der Worker liefert mit `GET /lists` die Dateien dieses Ordners aus dem konfigurierten GitHub-Branch. Neue Dateien erscheinen nach dem Neuladen der Web-App automatisch. Zulässig sind Dateinamen wie `VeloCoin_Preisliste.json` oder `shop-2.json` (Buchstaben ohne Umlaute, Ziffern, `_`, `-`, `.`; erster Buchstabe oder Ziffer). Unterordner und `index.json` sind keine auswählbaren Preislisten.
 
 `GET /prices?file=shop-2.json` lädt die gewählte Liste; `PUT /prices?file=shop-2.json` speichert sie mit Passwort und Versions-SHA. Änderungen wirken ausschliesslich auf die gewählte Liste. Beim Listenwechsel wartet die App ausstehende Speichervorgänge ab. Schlägt das Laden fehl, bleibt die bisherige Liste aktiv. Das Erstellen und Hochladen neuer Listen erfolgt im Repository, nicht im Browser.
 

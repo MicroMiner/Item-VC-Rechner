@@ -155,12 +155,12 @@
 .admin-login label{text-align:left}.admin-login input{text-align:center}.admin-unlock{width:100%;margin-top:13px;background:#416e5e;border-color:#568d75}
 .admin-login .status{color:#f8b4b4}
 @media(max-width:720px){.admin-overlay{padding-top:80px}.management.locked .admin-inner{filter:blur(6px)}}
+.list-loader{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}.list-loader>div{flex:0 1 360px;min-width:0;max-width:100%}.list-loader select{margin-top:0}.list-loader .btn{flex:none}
 </style>
 </head>
 <body>
 <main class="wrap">
 <header class="top"><div><div class="brand">VELOCITY ECONOMY</div><h1>Item-Umrechner</h1><small>1 Dirt = 1 VC · Minecraft</small></div><span class="tag">Online · Gemeinsame Preisliste</span></header>
-<section class="card"><label for="priceList">Preisliste auswählen</label><select id="priceList" disabled></select><div id="listStatus" class="status" role="status"></div></section>
 <section class="hero" aria-label="Item-Umrechner"><h2 class="section-heading">01 · Umrechnung</h2>
 <div class="hero-grid"><div class="converter-layout">
 <section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><input id="fromSearch" type="search" placeholder="z. B. Diamant, Eisen, Holz …" autocomplete="off"><select id="fromItem" aria-label="Ausgangs-Item"></select><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"></div><div><label>Verkaufspreis pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
@@ -189,7 +189,7 @@
 <div id="editStatus" class="status" aria-live="polite"></div><div id="modifiedCount" class="editor-note"></div></section>
 <section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div class="fieldrow" style="margin:0"><div><label for="newBuy">Buy (VC)</label><input id="newBuy" type="number" step="any" min="0" value="10" inputmode="decimal"></div><div><label for="newSell">Sell (VC)</label><input id="newSell" type="number" step="any" min="0" value="5" inputmode="decimal"></div></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
 <section class="card"><h2>Hinzugefügte Items</h2><p class="editor-note">Deine eigenen Items auf voller Breite in zwei Spalten. Die Preise kannst du oben unter «Bestehende Itempreise anpassen» bearbeiten.</p><ul id="customList" class="custom-list"></ul></section>
-<section class="card"><h2>Gemeinsame Online-Preisliste</h2><p class="editor-note">Änderungen werden nach Freigabe direkt ins GitHub-Repository geschrieben. Alle Besucher sehen die aktualisierten Preise beim nächsten Laden der Website.</p><div class="flex"><button class="btn" id="reloadData" type="button">Aktuelle Online-Liste laden</button><button class="btn" id="exportData" type="button">JSON-Sicherung herunterladen</button><button class="btn" id="adminLogout" type="button">Verwaltung sperren</button></div><div class="status" id="fileStatus" role="status"></div></section></div></section>
+<section class="card"><h2>Gemeinsame Online-Preisliste</h2><p class="editor-note">Änderungen werden nach Freigabe direkt ins GitHub-Repository geschrieben. Alle Besucher sehen die aktualisierten Preise beim nächsten Laden der Website.</p><div class="list-loader"><div><label for="priceList">Preisliste auswählen</label><select id="priceList" disabled></select></div><button class="btn" id="reloadData" type="button">Liste laden</button></div><div id="listStatus" class="status" role="status"></div><div class="flex"><button class="btn" id="exportData" type="button">JSON-Sicherung herunterladen</button><button class="btn" id="adminLogout" type="button">Verwaltung sperren</button></div><div class="status" id="fileStatus" role="status"></div></section></div></section>
 <section class="card note"><strong>Hinweis zu den Preisen</strong><p class="muted secondary">Die Werte stammen aus unserer vorläufigen VeloCoin-Preisliste. Sie sind Materialwerte, keine Joblöhne. Buy und Sell können auch Preise mit weiteren Nachkommastellen enthalten. Unbekannte Itemwerte können ergänzt werden. Die Standardwerte für Buy und Sell bleiben beim Bearbeiten separat gespeichert und werden in der Verwaltung angezeigt.</p></section><footer class="foot">VeloCoin · GitHub Pages · Öffentliche Preisliste</footer>
 </main>
 <script src="config.js"></script>
@@ -236,7 +236,7 @@ let selectedFile='',switching=false;
 const validFile=name=>typeof name==='string'&&/^[a-zA-Z0-9][a-zA-Z0-9_.-]*\.json$/.test(name)&&name!=='index.json';
 const management=$('management'),adminInner=$('adminInner');
 function setUnlocked(unlocked,clearSaved=true){
- management.classList.toggle('locked',!unlocked);adminInner.inert=!unlocked||switching;$('adminPassword').value='';
+ management.classList.toggle('locked',!unlocked);adminInner.inert=!unlocked||switching;$('priceList').disabled=!unlocked||switching;$('adminPassword').value='';
  if(!unlocked){adminSession=null;clearTimeout(sessionTimer);if(clearSaved)try{localStorage.removeItem(sessionStorageKey)}catch{}}
 }
 function acceptSession(session){
@@ -311,7 +311,7 @@ $('saveEdit').addEventListener('click',()=>{const id=$('editItem').value,buyRaw=
 $('restoreEdit').addEventListener('click',()=>{const x=list().find(x=>x.id===$('editItem').value);if(!x)return;x.buy=x.defaultBuy;x.sell=x.defaultSell;save();$('editStatus').textContent='Beide Standardpreise wiederhergestellt.';refreshPrices();renderCustom()});
 function exportList(){const blob=new Blob([JSON.stringify(currentPayload(),null,2)+'\n'],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=selectedFile;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);status('JSON-Sicherung heruntergeladen.')}
 $('exportData').addEventListener('click',exportList);
-$('reloadData').addEventListener('click',async()=>{if(!confirm('Nicht gespeicherte Änderungen durch aktuelle Online-Werte ersetzen?'))return;try{await writeChain;await loadRemote()}catch(err){status(err.message)}});
+$('reloadData').addEventListener('click',async()=>{if(!confirm('Nicht gespeicherte Änderungen durch aktuelle Online-Werte ersetzen?'))return;try{await chooseList($('priceList').value)}catch(err){status(err.message)}});
 $('adminLogin').addEventListener('submit',async e=>{e.preventDefault();const pw=$('adminPassword').value;const msg=$('adminStatus');msg.textContent='Zugang wird geprüft …';try{acceptSession(await requestAdmin({password:pw}));msg.textContent='';status('Verwaltung entsperrt. Änderungen werden online gespeichert.')}catch(err){msg.textContent=err.message;}});
 $('adminLogout').addEventListener('click',()=>{setUnlocked(false);$('adminStatus').textContent='Verwaltung gesperrt.'});
 async function chooseList(file){
@@ -319,9 +319,8 @@ async function chooseList(file){
  switching=true;$('priceList').disabled=true;adminInner.inert=true;
  try{await writeChain;selectedFile=file;await loadRemote();$('priceList').value=file;$('listStatus').textContent='Geladen: '+file;}
  catch(err){selectedFile=previous;$('priceList').value=previous;$('listStatus').textContent=err.message;throw err;}
- finally{switching=false;$('priceList').disabled=false;adminInner.inert=management.classList.contains('locked');}
+ finally{switching=false;const locked=management.classList.contains('locked');$('priceList').disabled=locked;adminInner.inert=locked;}
 }
-$('priceList').addEventListener('change',()=>{chooseList($('priceList').value).catch(()=>{});});
 async function init(){
  setUnlocked(false,false);
  await restoreSession();

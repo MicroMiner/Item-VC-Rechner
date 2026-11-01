@@ -1198,6 +1198,7 @@ select:focus-visible {
   line-height: 1.55;
 }
 .legal-dialog::backdrop {
+  backdrop-filter: blur(4px);
   background: #050c18b3;
 }
 .legal-dialog h2 {
@@ -1213,6 +1214,7 @@ select:focus-visible {
   color: var(--sub);
 }
 .legal-close {
+  color: var(--gold);
   position: absolute;
   top: 12px;
   right: 12px;
@@ -1232,18 +1234,21 @@ select:focus-visible {
   margin-top: 5px;
 }
 .legal-dialog dt {
-  color: var(--sub);
+  color: var(--fg);
+  font-weight: 650;
   min-width: 110px;
 }
 .legal-dialog dd {
   margin: 0;
   overflow-wrap: anywhere;
 }
-.legal-dialog .legal-placeholder {
-  font-size: 0.85rem;
+.legal-divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 16px 0 12px;
 }
-.legal-contact {
-  padding-top: 6px;
+.legal-copyright {
+  text-align: center;
 }
 @media (max-width: 400px) {
   .legal-dialog {

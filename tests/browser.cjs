@@ -156,13 +156,15 @@ const legalLink=p.getByRole('link',{name:'Impressum',exact:true});
 await legalLink.click();assert.equal(await p.locator('#impressum').isVisible(),true);
 assert.equal(await p.locator('#closeImpressum').evaluate(e=>e===document.activeElement),true);
 await p.locator('#impressumTitle').click();assert.equal(await p.locator('#impressum').isVisible(),true);
-assert.match((await p.locator('.legal-contact').textContent()).replace(/\s+/g,' ').trim(),/Betreiber\/in.*\[Wird ergänzt\].*Anschrift.*\[Wird ergänzt\].*Kontakt \/ E-Mail.*\[Wird ergänzt\]/);
+assert.match((await p.locator('.legal-project').textContent()).replace(/\s+/g,' ').trim(),/Projekt.*VeloCity – Minecraft Survival Server.*Webentwicklung.*MicroMiner/);
+assert.equal(await p.locator('.legal-contact,.legal-placeholder').count(),0);
+assert.equal(await p.locator('.legal-copyright').textContent(),'© 2026 VeloCity');
 await p.locator('#fromSearch').focus();assert.equal(await p.locator('#fromSearch').evaluate(e=>e===document.activeElement),false);
 await p.keyboard.press('Escape');assert.equal(await p.locator('#impressum').isVisible(),false);assert.equal(await legalLink.evaluate(e=>e===document.activeElement),true);
 await legalLink.click();await p.locator('#closeImpressum').click();assert.equal(await p.locator('#impressum').isVisible(),false);
 await legalLink.click();await p.mouse.click(2,2);assert.equal(await p.locator('#impressum').isVisible(),false);
 assert.equal(p.url(),beforeLegal.url);assert.equal(await p.evaluate(()=>performance.timeOrigin),beforeLegal.origin);assert.equal(await p.locator('#fromItem').inputValue(),beforeLegal.item);assert.equal(await p.locator('#fromQty').inputValue(),beforeLegal.qty);
-console.log('PASS exact footer credit, two information paragraphs, modal content, placeholders, close button, Escape, backdrop, focus restoration and no navigation');
+console.log('PASS exact footer credit, two information paragraphs, simplified shared modal content, close button, Escape, backdrop, focus restoration and no navigation');
 const touch=await b.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
 try{
  const mobile=await touch.newPage();await mobile.goto(base+'/umrechner.html');await mobile.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));

@@ -92,7 +92,28 @@ const server = http.createServer((req, res) => {
       );
       await page.getByRole("link", { name: "Impressum", exact: true }).click();
       assert.equal(await page.locator("#impressum").isVisible(), true);
+      const legalText = (await page.locator("#impressum").textContent()).replace(/\s+/g, " ").trim();
+      assert.equal(legalText, "× Impressum Projekt VeloCity – Minecraft Survival Server Webentwicklung MicroMiner Über das Projekt VeloCity ist ein unabhängiges Minecraft-Community-Projekt mit eigenem Wirtschaftssystem, individuell entwickelten Plugins und ergänzenden Web-Tools. Rechtlicher Hinweis VeloCity ist ein unabhängiges Minecraft-Fanprojekt und steht in keiner offiziellen Verbindung zu Mojang Studios oder Microsoft. © 2026 VeloCity");
+      assert.doesNotMatch(legalText, /Wird ergänzt|Platzhalter|Betreiber|Anschrift|E-Mail/);
+      assert.equal(await page.locator("#closeImpressum").evaluate(e=>e===document.activeElement),true);
+      await page.keyboard.press("Tab");
+      assert.equal(await page.evaluate(()=>document.activeElement===document.body||document.activeElement.closest("#impressum")!==null),true);
       await page.keyboard.press("Escape");
+      assert.equal(await page.locator("#impressum").isVisible(), false);
+      assert.equal(await page.locator("#openImpressum").evaluate(e=>e===document.activeElement),true);
+      for (const [width,height] of [[320,640],[375,667],[430,932],[768,1024],[1024,768],[1440,900],[1920,1080]]) {
+        await page.setViewportSize({width,height});
+        await page.getByRole("link", { name: "Impressum", exact: true }).click();
+        const bounds=await page.locator("#impressum").boundingBox();
+        assert.ok(bounds.x>=0&&bounds.x+bounds.width<=width&&bounds.y>=0&&bounds.y+bounds.height<=height);
+        assert.equal(await page.locator("#impressum").evaluate(e=>e.scrollWidth<=e.clientWidth),true);
+        await page.locator("#closeImpressum").click();
+        assert.equal(await page.locator("#impressum").isVisible(), false);
+      }
+      await page.getByRole("link", { name: "Impressum", exact: true }).click();
+      await page.mouse.click(1,1);
+      assert.equal(await page.locator("#impressum").isVisible(), false);
+      await page.setViewportSize({width:1440,height:900});
       await page.locator(".site-logo").click();
       await page.waitForURL(base + "index.html");
     }

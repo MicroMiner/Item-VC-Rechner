@@ -227,6 +227,8 @@ def build_model(current):
                     if candidate in targets or candidate in recipe_outputs:
                         recipes.append(recipe(item.lower()+'_shape_analogue',item,{candidate:count},quantity));break
                 break
+    for fuel,count in [('COAL_BLOCK',80),('COAL',8),('CHARCOAL',8),('DRIED_KELP_BLOCK',20)]:
+        recipes.append(recipe('fuel_from_'+fuel.lower(),'FUEL_UNIT',{fuel:1},count,kind='modeled_fuel'))
     # Brewing is hardcoded in vanilla rather than stored as datapack recipes.
     # A batch produces three potions; one blaze powder fuels twenty batches.
     def brew(name,output,base,ingredient):
@@ -273,7 +275,7 @@ def build_model(current):
         elif buy_recipe.get(item)=='reference':
             buy,sell=seeds[item];method=reasons[item]
         else:
-            buy=money(buys[item]*D(policy['processingBuyFactor']),True)
+            buy=money(buys[item],True)
             sell=money(sells[item]*D(policy['processingSellFactor']))
             method='recipe' if buy_recipe.get(item)!='reference' else reasons.get(item,'explicit_reference')
         if buy>maximum_buy:
@@ -281,27 +283,43 @@ def build_model(current):
             buy_caps.append({'id':item,'beforeBuy':float(buy),'afterBuy':float(maximum_buy),'beforeSell':float(sell),'afterSell':float(new_sell)})
             buy,sell=maximum_buy,new_sell
         proposed[item]={'buy':buy,'sell':min(sell,buy),'method':method,'recipe':buy_recipe.get(item,'reference'),'recipeType':recipe_types.get(buy_recipe.get(item),'reference')}
-    # Least attainable acquisition cost can also traverse CSV-anchored products.
-    # Seed only actual tradable items, not intermediary guesses or service fees.
-    acquisition_seeds={k:v['buy'] for k,v in proposed.items()}
-    for name in policy['services']:
-        acquisition_seeds[name]=D(policy['fallbacks'][name][0])
-    acquisition,acq_recipe=relax(acquisition_seeds,recipes)
-    corrections=[]
-    for item,price in proposed.items():
-        cap=money(acquisition[item]*D(policy['saleSafetyFactor']))
-        if price['sell']>cap:
-            corrections.append({'id':item,'before':float(price['sell']),'after':float(cap),'reason':acq_recipe.get(item),'acquisitionCost':float(acquisition[item])})
-            price['sell']=cap
-    # Recompute all derived resale values after correcting references. Thus
-    # descendants inherit a correction without repeated discounts per stage.
-    final_sell_seeds={k:v[1] for k,v in seeds.items()}
-    for k in anchors:
-        final_sell_seeds[k]=proposed[k]['sell']
-    final_sells,_=relax(final_sell_seeds,recipes,locked)
-    for item,price in proposed.items():
-        if item not in anchors and price['method']=='recipe':
-            price['sell']=min(price['sell'],money(final_sells[item]*D(policy['processingSellFactor'])))
+    # Sell is the basis of the actual shop quote. A fixed-point pass closes
+    # recipe arbitrage under the configured Buy/Sell ratio, then re-quotes
+    # Buy from the corrected Sell. There is no repeated processing discount.
+    factor=D(policy['buySellFactor'])
+    if not factor.is_finite() or factor<1:
+        raise ValueError('Buy-/Sell-Faktor muss mindestens 1 sein.')
+    for price in proposed.values():
+        price['sell']=min(price['sell'],money(maximum_buy/factor))
+    safety=D(policy['saleSafetyFactor'])
+    if safety!=1:
+        raise ValueError('Die Gewinnschleifenprüfung verwendet keinen zusätzlichen Sicherheitsabschlag.')
+    changes={}
+    for iteration in range(250):
+        for item,price in proposed.items():
+            price['buy']=money(price['sell']*factor)
+            if price['buy']<price['sell']:
+                raise ValueError('Sell über maximalem Buy bei '+item)
+        acquisition_seeds={k:v['buy'] for k,v in proposed.items()}
+        for name in policy['services']:
+            acquisition_seeds[name]=D(policy['fallbacks'][name][0])
+        acquisition,acq_recipe=relax(acquisition_seeds,recipes)
+        adjusted=False
+        for item,price in proposed.items():
+            cost=acquisition[item]
+            if cost<CENT-D('.00000001'):
+                raise ValueError('Rezeptkosten unter Sell-Minimum bei '+item+'; Referenzpreise müssen angehoben werden.')
+            cap=money(cost)
+            if price['sell']>cap:
+                if item not in changes:
+                    changes[item]={'id':item,'before':float(price['sell'])}
+                changes[item].update({'after':float(cap),'reason':acq_recipe.get(item),'acquisitionCost':float(cost)})
+                price['sell']=cap;adjusted=True
+        if not adjusted:
+            break
+    else:
+        raise ValueError('Buy-/Sell-Preise konvergieren nicht.')
+    corrections=[changes[k] for k in sorted(changes)]
     return proposed,recipes,acquisition,anchor_info,inferred,corrections,data,rows,buy_caps
 
 
@@ -332,9 +350,11 @@ def generate(current):
             append({'id':key,'name':reference['name']})
     for item in current['customItems']:
         append(item,True)
+    quote_policy=json.loads(POLICY_FILE.read_text())
     for item in result['items']+result['customItems']:
+        assert D(item['buy'])==money(D(item['sell'])*D(quote_policy['buySellFactor'])),item
         assert CENT<=D(item['sell'])<=D(item['buy'])<=D(json.loads(POLICY_FILE.read_text())['maximumBuy']),item
-    summary={'csvRows':len(rows),'csvUniquePriceReferences':len(anchor_info),'itemCount':len(audit),'changed':sum((a['oldBuy'],a['oldSell'])!=(a['buy'],a['sell']) for a in audit),'maxBuy':max(x['buy'] for x in audit),'maxSell':max(x['sell'] for x in audit),'buyCaps':buy_caps,'corrections':corrections,'inferredCsvSales':inferred,'minecraftVersion':data['minecraftVersion'],'recipeCount':len(recipes),'sourceSha256':hashlib.sha256(SOURCE_FILE.read_bytes()).hexdigest()}
+    summary={'csvRows':len(rows),'csvUniquePriceReferences':len(anchor_info),'itemCount':len(audit),'changed':sum((a['oldBuy'],a['oldSell'])!=(a['buy'],a['sell']) for a in audit),'buySellFactor':float(D(quote_policy['buySellFactor'])),'maxBuy':max(x['buy'] for x in audit),'maxSell':max(x['sell'] for x in audit),'buyCaps':buy_caps,'corrections':corrections,'inferredCsvSales':inferred,'minecraftVersion':data['minecraftVersion'],'recipeCount':len(recipes),'sourceSha256':hashlib.sha256(SOURCE_FILE.read_bytes()).hexdigest()}
     return result,audit,summary,recipes,acquisition
 
 
@@ -354,7 +374,7 @@ def main():
         report=ROOT/'pricing/report.json'
         report.write_text(json.dumps({'summary':summary,'items':audit},ensure_ascii=False,indent=2)+'\n')
         with (ROOT/'pricing/price-changes.csv').open('w',newline='') as f:
-            w=csv.DictWriter(f,fieldnames=list(audit[0]));w.writeheader();w.writerows(audit)
+            w=csv.DictWriter(f,fieldnames=list(audit[0]),lineterminator='\n');w.writeheader();w.writerows(audit)
         print(json.dumps(summary,ensure_ascii=False,indent=2))
 
 if __name__=='__main__':

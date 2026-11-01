@@ -31,26 +31,28 @@ class PricingTests(unittest.TestCase):
                     self.assertLessEqual(value,Decimal('500000'))
                     self.assertEqual(value*100,(value*100).to_integral_value())
                 self.assertLessEqual(item['sell'],item['buy'])
+                self.assertEqual(Decimal(str(item['buy'])),Decimal(str(item['sell']))*4)
                 self.assertEqual(item['buy'],item['defaultBuy'])
                 self.assertEqual(item['sell'],item['defaultSell'])
 
     def test_buy_ceiling_preserves_margins_and_is_documented(self):
-        self.assertEqual(self.items['ELYTRA']['buy'],500000)
+        self.assertEqual(self.items['ELYTRA']['buy'],200000)
         self.assertEqual(self.items['ELYTRA']['sell'],50000)
-        self.assertEqual(self.items['DRAGON_EGG']['buy'],500000)
+        self.assertEqual(self.items['DRAGON_EGG']['buy'],200000)
         self.assertEqual(self.items['DRAGON_EGG']['sell'],50000)
-        self.assertEqual(self.items['NETHERITE_BLOCK']['buy'],500000)
+        self.assertEqual(self.items['NETHERITE_BLOCK']['buy'],20000)
         self.assertEqual(self.items['NETHERITE_BLOCK']['sell'],5000)
         capped={x['id'] for x in self.audit['summary']['buyCaps']}
         self.assertEqual(capped,{'ELYTRA','DRAGON_EGG','NETHERITE_BLOCK'})
 
     def test_material_quantities_and_netherite_upgrade(self):
-        self.assertEqual(self.items['DIAMOND']['buy'],1500)
+        self.assertEqual(self.items['DIAMOND']['buy'],2000)
         self.assertEqual(self.items['DIAMOND']['sell'],500)
-        self.assertEqual(self.items['DIRT']['buy'],3)  # Existing explicit change.
-        self.assertEqual(self.items['OAK_SLAB']['buy'],22)  # 3 planks -> 6 slabs, one 10% fee.
-        self.assertEqual(self.items['OAK_STAIRS']['buy'],66)  # 6 planks -> 4 stairs.
-        self.assertEqual(self.items['IRON_CHESTPLATE']['buy'],2200)
+        self.assertEqual(self.items['DIRT']['buy'],4)
+        # Actual recipe quantities constrain resale after the quote change.
+        self.assertLessEqual(self.items['OAK_SLAB']['sell']*2,self.items['OAK_PLANKS']['buy'])
+        self.assertLessEqual(self.items['OAK_STAIRS']['sell']*4,self.items['OAK_PLANKS']['buy']*6)
+        self.assertLessEqual(self.items['IRON_CHESTPLATE']['sell'],self.items['IRON_INGOT']['buy']*8)
         # One netherite ingot, one diamond chestplate and one consumed upgrade
         # template; never eight netherite ingots or a repeated tier multiplier.
         chest=self.items['NETHERITE_CHESTPLATE']
@@ -59,10 +61,10 @@ class PricingTests(unittest.TestCase):
         self.assertLess(chest['sell'],10000)
 
     def test_known_purchase_conversion_loops_are_closed(self):
-        self.assertLessEqual(self.items['GLOWSTONE_DUST']['sell']*4,self.items['GLOWSTONE']['buy']*.9)
-        self.assertLessEqual(self.items['COAL']['sell']*9,self.items['COAL_BLOCK']['buy']*.9)
-        self.assertLessEqual(self.items['LODESTONE']['sell'],self.acquisition['LODESTONE']*Decimal('.9'))
-        self.assertLessEqual(self.items['END_CRYSTAL']['sell'],self.acquisition['END_CRYSTAL']*Decimal('.9'))
+        self.assertLessEqual(self.items['GLOWSTONE_DUST']['sell']*4,self.items['GLOWSTONE']['buy'])
+        self.assertLessEqual(self.items['COAL']['sell']*9,self.items['COAL_BLOCK']['buy'])
+        self.assertLessEqual(Decimal(str(self.items['LODESTONE']['sell'])),self.acquisition['LODESTONE']*Decimal('1.00'))
+        self.assertLessEqual(Decimal(str(self.items['END_CRYSTAL']['sell'])),self.acquisition['END_CRYSTAL']*Decimal('1.00'))
         checked=0
         for r in self.recipes:
             if r['output'] not in self.proposed:
@@ -77,7 +79,7 @@ class PricingTests(unittest.TestCase):
                 cost=sum(choices,Decimal(0))
                 payout=self.proposed[r['output']]['sell']*Decimal(str(r['count']))
                 with self.subTest(recipe=r['name']):
-                    self.assertLessEqual(payout,cost*Decimal('.9')+Decimal('.0000001'))
+                    self.assertLessEqual(payout,cost*Decimal('1.00')+Decimal('.0000001'))
                 checked+=1
         self.assertGreater(checked,1000)
 
@@ -94,6 +96,11 @@ class PricingTests(unittest.TestCase):
         self.assertEqual(wool['recipeType'],'analogy')
         custom=next(i for i in self.payload['customItems'] if i['name']=='Enderperle')
         self.assertEqual((custom['buy'],custom['sell']),(120,30))
+
+    def test_minimum_sell_uses_one_to_four_ratio(self):
+        binding=self.items['ENCHANTED_BOOK_BINDING_CURSE_1']
+        self.assertEqual((binding['buy'],binding['sell']),(.04,.01))
+        self.assertEqual(self.audit['summary']['buySellFactor'],4)
 
     def test_model_is_repeatable_without_price_inflation(self):
         result,*_=model.generate(self.payload)

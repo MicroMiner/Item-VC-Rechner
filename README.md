@@ -88,7 +88,7 @@ Standardmässig vergleicht der Rechner den Verkaufswert beider Items: `Menge × 
 
 ## Neue Preisbasis aus shops.csv
 
-Die Preisliste wurde anhand der bereitgestellten Shop-CSV und materialbasierter Rezepte neu berechnet. Alle Preise liegen auf Cent-Beträgen ab 0.01 VC; Buy ist auf 500’000 VC begrenzt, bei einem Kontolimit von 10 Mio. VC. CSV-Referenzen behalten unterschiedliche Handelsspannen; Aufschläge werden nicht über Herstellungsketten mehrfach multipliziert. Varianten von Tränken, Effektpfeilen und verzauberten Büchern sind getrennte Einträge.
+Die Preisliste wurde anhand der bereitgestellten Shop-CSV und materialbasierter Rezepte neu berechnet. Alle Preise liegen auf Cent-Beträgen ab 0.01 VC; Buy ist auf 500’000 VC begrenzt, bei einem Kontolimit von 10 Mio. VC. Sell bildet die Bewertungsgrundlage; Buy beträgt exakt Sell × 4 (Verhältnis Sell:Buy = 1:4). Sell-Werte werden nötigenfalls zur Vermeidung von Herstellungs-Gewinnschleifen gesenkt. Die frühere CSV-Buy-Spanne wird damit ersetzt; Aufschläge werden nicht über Herstellungsketten mehrfach multipliziert. Varianten von Tränken, Effektpfeilen und verzauberten Büchern sind getrennte Einträge.
 
 Die vollständigen Regeln, gezielten CSV-Korrekturen und Schätzungen stehen in [pricing/README.md](pricing/README.md). Der [Änderungsbericht](pricing/price-changes.csv) enthält alle Vorher-/Nachher-Preise. Leere CSV-Verkaufspreise und Einträge ohne verifizierte Serverrezepte sind ausdrücklich als Vorschläge zu behandeln. Die Quelldatei bleibt unverändert.
 

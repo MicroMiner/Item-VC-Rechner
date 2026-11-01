@@ -21,9 +21,12 @@ assert.match(await p.locator('#toRate').textContent(),/Sell/);
 await p.locator('#shopMode').check();await assertResult(Math.floor(3*data.items.find(x=>x.id==='DIAMOND').sell/data.items.find(x=>x.id==='DIRT').buy),true);
 assert.match(await p.locator('#toRate').textContent(),/Buy/);
 await p.locator('#fromQty').fill('0');await assertResult(0,true);
-// Remainder and insufficient funds: 501 dirt sell for 501 VC, stone costs 20 VC.
+// Whole-item rounding and the remainder use current shop quotes.
 await p.locator('#fromItem').selectOption('DIRT');await p.locator('#toItem').selectOption('STONE');
-await p.locator('#fromQty').fill('501');await assertResult(25,true);assert.match(await p.locator('#total').textContent(),/1\.00 VC Rest/);
+const stone=data.items.find(x=>x.id==='STONE'),dirt=data.items.find(x=>x.id==='DIRT');
+const stoneCount=Math.floor(501*dirt.sell/stone.buy+1e-10);
+await p.locator('#fromQty').fill('501');await assertResult(stoneCount,true);
+const remainder=new Intl.NumberFormat('de-CH',{minimumFractionDigits:2,maximumFractionDigits:20}).format(Math.max(0,501*dirt.sell-stoneCount*stone.buy));assert.ok((await p.locator('#total').textContent()).endsWith(remainder+' VC Rest'));
 await p.locator('#fromQty').fill('1');await assertResult(0,true);
 // The result alone shows fractional comparisons; swap preserves the entered amount.
 await p.locator('#shopMode').uncheck();await p.locator('#toItem').selectOption('DIAMOND');await assertResult(0.002);
@@ -47,8 +50,8 @@ await p.locator('#fromQty').fill('100');await p.locator('#fromSearch').fill('Dia
 assert.equal((await p.locator('#useResult').textContent()).trim(),'');
 await p.locator('#useResult').click();assert.equal(await p.locator('#fromItem').inputValue(),'DIRT');assert.equal(await p.locator('#fromQty').inputValue(),'50000');assert.equal(await p.locator('#fromSearch').inputValue(),'');assert.equal(await p.locator('#toItem').inputValue(),'DIRT');await assertResult(50000);
 await p.locator('#fromQty').fill('1');await p.locator('#toItem').selectOption('DIAMOND');await p.locator('#useResult').click();assert.equal(await p.locator('#fromItem').inputValue(),'DIAMOND');assert.equal(await p.locator('#fromQty').inputValue(),'0.002');await assertResult(0.002);
-await p.locator('#fromItem').selectOption('DIRT');await p.locator('#toItem').selectOption('STONE');await p.locator('#fromQty').fill('501');await p.locator('#shopMode').check();await assertResult(25,true);
-await p.locator('#useResult').click();assert.equal(await p.locator('#fromItem').inputValue(),'STONE');assert.equal(await p.locator('#fromQty').inputValue(),'25');await assertResult(1,true);
+await p.locator('#fromItem').selectOption('DIRT');await p.locator('#toItem').selectOption('STONE');await p.locator('#fromQty').fill('501');await p.locator('#shopMode').check();await assertResult(stoneCount,true);
+await p.locator('#useResult').click();assert.equal(await p.locator('#fromItem').inputValue(),'STONE');assert.equal(Number(await p.locator('#fromQty').inputValue()),stoneCount);await assertResult(Math.floor(stoneCount*stone.sell/stone.buy+1e-10),true);
 await p.locator('#clearQty').click();await p.locator('#useResult').click();assert.equal(await p.locator('#fromQty').inputValue(),'0');await assertResult(0,true);
 await p.locator('#reset').click();
 console.log('PASS additive shortcuts, repeated clicks, manual input, clearing, and result carry with whole, fractional and zero quantities');

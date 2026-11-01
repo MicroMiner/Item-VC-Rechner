@@ -1,8 +1,7 @@
 {
   "maximumBuy": "500000",
-  "processingBuyFactor": "1.10",
   "processingSellFactor": "0.85",
-  "saleSafetyFactor": "0.90",
+  "saleSafetyFactor": "1.00",
   "overrides": {
     "DIRT": [
       3,
@@ -348,5 +347,6 @@
       20,
       2
     ]
-  }
+  },
+  "buySellFactor": "4"
 }

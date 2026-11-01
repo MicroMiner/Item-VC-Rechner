@@ -1,515 +1,163 @@
 <!doctype html>
 <html lang="de-CH">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VeloCoin · Item-Umrechner</title>
-<style>
-:root{color-scheme:dark;--bg:#0b1220;--panel:#172237;--field:#0c1628;--line:#30425c;--fg:#edf4ff;--sub:#a5b6ce;--gold:#f5c55c;--green:#67e5a6}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#203451 0%,var(--bg) 65%);color:var(--fg);font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh;padding:20px 12px}.wrap{max-width:1140px;margin:20px auto}.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:20px}h1{font-size:1.55rem;margin:0}small,.muted{color:var(--sub)}.brand{color:var(--gold);font-weight:800;letter-spacing:.07em}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:14px;box-shadow:0 12px 40px #0002}label{display:block;color:var(--sub);font-size:.85rem;margin:0 0 6px;font-weight:650}input,select,button{font:inherit}input,select{width:100%;color:var(--fg);border:1px solid var(--line);border-radius:10px;background:var(--field);padding:12px 13px;outline:none}input:focus,select:focus{border-color:var(--gold)}input[type=number]{font-size:1.2rem}select{margin-top:9px;max-width:100%}.fieldrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.rate{font-weight:750;color:var(--gold);font-size:1.05rem;padding-top:12px}.between{display:flex;justify-content:center;margin:-3px auto 11px}.btn{cursor:pointer;border:1px solid var(--line);border-radius:11px;padding:10px 14px;background:#253650;color:var(--fg);font-weight:650}.btn:hover{background:#34496a}.btn:focus-visible{outline:2px solid var(--gold)}.swap{background:#304762}.result{background:linear-gradient(145deg,#1b3c40,#18304b);text-align:center;border-color:#37645d}.result .big{font-size:clamp(1.5rem,6vw,2.1rem);font-weight:850;color:var(--green);overflow-wrap:anywhere;margin:7px 0}.result .line{margin:8px 0 15px}.flex{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center}.secondary{font-size:.88rem}.addgrid{display:grid;grid-template-columns:1fr 130px;gap:12px;margin-bottom:12px}.status{min-height:20px;color:var(--green);font-size:.85rem;margin:10px 0 0}.note{line-height:1.55}.foot{text-align:center;padding:8px;color:var(--sub);font-size:.8rem}.hidden{display:none}.custom-list{padding:0;margin:13px 0 0;list-style:none}.custom-list li{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding:9px 0}.custom-list button{padding:5px 9px}.original{display:block;color:var(--sub);font-size:.72rem;font-weight:450;margin-top:2px}.editor-actions{display:flex;gap:9px;flex-wrap:wrap}.editor-actions .btn{flex:1}.editor-note{font-size:.8rem;color:var(--sub);margin:8px 0 12px}.tag{border:1px solid #8c6b28;background:#5c471f70;color:#ffe1a2;border-radius:30px;font-size:.72rem;padding:3px 9px}@media(max-width:370px){.card{padding:14px}.addgrid{grid-template-columns:1fr}}
-
-/* Horizontale Rechner-Ebene und darunter die Verwaltung */
-.wrap{max-width:1460px;margin:20px auto}
-.hero{min-height:min(730px,calc(100vh - 120px));display:flex;flex-direction:column;justify-content:flex-start;padding-top:14px}
-.section-heading{color:var(--sub);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;margin:0 0 16px 4px}
-.converter-layout{display:grid;grid-template-columns:minmax(0,1fr) 65px minmax(0,1fr) minmax(0,.95fr);gap:14px;align-items:stretch}
-.converter-layout .card{margin:0;min-width:0;display:flex;flex-direction:column}
-.converter-layout .result{justify-content:center}
-.converter-layout .result .big{font-size:clamp(1.45rem,2.3vw,2.15rem)}
-.swap-slot{display:flex;align-items:center;justify-content:center}
-.swap-slot .swap{width:54px;height:54px;padding:0;font-size:1.65rem;white-space:nowrap}
-.converter-layout .fieldrow{margin-top:auto;padding-top:20px;grid-template-columns:minmax(0,1fr) minmax(0,.85fr)}
-.converter-layout .fieldrow>div{min-width:0}
-.converter-layout .rate{overflow-wrap:anywhere}
-.converter-layout select{min-height:48px}
-.management{padding-top:28px;scroll-margin-top:20px}
-.management .card{margin-bottom:18px}
-.management .card h2{font-size:1.18rem;margin:0 0 12px}
-.management .editor-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:end}
-.management .editor-grid .fieldrow{margin:0}
-.management .editor-actions{margin-top:14px}
-.management .addgrid{grid-template-columns:minmax(0,1fr) minmax(260px,.65fr)}
-.management .addgrid .fieldrow{gap:8px}.management .fieldrow input{min-width:0;padding:9px 10px;font-size:1rem}.management .fieldrow .original{min-height:1em}
-.custom-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:0;margin-top:14px}
-.custom-list li{min-width:0}
-.custom-list li span{min-width:0;overflow-wrap:anywhere}
-.custom-list:empty::after{content:'Noch keine eigenen Items hinzugefügt.';color:var(--sub);font-size:.9rem;grid-column:1/-1;padding:12px 0}
-.section-line{height:1px;background:var(--line);margin:24px 0}
- .filebox h2{font-size:1.18rem;margin:0 0 12px}.file-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.file-label{display:inline-flex;align-items:center}.file-actions input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}.file-actions input[type=file]:focus-visible+.btn{outline:2px solid var(--gold)}
-@media(max-width:1100px){.converter-layout{grid-template-columns:minmax(0,1fr) 54px minmax(0,1fr)}.converter-layout .result{grid-column:1/-1}.hero{min-height:auto;padding:24px 0 60px}.converter-layout .fieldrow{margin-top:16px}}
-@media(max-width:720px){.wrap{max-width:600px}.converter-layout{grid-template-columns:minmax(0,1fr)}.converter-layout .result{grid-column:auto}.swap-slot .swap{transform:rotate(90deg)}.hero{padding:0 0 40px}.management .editor-grid{grid-template-columns:1fr}.custom-list{grid-template-columns:1fr}.top{align-items:flex-start}.converter-layout .card{padding:18px}}
-@media(max-width:450px){.fieldrow{grid-template-columns:repeat(2,minmax(0,1fr))}.editor-actions{flex-direction:column}.addgrid,.management .addgrid{grid-template-columns:1fr}.card{padding:15px}}
-
-/* Taschenrechner direkt in der ersten Ebene */
-.calculator{width:min(100%,540px);margin:24px auto 6px;padding:16px 18px}
-.calculator h3{font-size:1rem;margin:0 0 10px}
-.calc-screen{display:flex;gap:8px;align-items:center}
-.calc-screen input{font-size:1.22rem;font-variant-numeric:tabular-nums;text-align:right;min-width:0}
-.calc-screen .btn{flex:none}
-.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}
-.calc-grid .btn{padding:9px 6px;font-size:1rem}
-.calc-grid .accent{background:#36546f;color:var(--gold)}
-.calc-grid .equals{background:#245d4b;color:#adffce}
-.calc-feedback{margin:8px 0 0;color:var(--sub);font-size:.82rem;min-height:1.2em;overflow-wrap:anywhere}
-@media(max-width:1100px){.hero{padding-top:12px}.calculator{margin-top:20px}}
-@media(max-width:720px){.hero{padding-top:0}.calculator{width:100%}}
-
-/* Desktop: kompakter vertikaler Umrechner links, Ergebnis und Rechner rechts */
-@media(min-width:721px){
- .hero{min-height:calc(100vh - 155px);padding-top:0;padding-bottom:22px}
- .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:stretch;flex:1;min-height:0}
- .converter-layout{display:flex;flex-direction:column;gap:10px;min-width:0}
- .converter-layout .card{flex:1;min-height:0;padding:17px 20px}
- .converter-layout .fieldrow{margin-top:12px;padding-top:0}
- .converter-layout select{min-height:43px}
- .converter-layout input{padding:9px 12px}
- .swap-slot{flex:0 0 auto;min-height:34px}
- .swap-slot .swap{width:46px;height:36px;font-size:1.35rem;transform:rotate(90deg)}
- .right-stack{display:grid;grid-template-rows:minmax(155px,.65fr) minmax(290px,1.35fr);gap:14px;min-width:0;min-height:0}
- .right-stack .card{margin:0;min-width:0}
- .right-stack .result{display:flex;flex-direction:column;justify-content:center;padding:16px 18px}
- .right-stack .result .big{font-size:clamp(1.35rem,2.2vw,2rem)}
- .right-stack .calculator{width:100%;padding:14px 18px}
- .calculator h3{margin-bottom:5px}
- .calculator label{margin-bottom:3px}
- .calc-grid{gap:6px;margin-top:8px}
- .calc-grid .btn{padding:7px 6px}
- .calc-feedback{margin-top:5px}
-}
-@media(min-width:721px) and (max-width:1100px){
- .hero{min-height:calc(100vh - 145px);padding:0 0 22px}
- .converter-layout{display:flex;flex-direction:column}
- .right-stack .result{grid-column:auto}
-}
-@media(max-width:720px){
- .hero-grid{display:contents}
- .converter-layout{display:contents}
- .right-stack{display:contents}
- .hero .card{margin-bottom:14px}
- .hero .calculator{margin:20px auto 6px}
- .hero .swap-slot{margin:0 auto 12px}
-}
-
-/* Breiterer und etwas flacherer Tauschen-Button auf Desktop. */
-@media (min-width:721px){
-  .swap-slot .swap{width:88px;height:30px;font-size:1.2rem;line-height:1;padding:0;display:flex;align-items:center;justify-content:center;transform:none}
-  .swap-slot .swap-icon{display:inline-block;transform:rotate(90deg)}
-  .swap-slot{min-height:30px}
-}
-
-/* Bildschirmfüllende Desktop-Ebene; darunter beginnt erst die Preisverwaltung. */
-@media (min-width:721px){
-  body{padding:0 12px}
-  .wrap{margin:0 auto;padding:12px 0 24px}
-  .top{height:88px;margin:0;min-height:0}
-  .hero{height:calc(100vh - 100px);height:calc(100dvh - 100px);min-height:0;padding:0 0 clamp(48px,6.4vh,76px);display:flex;flex-direction:column;overflow:hidden}
-  .hero>.section-heading{flex:none;margin:0 0 10px 4px}
-  .hero-grid{flex:1;min-height:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(9px,1.2vw,20px)}
-  .converter-layout{min-height:0;gap:clamp(5px,1vh,12px)}
-  .converter-layout .card{justify-content:center;flex:1;min-height:0;padding:clamp(9px,1.5vh,20px)}
-  .converter-layout .fieldrow{margin-top:clamp(7px,1.8vh,18px);padding:0}
-  .converter-layout label{margin-bottom:4px}
-  .converter-layout input,.converter-layout select{padding:clamp(7px,1.1vh,11px) 10px;min-height:0}
-  .converter-layout select{margin-top:clamp(5px,1vh,10px)}
-  .converter-layout .rate{padding-top:4px}
-  .swap-slot{min-height:28px}
-  .right-stack{min-height:0;grid-template-rows:minmax(0,.68fr) minmax(0,1.32fr);gap:clamp(8px,1.3vh,14px)}
-  .right-stack .result{min-height:0;align-items:center;justify-content:center;text-align:center;padding:clamp(8px,1.3vh,18px)}
-  .right-stack .result .big{margin:clamp(3px,.8vh,8px) 0;font-size:clamp(1.05rem,2.05vw,2rem)}
-  .right-stack .result .line{margin:4px 0 9px}
-  .right-stack .result .flex{justify-content:center}
-  .right-stack .calculator{min-height:0;margin:0;width:100%;padding:clamp(9px,1.5vh,18px);display:flex;flex-direction:column;justify-content:center}
-  .calculator h3{text-align:center;margin:0 0 5px}
-  .calculator .calc-screen{width:100%}
-  .calculator .calc-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(5px,.8vh,10px);margin-top:clamp(6px,1vh,12px);min-height:0}
-  .calculator .calc-grid .btn{display:flex;align-items:center;justify-content:center;height:clamp(38px,5.6vh,60px);min-width:0;padding:0 5px;line-height:1;font-size:clamp(1rem,1.4vw,1.2rem)}
-  .calculator .calc-feedback{text-align:center;margin:5px 0 0;font-size:.75rem}
-  .management{padding-top:30px}
-}
-@media (min-width:721px) and (max-height:700px){
- .top{height:65px}
- .top h1{font-size:1.3rem}
- .hero{height:calc(100vh - 77px);height:calc(100dvh - 77px)}
- .hero{padding-bottom:clamp(32px,5.2vh,48px)}
- .hero>.section-heading{margin-bottom:6px}
- .converter-layout .card{padding:8px 12px}
- .converter-layout .fieldrow{margin-top:5px}
- .converter-layout .fieldrow input{font-size:1rem}
- .converter-layout .rate{font-size:.9rem}
- .right-stack .result .big{font-size:clamp(1rem,1.8vw,1.55rem)}
- .right-stack .calculator{padding:7px 12px}
- .calculator h3{font-size:.9rem;margin:0 0 2px}
- .calculator .calc-screen input{padding:6px 8px}
- .calculator .calc-grid{gap:4px;margin-top:5px}
- .calculator .calc-grid .btn{height:clamp(31px,5.2vh,42px)}
- .calculator .calc-feedback{font-size:.7rem;margin:3px 0 0}
- .btn{padding:7px 10px}
-}
-
-/* Admin: zweite Ebene bleibt sichtbar, aber unzugänglich, bis der Server das Passwort bestätigt. */
-.management{position:relative;isolation:isolate;scroll-margin-top:12px}
-.management .admin-inner{transition:filter .2s ease,opacity .2s ease}
-.management.locked .admin-inner{filter:blur(8px);opacity:.47;user-select:none;pointer-events:none}
-.admin-overlay{display:none;position:absolute;z-index:10;inset:0;align-items:flex-start;justify-content:center;padding:clamp(72px,16vh,180px) 12px 12px}
-.management.locked .admin-overlay{display:flex}
-.admin-login{width:min(440px,100%);background:rgba(13,24,43,.97);border:1px solid #627796;border-radius:20px;box-shadow:0 15px 65px #0009;padding:clamp(20px,4vw,34px);text-align:center;backdrop-filter:blur(10px)}
-.admin-lock-icon{font-size:2rem}.admin-login h2{margin:9px 0}.admin-login p{color:var(--sub);font-size:.92rem}
-.admin-login label{text-align:left}.admin-login input{text-align:center}.admin-unlock{width:100%;margin-top:13px;background:#416e5e;border-color:#568d75}
-.admin-login .status{color:#f8b4b4}
-@media(max-width:720px){.admin-overlay{padding-top:80px}.management.locked .admin-inner{filter:blur(6px)}}
-.list-loader{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}.list-loader>div{flex:0 1 360px;min-width:0;max-width:100%}.list-loader select{margin-top:0}.list-loader .btn{flex:none}
-.mode-switch{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:8px 0;font-size:.85rem;cursor:pointer}.mode-switch input{width:18px;height:18px;padding:0;margin:0;accent-color:var(--gold)}
-.quantity-shortcuts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin-top:6px;max-width:210px}.quantity-shortcuts .btn{min-width:0;padding:5px 2px;border-radius:4px;font-size:.75rem;line-height:1.2}.quantity-shortcuts .quantity-clear{color:#ffb9b9}.result .icon-button{display:inline-flex;align-items:center;justify-content:center;padding:10px}.icon-button svg{width:20px;height:20px}.btn:disabled{opacity:.45;cursor:default}
-.item-picker{position:relative;min-width:0}.item-picker input{padding-right:32px}.picker-arrow{position:absolute;right:12px;top:10px;pointer-events:none;color:var(--sub)}.picker-options{position:absolute;z-index:30;top:calc(100% + 4px);left:0;right:0;max-height:min(260px,45vh);overflow-y:auto;overscroll-behavior:contain;background:var(--field);border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 30px #0008}.picker-options[hidden]{display:none}.picker-option{padding:10px 12px;cursor:pointer;overflow-wrap:anywhere;border-bottom:1px solid var(--line);font-size:.9rem}.picker-option:last-child{border-bottom:0}.picker-option[aria-selected="true"]{background:#34496a;color:var(--gold)}.picker-empty{padding:12px;color:var(--sub);font-size:.9rem}
-.economy-status{flex:0 1 420px;width:420px;max-width:100%;margin-left:auto;padding:6px 10px;background:#0c192be8;border:1px solid #45617e;border-radius:12px;font-size:11.5px;line-height:1.4;font-variant-numeric:tabular-nums;color:var(--fg)}
-.status-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:4px;padding:2px 0}.status-row+.status-row{border-top:1px solid var(--line);margin-top:2px;padding-top:4px}.status-info{display:inline-flex;align-items:center;gap:7px;min-width:0;max-width:100%;white-space:nowrap}.status-info+.status-info{border-left:1px solid #45617e;margin-left:8px;padding-left:8px}.status-info svg{width:16px;height:16px;flex:none;color:var(--gold)}.sync-info{color:#ff9d9d;font-weight:650}.sync-dot{width:8px;height:8px;flex:none;border-radius:50%;background:#ed7373}.economy-status[data-state="synced"] .sync-info{color:var(--green)}.economy-status[data-state="synced"] .sync-dot{background:var(--green)}
-@media(max-width:720px){.top{flex-wrap:wrap;gap:10px}.economy-status{flex-basis:100%;width:100%;margin-left:0}.status-info{white-space:normal}.status-row{justify-content:flex-start;column-gap:0}.status-info+.status-info{margin-left:7px;padding-left:7px}}
-#copyStatus:empty{display:none}
-@media(min-width:721px){
- .hero{height:auto;min-height:0;padding-bottom:32px}
- .hero-grid{flex:none;height:auto;align-items:start}
- .converter-layout{height:clamp(490px,calc(100dvh - 170px),560px)}
- .converter-layout .card:first-child{flex:1.25}
- .converter-layout .card:last-child{flex:.75}
- .right-stack{grid-template-rows:minmax(200px,auto) minmax(360px,auto)}
- .right-stack .calculator{min-height:clamp(360px,46vh,480px)}
-}
-@media(min-width:1100px){body{padding-left:100px;padding-right:100px}}
-.economy-about h2{display:flex;align-items:center;gap:8px;font-size:1rem;margin:0}.economy-about h2 svg{width:17px;height:17px;flex:none;color:var(--sub)}.economy-about p{margin:8px 0 0}.foot{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px}.foot a{color:inherit;text-underline-offset:3px}.foot a:hover{color:var(--gold)}.foot a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
-.legal-dialog{width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 32px);margin:auto;padding:24px;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:18px;overflow-y:auto;font-size:.9rem;line-height:1.55}.legal-dialog::backdrop{background:#050c18b3}.legal-dialog h2{font-size:1.2rem;margin:0 42px 16px 0}.legal-dialog h3{font-size:.9rem;margin:16px 0 5px}.legal-dialog p{margin:0;color:var(--sub)}.legal-close{position:absolute;top:12px;right:12px;width:32px;height:32px;padding:0;line-height:1;font-size:1.3rem}.legal-dialog dl{margin:0}.legal-dialog dl>div{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:5px}.legal-dialog dt{color:var(--sub);min-width:110px}.legal-dialog dd{margin:0;overflow-wrap:anywhere}.legal-dialog .legal-placeholder{font-size:.85rem}.legal-contact{padding-top:6px}
-@media(max-width:400px){.legal-dialog{padding:20px 16px}.legal-dialog dl>div{display:block}.legal-dialog dd{margin-top:2px}}
-.admin-divider{display:flex;align-items:center;gap:12px;margin:14px 0 0}.admin-divider::before,.admin-divider::after{content:"";height:1px;flex:1;background:var(--line)}.admin-toggle{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:32px;padding:5px 10px;border-radius:8px;color:var(--sub)}.admin-toggle svg{width:20px;height:20px;transition:transform .25s ease}.admin-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}.admin-panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .25s ease,visibility .25s}.admin-panel[aria-hidden="false"]{grid-template-rows:1fr;visibility:visible}.admin-panel-content{min-height:0;overflow:hidden}
-@media(prefers-reduced-motion:reduce){.admin-panel,.admin-toggle svg{transition:none}}
-</style>
-</head>
-<body>
-<main class="wrap">
-<header class="top"><div><div class="brand">VELOCITY ECONOMY</div><h1>Item-Umrechner</h1></div><aside class="economy-status" id="economyStatus" aria-label="Status der Preisliste" data-state="disconnected">
-<div class="status-row"><span class="status-info sync-info" role="status"><span class="sync-dot" aria-hidden="true"></span><span id="syncState">Nicht verbunden</span></span><span class="status-info" title="Letzte gespeicherte Preisänderung"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18M8 15h2M14 15h2"/></svg><time id="priceUpdatedAt" aria-label="Letzte gespeicherte Preisänderung: unbekannt">Keine Zeitangabe</time></span><span class="status-info" title="Version"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5"/></svg><span id="appVersion"></span></span></div>
-<div class="status-row"><span class="status-info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18m-4-4 4 4-4 4M21 17H3m4-4-4 4 4 4"/></svg><span id="earthValue">1 Erde = — VC (Sell)</span></span><span class="status-info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5v8l-9 5-9-5V8l9-5ZM3 8l9 5 9-5M12 13v8"/></svg><span id="loadedItems">— Items</span></span></div>
-</aside></header>
-<section class="hero" aria-label="Item-Umrechner"><h2 class="section-heading">01 · Umrechnung</h2>
-<div class="hero-grid"><div class="converter-layout">
-<section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><div class="item-picker" id="fromPicker"><input id="fromSearch" type="text" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="fromOptions" placeholder="Item suchen oder auswählen …" autocomplete="off" spellcheck="false"><span class="picker-arrow" aria-hidden="true">⌄</span><div id="fromOptions" class="picker-options" role="listbox" aria-label="Ausgangs-Item" hidden></div><select id="fromItem" hidden aria-hidden="true" tabindex="-1"></select></div><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"><div class="quantity-shortcuts" id="quantityShortcuts" role="group" aria-label="Menge addieren"><button class="btn" type="button" data-amount="1" aria-label="1 zur Menge addieren">1</button><button class="btn" type="button" data-amount="3" aria-label="3 zur Menge addieren">3</button><button class="btn" type="button" data-amount="5" aria-label="5 zur Menge addieren">5</button><button class="btn" type="button" data-amount="10" aria-label="10 zur Menge addieren">10</button><button class="btn" type="button" data-amount="15" aria-label="15 zur Menge addieren">15</button><button class="btn" type="button" data-amount="20" aria-label="20 zur Menge addieren">20</button><button class="btn" type="button" data-amount="30" aria-label="30 zur Menge addieren">30</button><button class="btn" type="button" data-amount="50" aria-label="50 zur Menge addieren">50</button><button class="btn" type="button" data-amount="100" aria-label="100 zur Menge addieren">100</button><button class="btn quantity-clear" id="clearQty" type="button" title="Mengeneingabe löschen" aria-label="Mengeneingabe löschen">⌫</button></div></div><div><label>Verkaufspreis pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
-<div class="swap-slot"><button class="btn swap" id="swap" type="button" title="Items tauschen" aria-label="Items tauschen"><span class="swap-icon">⇄</span></button></div>
-<section class="card"><label for="toSearch">Ziel-Item suchen</label><div class="item-picker" id="toPicker"><input id="toSearch" type="text" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="toOptions" placeholder="Item suchen oder auswählen …" autocomplete="off" spellcheck="false"><span class="picker-arrow" aria-hidden="true">⌄</span><div id="toOptions" class="picker-options" role="listbox" aria-label="Ziel-Item" hidden></div><select id="toItem" hidden aria-hidden="true" tabindex="-1"></select></div><div class="fieldrow" style="grid-template-columns:1fr"><div><label id="toRateLabel">Verkaufswert pro Item</label><div id="toRate" class="rate"></div></div></div></section>
-</div><div class="right-stack"><section class="card result" aria-live="polite"><div class="muted" id="resultMode">WERTVERGLEICH · SELL → SELL</div><label class="mode-switch" for="shopMode"><input id="shopMode" type="checkbox" role="switch">Shop-Umrechnung (verkaufen → kaufen)</label><div class="big" id="result">Preisliste wird geladen …</div><div class="flex"><button class="btn" id="copy" type="button">Ergebnis kopieren</button><button class="btn icon-button" id="useResult" type="button" title="Ergebnis übernehmen und Items tauschen" aria-label="Ergebnis übernehmen und Items tauschen" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 14-5-5 5-5M4 9h12a4 4 0 0 1 4 4v7"/></svg></button><button class="btn" id="reset" type="button">Zurücksetzen</button></div><div id="copyStatus" class="status" aria-live="polite"></div></section>
-<section class="card calculator" aria-label="Taschenrechner">
-<h3>Mini-Taschenrechner</h3>
-<label for="calcInput">Rechnung</label>
-<div class="calc-screen"><input id="calcInput" type="text" inputmode="decimal" placeholder="z. B. 350 * 64" autocomplete="off" aria-label="Rechnung eingeben"><button class="btn" id="calcClear" type="button">C</button></div>
-<div class="calc-grid" id="calcKeys">
-<button class="btn" type="button" data-key="7">7</button><button class="btn" type="button" data-key="8">8</button><button class="btn" type="button" data-key="9">9</button><button class="btn accent" type="button" data-key="/">÷</button>
-<button class="btn" type="button" data-key="4">4</button><button class="btn" type="button" data-key="5">5</button><button class="btn" type="button" data-key="6">6</button><button class="btn accent" type="button" data-key="*">×</button>
-<button class="btn" type="button" data-key="1">1</button><button class="btn" type="button" data-key="2">2</button><button class="btn" type="button" data-key="3">3</button><button class="btn accent" type="button" data-key="-">−</button>
-<button class="btn" type="button" data-key="0">0</button><button class="btn" type="button" data-key=".">.</button><button class="btn equals" type="button" data-key="=">=</button><button class="btn accent" type="button" data-key="+">+</button>
-</div><div id="calcFeedback" class="calc-feedback" aria-live="polite">Addition, Subtraktion, Multiplikation und Division · Enter = Ergebnis</div>
-</section>
-</div></div>
-</section>
-<section class="card note economy-about" aria-labelledby="economyAboutTitle"><h2 id="economyAboutTitle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg>Über das Wirtschaftssystem</h2><p class="muted secondary">VeloCity Economy bildet die Grundlage für den Handel auf unserem Minecraft-Server. Alle Items besitzen individuelle Kauf- und Verkaufspreise in VeloCoins (VC). Die Preise werden zentral verwaltet und können im Laufe der Zeit angepasst werden.</p><p class="muted secondary">Der Wertvergleich zeigt den relativen Wert zweier Items anhand ihrer Verkaufspreise (Sell). Die Shop-Umrechnung berücksichtigt dagegen den Verkaufspreis (Sell) des Ausgangs-Items und den Kaufpreis (Buy) des Ziel-Items.</p></section>
-<footer class="foot"><span>© 2026 VeloCity Economy</span><span aria-hidden="true">·</span><span>Developed by MicroMiner</span><span aria-hidden="true">·</span><a href="#impressum" id="openImpressum" aria-haspopup="dialog">Impressum</a></footer>
-<div class="admin-divider"><button class="btn admin-toggle" id="toggleAdmin" type="button" aria-expanded="false" aria-controls="adminPanel" aria-label="Preisverwaltung ausklappen" title="Preisverwaltung ausklappen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
-<div id="adminPanel" class="admin-panel" aria-hidden="true" inert><div class="admin-panel-content">
-<section class="management locked" id="management" aria-label="Items und Preise verwalten">
-<div class="admin-overlay" id="adminOverlay"><form class="admin-login" id="adminLogin"><div class="admin-lock-icon">🔒</div><h2>Preisverwaltung gesperrt</h2><p>Nur autorisierte Personen dürfen die zentrale Preisliste ändern. Die Anmeldung bleibt auf diesem Gerät bis zu 30 Minuten gespeichert.</p><label for="adminPassword">Admin-Passwort</label><input id="adminPassword" type="password" required autocomplete="off" placeholder="Passwort eingeben"><button type="submit" class="btn admin-unlock">Verwaltung entsperren</button><div class="status" id="adminStatus" role="status"></div></form></div>
-<div class="admin-inner" id="adminInner" inert><h2 class="section-heading">02 · Preise &amp; Items verwalten</h2>
-<section class="card"><h2>Bestehende Itempreise anpassen</h2><p class="editor-note">Änderungen gelten sofort für beide Seiten des Umrechners. Die ursprünglichen Kauf- und Verkaufspreise bleiben in Klammern sichtbar.</p>
-<div class="editor-grid"><div><label for="editSearch">Item suchen</label><div class="item-picker" id="editPicker"><input id="editSearch" type="text" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="editOptions" placeholder="Item suchen oder auswählen …" autocomplete="off" spellcheck="false"><span class="picker-arrow" aria-hidden="true">⌄</span><div id="editOptions" class="picker-options" role="listbox" aria-label="Item bearbeiten" hidden></div><select id="editItem" hidden aria-hidden="true" tabindex="-1"></select></div></div>
-<div><div class="fieldrow"><div><label for="editBuy">Buy · Kaufpreis (VC)</label><input id="editBuy" type="number" min="0" step="any" inputmode="decimal"><span id="editBuyDefault" class="original"></span></div><div><label for="editSell">Sell · Verkaufspreis (VC)</label><input id="editSell" type="number" min="0" step="any" inputmode="decimal"><span id="editSellDefault" class="original"></span></div></div><div class="editor-actions"><button class="btn" id="saveEdit" type="button">Preis übernehmen</button><button class="btn" id="restoreEdit" type="button">Standard wiederherstellen</button></div></div></div>
-<div id="editStatus" class="status" aria-live="polite"></div><div id="modifiedCount" class="editor-note"></div></section>
-<section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div class="fieldrow" style="margin:0"><div><label for="newBuy">Buy (VC)</label><input id="newBuy" type="number" step="any" min="0" value="10" inputmode="decimal"></div><div><label for="newSell">Sell (VC)</label><input id="newSell" type="number" step="any" min="0" value="5" inputmode="decimal"></div></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
-<section class="card"><h2>Hinzugefügte Items</h2><p class="editor-note">Deine eigenen Items auf voller Breite in zwei Spalten. Die Preise kannst du oben unter «Bestehende Itempreise anpassen» bearbeiten.</p><ul id="customList" class="custom-list"></ul></section>
-<section class="card"><h2>Gemeinsame Online-Preisliste</h2><p class="editor-note">Änderungen werden nach Freigabe direkt ins GitHub-Repository geschrieben. Alle Besucher sehen die aktualisierten Preise beim nächsten Laden der Website.</p><div class="list-loader"><div><label for="priceList">Preisliste auswählen</label><select id="priceList" disabled></select></div><button class="btn" id="reloadData" type="button">Liste laden</button></div><div id="listStatus" class="status" role="status"></div><div class="flex"><button class="btn" id="exportData" type="button">JSON-Sicherung herunterladen</button><button class="btn" id="adminLogout" type="button">Verwaltung sperren</button></div><div class="status" id="fileStatus" role="status"></div></section></div></section>
-</div></div>
-</main>
-<dialog id="impressum" class="legal-dialog" aria-labelledby="impressumTitle">
-<button class="btn legal-close" id="closeImpressum" type="button" aria-label="Impressum schliessen" autofocus>×</button>
-<h2 id="impressumTitle">Impressum</h2>
-<dl class="legal-project"><div><dt>Projekt</dt><dd>VeloCity Economy</dd></div><div><dt>Entwicklung</dt><dd>MicroMiner</dd></div></dl>
-<h3>Beschreibung</h3><p>VeloCity Economy ist eine unabhängige Web-Anwendung zur Verwaltung und Berechnung von Itempreisen für einen privaten Minecraft-Server.</p>
-<h3>Rechtlicher Hinweis</h3><p>Dieses Projekt ist ein unabhängiges Minecraft-Fanprojekt und steht in keiner offiziellen Verbindung zu Mojang Studios oder Microsoft.</p>
-<h3>Kontakt / Betreiberangaben</h3><p class="legal-placeholder">Platzhalter – die rechtlich erforderlichen Angaben werden später ergänzt.</p><dl class="legal-contact"><div><dt>Betreiber/in</dt><dd>[Wird ergänzt]</dd></div><div><dt>Anschrift</dt><dd>[Wird ergänzt]</dd></div><div><dt>Kontakt / E-Mail</dt><dd>[Wird ergänzt]</dd></div></dl>
-</dialog>
-<script src="config.js"></script>
-<script>
-'use strict';
-const impressumDialog=document.getElementById('impressum');
-document.getElementById('openImpressum').addEventListener('click',event=>{event.preventDefault();if(!impressumDialog.open)impressumDialog.showModal();});
-document.getElementById('closeImpressum').addEventListener('click',()=>impressumDialog.close());
-impressumDialog.addEventListener('click',event=>{
- if(event.target!==impressumDialog)return;
- const bounds=impressumDialog.getBoundingClientRect();
- if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)impressumDialog.close();
-});
-const adminToggle=document.getElementById('toggleAdmin'),adminPanel=document.getElementById('adminPanel');
-adminToggle.addEventListener('click',()=>{
- const expanded=adminToggle.getAttribute('aria-expanded')!=='true';
- if(!expanded&&adminPanel.contains(document.activeElement))adminToggle.focus();
- adminToggle.setAttribute('aria-expanded',String(expanded));
- adminToggle.setAttribute('aria-label',expanded?'Preisverwaltung einklappen':'Preisverwaltung ausklappen');
- adminToggle.title=adminToggle.getAttribute('aria-label');
- adminPanel.inert=!expanded;adminPanel.setAttribute('aria-hidden',String(!expanded));
-});
-const APP_VERSION='v1.0.30';
-const $=id=>document.getElementById(id);
-// Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
-let defaults=[],custom=[];
-let priceUpdatedAt=null,synchronized=false;
-let writeChain=Promise.resolve();
-const fmt=n=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:8}).format(n);
-const fmtPrice=n=>new Intl.NumberFormat('de-CH',{minimumFractionDigits:2,maximumFractionDigits:20}).format(n);
-const whole=v=>{const n=Number(String(v).replace(',','.'));return Number.isFinite(n)&&n>=0?Math.floor(n):0};
-const validPrice=v=>Number.isFinite(v)&&v>0;
-const num=v=>{const x=Number(String(v).replace(',','.'));return Number.isFinite(x)&&x>=0?x:0};
-const list=()=>[...defaults,...custom];
-const get=id=>list().find(x=>x.id===id)||list()[0]||{id:'DIRT',name:'Erde',buy:1,sell:1};
-const wasChanged=id=>{const x=list().find(x=>x.id===id);return !!x&&(x.buy!==x.defaultBuy||x.sell!==x.defaultSell)};
-const priceLabel=x=>`${x.name} · Buy ${fmtPrice(x.buy)} / Sell ${fmtPrice(x.sell)} VC`;
-const rateMarkup=(x,side)=>{
- const buy=side==='to'&&$('shopMode').checked;
- return `${fmtPrice(buy?x.buy:x.sell)} VC <span class="original">${buy?'Buy':'Sell'}${wasChanged(x.id)?' · Standard: '+fmtPrice(buy?x.defaultBuy:x.defaultSell)+' VC':''}</span>`;
-};
-const status=message=>$('fileStatus').textContent=message;
-function readUpdatedAt(value){
- if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}T/.test(value))return null;
- const date=new Date(value);return Number.isFinite(date.getTime())?date.toISOString():null;
-}
-function renderHeaderStatus(){
- $('appVersion').textContent=APP_VERSION;
- $('economyStatus').dataset.state=synchronized?'synced':'disconnected';
- $('syncState').textContent=synchronized?'Synchronisiert':'Nicht verbunden';
- const dirt=list().find(x=>x.id==='DIRT');
- const number=new Intl.NumberFormat('de-CH',{maximumFractionDigits:20});
- $('earthValue').textContent=dirt?`1 Erde = ${number.format(dirt.sell)} VC (Sell)`:'1 Erde = — VC (Sell)';
- const count=list().length;
- $('loadedItems').textContent=new Intl.NumberFormat('de-CH').format(count).replace(/’/g,"'")+(count===1?' Item':' Items');
- const time=$('priceUpdatedAt');
- if(priceUpdatedAt){
-  time.dateTime=priceUpdatedAt;
-  time.textContent=new Intl.DateTimeFormat('de-CH',{day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Zurich'}).format(new Date(priceUpdatedAt));
-  time.setAttribute('aria-label','Letzte gespeicherte Preisänderung: '+time.textContent);
- }else{time.removeAttribute('datetime');time.textContent='Keine Zeitangabe';time.setAttribute('aria-label','Letzte gespeicherte Preisänderung: unbekannt');}
-}
-function setSynchronized(value){synchronized=value;renderHeaderStatus();}
-
-function currentPayload(){const entry=x=>({id:x.id,name:x.name,buy:x.buy,sell:x.sell,defaultBuy:x.defaultBuy,defaultSell:x.defaultSell});return {format:'VeloCoin-Preisliste',version:2,baseCurrency:'VC',baseItem:'DIRT',...(priceUpdatedAt?{updatedAt:priceUpdatedAt}:{}),items:defaults.map(entry),customItems:custom.map(entry)}}
-function parsePayload(data){
- if(!data||data.format!=='VeloCoin-Preisliste'||data.version!==2||!Array.isArray(data.items)||!Array.isArray(data.customItems))throw Error('Ungültiges JSON-Format. Bitte Version 2 verwenden.');
- if(!data.items.length||data.items.length>3000||data.customItems.length>3000)throw Error('Ungültige Anzahl von Items.');
- const seen=new Set(),std=[],cus=[];
- for(const [items,target,isCustom] of [[data.items,std,false],[data.customItems,cus,true]])for(const item of items){
-  if(!item||typeof item.id!=='string'||!(isCustom?/^CUSTOM_[a-zA-Z0-9_-]+$/:/^[A-Z][A-Z0-9_]*$/).test(item.id)||seen.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100)throw Error('Ungültiger Item-Eintrag.');
-  // Unterstützt auch ältere Listen mit standardPrice/price.
-  const buy=item.buy??item.standardPrice??item.price??item.sell;
-  const sell=item.sell??item.price??item.buy;
-  const defaultBuy=item.defaultBuy??buy,defaultSell=item.defaultSell??sell;
-  if(![buy,sell,defaultBuy,defaultSell].every(validPrice))throw Error('Ungültiger Kauf-/Verkaufspreis bei '+item.id);
-  seen.add(item.id);target.push({id:item.id,name:item.name,buy,sell,defaultBuy,defaultSell,isCustom});
- }
- if(!seen.has('DIRT'))throw Error('Das Basis-Item DIRT fehlt.');
- return {std,cus};
-}
-function applyData(data){const parsed=parsePayload(data);defaults=parsed.std;custom=parsed.cus;priceUpdatedAt=readUpdatedAt(data.updatedAt);for(const id of ['fromSearch','toSearch','editSearch'])$(id).value='';redraw()}
-let apiUrl=(window.VELOCITY_API_URL||'').replace(/\/$/,'');
-let adminSession=null,sessionTimer;
-const sessionStorageKey='velocity.adminSession:'+apiUrl;
-let remoteSha='';
-let selectedFile='',switching=false;
-const validFile=name=>typeof name==='string'&&/^[a-zA-Z0-9][a-zA-Z0-9_.-]*\.json$/.test(name)&&name!=='index.json';
-const management=$('management'),adminInner=$('adminInner');
-function setUnlocked(unlocked,clearSaved=true){
- management.classList.toggle('locked',!unlocked);adminInner.inert=!unlocked||switching;$('priceList').disabled=!unlocked||switching;$('adminPassword').value='';
- if(!unlocked){adminSession=null;clearTimeout(sessionTimer);if(clearSaved)try{localStorage.removeItem(sessionStorageKey)}catch{}}
-}
-function acceptSession(session){
- if(typeof session.token!=='string'||!Number.isFinite(session.expiresAt)||session.expiresAt<=Date.now())throw Error('Ungültige oder abgelaufene Sitzung.');
- adminSession={token:session.token,expiresAt:session.expiresAt};
- try{localStorage.setItem(sessionStorageKey,JSON.stringify(adminSession))}catch{}
- clearTimeout(sessionTimer);
- sessionTimer=setTimeout(()=>{setUnlocked(false);$('adminStatus').textContent='Sitzung abgelaufen. Bitte erneut anmelden.';},session.expiresAt-Date.now());
- setUnlocked(true);
-}
-async function restoreSession(){
- if(!apiUrl)return;
- let saved;try{saved=JSON.parse(localStorage.getItem(sessionStorageKey))}catch{}
- if(!saved)return;
- if(typeof saved.token!=='string'||!Number.isFinite(saved.expiresAt)||saved.expiresAt<=Date.now()){setUnlocked(false);return;}
- try{acceptSession(await requestAdmin({token:saved.token}));$('adminStatus').textContent='';}
- catch(err){setUnlocked(false);$('adminStatus').textContent=err.message;}
-}
-async function loadRemote(){
- setSynchronized(false);
- if(!validFile(selectedFile))throw Error('Bitte eine Preisliste auswählen.');
- const endpoint=apiUrl?apiUrl+'/prices?file='+encodeURIComponent(selectedFile):'./preislisten/'+encodeURIComponent(selectedFile);
- const r=await fetch(endpoint,{cache:'no-store'});
- if(!r.ok)throw Error('Preisliste nicht verfügbar (HTTP '+r.status+')');
- const body=await r.json();const data=apiUrl?body.data:body;
- applyData(data);remoteSha=apiUrl?(body.sha||''):'';setSynchronized(true);
- status('Preisliste geladen · '+new Date().toLocaleTimeString('de-CH'));
-}
-async function requestAdmin(credentials){
- if(!apiUrl)throw Error('API-Adresse in config.js fehlt.');
- const r=await fetch(apiUrl+'/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(credentials)});
- if(!r.ok)throw Error(r.status===401?(credentials.token?'Sitzung abgelaufen. Bitte erneut anmelden.':'Passwort ungültig.'):'Anmeldung derzeit nicht möglich (HTTP '+r.status+').');
- return r.json();
-}
-function save(){
- if(!adminSession||adminSession.expiresAt<=Date.now()){setUnlocked(false);status('Bitte erneut anmelden.');return false}
- if(switching||!validFile(selectedFile)||!remoteSha)return false;
- const snapshot=currentPayload(),file=selectedFile,token=adminSession.token;
- delete snapshot.updatedAt; // Only the Worker can assign a new committed timestamp.
- setSynchronized(false);
- writeChain=writeChain.then(async()=>{
-  setSynchronized(false);
-  const r=await fetch(apiUrl+'/prices?file='+encodeURIComponent(file),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({token,sha:remoteSha,data:snapshot})});
-  const answer=await r.json().catch(()=>({}));
-  if(r.status===401){setUnlocked(false);$('adminStatus').textContent='Sitzung abgelaufen. Bitte erneut anmelden.';}
-  if(!r.ok)throw Error(answer.error||'HTTP '+r.status);
-  remoteSha=answer.sha;priceUpdatedAt=readUpdatedAt(answer.updatedAt);setSynchronized(true);status('Online gespeichert · '+new Date().toLocaleTimeString('de-CH'));
- }).catch(async err=>{setSynchronized(false);status('Speichern fehlgeschlagen: '+err.message+' · Die Online-Liste wird neu geladen.');try{await loadRemote()}catch(e){status('Speichern fehlgeschlagen: '+err.message+'; auch Neuladen fehlgeschlagen.')}});
- return true;
-}
-const saveOverrides=save;
-const itemPickers={};
-function createItemPicker(side,onChange){
- const input=$(side+'Search'),select=$(side+'Item'),popup=$(side+'Options'),wrapper=$(side+'Picker');
- let opened=false,query='',matches=[],active=-1;
- const selectedName=()=>list().find(x=>x.id===select.value)?.name||'';
- function close(){opened=false;popup.hidden=true;input.setAttribute('aria-expanded','false');input.removeAttribute('aria-activedescendant');input.value=selectedName();query='';}
- function highlight(){
-  const options=popup.querySelectorAll('[role="option"]');
-  options.forEach((option,i)=>option.setAttribute('aria-selected',String(i===active)));
-  if(active>=0&&options[active]){input.setAttribute('aria-activedescendant',options[active].id);options[active].scrollIntoView({block:'nearest'});}
-  else input.removeAttribute('aria-activedescendant');
- }
- function show(){
-  const q=query.trim().toLocaleLowerCase();
-  matches=list().filter(x=>(x.id+' '+x.name).toLocaleLowerCase().includes(q));
-  matches.sort((a,b)=>Number(b.id.toLocaleLowerCase()===q)-Number(a.id.toLocaleLowerCase()===q));
-  active=matches.length?0:-1;popup.replaceChildren();
-  const fragment=document.createDocumentFragment();
-  for(const [i,item] of matches.entries()){
-   const option=document.createElement('div');option.className='picker-option';option.id=side+'Option'+i;option.setAttribute('role','option');option.dataset.itemId=item.id;option.textContent=priceLabel(item);fragment.append(option);
-  }
-  if(!matches.length){const empty=document.createElement('div');empty.className='picker-empty';empty.setAttribute('role','status');empty.textContent='Keine Items gefunden.';fragment.append(empty);}
-  popup.append(fragment);opened=true;popup.hidden=false;input.setAttribute('aria-expanded','true');highlight();
- }
- function choose(id){select.value=id;close();select.dispatchEvent(new Event('change',{bubbles:true}));}
- input.addEventListener('focus',()=>{query='';show();input.select();});
- input.addEventListener('click',()=>{if(!opened){query='';show();input.select();}});
- input.addEventListener('input',()=>{query=input.value;show();});
- input.addEventListener('keydown',e=>{
-  if(e.isComposing)return;
-  if(e.key==='ArrowDown'||e.key==='ArrowUp'){
-   e.preventDefault();
-   if(!opened){query='';show();active=e.key==='ArrowUp'?matches.length-1:0;}
-   else active=Math.max(0,Math.min(matches.length-1,active+(e.key==='ArrowDown'?1:-1)));
-   highlight();
-  }else if(e.key==='Enter'&&opened){e.preventDefault();if(matches[active])choose(matches[active].id);}
-  else if(e.key==='Escape'){e.preventDefault();close();}
-  else if(e.key==='Tab')close();
- });
- popup.addEventListener('mousedown',e=>e.preventDefault());
- popup.addEventListener('click',e=>{const option=e.target.closest('[role="option"]');if(option)choose(option.dataset.itemId);});
- document.addEventListener('pointerdown',e=>{if(opened&&!wrapper.contains(e.target))close();});
- document.addEventListener('focusin',e=>{if(opened&&!wrapper.contains(e.target))close();});
- select.addEventListener('change',()=>{close();onChange();});
- return {sync:close};
-}
-function renderSelect(side){
- const s=$(side+'Item'),keep=s.value||(side==='from'?'DIAMOND':'DIRT');s.replaceChildren();
- for(const item of list()){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);s.append(o);}
- s.value=keep;if(!s.value&&s.options.length)s.selectedIndex=0;itemPickers[side]?.sync();
-}
-let latestConversion=null;
-function update(){
- itemPickers.from?.sync();itemPickers.to?.sync();
- const a=get($('fromItem').value),b=get($('toItem').value),shop=$('shopMode').checked;
- const targetPrice=shop?b.buy:b.sell;
- $('fromRate').innerHTML=rateMarkup(a,'from');$('toRate').innerHTML=rateMarkup(b,'to');
- $('toRateLabel').textContent=shop?'Kaufpreis pro Item':'Verkaufswert pro Item';
- $('resultMode').textContent=shop?'SHOP · SELL → BUY':'WERTVERGLEICH · SELL → SELL';
- $('fromQty').step=shop?'1':'any';
- const amount=shop?whole($('fromQty').value):num($('fromQty').value);
- if($('fromQty').value!=='')$('fromQty').value=amount;
- const value=amount*a.sell,ratio=value/targetPrice;
- const dest=shop?Math.max(0,Math.floor(ratio+1e-10)):ratio;
- latestConversion=list().length&&Number.isFinite(dest)?{itemId:b.id,amount:dest}:null;
- $('useResult').disabled=!latestConversion;
- $('result').textContent=shop?`${fmt(amount)} × ${a.name} verkaufen → ${fmt(dest)} × ${b.name} kaufen`:`${fmt(amount)} × ${a.name} = ${fmt(dest)} × ${b.name}`;
-}
-$('shopMode').addEventListener('change',()=>update());
-function redraw(){renderSelect('from');renderSelect('to');update();renderCustom();renderEditor();renderHeaderStatus()}
-function renderEditor(){const sel=$('editItem'),keep=sel.value||'DIAMOND';sel.replaceChildren();for(const item of list()){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);sel.append(o)}sel.value=keep;if(!sel.value&&sel.options.length)sel.selectedIndex=0;syncEditor();$('modifiedCount').textContent=`${list().filter(x=>wasChanged(x.id)).length} Item(s) mit geändertem Buy/Sell-Preis.`}
-function syncEditor(){itemPickers.edit?.sync();const id=$('editItem').value;if(!id)return;const x=get(id);$('editBuy').value=x.buy;$('editSell').value=x.sell;$('editBuyDefault').textContent='Standard: '+fmtPrice(x.defaultBuy)+' VC';$('editSellDefault').textContent='Standard: '+fmtPrice(x.defaultSell)+' VC';$('restoreEdit').disabled=!wasChanged(id)}
-function refreshPrices(){const from=$('fromItem').value,to=$('toItem').value,edit=$('editItem').value;renderSelect('from');renderSelect('to');$('fromItem').value=from;$('toItem').value=to;update();renderEditor();$('editItem').value=edit;syncEditor()}
-function renderCustom(){const ul=$('customList');ul.replaceChildren();for(const item of custom){const li=document.createElement('li'),txt=document.createElement('span'),del=document.createElement('button');txt.textContent=`${item.name} · Buy ${fmtPrice(item.buy)} / Sell ${fmtPrice(item.sell)} VC`;del.className='btn';del.textContent='Löschen';del.type='button';del.addEventListener('click',()=>{custom=custom.filter(x=>x.id!==item.id);save();redraw()});li.append(txt,del);ul.append(li)}}
-for(const side of ['from','to'])itemPickers[side]=createItemPicker(side,()=>update());
-itemPickers.edit=createItemPicker('edit',()=>syncEditor());
-$('fromQty').addEventListener('input',()=>update());
-$('quantityShortcuts').addEventListener('click',e=>{
- const button=e.target.closest('button[data-amount]');if(!button)return;
- const amount=num($('fromQty').value)+Number(button.dataset.amount);
- if(!Number.isFinite(amount))return;
- $('fromQty').value=amount;update();
-});
-$('clearQty').addEventListener('click',()=>{$('fromQty').value='';update();$('fromQty').focus();});
-$('useResult').addEventListener('click',()=>{
- if(!latestConversion)return;
- const {itemId,amount}=latestConversion,previousFrom=$('fromItem').value;
- $('fromSearch').value='';$('toSearch').value='';renderSelect('from');renderSelect('to');$('fromItem').value=itemId;$('toItem').value=previousFrom;$('fromQty').value=amount;update();
-});
-$('swap').addEventListener('click',()=>{const a=$('fromItem').value,b=$('toItem').value;$('fromSearch').value='';$('toSearch').value='';renderSelect('from');renderSelect('to');$('fromItem').value=b;$('toItem').value=a;update()});
-$('reset').addEventListener('click',()=>{$('shopMode').checked=false;$('fromSearch').value='';$('toSearch').value='';$('fromQty').value='1';renderSelect('from');renderSelect('to');$('fromItem').value=list().some(x=>x.id==='DIAMOND')?'DIAMOND':list()[0].id;$('toItem').value='DIRT';update()});
-$('copy').addEventListener('click',async()=>{const msg=$('result').textContent;try{await navigator.clipboard.writeText(msg);$('copyStatus').textContent='Ergebnis kopiert.'}catch(e){$('copyStatus').textContent='Kopieren nicht unterstützt.'}});
-$('add').addEventListener('click',()=>{const name=$('newName').value.trim(),buyRaw=num($('newBuy').value),sellRaw=num($('newSell').value),msg=$('addStatus');if(!name||!validPrice(buyRaw)||!validPrice(sellRaw)){msg.textContent='Bitte Namen und beide Preise grösser als null eingeben.';return}const id='CUSTOM_'+Date.now()+'_'+Math.random().toString(36).slice(2,8),buy=buyRaw,sell=sellRaw;custom.push({id,name,buy,sell,defaultBuy:buy,defaultSell:sell,isCustom:true});save();$('fromSearch').value='';redraw();$('fromItem').value=id;update();$('newName').value='';msg.textContent='Eigenes Item hinzugefügt.'});
-$('saveEdit').addEventListener('click',()=>{const id=$('editItem').value,buyRaw=num($('editBuy').value),sellRaw=num($('editSell').value),msg=$('editStatus');if(!validPrice(buyRaw)||!validPrice(sellRaw)){msg.textContent='Beide Preise müssen endliche Zahlen grösser als null sein.';return}const x=list().find(x=>x.id===id);if(!x)return;x.buy=buyRaw;x.sell=sellRaw;save();msg.textContent='Buy und Sell übernommen.';refreshPrices();renderCustom()});
-$('restoreEdit').addEventListener('click',()=>{const x=list().find(x=>x.id===$('editItem').value);if(!x)return;x.buy=x.defaultBuy;x.sell=x.defaultSell;save();$('editStatus').textContent='Beide Standardpreise wiederhergestellt.';refreshPrices();renderCustom()});
-function exportList(){const blob=new Blob([JSON.stringify(currentPayload(),null,2)+'\n'],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=selectedFile;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);status('JSON-Sicherung heruntergeladen.')}
-$('exportData').addEventListener('click',exportList);
-$('reloadData').addEventListener('click',async()=>{if(!confirm('Nicht gespeicherte Änderungen durch aktuelle Online-Werte ersetzen?'))return;try{await chooseList($('priceList').value)}catch(err){status(err.message)}});
-$('adminLogin').addEventListener('submit',async e=>{e.preventDefault();const pw=$('adminPassword').value;const msg=$('adminStatus');msg.textContent='Zugang wird geprüft …';try{acceptSession(await requestAdmin({password:pw}));msg.textContent='';status('Verwaltung entsperrt. Änderungen werden online gespeichert.')}catch(err){msg.textContent=err.message;}});
-$('adminLogout').addEventListener('click',()=>{setUnlocked(false);$('adminStatus').textContent='Verwaltung gesperrt.'});
-async function chooseList(file){
- const previous=selectedFile;
- switching=true;$('priceList').disabled=true;adminInner.inert=true;
- try{await writeChain;selectedFile=file;await loadRemote();$('priceList').value=file;$('listStatus').textContent='Geladen: '+file;}
- catch(err){selectedFile=previous;$('priceList').value=previous;$('listStatus').textContent=err.message;throw err;}
- finally{switching=false;const locked=management.classList.contains('locked');$('priceList').disabled=locked;adminInner.inert=locked;}
-}
-async function init(){
- setUnlocked(false,false);
- await restoreSession();
- try{
-  const r=await fetch(apiUrl?apiUrl+'/lists':'./preislisten/index.json',{cache:'no-store'});
-  if(!r.ok)throw Error('Preislisten-Verzeichnis nicht verfügbar (HTTP '+r.status+').');
-  const body=await r.json();
-  if(!Array.isArray(body.lists))throw Error('Ungültiges Preislisten-Verzeichnis.');
-  const entries=body.lists.filter(x=>validFile(x.file));
-  if(!entries.length)throw Error('Keine Preislisten gefunden.');
-  for(const entry of entries){const o=document.createElement('option');o.value=entry.file;o.textContent=entry.name||entry.file;$('priceList').append(o);}
-  await chooseList(entries[0].file);
- }catch(err){setSynchronized(false);$('listStatus').textContent=err.message;status('Laden fehlgeschlagen: '+err.message);$('result').textContent='Preisliste nicht verfügbar';}
-}
-renderHeaderStatus();
-init();
-
-// Kompakter Taschenrechner ohne eval; Operatorpriorität und Klammern unterstützt.
-(function(){
- const inp=document.getElementById('calcInput'),feedback=document.getElementById('calcFeedback');
- function calculate(expression){
-   const raw=expression.replace(/,/g,'.').replace(/[×x]/g,'*').replace(/÷/g,'/').replace(/−/g,'-');
-   const tokens=raw.match(/(?:\d+(?:\.\d*)?|\.\d+)|[+*/()\-]/g)||[];
-   if(tokens.join('')!==raw.replace(/\s+/g,''))throw Error('Ungültige Eingabe');
-   if(!tokens.length)throw Error('Bitte Rechnung eingeben');
-   let i=0;
-   function atom(){let t=tokens[i++];if(t==='+')return atom();if(t==='-')return -atom();if(t==='('){let v=add();if(tokens[i++]!==')')throw Error('Klammer fehlt');return v;}if(t===undefined||!/^((\d+\.?\d*)|(\.\d+))$/.test(t))throw Error('Ungültige Rechnung');return Number(t)}
-   function multiply(){let v=atom();while(tokens[i]==='*'||tokens[i]==='/'){const op=tokens[i++],w=atom();if(op==='/'&&w===0)throw Error('Division durch null');v=op==='*'?v*w:v/w;}return v}
-   function add(){let v=multiply();while(tokens[i]==='+'||tokens[i]==='-'){const op=tokens[i++],w=multiply();v=op==='+'?v+w:v-w}return v}
-   const result=add();if(i!==tokens.length||!Number.isFinite(result))throw Error('Ungültige Rechnung');return result;
- }
- function solve(){try{const x=calculate(inp.value);inp.value=Number(x.toPrecision(12)).toString();feedback.textContent='Ergebnis: '+new Intl.NumberFormat('de-CH',{maximumFractionDigits:10}).format(x);feedback.style.color='var(--green)'}catch(e){feedback.textContent=e.message;feedback.style.color='#ffadad'}}
- document.getElementById('calcKeys').addEventListener('click',e=>{const btn=e.target.closest('button[data-key]');if(!btn)return;const key=btn.dataset.key;if(key==='=')solve();else{inp.value+=key;feedback.textContent='';inp.focus()}});
- document.getElementById('calcClear').addEventListener('click',()=>{inp.value='';feedback.textContent='Rechner geleert';feedback.style.color='var(--sub)';inp.focus()});
- inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();solve()}});
-})();
-</script></body></html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="VeloCity – Dein Minecraft-Server. Deine Wirtschaft. Deine Tools."
+    />
+    <title>VeloCity · Startseite</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body class="site-page home-page">
+    <div class="wrap">
+      <header class="site-header">
+        <a
+          class="site-logo"
+          href="index.html"
+          aria-label="VeloCity – Startseite"
+          ><img
+            src="assets/images/velocity-logo.png"
+            alt="VeloCity"
+            width="2171"
+            height="724"
+        /></a>
+        <nav class="site-nav" aria-label="Hauptnavigation">
+          <a class="nav-link" href="index.html" aria-current="page"
+            >Startseite</a
+          ><a class="nav-link" href="umrechner.html">Umrechner</a>
+        </nav>
+      </header>
+      <main class="home-main">
+        <section class="home-welcome" aria-labelledby="welcomeTitle">
+          <h1 id="welcomeTitle">Willkommen bei <span>VeloCity</span></h1>
+          <p>Dein Minecraft-Server. Deine Wirtschaft. Deine Tools.</p>
+          <div class="welcome-rule" aria-hidden="true"></div>
+        </section>
+        <section class="economy-entry" aria-labelledby="entryTitle">
+          <div class="entry-main">
+            <div class="entry-icon">
+              <svg
+                viewBox="3 1 18 22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="5" y="2" width="14" height="20" rx="2" />
+                <path d="M5 8h14" />
+                <path
+                  d="M8 11h1v1H8zm4 0h1v1h-1zm4 0h.1v1H16zM8 15h1v1H8zm4 0h1v1h-1zm4 0h.1v1H16zM8 19h1v.1H8zm4 0h1v.1h-1zm4 0h.1v.1H16z"
+                  stroke-width="1.2"
+                />
+              </svg>
+            </div>
+            <div class="entry-copy">
+              <h2 id="entryTitle">VeloCity <span>Economy</span></h2>
+              <p>Itempreise vergleichen und umrechnen.</p>
+            </div>
+          </div>
+          <div class="entry-action">
+            <a class="tool-link" href="umrechner.html"
+              ><svg
+                viewBox="3 1 18 22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="5" y="2" width="14" height="20" rx="2" />
+                <path d="M5 8h14" />
+                <path
+                  d="M8 11h1v1H8zm4 0h1v1h-1zm4 0h.1v1H16zM8 15h1v1H8zm4 0h1v1h-1zm4 0h.1v1H16zM8 19h1v.1H8zm4 0h1v.1h-1zm4 0h.1v.1H16z"
+                  stroke-width="1.2"
+                /></svg
+              ><span>Zum Umrechner</span
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m9 5 7 7-7 7" /></svg
+            ></a>
+          </div>
+        </section>
+      </main>
+      <footer class="foot">
+        <span>© 2026 VeloCity</span><span aria-hidden="true">·</span
+        ><span
+          >Developed by
+          <strong class="developer-credit">MicroMiner</strong></span
+        ><span aria-hidden="true">·</span
+        ><a href="#impressum" id="openImpressum" aria-haspopup="dialog"
+          >Impressum</a
+        >
+      </footer>
+    </div>
+    <dialog
+      id="impressum"
+      class="legal-dialog"
+      aria-labelledby="impressumTitle"
+    >
+      <button
+        class="btn legal-close"
+        id="closeImpressum"
+        type="button"
+        aria-label="Impressum schliessen"
+        autofocus
+      >
+        ×
+      </button>
+      <h2 id="impressumTitle">Impressum</h2>
+      <dl class="legal-project">
+        <div>
+          <dt>Projekt</dt>
+          <dd>VeloCity Economy</dd>
+        </div>
+        <div>
+          <dt>Entwicklung</dt>
+          <dd>MicroMiner</dd>
+        </div>
+      </dl>
+      <h3>Beschreibung</h3>
+      <p>
+        VeloCity Economy ist eine unabhängige Web-Anwendung zur Verwaltung und
+        Berechnung von Itempreisen für einen privaten Minecraft-Server.
+      </p>
+      <h3>Rechtlicher Hinweis</h3>
+      <p>
+        Dieses Projekt ist ein unabhängiges Minecraft-Fanprojekt und steht in
+        keiner offiziellen Verbindung zu Mojang Studios oder Microsoft.
+      </p>
+      <h3>Kontakt / Betreiberangaben</h3>
+      <p class="legal-placeholder">
+        Platzhalter – die rechtlich erforderlichen Angaben werden später
+        ergänzt.
+      </p>
+      <dl class="legal-contact">
+        <div>
+          <dt>Betreiber/in</dt>
+          <dd>[Wird ergänzt]</dd>
+        </div>
+        <div>
+          <dt>Anschrift</dt>
+          <dd>[Wird ergänzt]</dd>
+        </div>
+        <div>
+          <dt>Kontakt / E-Mail</dt>
+          <dd>[Wird ergänzt]</dd>
+        </div>
+      </dl>
+    </dialog>
+    <script src="assets/js/ui.js" defer></script>
+  </body>
+</html>

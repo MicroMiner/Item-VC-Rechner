@@ -1,17 +1,38 @@
-# VeloCity – GitHub Pages mit geschützter Preisverwaltung
+# VeloCity – Startseite und Economy-Umrechner
 
 ## Was das Paket macht
 
-- **GitHub Pages** zeigt den öffentlichen Umrechner (`index.html`) und die veröffentlichte Preisliste.
+- **GitHub Pages** zeigt die Startseite (`index.html`), den öffentlichen Umrechner (`umrechner.html`) und die veröffentlichte Preisliste.
 - Der Browser lädt aktuelle Preise über einen **Cloudflare Worker**. Wenn die API-Adresse noch nicht konfiguriert ist, liest er die beigefügte JSON-Datei direkt, aber das Bearbeiten bleibt gesperrt.
-- Ebene 2 ist standardmässig eingeklappt. Der Pfeil in der Trennlinie unter Hinweis und Fusszeile öffnet oder schliesst die Preisverwaltung. Bis zum Passwort-Check bleibt sie unscharf und gesperrt. Die Prüfung erfolgt **auf dem Worker**, nicht im HTML.
+- Ebene 2 ist standardmässig eingeklappt. Der Pfeil in der Trennlinie unter dem Wirtschaftshinweis öffnet oder schliesst die Preisverwaltung. Bis zum Passwort-Check bleibt sie unscharf und gesperrt. Die Prüfung erfolgt **auf dem Worker**, nicht im HTML.
 - Der Worker schreibt Änderungen via **GitHub Contents API** zurück in dieselbe JSON-Datei. Kauf- und Verkaufspreise stehen getrennt in `buy` und `sell`; die ursprünglichen Werte bleiben in `defaultBuy` und `defaultSell` erhalten.
 - Die Preise gelten für alle Besucher. Nach Änderung lädt jeder Besucher die neue Fassung beim nächsten Seitenaufruf.
+
+## Projektstruktur
+
+```text
+index.html                 Schlanke VeloCity-Startseite
+umrechner.html             HTML-Struktur des Economy-Umrechners
+config.js                  Öffentliche Worker-Adresse (keine Secrets)
+assets/
+  css/styles.css           Layout, Design und responsive Styles
+  images/velocity-logo.png Transparentes VeloCity-Logo
+  js/app.js                Umrechner, Daten, Status und Preisverwaltung
+  js/ui.js                 Impressum und einklappbarer Admin-Bereich
+  js/calculator.js         Eigenständiger Mini-Taschenrechner
+preislisten/               JSON-Preislisten und statisches Verzeichnis
+worker/                    Cloudflare Worker und Wrangler-Konfiguration
+pricing/                   Preisregeln, Quellen und Prüfberichte
+scripts/                   Python-Werkzeuge für Preisberechnung und Audit
+tests/                     Browser-, Worker- und Preisprüfungen
+```
+
+Die Website benötigt keinen Build-Schritt und keine zusätzlichen Laufzeitbibliotheken. `index.html` lädt nur das gemeinsame Stylesheet und `ui.js` für das Impressum. `umrechner.html` lädt zusätzlich Konfiguration, Anwendung und Mini-Taschenrechner über relative Pfade; die Skripte werden in definierter Reihenfolge mit `defer` ausgeführt. `config.js` bleibt für bestehende Konfigurationen und lokale Serverüberschreibungen im Stammverzeichnis. Beim Veröffentlichen müssen die Dateien in `assets/` mit hochgeladen werden. Der Cloudflare-Worker bleibt von dieser Aufteilung unabhängig.
 
 ## 1. GitHub Pages einrichten
 
 1. Erstelle ein **öffentliches GitHub-Repository**, z. B. `velocity-rechner`.
-2. Lade aus diesem Paket `index.html` und `config.js` sowie den gesamten Ordner `preislisten/` (inklusive `index.json`) ins Stammverzeichnis des Repositories hoch. Die Dateien aus `worker/` brauchst du NICHT als öffentliche Website-Dateien.
+2. Lade aus diesem Paket `index.html`, `umrechner.html` und `config.js` sowie die gesamten Ordner `assets/` und `preislisten/` (inklusive `index.json`) ins Stammverzeichnis des Repositories hoch. Die Dateien aus `worker/` brauchst du NICHT als öffentliche Website-Dateien.
 3. Auf GitHub **Settings → Pages → Build and deployment → Deploy from a branch**: `main` und `/ (root)` wählen.
 4. Deine Website lautet z. B. `https://DEIN_GITHUB_NAME.github.io/velocity-rechner/`.
 
@@ -74,6 +95,7 @@ Der Browser-Test benötigt Playwright und Chromium (in der Cloud-Umgebung vorhan
 
 ```sh
 node tests/browser.cjs
+node tests/site.cjs
 ```
 
 Zum manuellen lokalen Betrieb kann ein statischer HTTP-Server verwendet werden. Für den Betrieb ohne Worker muss `config.js` lokal bzw. per Serverüberschreibung eine leere API-Adresse liefern. Der Cloud-Helfer `/workspace/velocity-dev/serve.py` stellt diese Überschreibung bereit, ohne die Datei zu ändern.
@@ -104,7 +126,7 @@ Die Itemfelder für Ausgang, Ziel und Verwaltung sind kombinierte Such-/Auswahlf
 
 ## Header-Status und Änderungszeit
 
-Der Header zeigt den tatsächlichen Ladezustand der aktiven Preisliste, den Sell-Wert von `DIRT` und die Anzahl aller geladenen Standard-/Custom-Items. Die Version steht zentral in `index.html` als `APP_VERSION` (`v1.0.30`). Die Desktop-Kopfzeile bleibt in ihrer bisherigen Höhe; auf Mobilgeräten steht die Statusbox unter dem Titel.
+Der Header zeigt den tatsächlichen Ladezustand der aktiven Preisliste, den Sell-Wert von `DIRT` und die Anzahl aller geladenen Standard-/Custom-Items. Die Version steht zentral in `assets/js/app.js` als `APP_VERSION` (`v1.0.30`). Die Desktop-Kopfzeile bleibt in ihrer bisherigen Höhe; auf Mobilgeräten steht die Statusbox unter dem Titel.
 
 `updatedAt` ist ein optionaler ISO-8601-Zeitstempel im bestehenden JSON-Format Version 2. Der Worker setzt ihn bei einem Preis-Schreibvorgang serverseitig, speichert ihn gemeinsam mit den Daten und bestätigt ihn erst bei erfolgreicher GitHub-Speicherung in der Antwort. Der Browser zeigt diesen gespeicherten Zeitpunkt in der Zeitzone Europe/Zurich und übernimmt ihn auch in JSON-Sicherungen. Ladezeit, Browser-Onlinestatus und eine Client-Uhrzeit ersetzen keinen gespeicherten Änderungszeitpunkt. Alte Listen ohne gültigen Zeitstempel bleiben kompatibel und zeigen „Keine Zeitangabe“; beim nächsten erfolgreichen Speichern mit dem aktualisierten Worker entsteht der erste Zeitstempel. Die bestehende Preisdatei erhält beim Einbau des Headers keine erfundene Änderungszeit.
 
@@ -118,3 +140,14 @@ node tests/header.cjs
 
 
 Der Admin-Bereich öffnet sich unabhängig von der Anmeldung: Ausklappen entsperrt die Verwaltung nicht, Einklappen beendet eine bestehende 30-Minuten-Sitzung nicht. Nach einem Reload ist die zweite Ebene wieder eingeklappt. Der Pfeil ist mit Tastatur bedienbar; eingeklappte Inhalte sind nicht fokussierbar. Die Animation berücksichtigt reduzierte Bewegung in den Geräteeinstellungen.
+
+
+## Startseite und gemeinsames Design
+
+Es gibt genau zwei öffentliche HTML-Seiten. Logo, Navigation und Einstiegsbutton verwenden relative Links, damit beide Seiten auch unter einem GitHub-Pages-Repositorypfad funktionieren. Die Startseite lädt keine Preislisten, keine Authentifizierung und keine Umrechner-/Taschenrechner-Logik. Der gemeinsame Footer steht beim Umrechner nach der gesamten Verwaltung; auf der Startseite sitzt er bei wenig Inhalt am unteren Fensterrand. Impressum und der einklappbare Admin-Bereich verwenden das gemeinsame `ui.js`; nicht vorhandene Admin-Elemente auf der Startseite werden übersprungen.
+
+Die bestehende API-Adresse, Worker-Endpunkte und Preislisten bleiben unverändert. Für lokale Tests des Tools nach dem Start des vorhandenen Servers jetzt den Pfad `/umrechner.html` verwenden; `/` zeigt die Startseite. Es ist kein Build oder zusätzliches Laufzeitpaket erforderlich.
+
+Die Startseite folgt dem bereitgestellten Referenzbild. Das transparente Logo wird auf beiden Seiten als lokale PNG-Datei eingebunden. Startseite und Umrechner teilen sich Header, Navigation, Footer und Design; der Umrechner behält seine bestehende Bedienung und Berechnung.
+
+`node tests/site.cjs` prüft beide Seiten auf Navigation, aktive Menüpunkte, gemeinsame Styles, einen schlanken Startseiten-Ladevorgang und GitHub-Pages-Unterpfade. Optional erzeugt `SITE_SCREENSHOTS=1 node tests/site.cjs` Desktop- und Mobilansichten im temporären Ordner `velocity-site-previews`. Über `SITE_SCREENSHOT_DIR` lässt sich das Ausgabeziel ändern.

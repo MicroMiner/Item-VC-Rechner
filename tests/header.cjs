@@ -12,7 +12,7 @@ const server=http.createServer((req,res)=>{
  if(pathname==='/config.js'){res.setHeader('Content-Type','application/javascript');res.end('window.VELOCITY_API_URL='+JSON.stringify(apiMode?'http://api.local':'')+';');return;}
  const target=path.resolve(root,'.'+(pathname==='/'?'/index.html':decodeURIComponent(pathname)));
  if(!target.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}
- fs.readFile(target,(err,data)=>{if(err){res.writeHead(404);res.end();return;}res.setHeader('Content-Type',target.endsWith('.json')?'application/json':target.endsWith('.html')?'text/html':'application/javascript');res.end(data);});
+ fs.readFile(target,(err,data)=>{if(err){res.writeHead(404);res.end();return;}res.setHeader('Content-Type',target.endsWith('.json')?'application/json':target.endsWith('.html')?'text/html':target.endsWith('.css')?'text/css':target.endsWith('.png')?'image/png':target.endsWith('.svg')?'image/svg+xml':'application/javascript');res.end(data);});
 });
 (async()=>{
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
@@ -26,7 +26,7 @@ const server=http.createServer((req,res)=>{
   let releaseLoad,reachedLoad;
   const gate=new Promise(resolve=>releaseLoad=resolve),reached=new Promise(resolve=>reachedLoad=resolve);
   await page.route('**/preislisten/VeloCoin_Preisliste.json',async r=>{reachedLoad();await gate;await r.fulfill({json:fixture});});
-  await page.goto(base);await reached;
+  await page.goto(base+'/umrechner.html');await reached;
   assert.equal(await page.locator('#syncState').textContent(),'Nicht verbunden');
   assert.equal(await page.locator('#priceUpdatedAt').textContent(),'Keine Zeitangabe');
   assert.equal(await page.locator('#loadedItems').textContent(),'0 Items');

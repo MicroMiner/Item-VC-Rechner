@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="de-CH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>VeloCity Economy · Item-Umrechner</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body class="site-page converter-page">
+    <div class="wrap">
+      <header class="site-header">
+        <a
+          class="site-logo"
+          href="index.html"
+          aria-label="VeloCity – Startseite"
+          ><img
+            src="assets/images/velocity-logo.png"
+            alt="VeloCity"
+            width="2171"
+            height="724"
+        /></a>
+        <nav class="site-nav" aria-label="Hauptnavigation">
+          <a class="nav-link" href="index.html">Startseite</a
+          ><a class="nav-link" href="umrechner.html" aria-current="page"
+            >Umrechner</a
+          >
+        </nav>
+      </header>
+      <main class="converter-main">
+        <header class="top">
+          <div>
+            <div class="brand">VELOCITY ECONOMY</div>
+            <h1>Item-Umrechner</h1>
+          </div>
+          <aside
+            class="economy-status"
+            id="economyStatus"
+            aria-label="Status der Preisliste"
+            data-state="disconnected"
+          >
+            <div class="status-row">
+              <span class="status-info sync-info" role="status"
+                ><span class="sync-dot" aria-hidden="true"></span
+                ><span id="syncState">Nicht verbunden</span></span
+              ><span
+                class="status-info"
+                title="Letzte gespeicherte Preisänderung"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="5" width="18" height="16" rx="2" />
+                  <path d="M16 3v4M8 3v4M3 11h18M8 15h2M14 15h2" /></svg
+                ><time
+                  id="priceUpdatedAt"
+                  aria-label="Letzte gespeicherte Preisänderung: unbekannt"
+                  >Keine Zeitangabe</time
+                ></span
+              ><span class="status-info" title="Version"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5"
+                  /></svg
+                ><span id="appVersion"></span
+              ></span>
+            </div>
+            <div class="status-row">
+              <span class="status-info"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M3 7h18m-4-4 4 4-4 4M21 17H3m4-4-4 4 4 4" /></svg
+                ><span id="earthValue">1 Erde = — VC (Sell)</span></span
+              ><span class="status-info"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="m12 3 9 5v8l-9 5-9-5V8l9-5ZM3 8l9 5 9-5M12 13v8"
+                  /></svg
+                ><span id="loadedItems">— Items</span></span
+              >
+            </div>
+          </aside>
+        </header>
+        <section class="hero" aria-label="Item-Umrechner">
+          <h2 class="section-heading">01 · Umrechnung</h2>
+          <div class="hero-grid">
+            <div class="converter-layout">
+              <section class="card">
+                <label for="fromSearch">Ausgangs-Item suchen</label>
+                <div class="item-picker" id="fromPicker">
+                  <input
+                    id="fromSearch"
+                    type="text"
+                    role="combobox"
+                    aria-autocomplete="list"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-controls="fromOptions"
+                    placeholder="Item suchen oder auswählen …"
+                    autocomplete="off"
+                    spellcheck="false"
+                  /><span class="picker-arrow" aria-hidden="true">⌄</span>
+                  <div
+                    id="fromOptions"
+                    class="picker-options"
+                    role="listbox"
+                    aria-label="Ausgangs-Item"
+                    hidden
+                  ></div>
+                  <select
+                    id="fromItem"
+                    hidden
+                    aria-hidden="true"
+                    tabindex="-1"
+                  ></select>
+                </div>
+                <div class="fieldrow">
+                  <div>
+                    <label for="fromQty">Menge</label
+                    ><input
+                      id="fromQty"
+                      type="number"
+                      min="0"
+                      step="1"
+                      value="1"
+                      inputmode="numeric"
+                    />
+                    <div
+                      class="quantity-shortcuts"
+                      id="quantityShortcuts"
+                      role="group"
+                      aria-label="Menge addieren"
+                    >
+                      <button
+                        class="btn"
+                        type="button"
+                        data-amount="1"
+                        aria-label="1 zur Menge addieren"
+                      >
+                        1</button
+                      ><button
+                        class="btn"
+                        type="button"
+                        data-amount="3"
+                        aria-label="3 zur Menge addieren"
+                      >
+                        3</button
+                      ><button
+                        class="btn"
+                        type="button"
+                        data-amount="5"
+                        aria-label="5 zur Menge addieren"
+                      >
+                        5</button
+                      ><button
+                        class="btn"
+                        type="button"
+                        data-amount="10"
+                        aria-label="10 zur Menge addieren"
+                      >
+                        10</button
+                      ><button
+                        class="btn"
+                        type="button"
+                        data-amount="15"
+                        aria-label="15 zur Menge addieren"
+                      >
+                        15</button
+                      ><button
+                        class="btn"
+                        type="button"
+                        data-amount="20"
+                        aria-label="20 zur Menge addieren"
+                      >
+                        20</button
+                      ><button
+                        class="btn"
+                        type="button"
+                        data-amount="30"
+                        aria-label="30 zur Menge addieren"
+                      >
+                        30</button
+                      ><button
+                        class="btn"
+                        type="button"
+                        data-amount="50"
+                        aria-label="50 zur Menge addieren"
+                      >
+                        50</button
+                      ><button
+                        class="btn"
+                        type="button"
+                        data-amount="100"
+                        aria-label="100 zur Menge addieren"
+                      >
+                        100</button
+                      ><button
+                        class="btn quantity-clear"
+                        id="clearQty"
+                        type="button"
+                        title="Mengeneingabe löschen"
+                        aria-label="Mengeneingabe löschen"
+                      >
+                        ⌫
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <label>Verkaufspreis pro Item</label>
+                    <div id="fromRate" class="rate"></div>
+                  </div>
+                </div>
+              </section>
+              <div class="swap-slot">
+                <button
+                  class="btn swap"
+                  id="swap"
+                  type="button"
+                  title="Items tauschen"
+                  aria-label="Items tauschen"
+                >
+                  <span class="swap-icon">⇄</span>
+                </button>
+              </div>
+              <section class="card">
+                <label for="toSearch">Ziel-Item suchen</label>
+                <div class="item-picker" id="toPicker">
+                  <input
+                    id="toSearch"
+                    type="text"
+                    role="combobox"
+                    aria-autocomplete="list"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-controls="toOptions"
+                    placeholder="Item suchen oder auswählen …"
+                    autocomplete="off"
+                    spellcheck="false"
+                  /><span class="picker-arrow" aria-hidden="true">⌄</span>
+                  <div
+                    id="toOptions"
+                    class="picker-options"
+                    role="listbox"
+                    aria-label="Ziel-Item"
+                    hidden
+                  ></div>
+                  <select
+                    id="toItem"
+                    hidden
+                    aria-hidden="true"
+                    tabindex="-1"
+                  ></select>
+                </div>
+                <div class="fieldrow target-fieldrow">
+                  <div>
+                    <label id="toRateLabel">Verkaufswert pro Item</label>
+                    <div id="toRate" class="rate"></div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="right-stack">
+              <section class="card result" aria-live="polite">
+                <div class="muted" id="resultMode">
+                  WERTVERGLEICH · SELL → SELL
+                </div>
+                <label class="mode-switch" for="shopMode"
+                  ><input
+                    id="shopMode"
+                    type="checkbox"
+                    role="switch"
+                  />Shop-Umrechnung (verkaufen → kaufen)</label
+                >
+                <div class="big" id="result">Preisliste wird geladen …</div>
+                <div class="flex">
+                  <button class="btn" id="copy" type="button">
+                    Ergebnis kopieren</button
+                  ><button
+                    class="btn icon-button"
+                    id="useResult"
+                    type="button"
+                    title="Ergebnis übernehmen und Items tauschen"
+                    aria-label="Ergebnis übernehmen und Items tauschen"
+                    disabled
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="m9 14-5-5 5-5M4 9h12a4 4 0 0 1 4 4v7" />
+                    </svg></button
+                  ><button class="btn" id="reset" type="button">
+                    Zurücksetzen
+                  </button>
+                </div>
+                <div id="copyStatus" class="status" aria-live="polite"></div>
+              </section>
+              <section class="card calculator" aria-label="Taschenrechner">
+                <h3>Mini-Taschenrechner</h3>
+                <label for="calcInput">Rechnung</label>
+                <div class="calc-screen">
+                  <input
+                    id="calcInput"
+                    type="text"
+                    inputmode="decimal"
+                    placeholder="z. B. 350 * 64"
+                    autocomplete="off"
+                    aria-label="Rechnung eingeben"
+                  /><button class="btn" id="calcClear" type="button">C</button>
+                </div>
+                <div class="calc-grid" id="calcKeys">
+                  <button class="btn" type="button" data-key="7">7</button
+                  ><button class="btn" type="button" data-key="8">8</button
+                  ><button class="btn" type="button" data-key="9">9</button
+                  ><button class="btn accent" type="button" data-key="/">
+                    ÷
+                  </button>
+                  <button class="btn" type="button" data-key="4">4</button
+                  ><button class="btn" type="button" data-key="5">5</button
+                  ><button class="btn" type="button" data-key="6">6</button
+                  ><button class="btn accent" type="button" data-key="*">
+                    ×
+                  </button>
+                  <button class="btn" type="button" data-key="1">1</button
+                  ><button class="btn" type="button" data-key="2">2</button
+                  ><button class="btn" type="button" data-key="3">3</button
+                  ><button class="btn accent" type="button" data-key="-">
+                    −
+                  </button>
+                  <button class="btn" type="button" data-key="0">0</button
+                  ><button class="btn" type="button" data-key=".">.</button
+                  ><button class="btn equals" type="button" data-key="=">
+                    =</button
+                  ><button class="btn accent" type="button" data-key="+">
+                    +
+                  </button>
+                </div>
+                <div id="calcFeedback" class="calc-feedback" aria-live="polite">
+                  Addition, Subtraktion, Multiplikation und Division · Enter =
+                  Ergebnis
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+        <section
+          class="card note economy-about"
+          aria-labelledby="economyAboutTitle"
+        >
+          <h2 id="economyAboutTitle">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 11v6M12 7v1" /></svg
+            >Über das Wirtschaftssystem
+          </h2>
+          <p class="muted secondary">
+            VeloCity Economy bildet die Grundlage für den Handel auf unserem
+            Minecraft-Server. Alle Items besitzen individuelle Kauf- und
+            Verkaufspreise in VeloCoins (VC). Die Preise werden zentral
+            verwaltet und können im Laufe der Zeit angepasst werden.
+          </p>
+          <p class="muted secondary">
+            Der Wertvergleich zeigt den relativen Wert zweier Items anhand ihrer
+            Verkaufspreise (Sell). Die Shop-Umrechnung berücksichtigt dagegen
+            den Verkaufspreis (Sell) des Ausgangs-Items und den Kaufpreis (Buy)
+            des Ziel-Items.
+          </p>
+        </section>
+
+        <div class="admin-divider">
+          <button
+            class="btn admin-toggle"
+            id="toggleAdmin"
+            type="button"
+            aria-expanded="false"
+            aria-controls="adminPanel"
+            aria-label="Preisverwaltung ausklappen"
+            title="Preisverwaltung ausklappen"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+        </div>
+        <div id="adminPanel" class="admin-panel" aria-hidden="true" inert>
+          <div class="admin-panel-content">
+            <section
+              class="management locked"
+              id="management"
+              aria-label="Items und Preise verwalten"
+            >
+              <div class="admin-overlay" id="adminOverlay">
+                <form class="admin-login" id="adminLogin">
+                  <div class="admin-lock-icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    >
+                      <rect x="5" y="10" width="14" height="11" rx="2" />
+                      <path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3" />
+                    </svg>
+                  </div>
+                  <h2>Preisverwaltung gesperrt</h2>
+                  <p>
+                    Nur autorisierte Personen dürfen die zentrale Preisliste
+                    ändern. Die Anmeldung bleibt auf diesem Gerät bis zu 30
+                    Minuten gespeichert.
+                  </p>
+                  <label for="adminPassword">Admin-Passwort</label
+                  ><input
+                    id="adminPassword"
+                    type="password"
+                    required
+                    autocomplete="off"
+                    placeholder="Passwort eingeben"
+                  /><button type="submit" class="btn admin-unlock">
+                    Verwaltung entsperren
+                  </button>
+                  <div class="status" id="adminStatus" role="status"></div>
+                </form>
+              </div>
+              <div class="admin-inner" id="adminInner" inert>
+                <h2 class="section-heading">
+                  02 · Preise &amp; Items verwalten
+                </h2>
+                <section class="card">
+                  <h2>Bestehende Itempreise anpassen</h2>
+                  <p class="editor-note">
+                    Änderungen gelten sofort für beide Seiten des Umrechners.
+                    Die ursprünglichen Kauf- und Verkaufspreise bleiben in
+                    Klammern sichtbar.
+                  </p>
+                  <div class="editor-grid">
+                    <div>
+                      <label for="editSearch">Item suchen</label>
+                      <div class="item-picker" id="editPicker">
+                        <input
+                          id="editSearch"
+                          type="text"
+                          role="combobox"
+                          aria-autocomplete="list"
+                          aria-haspopup="listbox"
+                          aria-expanded="false"
+                          aria-controls="editOptions"
+                          placeholder="Item suchen oder auswählen …"
+                          autocomplete="off"
+                          spellcheck="false"
+                        /><span class="picker-arrow" aria-hidden="true">⌄</span>
+                        <div
+                          id="editOptions"
+                          class="picker-options"
+                          role="listbox"
+                          aria-label="Item bearbeiten"
+                          hidden
+                        ></div>
+                        <select
+                          id="editItem"
+                          hidden
+                          aria-hidden="true"
+                          tabindex="-1"
+                        ></select>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="fieldrow">
+                        <div>
+                          <label for="editBuy">Buy · Kaufpreis (VC)</label
+                          ><input
+                            id="editBuy"
+                            type="number"
+                            min="0"
+                            step="any"
+                            inputmode="decimal"
+                          /><span id="editBuyDefault" class="original"></span>
+                        </div>
+                        <div>
+                          <label for="editSell">Sell · Verkaufspreis (VC)</label
+                          ><input
+                            id="editSell"
+                            type="number"
+                            min="0"
+                            step="any"
+                            inputmode="decimal"
+                          /><span id="editSellDefault" class="original"></span>
+                        </div>
+                      </div>
+                      <div class="editor-actions">
+                        <button class="btn" id="saveEdit" type="button">
+                          Preis übernehmen</button
+                        ><button class="btn" id="restoreEdit" type="button">
+                          Standard wiederherstellen
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="editStatus" class="status" aria-live="polite"></div>
+                  <div id="modifiedCount" class="editor-note"></div>
+                </section>
+                <section class="card">
+                  <h2>Eigene Items hinzufügen</h2>
+                  <div class="addgrid">
+                    <div>
+                      <label for="newName">Itemname</label
+                      ><input
+                        id="newName"
+                        placeholder="z. B. Netherite Ingot"
+                        maxlength="70"
+                      />
+                    </div>
+                    <div class="fieldrow new-item-prices">
+                      <div>
+                        <label for="newBuy">Buy (VC)</label
+                        ><input
+                          id="newBuy"
+                          type="number"
+                          step="any"
+                          min="0"
+                          value="10"
+                          inputmode="decimal"
+                        />
+                      </div>
+                      <div>
+                        <label for="newSell">Sell (VC)</label
+                        ><input
+                          id="newSell"
+                          type="number"
+                          step="any"
+                          min="0"
+                          value="5"
+                          inputmode="decimal"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <button id="add" type="button" class="btn">
+                    + Item speichern
+                  </button>
+                  <div id="addStatus" class="status" aria-live="polite"></div>
+                </section>
+                <section class="card">
+                  <h2>Hinzugefügte Items</h2>
+                  <p class="editor-note">
+                    Deine eigenen Items auf voller Breite in zwei Spalten. Die
+                    Preise kannst du oben unter «Bestehende Itempreise anpassen»
+                    bearbeiten.
+                  </p>
+                  <ul id="customList" class="custom-list"></ul>
+                </section>
+                <section class="card">
+                  <h2>Gemeinsame Online-Preisliste</h2>
+                  <p class="editor-note">
+                    Änderungen werden nach Freigabe direkt ins GitHub-Repository
+                    geschrieben. Alle Besucher sehen die aktualisierten Preise
+                    beim nächsten Laden der Website.
+                  </p>
+                  <div class="list-loader">
+                    <div>
+                      <label for="priceList">Preisliste auswählen</label
+                      ><select id="priceList" disabled></select>
+                    </div>
+                    <button class="btn" id="reloadData" type="button">
+                      Liste laden
+                    </button>
+                  </div>
+                  <div id="listStatus" class="status" role="status"></div>
+                  <div class="flex">
+                    <button class="btn" id="exportData" type="button">
+                      JSON-Sicherung herunterladen</button
+                    ><button class="btn" id="adminLogout" type="button">
+                      Verwaltung sperren
+                    </button>
+                  </div>
+                  <div class="status" id="fileStatus" role="status"></div>
+                </section>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <footer class="foot">
+        <span>© 2026 VeloCity</span><span aria-hidden="true">·</span
+        ><span
+          >Developed by
+          <strong class="developer-credit">MicroMiner</strong></span
+        ><span aria-hidden="true">·</span
+        ><a href="#impressum" id="openImpressum" aria-haspopup="dialog"
+          >Impressum</a
+        >
+      </footer>
+    </div>
+    <dialog
+      id="impressum"
+      class="legal-dialog"
+      aria-labelledby="impressumTitle"
+    >
+      <button
+        class="btn legal-close"
+        id="closeImpressum"
+        type="button"
+        aria-label="Impressum schliessen"
+        autofocus
+      >
+        ×
+      </button>
+      <h2 id="impressumTitle">Impressum</h2>
+      <dl class="legal-project">
+        <div>
+          <dt>Projekt</dt>
+          <dd>VeloCity Economy</dd>
+        </div>
+        <div>
+          <dt>Entwicklung</dt>
+          <dd>MicroMiner</dd>
+        </div>
+      </dl>
+      <h3>Beschreibung</h3>
+      <p>
+        VeloCity Economy ist eine unabhängige Web-Anwendung zur Verwaltung und
+        Berechnung von Itempreisen für einen privaten Minecraft-Server.
+      </p>
+      <h3>Rechtlicher Hinweis</h3>
+      <p>
+        Dieses Projekt ist ein unabhängiges Minecraft-Fanprojekt und steht in
+        keiner offiziellen Verbindung zu Mojang Studios oder Microsoft.
+      </p>
+      <h3>Kontakt / Betreiberangaben</h3>
+      <p class="legal-placeholder">
+        Platzhalter – die rechtlich erforderlichen Angaben werden später
+        ergänzt.
+      </p>
+      <dl class="legal-contact">
+        <div>
+          <dt>Betreiber/in</dt>
+          <dd>[Wird ergänzt]</dd>
+        </div>
+        <div>
+          <dt>Anschrift</dt>
+          <dd>[Wird ergänzt]</dd>
+        </div>
+        <div>
+          <dt>Kontakt / E-Mail</dt>
+          <dd>[Wird ergänzt]</dd>
+        </div>
+      </dl>
+    </dialog>
+    <script src="config.js" defer></script>
+    <script src="assets/js/ui.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+    <script src="assets/js/calculator.js" defer></script>
+  </body>
+</html>

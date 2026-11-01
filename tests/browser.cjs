@@ -1,13 +1,13 @@
 const {chromium}=require('playwright');const assert=require('node:assert/strict');const fs=require('node:fs');const http=require('node:http');const path=require('node:path');
 const root=path.resolve(__dirname,'..');
-const server=http.createServer((req,res)=>{const pathname=new URL(req.url,'http://local').pathname;if(pathname==='/config.js'){res.setHeader('Content-Type','application/javascript');res.end("window.VELOCITY_API_URL='';");return;}const target=path.resolve(root,'.'+decodeURIComponent(pathname==='/'?'/index.html':pathname));if(!target.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}fs.readFile(target,(err,data)=>{if(err){res.writeHead(404);res.end();return;}res.setHeader('Content-Type',target.endsWith('.json')?'application/json':target.endsWith('.html')?'text/html':'application/javascript');res.end(data);});});
+const server=http.createServer((req,res)=>{const pathname=new URL(req.url,'http://local').pathname;if(pathname==='/config.js'){res.setHeader('Content-Type','application/javascript');res.end("window.VELOCITY_API_URL='';");return;}const target=path.resolve(root,'.'+decodeURIComponent(pathname==='/'?'/index.html':pathname));if(!target.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}fs.readFile(target,(err,data)=>{if(err){res.writeHead(404);res.end();return;}res.setHeader('Content-Type',target.endsWith('.json')?'application/json':target.endsWith('.html')?'text/html':target.endsWith('.css')?'text/css':target.endsWith('.png')?'image/png':target.endsWith('.svg')?'image/svg+xml':'application/javascript');res.end(data);});});
 (async()=>{await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const base='http://127.0.0.1:'+server.address().port;const b=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});try{
 const p=await b.newPage();p.on('dialog',dialog=>dialog.accept());const errors=[];p.on('pageerror',e=>errors.push(e.message));
-await p.goto(base);await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'),{},{timeout:10000});
+await p.goto(base+'/umrechner.html');await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'),{},{timeout:10000});
 assert.equal(await p.locator('#priceList').inputValue(),'VeloCoin_Preisliste.json');
 async function openAdmin(){if(await p.locator('#toggleAdmin').getAttribute('aria-expanded')!=='true')await p.locator('#toggleAdmin').click();}
 assert.equal(await p.locator('#toggleAdmin').getAttribute('aria-expanded'),'false');assert.equal(await p.locator('#adminPanel').evaluate(e=>e.inert),true);assert.equal(await p.locator('#adminPassword').isVisible(),false);
-const disclosureOrder=await p.evaluate(()=>{const hero=document.querySelector('.hero').getBoundingClientRect(),about=document.querySelector('.economy-about').getBoundingClientRect(),foot=document.querySelector('.foot').getBoundingClientRect(),toggle=document.querySelector('#toggleAdmin').getBoundingClientRect();return hero.bottom<=about.top&&about.bottom<=foot.top&&foot.bottom<=toggle.top;});assert.equal(disclosureOrder,true);
+const disclosureOrder=await p.evaluate(()=>{const hero=document.querySelector('.hero').getBoundingClientRect(),about=document.querySelector('.economy-about').getBoundingClientRect(),foot=document.querySelector('.foot').getBoundingClientRect(),toggle=document.querySelector('#toggleAdmin').getBoundingClientRect();return hero.bottom<=about.top&&about.bottom<=toggle.top&&document.querySelector("#adminPanel").getBoundingClientRect().bottom<=foot.top;});assert.equal(disclosureOrder,true);
 await p.locator('#toggleAdmin').focus();await p.keyboard.press('Enter');assert.equal(await p.locator('#toggleAdmin').getAttribute('aria-expanded'),'true');assert.equal(await p.locator('#adminInner').evaluate(e=>e.inert),true);
 await p.keyboard.press('Space');assert.equal(await p.locator('#toggleAdmin').getAttribute('aria-expanded'),'false');assert.equal(await p.locator('#adminPanel').evaluate(e=>e.inert),true);
 console.log('PASS admin collapsed by default, information/footer order, keyboard toggle and preserved password lock');
@@ -48,6 +48,11 @@ async function assertResult(expected,shop=false){
  assert.equal(await p.locator('#result').textContent(),shop?`${fmtQty(amount)} × ${from.name} verkaufen → ${fmtQty(expected)} × ${to.name} kaufen`:`${fmtQty(amount)} × ${from.name} = ${fmtQty(expected)} × ${to.name}`);
 }
 assert.equal(await p.locator('#toQty').count(),0);assert.equal(await p.locator('#total').count(),0);
+await p.locator('#calcInput').fill('(2+3)*4');await p.locator('#calcInput').press('Enter');assert.equal(await p.locator('#calcInput').inputValue(),'20');assert.match(await p.locator('#calcFeedback').textContent(),/Ergebnis: 20/);
+await p.locator('#calcInput').fill('1/0');await p.locator('#calcInput').press('Enter');assert.equal(await p.locator('#calcFeedback').textContent(),'Division durch null');
+await p.locator('#calcClear').click();assert.equal(await p.locator('#calcInput').inputValue(),'');
+console.log('PASS separate calculator script: operator precedence, error handling and clearing');
+
 // Sell-to-Sell is the default: 3 diamonds at 500 VC each equal 1500 dirt at 1 VC each.
 assert.equal(await p.locator('#shopMode').isChecked(),false);
 await p.locator('#fromQty').fill('3');await assertResult(1500);
@@ -141,15 +146,15 @@ console.log('PASS session restore after reload, token-only storage/writes, logou
 await p.setViewportSize({width:390,height:844});assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.deepEqual(errors,[]);
 console.log('PASS API list switching, separate Buy/Sell writes, default preservation, failure rollback, mobile layout, no uncaught errors');
 // Information area and legal modal preserve page state and native focus behavior.
-assert.equal(await p.locator('#economyAboutTitle').textContent(),'Über das Wirtschaftssystem');
+assert.equal((await p.locator('#economyAboutTitle').innerText()).trim(),'Über das Wirtschaftssystem');
 assert.equal(await p.locator('.economy-about p').count(),2);
-assert.match(await p.locator('.foot').textContent(),/© 2026 VeloCity Economy.*Developed by MicroMiner.*Impressum/);
+assert.match((await p.locator('.foot').textContent()).replace(/\s+/g,' ').trim(),/© 2026 VeloCity.*Developed by MicroMiner.*Impressum/);
 const beforeLegal={url:p.url(),origin:await p.evaluate(()=>performance.timeOrigin),item:await p.locator('#fromItem').inputValue(),qty:await p.locator('#fromQty').inputValue()};
 const legalLink=p.getByRole('link',{name:'Impressum',exact:true});
 await legalLink.click();assert.equal(await p.locator('#impressum').isVisible(),true);
 assert.equal(await p.locator('#closeImpressum').evaluate(e=>e===document.activeElement),true);
 await p.locator('#impressumTitle').click();assert.equal(await p.locator('#impressum').isVisible(),true);
-assert.match(await p.locator('.legal-contact').textContent(),/Betreiber\/in.*\[Wird ergänzt\].*Anschrift.*\[Wird ergänzt\].*Kontakt \/ E-Mail.*\[Wird ergänzt\]/);
+assert.match((await p.locator('.legal-contact').textContent()).replace(/\s+/g,' ').trim(),/Betreiber\/in.*\[Wird ergänzt\].*Anschrift.*\[Wird ergänzt\].*Kontakt \/ E-Mail.*\[Wird ergänzt\]/);
 await p.locator('#fromSearch').focus();assert.equal(await p.locator('#fromSearch').evaluate(e=>e===document.activeElement),false);
 await p.keyboard.press('Escape');assert.equal(await p.locator('#impressum').isVisible(),false);assert.equal(await legalLink.evaluate(e=>e===document.activeElement),true);
 await legalLink.click();await p.locator('#closeImpressum').click();assert.equal(await p.locator('#impressum').isVisible(),false);
@@ -158,7 +163,7 @@ assert.equal(p.url(),beforeLegal.url);assert.equal(await p.evaluate(()=>performa
 console.log('PASS exact footer credit, two information paragraphs, modal content, placeholders, close button, Escape, backdrop, focus restoration and no navigation');
 const touch=await b.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
 try{
- const mobile=await touch.newPage();await mobile.goto(base);await mobile.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));
+ const mobile=await touch.newPage();await mobile.goto(base+'/umrechner.html');await mobile.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));
  assert.equal(await mobile.locator('#toggleAdmin').getAttribute('aria-expanded'),'false');await mobile.locator('#toggleAdmin').tap();assert.equal(await mobile.locator('#toggleAdmin').getAttribute('aria-expanded'),'true');assert.equal(await mobile.locator('#adminInner').evaluate(e=>e.inert),true);await mobile.locator('#toggleAdmin').tap();assert.equal(await mobile.locator('#adminPanel').evaluate(e=>e.inert),true);
  await mobile.locator('#toSearch').tap();await mobile.locator('#toSearch').fill('STONE');
  assert.equal(await mobile.locator('#toSearch').getAttribute('aria-expanded'),'true');

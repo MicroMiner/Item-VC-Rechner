@@ -4,7 +4,7 @@
 
 - **GitHub Pages** zeigt den öffentlichen Umrechner (`index.html`) und die veröffentlichte Preisliste.
 - Der Browser lädt aktuelle Preise über einen **Cloudflare Worker**. Wenn die API-Adresse noch nicht konfiguriert ist, liest er die beigefügte JSON-Datei direkt, aber das Bearbeiten bleibt gesperrt.
-- Ebene 2 ist bis zum Passwort-Check unscharf. Die Prüfung erfolgt **auf dem Worker**, nicht im HTML.
+- Ebene 2 ist standardmässig eingeklappt. Der Pfeil in der Trennlinie unter Hinweis und Fusszeile öffnet oder schliesst die Preisverwaltung. Bis zum Passwort-Check bleibt sie unscharf und gesperrt. Die Prüfung erfolgt **auf dem Worker**, nicht im HTML.
 - Der Worker schreibt Änderungen via **GitHub Contents API** zurück in dieselbe JSON-Datei. Kauf- und Verkaufspreise stehen getrennt in `buy` und `sell`; die ursprünglichen Werte bleiben in `defaultBuy` und `defaultSell` erhalten.
 - Die Preise gelten für alle Besucher. Nach Änderung lädt jeder Besucher die neue Fassung beim nächsten Seitenaufruf.
 
@@ -115,3 +115,6 @@ Zusätzlicher Integrationstest (lokaler Worker mit simuliertem GitHub-Speicher, 
 ```sh
 node tests/header.cjs
 ```
+
+
+Der Admin-Bereich öffnet sich unabhängig von der Anmeldung: Ausklappen entsperrt die Verwaltung nicht, Einklappen beendet eine bestehende 30-Minuten-Sitzung nicht. Nach einem Reload ist die zweite Ebene wieder eingeklappt. Der Pfeil ist mit Tastatur bedienbar; eingeklappte Inhalte sind nicht fokussierbar. Die Animation berücksichtigt reduzierte Bewegung in den Geräteeinstellungen.

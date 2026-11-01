@@ -20,7 +20,9 @@ const server=http.createServer((req,res)=>{
  const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
  const originalFetch=globalThis.fetch;
  try{
-  const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('dialog',d=>d.accept());
+  const page=await browser.newPage();
+  async function openAdmin(){if(await page.locator('#toggleAdmin').getAttribute('aria-expanded')!=='true')await page.locator('#toggleAdmin').click();}
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('dialog',d=>d.accept());
   let releaseLoad,reachedLoad;
   const gate=new Promise(resolve=>releaseLoad=resolve),reached=new Promise(resolve=>reachedLoad=resolve);
   await page.route('**/preislisten/VeloCoin_Preisliste.json',async r=>{reachedLoad();await gate;await r.fulfill({json:fixture});});
@@ -64,7 +66,7 @@ const server=http.createServer((req,res)=>{
    const req=r.request();if(req.method()==='PUT')assert.equal(req.postDataJSON().data.updatedAt,undefined);const response=await worker.fetch(new Request(req.url(),{method:req.method(),headers:{Origin:base,'Content-Type':'application/json'},body:req.method()==='GET'?undefined:req.postData()}),env);
    await r.fulfill({status:response.status,headers:Object.fromEntries(response.headers),body:await response.text()});
   });
-  apiMode=true;await page.reload();await page.waitForFunction(()=>document.querySelector('#syncState').textContent==='Synchronisiert');
+  apiMode=true;await page.reload();await openAdmin();await page.waitForFunction(()=>document.querySelector('#syncState').textContent==='Synchronisiert');
   assert.equal(await page.locator('#priceUpdatedAt').getAttribute('datetime'),data.updatedAt);
   assert.match(await page.locator('#priceUpdatedAt').textContent(),/01\.11\.26.*01:38/);
   assert.equal(await page.locator('#earthValue').textContent(),'1 Erde = 2.75 VC (Sell)');
@@ -84,7 +86,7 @@ const server=http.createServer((req,res)=>{
   assert.equal(await page.locator('#earthValue').textContent(),'1 Erde = 3.5 VC (Sell)');
   const downloadPromise=page.waitForEvent('download');await page.locator('#exportData').click();const download=await downloadPromise;
   const exported=JSON.parse(fs.readFileSync(await download.path(),'utf8'));assert.equal(exported.updatedAt,savedAt);assert.equal(exported.version,2);assert.equal(exported.items.find(x=>x.id==='DIRT').sell,3.5);
-  await page.reload();await page.waitForFunction(()=>document.querySelector('#syncState').textContent==='Synchronisiert');
+  await page.reload();await openAdmin();await page.waitForFunction(()=>document.querySelector('#syncState').textContent==='Synchronisiert');
   assert.equal(await page.locator('#priceUpdatedAt').getAttribute('datetime'),savedAt);
 
   // A rejected write must not advance the committed change timestamp.

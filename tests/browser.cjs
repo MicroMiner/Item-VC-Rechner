@@ -5,6 +5,13 @@ const server=http.createServer((req,res)=>{const pathname=new URL(req.url,'http:
 const p=await b.newPage();p.on('dialog',dialog=>dialog.accept());const errors=[];p.on('pageerror',e=>errors.push(e.message));
 await p.goto(base);await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'),{},{timeout:10000});
 assert.equal(await p.locator('#priceList').inputValue(),'VeloCoin_Preisliste.json');
+async function openAdmin(){if(await p.locator('#toggleAdmin').getAttribute('aria-expanded')!=='true')await p.locator('#toggleAdmin').click();}
+assert.equal(await p.locator('#toggleAdmin').getAttribute('aria-expanded'),'false');assert.equal(await p.locator('#adminPanel').evaluate(e=>e.inert),true);assert.equal(await p.locator('#adminPassword').isVisible(),false);
+const disclosureOrder=await p.evaluate(()=>{const hero=document.querySelector('.hero').getBoundingClientRect(),about=document.querySelector('.economy-about').getBoundingClientRect(),foot=document.querySelector('.foot').getBoundingClientRect(),toggle=document.querySelector('#toggleAdmin').getBoundingClientRect();return hero.bottom<=about.top&&about.bottom<=foot.top&&foot.bottom<=toggle.top;});assert.equal(disclosureOrder,true);
+await p.locator('#toggleAdmin').focus();await p.keyboard.press('Enter');assert.equal(await p.locator('#toggleAdmin').getAttribute('aria-expanded'),'true');assert.equal(await p.locator('#adminInner').evaluate(e=>e.inert),true);
+await p.keyboard.press('Space');assert.equal(await p.locator('#toggleAdmin').getAttribute('aria-expanded'),'false');assert.equal(await p.locator('#adminPanel').evaluate(e=>e.inert),true);
+console.log('PASS admin collapsed by default, information/footer order, keyboard toggle and preserved password lock');
+
 const data=JSON.parse(fs.readFileSync(path.join(root,'preislisten/VeloCoin_Preisliste.json')));
 const fmtQty=n=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:8}).format(n);
 async function selectItem(selectId,itemId){
@@ -104,8 +111,9 @@ body={ok:true,token:credentials.token||'test-session-token',expiresAt:credential
 else if(r.request().method()==='PUT'){writes.push({file,...r.request().postDataJSON()});body={sha:'b'.repeat(40)};}
 else {if(file==='second.json'&&failSecond)return r.fulfill({status:502,body:'{}'});body={data:file==='second.json'?second:data,sha:'a'.repeat(40)}}
 await r.fulfill({json:body});});
-await p.reload();await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));
-await p.locator('#adminPassword').fill('test-only');await p.locator('#adminLogin button').click();await p.waitForFunction(()=>!document.querySelector('#adminInner').inert);
+await p.reload();await openAdmin();await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));
+await openAdmin();await p.locator('#adminPassword').fill('test-only');await p.locator('#adminLogin button').click();await p.waitForFunction(()=>!document.querySelector('#adminInner').inert);
+await p.locator('#toggleAdmin').click();assert.equal(await p.locator('#adminPanel').evaluate(e=>e.inert),true);await openAdmin();assert.equal(await p.locator('#adminInner').evaluate(e=>e.inert),false);
 await selectItem('editItem','DIAMOND');await p.locator('#editBuy').fill('15.875');await p.locator('#editSell').fill('7.125');await p.locator('#saveEdit').click();
 await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Online gespeichert'));
 assert.equal(writes.length,1);assert.equal(writes[0].token,'test-session-token');assert.ok(!('password' in writes[0]));assert.equal(writes[0].file,'VeloCoin_Preisliste.json');const diamond=writes[0].data.items.find(x=>x.id==='DIAMOND');assert.equal(diamond.buy,15.875);assert.equal(diamond.sell,7.125);assert.equal(diamond.defaultBuy,data.items.find(x=>x.id==='DIAMOND').buy);
@@ -116,18 +124,18 @@ await p.locator('#priceList').selectOption('VeloCoin_Preisliste.json');await p.l
 await p.locator('#priceList').selectOption('second.json');await p.locator('#reloadData').click();await p.waitForFunction(()=>document.querySelector('#listStatus').textContent.includes('HTTP 502'));assert.equal(await p.locator('#priceList').inputValue(),'VeloCoin_Preisliste.json');
 const storageKey='velocity.adminSession:http://api.local';
 const saved=await p.evaluate(key=>localStorage.getItem(key),storageKey);assert.ok(saved.includes('test-session-token'));assert.ok(!saved.includes('test-only'));
-await p.reload();await p.waitForFunction(()=>!document.querySelector('#adminInner').inert);
+await p.reload();assert.equal(await p.locator('#toggleAdmin').getAttribute('aria-expanded'),'false');await openAdmin();await p.waitForFunction(()=>!document.querySelector('#adminInner').inert);
 assert.deepEqual(authRequests.at(-1),{token:'test-session-token'});
 assert.equal(await p.locator('#adminPassword').inputValue(),'');
 await p.locator('#adminLogout').click();assert.equal(await p.evaluate(key=>localStorage.getItem(key),storageKey),null);
-let authCount=authRequests.length;await p.reload();await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));
+let authCount=authRequests.length;await p.reload();await openAdmin();await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));
 assert.equal(await p.locator('#adminInner').evaluate(e=>e.inert),true);assert.equal(await p.locator('#priceList').isDisabled(),true);assert.equal(await p.locator('#priceList').evaluate(e=>!!e.closest('#adminInner')),true);assert.equal(authRequests.length,authCount);
 await p.evaluate(key=>localStorage.setItem(key,JSON.stringify({token:'expired',expiresAt:Date.now()-1000})),storageKey);
-await p.reload();await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));assert.equal(authRequests.length,authCount);assert.equal(await p.evaluate(key=>localStorage.getItem(key),storageKey),null);
+await p.reload();await openAdmin();await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));assert.equal(authRequests.length,authCount);assert.equal(await p.evaluate(key=>localStorage.getItem(key),storageKey),null);
 await p.evaluate(key=>localStorage.setItem(key,JSON.stringify({token:'revoked',expiresAt:Date.now()+100000})),storageKey);rejectSession=true;
-await p.reload();await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));assert.equal(await p.locator('#adminInner').evaluate(e=>e.inert),true);assert.equal(await p.locator('#priceList').isDisabled(),true);assert.equal(await p.locator('#priceList').evaluate(e=>!!e.closest('#adminInner')),true);assert.equal(await p.evaluate(key=>localStorage.getItem(key),storageKey),null);
+await p.reload();await openAdmin();await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));assert.equal(await p.locator('#adminInner').evaluate(e=>e.inert),true);assert.equal(await p.locator('#priceList').isDisabled(),true);assert.equal(await p.locator('#priceList').evaluate(e=>!!e.closest('#adminInner')),true);assert.equal(await p.evaluate(key=>localStorage.getItem(key),storageKey),null);
 rejectSession=false;sessionDuration=1000;
-await p.locator('#adminPassword').fill('test-only');await p.locator('#adminLogin button').click();await p.waitForFunction(()=>!document.querySelector('#adminInner').inert);
+await openAdmin();await p.locator('#adminPassword').fill('test-only');await p.locator('#adminLogin button').click();await p.waitForFunction(()=>!document.querySelector('#adminInner').inert);
 await p.waitForFunction(()=>document.querySelector('#adminInner').inert,{},{timeout:5000});assert.equal(await p.evaluate(key=>localStorage.getItem(key),storageKey),null);
 console.log('PASS session restore after reload, token-only storage/writes, logout, local/server expiry and automatic locking');
 await p.setViewportSize({width:390,height:844});assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.deepEqual(errors,[]);
@@ -151,6 +159,7 @@ console.log('PASS exact footer credit, two information paragraphs, modal content
 const touch=await b.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
 try{
  const mobile=await touch.newPage();await mobile.goto(base);await mobile.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));
+ assert.equal(await mobile.locator('#toggleAdmin').getAttribute('aria-expanded'),'false');await mobile.locator('#toggleAdmin').tap();assert.equal(await mobile.locator('#toggleAdmin').getAttribute('aria-expanded'),'true');assert.equal(await mobile.locator('#adminInner').evaluate(e=>e.inert),true);await mobile.locator('#toggleAdmin').tap();assert.equal(await mobile.locator('#adminPanel').evaluate(e=>e.inert),true);
  await mobile.locator('#toSearch').tap();await mobile.locator('#toSearch').fill('STONE');
  assert.equal(await mobile.locator('#toSearch').getAttribute('aria-expanded'),'true');
  await mobile.locator('#toOptions [data-item-id="STONE"]').tap();assert.equal(await mobile.locator('#toItem').inputValue(),'STONE');assert.equal(await mobile.locator('#toSearch').getAttribute('aria-expanded'),'false');

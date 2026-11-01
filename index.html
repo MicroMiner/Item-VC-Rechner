@@ -176,6 +176,8 @@
 .economy-about h2{display:flex;align-items:center;gap:8px;font-size:1rem;margin:0}.economy-about h2 svg{width:17px;height:17px;flex:none;color:var(--sub)}.economy-about p{margin:8px 0 0}.foot{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px}.foot a{color:inherit;text-underline-offset:3px}.foot a:hover{color:var(--gold)}.foot a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
 .legal-dialog{width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 32px);margin:auto;padding:24px;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:18px;overflow-y:auto;font-size:.9rem;line-height:1.55}.legal-dialog::backdrop{background:#050c18b3}.legal-dialog h2{font-size:1.2rem;margin:0 42px 16px 0}.legal-dialog h3{font-size:.9rem;margin:16px 0 5px}.legal-dialog p{margin:0;color:var(--sub)}.legal-close{position:absolute;top:12px;right:12px;width:32px;height:32px;padding:0;line-height:1;font-size:1.3rem}.legal-dialog dl{margin:0}.legal-dialog dl>div{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:5px}.legal-dialog dt{color:var(--sub);min-width:110px}.legal-dialog dd{margin:0;overflow-wrap:anywhere}.legal-dialog .legal-placeholder{font-size:.85rem}.legal-contact{padding-top:6px}
 @media(max-width:400px){.legal-dialog{padding:20px 16px}.legal-dialog dl>div{display:block}.legal-dialog dd{margin-top:2px}}
+.admin-divider{display:flex;align-items:center;gap:12px;margin:14px 0 0}.admin-divider::before,.admin-divider::after{content:"";height:1px;flex:1;background:var(--line)}.admin-toggle{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:32px;padding:5px 10px;border-radius:8px;color:var(--sub)}.admin-toggle svg{width:20px;height:20px;transition:transform .25s ease}.admin-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}.admin-panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .25s ease,visibility .25s}.admin-panel[aria-hidden="false"]{grid-template-rows:1fr;visibility:visible}.admin-panel-content{min-height:0;overflow:hidden}
+@media(prefers-reduced-motion:reduce){.admin-panel,.admin-toggle svg{transition:none}}
 </style>
 </head>
 <body>
@@ -203,6 +205,10 @@
 </section>
 </div></div>
 </section>
+<section class="card note economy-about" aria-labelledby="economyAboutTitle"><h2 id="economyAboutTitle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg>Über das Wirtschaftssystem</h2><p class="muted secondary">VeloCity Economy bildet die Grundlage für den Handel auf unserem Minecraft-Server. Alle Items besitzen individuelle Kauf- und Verkaufspreise in VeloCoins (VC). Die Preise werden zentral verwaltet und können im Laufe der Zeit angepasst werden.</p><p class="muted secondary">Der Wertvergleich zeigt den relativen Wert zweier Items anhand ihrer Verkaufspreise (Sell). Die Shop-Umrechnung berücksichtigt dagegen den Verkaufspreis (Sell) des Ausgangs-Items und den Kaufpreis (Buy) des Ziel-Items.</p></section>
+<footer class="foot"><span>© 2026 VeloCity Economy</span><span aria-hidden="true">·</span><span>Developed by MicroMiner</span><span aria-hidden="true">·</span><a href="#impressum" id="openImpressum" aria-haspopup="dialog">Impressum</a></footer>
+<div class="admin-divider"><button class="btn admin-toggle" id="toggleAdmin" type="button" aria-expanded="false" aria-controls="adminPanel" aria-label="Preisverwaltung ausklappen" title="Preisverwaltung ausklappen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+<div id="adminPanel" class="admin-panel" aria-hidden="true" inert><div class="admin-panel-content">
 <section class="management locked" id="management" aria-label="Items und Preise verwalten">
 <div class="admin-overlay" id="adminOverlay"><form class="admin-login" id="adminLogin"><div class="admin-lock-icon">🔒</div><h2>Preisverwaltung gesperrt</h2><p>Nur autorisierte Personen dürfen die zentrale Preisliste ändern. Die Anmeldung bleibt auf diesem Gerät bis zu 30 Minuten gespeichert.</p><label for="adminPassword">Admin-Passwort</label><input id="adminPassword" type="password" required autocomplete="off" placeholder="Passwort eingeben"><button type="submit" class="btn admin-unlock">Verwaltung entsperren</button><div class="status" id="adminStatus" role="status"></div></form></div>
 <div class="admin-inner" id="adminInner" inert><h2 class="section-heading">02 · Preise &amp; Items verwalten</h2>
@@ -213,8 +219,7 @@
 <section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div class="fieldrow" style="margin:0"><div><label for="newBuy">Buy (VC)</label><input id="newBuy" type="number" step="any" min="0" value="10" inputmode="decimal"></div><div><label for="newSell">Sell (VC)</label><input id="newSell" type="number" step="any" min="0" value="5" inputmode="decimal"></div></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
 <section class="card"><h2>Hinzugefügte Items</h2><p class="editor-note">Deine eigenen Items auf voller Breite in zwei Spalten. Die Preise kannst du oben unter «Bestehende Itempreise anpassen» bearbeiten.</p><ul id="customList" class="custom-list"></ul></section>
 <section class="card"><h2>Gemeinsame Online-Preisliste</h2><p class="editor-note">Änderungen werden nach Freigabe direkt ins GitHub-Repository geschrieben. Alle Besucher sehen die aktualisierten Preise beim nächsten Laden der Website.</p><div class="list-loader"><div><label for="priceList">Preisliste auswählen</label><select id="priceList" disabled></select></div><button class="btn" id="reloadData" type="button">Liste laden</button></div><div id="listStatus" class="status" role="status"></div><div class="flex"><button class="btn" id="exportData" type="button">JSON-Sicherung herunterladen</button><button class="btn" id="adminLogout" type="button">Verwaltung sperren</button></div><div class="status" id="fileStatus" role="status"></div></section></div></section>
-<section class="card note economy-about" aria-labelledby="economyAboutTitle"><h2 id="economyAboutTitle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg>Über das Wirtschaftssystem</h2><p class="muted secondary">VeloCity Economy bildet die Grundlage für den Handel auf unserem Minecraft-Server. Alle Items besitzen individuelle Kauf- und Verkaufspreise in VeloCoins (VC). Die Preise werden zentral verwaltet und können im Laufe der Zeit angepasst werden.</p><p class="muted secondary">Der Wertvergleich zeigt den relativen Wert zweier Items anhand ihrer Verkaufspreise (Sell). Die Shop-Umrechnung berücksichtigt dagegen den Verkaufspreis (Sell) des Ausgangs-Items und den Kaufpreis (Buy) des Ziel-Items.</p></section>
-<footer class="foot"><span>© 2026 VeloCity Economy</span><span aria-hidden="true">·</span><span>Developed by MicroMiner</span><span aria-hidden="true">·</span><a href="#impressum" id="openImpressum" aria-haspopup="dialog">Impressum</a></footer>
+</div></div>
 </main>
 <dialog id="impressum" class="legal-dialog" aria-labelledby="impressumTitle">
 <button class="btn legal-close" id="closeImpressum" type="button" aria-label="Impressum schliessen" autofocus>×</button>
@@ -234,6 +239,15 @@ impressumDialog.addEventListener('click',event=>{
  if(event.target!==impressumDialog)return;
  const bounds=impressumDialog.getBoundingClientRect();
  if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)impressumDialog.close();
+});
+const adminToggle=document.getElementById('toggleAdmin'),adminPanel=document.getElementById('adminPanel');
+adminToggle.addEventListener('click',()=>{
+ const expanded=adminToggle.getAttribute('aria-expanded')!=='true';
+ if(!expanded&&adminPanel.contains(document.activeElement))adminToggle.focus();
+ adminToggle.setAttribute('aria-expanded',String(expanded));
+ adminToggle.setAttribute('aria-label',expanded?'Preisverwaltung einklappen':'Preisverwaltung ausklappen');
+ adminToggle.title=adminToggle.getAttribute('aria-label');
+ adminPanel.inert=!expanded;adminPanel.setAttribute('aria-hidden',String(!expanded));
 });
 const APP_VERSION='v1.0.30';
 const $=id=>document.getElementById(id);

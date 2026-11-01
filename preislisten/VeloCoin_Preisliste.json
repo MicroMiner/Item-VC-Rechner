@@ -119,18 +119,18 @@
     {
       "id": "DIAMOND",
       "name": "Diamant",
-      "buy": 2000,
+      "buy": 625,
       "sell": 500,
-      "defaultBuy": 2000,
+      "defaultBuy": 625,
       "defaultSell": 500
     },
     {
       "id": "ANCIENT_DEBRIS",
       "name": "Antiker Schrott",
-      "buy": 800,
-      "sell": 200,
-      "defaultBuy": 800,
-      "defaultSell": 200
+      "buy": 2250,
+      "sell": 1800,
+      "defaultBuy": 2250,
+      "defaultSell": 1800
     },
     {
       "id": "OAK_LOG",
@@ -495,9 +495,9 @@
     {
       "id": "DIAMOND_BLOCK",
       "name": "Diamantblock",
-      "buy": 18000,
+      "buy": 5625,
       "sell": 4500,
-      "defaultBuy": 18000,
+      "defaultBuy": 5625,
       "defaultSell": 4500
     },
     {
@@ -647,18 +647,18 @@
     {
       "id": "EMERALD",
       "name": "Smaragd",
-      "buy": 400,
-      "sell": 100,
-      "defaultBuy": 400,
-      "defaultSell": 100
+      "buy": 375,
+      "sell": 300,
+      "defaultBuy": 375,
+      "defaultSell": 300
     },
     {
       "id": "EMERALD_BLOCK",
       "name": "Smaragdblock",
-      "buy": 3600,
-      "sell": 900,
-      "defaultBuy": 3600,
-      "defaultSell": 900
+      "buy": 3375,
+      "sell": 2700,
+      "defaultBuy": 3375,
+      "defaultSell": 2700
     },
     {
       "id": "QUARTZ",
@@ -679,26 +679,26 @@
     {
       "id": "NETHERITE_SCRAP",
       "name": "Netheritbruchstück",
-      "buy": 800,
-      "sell": 200,
-      "defaultBuy": 800,
-      "defaultSell": 200
+      "buy": 2250,
+      "sell": 1800,
+      "defaultBuy": 2250,
+      "defaultSell": 1800
     },
     {
       "id": "NETHERITE_INGOT",
       "name": "Netheritbarren",
-      "buy": 3200,
-      "sell": 800,
-      "defaultBuy": 3200,
-      "defaultSell": 800
+      "buy": 9100,
+      "sell": 7280,
+      "defaultBuy": 9100,
+      "defaultSell": 7280
     },
     {
       "id": "NETHERITE_BLOCK",
       "name": "Netheritblock",
-      "buy": 20000,
-      "sell": 5000,
-      "defaultBuy": 20000,
-      "defaultSell": 5000
+      "buy": 81900,
+      "sell": 65520,
+      "defaultBuy": 81900,
+      "defaultSell": 65520
     },
     {
       "id": "FLINT",
@@ -10823,90 +10823,90 @@
     {
       "id": "NETHERITE_SWORD",
       "name": "Netherit Schwert",
-      "buy": 12924.24,
-      "sell": 3231.06,
-      "defaultBuy": 12924.24,
-      "defaultSell": 3231.06
+      "buy": 12288.82,
+      "sell": 9831.06,
+      "defaultBuy": 12288.82,
+      "defaultSell": 9831.06
     },
     {
       "id": "NETHERITE_SHOVEL",
       "name": "Netherit Schaufel",
-      "buy": 11228.48,
-      "sell": 2807.12,
-      "defaultBuy": 11228.48,
-      "defaultSell": 2807.12
+      "buy": 11758.9,
+      "sell": 9407.12,
+      "defaultBuy": 11758.9,
+      "defaultSell": 9407.12
     },
     {
       "id": "NETHERITE_PICKAXE",
       "name": "Netherit Spitzhacke",
-      "buy": 14628.48,
-      "sell": 3657.12,
-      "defaultBuy": 14628.48,
-      "defaultSell": 3657.12
+      "buy": 12821.4,
+      "sell": 10257.12,
+      "defaultBuy": 12821.4,
+      "defaultSell": 10257.12
     },
     {
       "id": "NETHERITE_AXE",
       "name": "Netherit Axt",
-      "buy": 14628.48,
-      "sell": 3657.12,
-      "defaultBuy": 14628.48,
-      "defaultSell": 3657.12
+      "buy": 12821.4,
+      "sell": 10257.12,
+      "defaultBuy": 12821.4,
+      "defaultSell": 10257.12
     },
     {
       "id": "NETHERITE_HOE",
       "name": "Netherit Hacke",
-      "buy": 12928.48,
-      "sell": 3232.12,
-      "defaultBuy": 12928.48,
-      "defaultSell": 3232.12
+      "buy": 12290.15,
+      "sell": 9832.12,
+      "defaultBuy": 12290.15,
+      "defaultSell": 9832.12
     },
     {
       "id": "NETHERITE_SPEAR",
       "name": "Netherit Speer",
-      "buy": 11228.48,
-      "sell": 2807.12,
-      "defaultBuy": 11228.48,
-      "defaultSell": 2807.12
+      "buy": 11758.9,
+      "sell": 9407.12,
+      "defaultBuy": 11758.9,
+      "defaultSell": 9407.12
     },
     {
       "id": "NETHERITE_HELMET",
       "name": "Netherit Helm",
-      "buy": 18020,
-      "sell": 4505,
-      "defaultBuy": 18020,
-      "defaultSell": 4505
+      "buy": 13881.25,
+      "sell": 11105,
+      "defaultBuy": 13881.25,
+      "defaultSell": 11105
     },
     {
       "id": "NETHERITE_CHESTPLATE",
       "name": "Netherit Brustplatte",
-      "buy": 23120,
-      "sell": 5780,
-      "defaultBuy": 23120,
-      "defaultSell": 5780
+      "buy": 15475,
+      "sell": 12380,
+      "defaultBuy": 15475,
+      "defaultSell": 12380
     },
     {
       "id": "NETHERITE_LEGGINGS",
       "name": "Netherit Beinschutz",
-      "buy": 21420,
-      "sell": 5355,
-      "defaultBuy": 21420,
-      "defaultSell": 5355
+      "buy": 14943.75,
+      "sell": 11955,
+      "defaultBuy": 14943.75,
+      "defaultSell": 11955
     },
     {
       "id": "NETHERITE_BOOTS",
       "name": "Netherit Stiefel",
-      "buy": 16320,
-      "sell": 4080,
-      "defaultBuy": 16320,
-      "defaultSell": 4080
+      "buy": 13350,
+      "sell": 10680,
+      "defaultBuy": 13350,
+      "defaultSell": 10680
     },
     {
       "id": "NETHERITE_HORSE_ARMOR",
       "name": "Netherit Pferd Rüstung",
-      "buy": 11220,
-      "sell": 2805,
-      "defaultBuy": 11220,
-      "defaultSell": 2805
+      "buy": 11850,
+      "sell": 9480,
+      "defaultBuy": 11850,
+      "defaultSell": 9480
     },
     {
       "id": "LEATHER_HELMET",

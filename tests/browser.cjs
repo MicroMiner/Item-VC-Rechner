@@ -40,10 +40,11 @@ async function assertResult(expected,shop=false){
  const amount=Number(await p.locator('#fromQty').inputValue());
  assert.equal(await p.locator('#result').textContent(),shop?`${fmtQty(amount)} × ${from.name} verkaufen → ${fmtQty(expected)} × ${to.name} kaufen`:`${fmtQty(amount)} × ${from.name} = ${fmtQty(expected)} × ${to.name}`);
 }
-assert.equal(await p.locator('#toQty').count(),0);
+assert.equal(await p.locator('#toQty').count(),0);assert.equal(await p.locator('#total').count(),0);
 // Sell-to-Sell is the default: 3 diamonds at 500 VC each equal 1500 dirt at 1 VC each.
 assert.equal(await p.locator('#shopMode').isChecked(),false);
 await p.locator('#fromQty').fill('3');await assertResult(1500);
+await p.context().grantPermissions(['clipboard-read','clipboard-write'],{origin:base});await p.locator('#copy').click();assert.equal(await p.evaluate(()=>navigator.clipboard.readText()),await p.locator('#result').textContent());
 assert.match(await p.locator('#toRate').textContent(),/Sell/);
 await p.locator('#shopMode').check();await assertResult(Math.floor(3*data.items.find(x=>x.id==='DIAMOND').sell/data.items.find(x=>x.id==='DIRT').buy),true);
 assert.match(await p.locator('#toRate').textContent(),/Buy/);
@@ -53,7 +54,6 @@ await selectItem('fromItem','DIRT');await selectItem('toItem','STONE');
 const stone=data.items.find(x=>x.id==='STONE'),dirt=data.items.find(x=>x.id==='DIRT');
 const stoneCount=Math.floor(501*dirt.sell/stone.buy+1e-10);
 await p.locator('#fromQty').fill('501');await assertResult(stoneCount,true);
-const remainder=new Intl.NumberFormat('de-CH',{minimumFractionDigits:2,maximumFractionDigits:20}).format(Math.max(0,501*dirt.sell-stoneCount*stone.buy));assert.ok((await p.locator('#total').textContent()).endsWith(remainder+' VC Rest'));
 await p.locator('#fromQty').fill('1');await assertResult(0,true);
 // The result alone shows fractional comparisons; swap preserves the entered amount.
 await p.locator('#shopMode').uncheck();await selectItem('toItem','DIAMOND');await assertResult(0.002);

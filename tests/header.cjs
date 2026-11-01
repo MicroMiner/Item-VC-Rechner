@@ -5,6 +5,7 @@ const http=require('node:http');
 const path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const fixture=JSON.parse(fs.readFileSync(path.join(root,'preislisten/VeloCoin_Preisliste.json')));
+delete fixture.updatedAt; // Explicit legacy fixture, even when the real list has a start timestamp.
 let apiMode=false;
 const server=http.createServer((req,res)=>{
  const pathname=new URL(req.url,'http://local').pathname;
@@ -109,17 +110,21 @@ const server=http.createServer((req,res)=>{
   assert.equal(writeCount,2);
   console.log('PASS real Worker read/write timestamps, server-side stamping, reload persistence, failed save/load, recovery, list switching and invalid metadata');
 
-  for(const [width,height] of [[1920,1080],[1280,720],[721,700],[390,844],[320,640]]){
+  for(const [width,height] of [[1920,1080],[1280,720],[1100,800],[721,700],[390,844],[320,640]]){
    await page.setViewportSize({width,height});await page.evaluate(()=>scrollTo(0,0));
    const layout=await page.evaluate(()=>{
     const status=document.querySelector('#economyStatus').getBoundingClientRect(),result=document.querySelector('.result').getBoundingClientRect(),heading=document.querySelector('.hero>.section-heading').getBoundingClientRect(),top=document.querySelector('header.top').getBoundingClientRect();
     const infos=[...document.querySelectorAll('.status-info')].map(x=>x.getBoundingClientRect());
-    return {overflow:document.documentElement.scrollWidth>innerWidth,statusRight:status.right,resultRight:result.right,statusBottom:status.bottom,headingTop:heading.top,headerHeight:top.height,overlap:infos.some((a,i)=>infos.slice(i+1).some(b=>Math.min(a.right,b.right)-Math.max(a.left,b.left)>1&&Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>1))};
+    return {overflow:document.documentElement.scrollWidth>innerWidth,statusRight:status.right,resultRight:result.right,contentLeft:document.querySelector(".wrap").getBoundingClientRect().left,statusBottom:status.bottom,headingTop:heading.top,headerHeight:top.height,overlap:infos.some((a,i)=>infos.slice(i+1).some(b=>Math.min(a.right,b.right)-Math.max(a.left,b.left)>1&&Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>1))};
    });
    if(process.env.HEADER_SCREENSHOTS&&[1280,390].includes(width))await page.screenshot({path:'/tmp/velocity-header-'+width+'.png'});
+   if(width>=1100){assert.ok(layout.contentLeft>=100);assert.ok(layout.statusRight<=width-100);}
    assert.equal(layout.overflow,false,JSON.stringify({width,layout}));assert.equal(layout.overlap,false);
    assert.ok(layout.statusBottom<=layout.headingTop+1,JSON.stringify({width,layout}));
-   if(width>720){assert.ok(Math.abs(layout.statusRight-layout.resultRight)<1);assert.equal(layout.headerHeight,height<=700?65:88);}
+   if(width>720){assert.ok(Math.abs(layout.statusRight-layout.resultRight)<1);assert.equal(layout.headerHeight,height<=700?65:88);
+    const columns=await page.evaluate(()=>({left:document.querySelector('.converter-layout').getBoundingClientRect().height,right:document.querySelector('.right-stack').getBoundingClientRect().height}));
+    assert.ok(Math.abs(columns.left-Math.max(490,Math.min(height-170,560)))<1);assert.ok(columns.right>columns.left);
+   }
   }
   assert.deepEqual(errors,[]);console.log('PASS desktop edge alignment and unchanged header height; mobile wrapping without overlap or horizontal overflow');
  }finally{globalThis.fetch=originalFetch;await browser.close();await new Promise(resolve=>server.close(resolve));}

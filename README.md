@@ -83,7 +83,7 @@ Website-Dateien, Ordner und Worker müssen für die neue Listen-API gemeinsam ve
 
 ## Wertvergleich und Shop-Umrechnung
 
-Standardmässig vergleicht der Rechner den Verkaufswert beider Items: `Menge × Sell(A) / Sell(B)`. Dieser Gegenwert darf Bruchteile enthalten. Der Schalter „Shop-Umrechnung“ berechnet stattdessen `floor(Menge × Sell(A) / Buy(B))`: Die angegebene ganze Menge wird verkauft, davon werden so viele ganze Ziel-Items wie möglich gekauft. Nicht ausgegebene VC werden als Rest angezeigt. Die Menge wird ausschliesslich beim Ausgangs-Item eingegeben; die Zielmenge erscheint nur im Ergebnis. Der Tauschbutton vertauscht nur die beiden Items und behält die eingegebene Ausgangsmenge bei. „Zurücksetzen“ aktiviert wieder den Sell-/Sell-Vergleich.
+Standardmässig vergleicht der Rechner den Verkaufswert beider Items: `Menge × Sell(A) / Sell(B)`. Dieser Gegenwert darf Bruchteile enthalten. Der Schalter „Shop-Umrechnung“ berechnet stattdessen `floor(Menge × Sell(A) / Buy(B))`: Die angegebene ganze Menge wird verkauft, davon werden so viele ganze Ziel-Items wie möglich gekauft.  Die Menge wird ausschliesslich beim Ausgangs-Item eingegeben; die Zielmenge erscheint nur im Ergebnis. Der Tauschbutton vertauscht nur die beiden Items und behält die eingegebene Ausgangsmenge bei. „Zurücksetzen“ aktiviert wieder den Sell-/Sell-Vergleich.
 
 
 ## Neue Preisbasis aus shops.csv

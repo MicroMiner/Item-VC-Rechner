@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="de-CH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="VeloCity Minecraft-Server – unsere Welt, Neuigkeiten und Tools."
+    />
+    <title>VeloCity · Galerie</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="assets/images/favicon.png"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/portal.css" />
+  </head>
+  <body class="site-page portal-page">
+    <div class="wrap">
+      <header class="site-header">
+        <a
+          class="site-logo"
+          href="index.html"
+          aria-label="VeloCity – Startseite"
+          ><img
+            src="assets/images/velocity-logo.png"
+            alt="VeloCity"
+            width="2171"
+            height="724"
+        /></a>
+        <nav class="site-nav" aria-label="Hauptnavigation">
+          <a class="nav-link" href="index.html">Startseite</a
+          ><a class="nav-link" href="umrechner.html">Umrechner</a
+          ><a class="nav-link" href="neuigkeiten.html">Neuigkeiten</a
+          ><a class="nav-link" href="galerie.html" aria-current="page"
+            >Galerie</a
+          >
+        </nav>
+      </header>
+      <main class="portal-main">
+        <header class="portal-heading">
+          <div class="brand">VELOCITY SERVER</div>
+          <h1>Galerie</h1>
+          <p>
+            Entdecke unsere Minecraft-Welt, besondere Bauprojekte und
+            unvergessliche Momente.
+          </p>
+        </header>
+        <section
+          id="galleryGrid"
+          class="gallery-grid"
+          aria-label="Minecraft-Screenshots"
+          aria-busy="true"
+        >
+          <p class="muted">Galerie wird geladen …</p>
+        </section>
+        <p id="galleryStatus" class="portal-message" role="status"></p>
+        <noscript
+          ><p>
+            Bitte JavaScript aktivieren, um die Galerie zu laden.
+          </p></noscript
+        >
+      </main>
+      <footer class="foot">
+        <span>© 2026 VeloCity</span><span aria-hidden="true">·</span
+        ><span
+          >Developed by
+          <strong class="developer-credit">MicroMiner</strong></span
+        ><span aria-hidden="true">·</span
+        ><a href="#impressum" id="openImpressum" aria-haspopup="dialog"
+          >Impressum</a
+        >
+      </footer>
+    </div>
+    <dialog
+      id="impressum"
+      class="legal-dialog"
+      aria-labelledby="impressumTitle"
+    >
+      <button
+        class="btn legal-close"
+        id="closeImpressum"
+        type="button"
+        aria-label="Impressum schliessen"
+        autofocus
+      >
+        ×
+      </button>
+      <h2 id="impressumTitle">Impressum</h2>
+      <dl class="legal-project">
+        <div>
+          <dt>Projekt</dt>
+          <dd>VeloCity Economy</dd>
+        </div>
+        <div>
+          <dt>Entwicklung</dt>
+          <dd>MicroMiner</dd>
+        </div>
+      </dl>
+      <h3>Beschreibung</h3>
+      <p>
+        VeloCity Economy ist eine unabhängige Web-Anwendung zur Verwaltung und
+        Berechnung von Itempreisen für einen privaten Minecraft-Server.
+      </p>
+      <h3>Rechtlicher Hinweis</h3>
+      <p>
+        Dieses Projekt ist ein unabhängiges Minecraft-Fanprojekt und steht in
+        keiner offiziellen Verbindung zu Mojang Studios oder Microsoft.
+      </p>
+      <h3>Kontakt / Betreiberangaben</h3>
+      <p class="legal-placeholder">
+        Platzhalter – die rechtlich erforderlichen Angaben werden später
+        ergänzt.
+      </p>
+      <dl class="legal-contact">
+        <div>
+          <dt>Betreiber/in</dt>
+          <dd>[Wird ergänzt]</dd>
+        </div>
+        <div>
+          <dt>Anschrift</dt>
+          <dd>[Wird ergänzt]</dd>
+        </div>
+        <div>
+          <dt>Kontakt / E-Mail</dt>
+          <dd>[Wird ergänzt]</dd>
+        </div>
+      </dl>
+    </dialog>
+    <dialog
+      id="galleryDialog"
+      class="gallery-dialog"
+      aria-labelledby="galleryTitle"
+    >
+      <button
+        id="galleryClose"
+        class="btn gallery-close"
+        type="button"
+        aria-label="Bildansicht schliessen"
+        autofocus
+      >
+        ×
+      </button>
+      <figure>
+        <img id="galleryFullImage" alt="" width="1920" height="1017" />
+        <figcaption>
+          <h2 id="galleryTitle"></h2>
+          <p id="galleryDescription"></p>
+        </figcaption>
+      </figure>
+      <div class="gallery-controls">
+        <button
+          id="galleryPrevious"
+          class="btn"
+          type="button"
+          aria-label="Vorheriges Bild"
+        >
+          ←</button
+        ><span id="galleryPosition" role="status" aria-live="polite"></span
+        ><button
+          id="galleryNext"
+          class="btn"
+          type="button"
+          aria-label="Nächstes Bild"
+        >
+          →
+        </button>
+      </div>
+      <p id="galleryImageStatus" role="status"></p>
+    </dialog>
+    <script src="assets/js/ui.js" defer></script>
+    <script src="assets/js/gallery.js" type="module"></script>
+  </body>
+</html>

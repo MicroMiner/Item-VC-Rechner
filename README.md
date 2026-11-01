@@ -1,8 +1,8 @@
-# VeloCity – Startseite und Economy-Umrechner
+# VeloCity – Server-Portal und Economy-Umrechner
 
 ## Was das Paket macht
 
-- **GitHub Pages** zeigt die Startseite (`index.html`), den öffentlichen Umrechner (`umrechner.html`) und die veröffentlichte Preisliste.
+- **GitHub Pages** zeigt vier Seiten: Startseite (`index.html`), Economy-Umrechner (`umrechner.html`), Neuigkeiten (`neuigkeiten.html`) und Galerie (`galerie.html`).
 - Der Browser lädt aktuelle Preise über einen **Cloudflare Worker**. Wenn die API-Adresse noch nicht konfiguriert ist, liest er die beigefügte JSON-Datei direkt, aber das Bearbeiten bleibt gesperrt.
 - Ebene 2 ist standardmässig eingeklappt. Der Pfeil in der Trennlinie unter dem Wirtschaftshinweis öffnet oder schliesst die Preisverwaltung. Bis zum Passwort-Check bleibt sie unscharf und gesperrt. Die Prüfung erfolgt **auf dem Worker**, nicht im HTML.
 - Der Worker schreibt Änderungen via **GitHub Contents API** zurück in dieselbe JSON-Datei. Kauf- und Verkaufspreise stehen getrennt in `buy` und `sell`; die ursprünglichen Werte bleiben in `defaultBuy` und `defaultSell` erhalten.
@@ -11,11 +11,21 @@
 ## Projektstruktur
 
 ```text
-index.html                 Schlanke VeloCity-Startseite
+index.html                 VeloCity-Startseite mit Serverinfos und News-Vorschau
+neuigkeiten.html           JSON-basierte Neuigkeiten und Changelog
+galerie.html               Galerie mit Bildvergrösserung
 umrechner.html             HTML-Struktur des Economy-Umrechners
 config.js                  Öffentliche Worker-Adresse (keine Secrets)
 assets/
-  css/styles.css           Layout, Design und responsive Styles
+  css/styles.css           Gemeinsames Design, Umrechner und Navigation
+  css/portal.css           Ergänzungen für Startseite, News und Galerie
+  data/                    Neuigkeiten- und Galerie-JSON
+  img/gallery/             Sechs Originalbilder und WebP-Vorschauen
+  js/site-config.js        Öffentliche Serverinformationen
+  js/home.js               Serveradresse und Kopierfunktion
+  js/news.js               Neuigkeiten und Startseiten-Vorschau
+  js/gallery.js            Galerie und native Bildansicht
+  js/portal-data.js         Gemeinsame sichere Datenhelfer
   images/velocity-logo.png Transparentes VeloCity-Logo
   js/app.js                Umrechner, Daten, Status und Preisverwaltung
   js/ui.js                 Impressum und einklappbarer Admin-Bereich
@@ -27,12 +37,12 @@ scripts/                   Python-Werkzeuge für Preisberechnung und Audit
 tests/                     Browser-, Worker- und Preisprüfungen
 ```
 
-Die Website benötigt keinen Build-Schritt und keine zusätzlichen Laufzeitbibliotheken. `index.html` lädt nur das gemeinsame Stylesheet und `ui.js` für das Impressum. `umrechner.html` lädt zusätzlich Konfiguration, Anwendung und Mini-Taschenrechner über relative Pfade; die Skripte werden in definierter Reihenfolge mit `defer` ausgeführt. `config.js` bleibt für bestehende Konfigurationen und lokale Serverüberschreibungen im Stammverzeichnis. Beim Veröffentlichen müssen die Dateien in `assets/` mit hochgeladen werden. Der Cloudflare-Worker bleibt von dieser Aufteilung unabhängig.
+Die Website benötigt keinen Build-Schritt und keine zusätzlichen Laufzeitbibliotheken. Die Portalseiten laden das gemeinsame Stylesheet, `portal.css`, `ui.js` und ihre eigenen Skripte. Neuigkeiten und Galerie verwenden native JavaScript-Module; dafür ist weiterhin kein Build nötig. `umrechner.html` lädt zusätzlich Konfiguration, Anwendung und Mini-Taschenrechner über relative Pfade; die Skripte werden in definierter Reihenfolge mit `defer` ausgeführt. `config.js` bleibt für bestehende Konfigurationen und lokale Serverüberschreibungen im Stammverzeichnis. Beim Veröffentlichen müssen die Dateien in `assets/` mit hochgeladen werden. Der Cloudflare-Worker bleibt von dieser Aufteilung unabhängig.
 
 ## 1. GitHub Pages einrichten
 
 1. Erstelle ein **öffentliches GitHub-Repository**, z. B. `velocity-rechner`.
-2. Lade aus diesem Paket `index.html`, `umrechner.html` und `config.js` sowie die gesamten Ordner `assets/` und `preislisten/` (inklusive `index.json`) ins Stammverzeichnis des Repositories hoch. Die Dateien aus `worker/` brauchst du NICHT als öffentliche Website-Dateien.
+2. Lade aus diesem Paket `index.html`, `umrechner.html`, `neuigkeiten.html`, `galerie.html` und `config.js` sowie die gesamten Ordner `assets/` und `preislisten/` (inklusive `index.json`) ins Stammverzeichnis des Repositories hoch. Die Dateien aus `worker/` brauchst du NICHT als öffentliche Website-Dateien.
 3. Auf GitHub **Settings → Pages → Build and deployment → Deploy from a branch**: `main` und `/ (root)` wählen.
 4. Deine Website lautet z. B. `https://DEIN_GITHUB_NAME.github.io/velocity-rechner/`.
 
@@ -144,14 +154,21 @@ Der Admin-Bereich öffnet sich unabhängig von der Anmeldung: Ausklappen entsper
 
 ## Startseite und gemeinsames Design
 
-Es gibt genau zwei öffentliche HTML-Seiten. Logo, Navigation und Einstiegsbutton verwenden relative Links, damit beide Seiten auch unter einem GitHub-Pages-Repositorypfad funktionieren. Die Startseite lädt keine Preislisten, keine Authentifizierung und keine Umrechner-/Taschenrechner-Logik. Der gemeinsame Footer steht beim Umrechner nach der gesamten Verwaltung; auf der Startseite sitzt er bei wenig Inhalt am unteren Fensterrand. Impressum und der einklappbare Admin-Bereich verwenden das gemeinsame `ui.js`; nicht vorhandene Admin-Elemente auf der Startseite werden übersprungen.
+Es gibt vier öffentliche HTML-Seiten. Logo, Navigation und Einstiegsbutton verwenden relative Links, damit beide Seiten auch unter einem GitHub-Pages-Repositorypfad funktionieren. Die Startseite lädt keine Preislisten, keine Authentifizierung und keine Umrechner-/Taschenrechner-Logik. Der gemeinsame Footer steht beim Umrechner nach der gesamten Verwaltung; auf der Startseite sitzt er bei wenig Inhalt am unteren Fensterrand. Impressum und der einklappbare Admin-Bereich verwenden das gemeinsame `ui.js`; nicht vorhandene Admin-Elemente auf der Startseite werden übersprungen.
 
 Die bestehende API-Adresse, Worker-Endpunkte und Preislisten bleiben unverändert. Für lokale Tests des Tools nach dem Start des vorhandenen Servers jetzt den Pfad `/umrechner.html` verwenden; `/` zeigt die Startseite. Es ist kein Build oder zusätzliches Laufzeitpaket erforderlich.
 
-Die Startseite folgt dem bereitgestellten Referenzbild. Das transparente Logo wird auf beiden Seiten als lokale PNG-Datei eingebunden. Startseite und Umrechner teilen sich Header, Navigation, Footer und Design; der Umrechner behält seine bestehende Bedienung und Berechnung.
+Die Startseite folgt dem bereitgestellten Referenzbild. Das transparente Logo wird auf allen vier Seiten als lokale PNG-Datei eingebunden. Startseite und Umrechner teilen sich Header, Navigation, Footer und Design; der Umrechner behält seine bestehende Bedienung und Berechnung.
 
-`node tests/site.cjs` prüft beide Seiten auf Navigation, aktive Menüpunkte, gemeinsame Styles, einen schlanken Startseiten-Ladevorgang und GitHub-Pages-Unterpfade. Optional erzeugt `SITE_SCREENSHOTS=1 node tests/site.cjs` Desktop- und Mobilansichten im temporären Ordner `velocity-site-previews`. Über `SITE_SCREENSHOT_DIR` lässt sich das Ausgabeziel ändern.
+`node tests/site.cjs` prüft alle vier Seiten auf Navigation, aktive Menüpunkte, gemeinsame Styles, einen schlanken Startseiten-Ladevorgang und GitHub-Pages-Unterpfade. Optional erzeugt `SITE_SCREENSHOTS=1 node tests/site.cjs` Desktop- und Mobilansichten im temporären Ordner `velocity-site-previews`. Über `SITE_SCREENSHOT_DIR` lässt sich das Ausgabeziel ändern.
 
 ## Qualitätsprüfung
 
 Befunde, geänderte Dateien, Testabdeckung und bekannte Einschränkungen stehen in [docs/quality-review.md](docs/quality-review.md). Zusätzliche Responsive- und Verwaltungstests: `node tests/quality.cjs`.
+
+
+## Server-Portal – Phase 1 & 2
+
+Konfiguration und Datenpflege, Bildverschiebungen, vorbereitete Discord-Felder und Testabdeckung sind in [docs/portal-phase-1-2.md](docs/portal-phase-1-2.md) dokumentiert. Die Serverversion und eine spätere Serveradresse werden ausschliesslich in `assets/js/site-config.js` gepflegt. `config.js` bleibt unverändert für die Economy-API zuständig.
+
+Zusätzlicher Portaltest: `node tests/portal.cjs`. Er prüft vierseitige Navigation, Konfiguration und Kopier-Fallback, News-Leer-/Fehlerzustände, Sortierung und Injektionsschutz sowie alle sechs echten Galerie-Bilder und die Bildansicht auf sieben Bildschirmbreiten. Alle simulierten News und Serveradressen bleiben reine Testdaten.

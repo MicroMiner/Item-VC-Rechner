@@ -1771,3 +1771,38 @@ select:focus-visible {
     gap: 8px;
   }
 }
+
+/* Four-page navigation: wrap instead of forcing the unchanged tool wider. */
+.site-header {
+  flex-wrap: wrap;
+}
+.site-nav {
+  flex-wrap: wrap;
+  min-width: 0;
+}
+@media (min-width: 721px) and (max-width: 1300px) {
+  .site-nav {
+    gap: 8px;
+  }
+  .nav-link {
+    padding-inline: 14px;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 720px) {
+  .site-nav {
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .site-header {
+    justify-content: center;
+  }
+  .site-nav {
+    width: 100%;
+    gap: 4px;
+  }
+  .nav-link {
+    padding-inline: 8px;
+  }
+}

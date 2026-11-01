@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "images": [
+    {
+      "id": "image-001",
+      "title": "VeloCity Screenshot 1",
+      "description": "",
+      "category": "Sonstiges",
+      "src": "assets/img/gallery/Deko Shop.png",
+      "thumbnail": "assets/img/gallery/thumbs/Deko Shop.webp",
+      "alt": "Screenshot 1 aus der VeloCity-Minecraft-Welt",
+      "width": 1920,
+      "height": 1017
+    },
+    {
+      "id": "image-002",
+      "title": "VeloCity Screenshot 2",
+      "description": "",
+      "category": "Sonstiges",
+      "src": "assets/img/gallery/Eingang.png",
+      "thumbnail": "assets/img/gallery/thumbs/Eingang.webp",
+      "alt": "Screenshot 2 aus der VeloCity-Minecraft-Welt",
+      "width": 1920,
+      "height": 1017
+    },
+    {
+      "id": "image-003",
+      "title": "VeloCity Screenshot 3",
+      "description": "",
+      "category": "Sonstiges",
+      "src": "assets/img/gallery/Kupfer Gollem.png",
+      "thumbnail": "assets/img/gallery/thumbs/Kupfer Gollem.webp",
+      "alt": "Screenshot 3 aus der VeloCity-Minecraft-Welt",
+      "width": 1920,
+      "height": 1017
+    },
+    {
+      "id": "image-004",
+      "title": "VeloCity Screenshot 4",
+      "description": "",
+      "category": "Sonstiges",
+      "src": "assets/img/gallery/Shop.png",
+      "thumbnail": "assets/img/gallery/thumbs/Shop.webp",
+      "alt": "Screenshot 4 aus der VeloCity-Minecraft-Welt",
+      "width": 1920,
+      "height": 1017
+    },
+    {
+      "id": "image-005",
+      "title": "VeloCity Screenshot 5",
+      "description": "",
+      "category": "Sonstiges",
+      "src": "assets/img/gallery/Spawn übersicht.png",
+      "thumbnail": "assets/img/gallery/thumbs/Spawn übersicht.webp",
+      "alt": "Screenshot 5 aus der VeloCity-Minecraft-Welt",
+      "width": 1920,
+      "height": 1017
+    },
+    {
+      "id": "image-006",
+      "title": "VeloCity Screenshot 6",
+      "description": "",
+      "category": "Sonstiges",
+      "src": "assets/img/gallery/Spawn.png",
+      "thumbnail": "assets/img/gallery/thumbs/Spawn.webp",
+      "alt": "Screenshot 6 aus der VeloCity-Minecraft-Welt",
+      "width": 1920,
+      "height": 1017
+    }
+  ]
+}

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
-      content="VeloCity – Dein Minecraft-Server. Deine Wirtschaft. Deine Tools."
+      content="VeloCity Minecraft-Server – unsere Welt, Neuigkeiten und Tools."
     />
     <title>VeloCity · Startseite</title>
     <link
@@ -15,6 +15,7 @@
       href="assets/images/favicon.png"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/portal.css" />
   </head>
   <body class="site-page home-page">
     <div class="wrap">
@@ -32,14 +33,41 @@
         <nav class="site-nav" aria-label="Hauptnavigation">
           <a class="nav-link" href="index.html" aria-current="page"
             >Startseite</a
-          ><a class="nav-link" href="umrechner.html">Umrechner</a>
+          ><a class="nav-link" href="umrechner.html">Umrechner</a
+          ><a class="nav-link" href="neuigkeiten.html">Neuigkeiten</a
+          ><a class="nav-link" href="galerie.html">Galerie</a>
         </nav>
       </header>
       <main class="home-main">
         <section class="home-welcome" aria-labelledby="welcomeTitle">
           <h1 id="welcomeTitle">Willkommen bei <span>VeloCity</span></h1>
-          <p>Dein Minecraft-Server. Deine Wirtschaft. Deine Tools.</p>
+          <p class="welcome-intro">
+            Willkommen auf VeloCity! Entdecke unsere Minecraft-Welt mit eigener
+            Wirtschaft, gemeinsamen Bauprojekten und vielen Möglichkeiten, dein
+            eigenes Abenteuer zu gestalten.
+          </p>
+          <p id="serverVersion" class="server-version">
+            Serverinformationen werden geladen …
+          </p>
           <div class="welcome-rule" aria-hidden="true"></div>
+        </section>
+        <section class="server-access" aria-labelledby="serverAccessTitle">
+          <h2 id="serverAccessTitle" class="field-label">Server-Zugang</h2>
+          <div class="server-address-row">
+            <input
+              id="serverAddress"
+              aria-label="Serveradresse"
+              type="text"
+              readonly
+              placeholder="Serveradresse folgt"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="copyServerAddress" class="btn" type="button" disabled>
+              IP kopieren
+            </button>
+          </div>
+          <p id="serverCopyStatus" class="status" role="status"></p>
         </section>
         <section class="economy-entry" aria-labelledby="entryTitle">
           <div class="entry-main">
@@ -97,6 +125,19 @@
             ></a>
           </div>
         </section>
+        <section class="home-news" aria-labelledby="homeNewsTitle">
+          <h2 id="homeNewsTitle">Neuigkeiten</h2>
+          <div id="newsList" data-preview="true" aria-live="polite">
+            <p class="muted">Neuigkeiten werden geladen …</p>
+          </div>
+          <a class="portal-link" href="neuigkeiten.html">Alle Neuigkeiten</a>
+        </section>
+        <noscript
+          ><p>
+            Bitte JavaScript aktivieren, um Serverinformationen und Neuigkeiten
+            zu laden.
+          </p></noscript
+        >
       </main>
       <footer class="foot">
         <span>© 2026 VeloCity</span><span aria-hidden="true">·</span
@@ -165,5 +206,8 @@
       </dl>
     </dialog>
     <script src="assets/js/ui.js" defer></script>
+    <script src="assets/js/site-config.js" defer></script>
+    <script src="assets/js/home.js" defer></script>
+    <script src="assets/js/news.js" type="module"></script>
   </body>
 </html>

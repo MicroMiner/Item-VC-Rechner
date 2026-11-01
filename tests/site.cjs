@@ -24,14 +24,14 @@ const server=http.createServer((req,res)=>{
   const icon=await page.locator('link[rel=icon]').getAttribute('href');
   assert.ok(icon.startsWith('assets/'));
   assert.deepEqual(await page.evaluate(async href=>{const response=await fetch(href);if(!response.ok)throw Error('Favicon unavailable');const blob=await response.blob(),image=await createImageBitmap(blob);return [image.width,image.height,blob.type,blob.size<10000]},icon),[48,48,'image/png',true]);
-  assert.match(await page.title(),/VeloCity/);assert.equal(await page.locator('.site-nav a').count(),2);
+  assert.match(await page.title(),/VeloCity/);assert.equal(await page.locator('.site-nav a').count(),4);
   assert.equal(await page.locator('.site-nav [aria-current="page"]').textContent(),'Startseite');
   assert.equal(await page.locator('.economy-entry').count(),1);
   assert.equal(await page.locator('.site-logo img').evaluate(img=>img.complete&&img.naturalWidth===2171&&img.getAttribute('src').endsWith('.png')),true);assert.equal(await page.locator('#fromItem').count(),0);
-  assert.equal(await page.locator('script[src]').count(),1);assert.ok((await page.locator('script[src]').getAttribute('src')).endsWith('/ui.js'));
+  assert.equal(await page.locator('script[src]').count(),4);assert.ok((await page.locator('script[src]').first().getAttribute('src')).endsWith('/ui.js'));
   assert.equal(requests.some(url=>/\/(app|calculator|config)\.js/.test(url)||url.includes('/preislisten/')),false);
   const background=await page.evaluate(()=>getComputedStyle(document.body).backgroundImage);
-  const foot=await page.locator('.foot').boundingBox();assert.ok(foot.y+foot.height>=876&&foot.y+foot.height<=900);
+  const foot=await page.locator('.foot').boundingBox();assert.ok(foot.y+foot.height>=876);assert.ok(foot.y>=(await page.locator('main').boundingBox()).y+(await page.locator('main').boundingBox()).height);
   await page.getByRole('link',{name:'Impressum',exact:true}).click();assert.equal(await page.locator('#impressum').isVisible(),true);await page.keyboard.press('Escape');
   await page.getByRole('link',{name:'Zum Umrechner',exact:true}).click();await page.waitForURL(base+'umrechner.html');await page.waitForFunction(()=>document.querySelector('#syncState').textContent==='Synchronisiert');
   assert.equal(await page.locator('.site-nav [aria-current="page"]').textContent(),'Umrechner');
@@ -40,7 +40,7 @@ const server=http.createServer((req,res)=>{
   await page.locator('.site-logo').click();await page.waitForURL(base+'index.html');
   await page.getByRole('navigation',{name:'Hauptnavigation'}).getByRole('link',{name:'Umrechner',exact:true}).click();await page.waitForURL(base+'umrechner.html');
   await page.getByRole('navigation',{name:'Hauptnavigation'}).getByRole('link',{name:'Startseite',exact:true}).click();await page.waitForURL(base+'index.html');
-  for(const route of ['index.html','umrechner.html']){
+  for(const route of ['index.html','umrechner.html','neuigkeiten.html','galerie.html']){
    await page.goto(base+route);
    if(route==='umrechner.html')await page.waitForFunction(()=>document.querySelector('#syncState').textContent==='Synchronisiert');
    await page.addStyleTag({content:'html { overflow-y: scroll; scrollbar-gutter: stable; }'});
@@ -62,6 +62,6 @@ const server=http.createServer((req,res)=>{
   assert.equal(await page.locator('#adminPassword').isVisible(),true);
   if(process.env.SITE_SCREENSHOTS){await page.locator('#adminLogin').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(previewDir,'velocity-admin-login.png')});}
   assert.deepEqual(errors,[]);assert.deepEqual(badAssets,[]);
-  console.log('PASS two-page navigation, lightweight homepage, shared design/footer, legal modal, GitHub Pages subpath and responsive layouts');
+  console.log('PASS four-page navigation, lightweight homepage, shared design/footer, legal modal, GitHub Pages subpath and responsive layouts');
  }finally{await b.close();await new Promise(r=>server.close(r))}
 })().catch(e=>{console.error(e);server.close();process.exitCode=1});

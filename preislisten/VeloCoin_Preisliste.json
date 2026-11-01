@@ -119,7 +119,7 @@
     {
       "id": "DIAMOND",
       "name": "Diamant",
-      "buy": 1500,
+      "buy": 2000,
       "sell": 500,
       "defaultBuy": 2000,
       "defaultSell": 500
@@ -12391,5 +12391,5 @@
       "defaultSell": 30
     }
   ],
-  "updatedAt": "2026-11-01T01:44:08.593Z"
+  "updatedAt": "2026-11-01T01:45:00.858Z"
 }

@@ -46,7 +46,7 @@ const server=http.createServer((req,res)=>{
   const data=structuredClone(fixture);data.updatedAt='2026-11-01T00:38:00.000Z';data.items.find(x=>x.id==='DIRT').sell=2.75;
   data.customItems.push({id:'CUSTOM_HEADER_TEST',name:'Header test',buy:4,sell:1});
   const files={'VeloCoin_Preisliste.json':data,'zz-other.json':{...structuredClone(fixture),items:[{id:'DIRT',name:'Erde',buy:28,sell:7}],customItems:[]}};
-  const env={SITE_ORIGIN:base,ADMIN_PASSWORD:'test-only',GITHUB_TOKEN:'mock-only',GITHUB_OWNER:'MicroMiner',GITHUB_REPO:'Item-VC-Rechner',GITHUB_BRANCH:'main'};
+  const env={SITE_ORIGIN:base,ADMIN_PASSWORD:'test-only',GITHUB_TOKEN:'mock-only',GITHUB_OWNER:'MicroMiner',GITHUB_REPO:'VeloCity',GITHUB_BRANCH:'main'};
   let failLoads=false,failWrites=false,holdWrite=null,writeCount=0,readCount=0;
   globalThis.fetch=async(url,options)=>{
    const u=new URL(url);assert.equal(u.hostname,'api.github.com');

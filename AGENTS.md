@@ -70,7 +70,7 @@ Die konkrete aktuelle Implementierung hat Vorrang vor diesen Notizen, falls sich
 - Buy und Sell unterscheiden; Preisformatierung, Standardwerte und bestehende Berechnungssemantik beibehalten.
 - Preislisten-JSON, Worker-/API-Verbindungen, Admin-Anmeldung, Freigabe/Sperrung, Speicherung, Export und Synchronisation nicht ohne Auftrag verändern.
 - Keine Zugangsdaten oder Secrets in öffentlich ausgelieferten Dateien hinterlegen.
-- Relative Seiten- und Asset-Links verwenden, damit GitHub Pages auch unter `/Item-VC-Rechner/` funktioniert.
+- Relative Seiten- und Asset-Links verwenden, damit GitHub Pages auch unter `/VeloCity/` funktioniert.
 - Vor Änderungen Dateien und Selektoren prüfen; nach Änderungen betroffene Funktionen und Navigation testen.
 
 ## 5. Vorgehen für Codex

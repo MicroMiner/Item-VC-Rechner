@@ -8,6 +8,14 @@
 - Der Worker schreibt Änderungen via **GitHub Contents API** zurück in dieselbe JSON-Datei. Kauf- und Verkaufspreise stehen getrennt in `buy` und `sell`; die ursprünglichen Werte bleiben in `defaultBuy` und `defaultSell` erhalten.
 - Die Preise gelten für alle Besucher. Nach Änderung lädt jeder Besucher die neue Fassung beim nächsten Seitenaufruf.
 
+## Repository-Name und GitHub Pages
+
+Vorgesehener Repository-Name: **VeloCity**. Nach der Umbenennung lautet die Adresse `https://microminer.github.io/VeloCity/`.
+
+Die eigentliche Umbenennung erfolgt auf GitHub unter **Settings → General → Repository name → Rename**. Anschliessend beim lokalen Checkout `git remote set-url origin https://github.com/MicroMiner/VeloCity.git` setzen. Die Website verwendet relative Links und benötigt keine Umstellung ihrer Asset-Pfade. Die bisherige GitHub-Pages-Adresse wird durch eine Repository-Umbenennung nicht automatisch zur neuen Pages-Adresse weitergeleitet.
+
+Im produktiven Cloudflare-Worker danach **GITHUB_REPO = VeloCity** setzen und neu deployen. `SITE_ORIGIN` bleibt `https://microminer.github.io`, da sich nur der Pfad ändert. Die lokale Wrangler-Vorlage enthält bereits den neuen Repository-Namen; eine Dateianpassung allein ändert den produktiven Worker nicht.
+
 ## Projektstruktur
 
 ```text

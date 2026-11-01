@@ -4,6 +4,6 @@ compatibility_date = "2026-10-01"
 
 [vars]
 GITHUB_OWNER = "DEIN_GITHUB_NAME"
-GITHUB_REPO = "DEIN_REPOSITORY"
+GITHUB_REPO = "VeloCity"
 GITHUB_BRANCH = "main"
 SITE_ORIGIN = "https://DEIN_GITHUB_NAME.github.io"

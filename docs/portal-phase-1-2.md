@@ -1,6 +1,6 @@
 # VeloCity Server-Portal – Phase 1 & 2
 
-Die vier Seiten verwenden das bestehende Design, Logo, Favicon und Impressum. Die Erweiterung ist statisch und für `https://microminer.github.io/Item-VC-Rechner/` ausgelegt. Kein Build, Framework, Bot, neuer Worker oder externer Dienst ist erforderlich. Die Umsetzung wurde vor dem Upload lokal geprüft.
+Die vier Seiten verwenden das bestehende Design, Logo, Favicon und Impressum. Die Erweiterung ist statisch und für `https://microminer.github.io/VeloCity/` ausgelegt. Kein Build, Framework, Bot, neuer Worker oder externer Dienst ist erforderlich. Die Umsetzung wurde vor dem Upload lokal geprüft.
 
 ## Dateien und Abgrenzung
 

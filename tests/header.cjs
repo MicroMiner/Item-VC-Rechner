@@ -93,7 +93,7 @@ const server=http.createServer((req,res)=>{
   failWrites=true;const readsBefore=readCount;
   await page.locator('#editSearch').fill('DIRT');await page.locator('#editOptions [data-item-id="DIRT"]').click();
   await page.locator('#editSell').fill('4.5');await page.locator('#saveEdit').click();
-  await page.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen')&&document.querySelector('#syncState').textContent==='Synchronisiert'&&document.querySelector('#earthValue').textContent==='1 Erde = 3.5 VC (Sell)');
+  await page.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Speichern fehlgeschlagen')&&document.querySelector('#syncState').textContent==='Synchronisiert'&&document.querySelector('#earthValue').textContent==='1 Erde = 3.5 VC (Sell)');
   assert.ok(readCount>readsBefore);assert.equal(files['VeloCoin_Preisliste.json'].updatedAt,savedAt);
   assert.equal(await page.locator('#priceUpdatedAt').getAttribute('datetime'),savedAt);
   assert.equal(await page.locator('#earthValue').textContent(),'1 Erde = 3.5 VC (Sell)');

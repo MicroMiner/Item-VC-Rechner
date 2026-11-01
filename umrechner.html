@@ -4,7 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>VeloCity Economy · Item-Umrechner</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="assets/images/favicon.png"
+    />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body class="site-page converter-page">
@@ -234,8 +239,13 @@
                     </div>
                   </div>
                   <div>
-                    <label>Verkaufspreis pro Item</label>
-                    <div id="fromRate" class="rate"></div>
+                    <div class="field-label">Verkaufspreis pro Item</div>
+                    <div
+                      id="fromRate"
+                      class="rate"
+                      role="group"
+                      aria-label="Verkaufspreis pro Item"
+                    ></div>
                   </div>
                 </div>
               </section>
@@ -281,8 +291,15 @@
                 </div>
                 <div class="fieldrow target-fieldrow">
                   <div>
-                    <label id="toRateLabel">Verkaufswert pro Item</label>
-                    <div id="toRate" class="rate"></div>
+                    <div id="toRateLabel" class="field-label">
+                      Verkaufswert pro Item
+                    </div>
+                    <div
+                      id="toRate"
+                      class="rate"
+                      role="group"
+                      aria-labelledby="toRateLabel"
+                    ></div>
                   </div>
                 </div>
               </section>
@@ -339,32 +356,70 @@
                     placeholder="z. B. 350 * 64"
                     autocomplete="off"
                     aria-label="Rechnung eingeben"
-                  /><button class="btn" id="calcClear" type="button">C</button>
+                  /><button
+                    class="btn"
+                    id="calcClear"
+                    type="button"
+                    aria-label="Rechnung löschen"
+                  >
+                    C
+                  </button>
                 </div>
                 <div class="calc-grid" id="calcKeys">
                   <button class="btn" type="button" data-key="7">7</button
                   ><button class="btn" type="button" data-key="8">8</button
                   ><button class="btn" type="button" data-key="9">9</button
-                  ><button class="btn accent" type="button" data-key="/">
+                  ><button
+                    class="btn accent"
+                    type="button"
+                    data-key="/"
+                    aria-label="Dividieren"
+                  >
                     ÷
                   </button>
                   <button class="btn" type="button" data-key="4">4</button
                   ><button class="btn" type="button" data-key="5">5</button
                   ><button class="btn" type="button" data-key="6">6</button
-                  ><button class="btn accent" type="button" data-key="*">
+                  ><button
+                    class="btn accent"
+                    type="button"
+                    data-key="*"
+                    aria-label="Multiplizieren"
+                  >
                     ×
                   </button>
                   <button class="btn" type="button" data-key="1">1</button
                   ><button class="btn" type="button" data-key="2">2</button
                   ><button class="btn" type="button" data-key="3">3</button
-                  ><button class="btn accent" type="button" data-key="-">
+                  ><button
+                    class="btn accent"
+                    type="button"
+                    data-key="-"
+                    aria-label="Subtrahieren"
+                  >
                     −
                   </button>
                   <button class="btn" type="button" data-key="0">0</button
-                  ><button class="btn" type="button" data-key=".">.</button
-                  ><button class="btn equals" type="button" data-key="=">
+                  ><button
+                    class="btn"
+                    type="button"
+                    data-key="."
+                    aria-label="Dezimalpunkt"
+                  >
+                    .</button
+                  ><button
+                    class="btn equals"
+                    type="button"
+                    data-key="="
+                    aria-label="Ergebnis berechnen"
+                  >
                     =</button
-                  ><button class="btn accent" type="button" data-key="+">
+                  ><button
+                    class="btn accent"
+                    type="button"
+                    data-key="+"
+                    aria-label="Addieren"
+                  >
                     +
                   </button>
                 </div>
@@ -611,7 +666,12 @@
                       Liste laden
                     </button>
                   </div>
-                  <div id="listStatus" class="status" role="status"></div>
+                  <div
+                    id="listStatus"
+                    class="status"
+                    role="status"
+                    role="status"
+                  ></div>
                   <div class="flex">
                     <button class="btn" id="exportData" type="button">
                       JSON-Sicherung herunterladen</button

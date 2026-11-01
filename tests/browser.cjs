@@ -5,6 +5,8 @@ const server=http.createServer((req,res)=>{const pathname=new URL(req.url,'http:
 const p=await b.newPage();p.on('dialog',dialog=>dialog.accept());const errors=[];p.on('pageerror',e=>errors.push(e.message));
 await p.goto(base+'/umrechner.html');await p.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'),{},{timeout:10000});
 assert.equal(await p.locator('#priceList').inputValue(),'VeloCoin_Preisliste.json');
+// Loading now completes before the initial disclosure transition; wait for its visual state.
+await p.locator('#adminPanel').evaluate(e=>Promise.all(e.getAnimations().map(a=>a.finished)));
 async function openAdmin(){if(await p.locator('#toggleAdmin').getAttribute('aria-expanded')!=='true')await p.locator('#toggleAdmin').click();}
 assert.equal(await p.locator('#toggleAdmin').getAttribute('aria-expanded'),'false');assert.equal(await p.locator('#adminPanel').evaluate(e=>e.inert),true);assert.equal(await p.locator('#adminPassword').isVisible(),false);
 const disclosureOrder=await p.evaluate(()=>{const hero=document.querySelector('.hero').getBoundingClientRect(),about=document.querySelector('.economy-about').getBoundingClientRect(),foot=document.querySelector('.foot').getBoundingClientRect(),toggle=document.querySelector('#toggleAdmin').getBoundingClientRect();return hero.bottom<=about.top&&about.bottom<=toggle.top&&document.querySelector("#adminPanel").getBoundingClientRect().bottom<=foot.top;});assert.equal(disclosureOrder,true);

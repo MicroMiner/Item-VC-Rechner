@@ -43,10 +43,6 @@ body {
   min-height: 100vh;
   padding: 20px 12px;
 }
-.wrap {
-  max-width: 1140px;
-  margin: 20px auto;
-}
 .top {
   display: flex;
   align-items: center;
@@ -75,7 +71,8 @@ small,
   margin-bottom: 14px;
   box-shadow: 0 12px 40px #0002;
 }
-label {
+label,
+.field-label {
   display: block;
   color: var(--sub);
   font-size: 0.85rem;
@@ -110,7 +107,7 @@ select {
 }
 .fieldrow {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   margin-top: 16px;
 }
@@ -137,6 +134,10 @@ select {
 .btn:hover {
   background: #34496a;
 }
+select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
 .btn:focus-visible {
   outline: 2px solid var(--gold);
 }
@@ -155,9 +156,6 @@ select {
   overflow-wrap: anywhere;
   margin: 7px 0;
 }
-.result .line {
-  margin: 8px 0 15px;
-}
 .flex {
   display: flex;
   gap: 10px;
@@ -175,6 +173,7 @@ select {
   margin-bottom: 12px;
 }
 .status {
+  overflow-wrap: anywhere;
   min-height: 20px;
   color: var(--green);
   font-size: 0.85rem;
@@ -206,6 +205,7 @@ select {
   padding: 9px 0;
 }
 .custom-list button {
+  flex: none;
   padding: 5px 9px;
 }
 .original {
@@ -320,6 +320,13 @@ select {
   font-size: 1.18rem;
   margin: 0 0 12px;
 }
+.management .editor-grid > *,
+.management .addgrid > *,
+.fieldrow > *,
+.right-stack,
+.entry-copy {
+  min-width: 0;
+}
 .management .editor-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -381,20 +388,6 @@ select {
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
-}
-.file-label {
-  display: inline-flex;
-  align-items: center;
-}
-.file-actions input[type="file"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  overflow: hidden;
-}
-.file-actions input[type="file"]:focus-visible + .btn {
-  outline: 2px solid var(--gold);
 }
 @media (max-width: 1100px) {
   .converter-layout {
@@ -712,7 +705,8 @@ select {
     margin-top: clamp(7px, 1.8vh, 18px);
     padding: 0;
   }
-  .converter-layout label {
+  .converter-layout label,
+  .converter-layout .field-label {
     margin-bottom: 4px;
   }
   .converter-layout input,
@@ -744,9 +738,6 @@ select {
   .right-stack .result .big {
     margin: clamp(3px, 0.8vh, 8px) 0;
     font-size: clamp(1.05rem, 2.05vw, 2rem);
-  }
-  .right-stack .result .line {
-    margin: 4px 0 9px;
   }
   .right-stack .result .flex {
     justify-content: center;
@@ -949,6 +940,7 @@ select {
   cursor: pointer;
 }
 .mode-switch input {
+  flex: none;
   width: 18px;
   height: 18px;
   padding: 0;
@@ -1333,10 +1325,11 @@ select {
 
 /* Shared site chrome and landing page, based on the Startseite reference. */
 .site-page {
-  /* Full-bleed gold rules must not create a horizontal scroll area.
-     clip preserves vertical scrolling and does not create a scroll container. */
-  overflow-x: clip;
-  padding: 0 20px;
+  /* Container units exclude the browser scrollbar; share the actual gutters
+     with the full-bleed rules instead of masking viewport-width overflow. */
+  --site-gutter: 20px;
+  container-type: inline-size;
+  padding: 0 var(--site-gutter);
   background:
     radial-gradient(
       ellipse at 50% 90%,
@@ -1378,7 +1371,8 @@ select {
   content: "";
   position: absolute;
   left: 50%;
-  width: 100vw;
+  width: 100%; /* Safe fallback for browsers without container units. */
+  width: calc(100cqw + 2 * var(--site-gutter));
   height: 2px;
   transform: translateX(-50%);
   background: linear-gradient(
@@ -1641,13 +1635,12 @@ select {
 }
 @media (min-width: 1100px) {
   .site-page {
-    padding-left: 100px;
-    padding-right: 100px;
+    --site-gutter: 100px;
   }
 }
 @media (max-width: 720px) {
   .site-page {
-    padding: 0 16px;
+    --site-gutter: 16px;
   }
   .site-header {
     min-height: 88px;
@@ -1730,7 +1723,7 @@ select {
 
 @media (min-width: 1100px) {
   .home-page {
-    padding-inline: clamp(60px, 4.8vw, 100px);
+    --site-gutter: clamp(60px, 4.8vw, 100px);
   }
 }
 @media (max-width: 720px) {

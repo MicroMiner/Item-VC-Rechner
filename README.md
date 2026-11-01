@@ -151,3 +151,7 @@ Die bestehende API-Adresse, Worker-Endpunkte und Preislisten bleiben unveränder
 Die Startseite folgt dem bereitgestellten Referenzbild. Das transparente Logo wird auf beiden Seiten als lokale PNG-Datei eingebunden. Startseite und Umrechner teilen sich Header, Navigation, Footer und Design; der Umrechner behält seine bestehende Bedienung und Berechnung.
 
 `node tests/site.cjs` prüft beide Seiten auf Navigation, aktive Menüpunkte, gemeinsame Styles, einen schlanken Startseiten-Ladevorgang und GitHub-Pages-Unterpfade. Optional erzeugt `SITE_SCREENSHOTS=1 node tests/site.cjs` Desktop- und Mobilansichten im temporären Ordner `velocity-site-previews`. Über `SITE_SCREENSHOT_DIR` lässt sich das Ausgabeziel ändern.
+
+## Qualitätsprüfung
+
+Befunde, geänderte Dateien, Testabdeckung und bekannte Einschränkungen stehen in [docs/quality-review.md](docs/quality-review.md). Zusätzliche Responsive- und Verwaltungstests: `node tests/quality.cjs`.

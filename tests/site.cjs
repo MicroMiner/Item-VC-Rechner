@@ -21,6 +21,9 @@ const server=http.createServer((req,res)=>{
   const page=await b.newPage({viewport:{width:1440,height:900}}),errors=[],requests=[],badAssets=[];
   page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push(r.url()));page.on('response',r=>{if(r.url().includes('/assets/')&&r.status()!==200)badAssets.push(r.url());});
   await page.goto(base+'index.html');
+  const icon=await page.locator('link[rel=icon]').getAttribute('href');
+  assert.ok(icon.startsWith('assets/'));
+  assert.deepEqual(await page.evaluate(async href=>{const response=await fetch(href);if(!response.ok)throw Error('Favicon unavailable');const blob=await response.blob(),image=await createImageBitmap(blob);return [image.width,image.height,blob.type,blob.size<10000]},icon),[48,48,'image/png',true]);
   assert.match(await page.title(),/VeloCity/);assert.equal(await page.locator('.site-nav a').count(),2);
   assert.equal(await page.locator('.site-nav [aria-current="page"]').textContent(),'Startseite');
   assert.equal(await page.locator('.economy-entry').count(),1);
@@ -41,7 +44,7 @@ const server=http.createServer((req,res)=>{
    await page.goto(base+route);
    if(route==='umrechner.html')await page.waitForFunction(()=>document.querySelector('#syncState').textContent==='Synchronisiert');
    await page.addStyleTag({content:'html { overflow-y: scroll; scrollbar-gutter: stable; }'});
-   for(const [width,height] of [[1672,941],[1440,900],[1024,768],[768,1024],[390,844],[320,640]]){
+   for(const [width,height] of [[1920,1080],[1672,941],[1440,900],[1024,768],[768,1024],[430,932],[390,844],[375,667],[320,640]]){
     await page.setViewportSize({width,height});
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth),route+' overflow with reserved scrollbar at '+width);
     await page.evaluate(()=>scrollTo(100,0));assert.equal(await page.evaluate(()=>scrollX),0,route+' scrolls horizontally at '+width);

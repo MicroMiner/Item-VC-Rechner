@@ -8,13 +8,30 @@ let defaults = [],
 let priceUpdatedAt = null,
   synchronized = false;
 let writeChain = Promise.resolve();
-const fmt = (n) =>
-  new Intl.NumberFormat("de-CH", { maximumFractionDigits: 8 }).format(n);
-const fmtPrice = (n) =>
-  new Intl.NumberFormat("de-CH", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 20,
-  }).format(n);
+// Reuse formatters across all search options and redraws.
+const quantityFormatter = new Intl.NumberFormat("de-CH", {
+  maximumFractionDigits: 8,
+});
+const priceFormatter = new Intl.NumberFormat("de-CH", {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 20,
+});
+const headerNumberFormatter = new Intl.NumberFormat("de-CH", {
+  maximumFractionDigits: 20,
+});
+const countFormatter = new Intl.NumberFormat("de-CH");
+const updatedAtFormatter = new Intl.DateTimeFormat("de-CH", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  timeZone: "Europe/Zurich",
+});
+const fmt = (n) => quantityFormatter.format(n);
+const fmtPrice = (n) => priceFormatter.format(n);
+const isChanged = (item) =>
+  item.buy !== item.defaultBuy || item.sell !== item.defaultSell;
 const whole = (v) => {
   const n = Number(String(v).replace(",", "."));
   return Number.isFinite(n) && n >= 0 ? Math.floor(n) : 0;
@@ -30,7 +47,7 @@ const get = (id) =>
   list()[0] || { id: "DIRT", name: "Erde", buy: 1, sell: 1 };
 const wasChanged = (id) => {
   const x = list().find((x) => x.id === id);
-  return !!x && (x.buy !== x.defaultBuy || x.sell !== x.defaultSell);
+  return !!x && isChanged(x);
 };
 const priceLabel = (x) =>
   `${x.name} · Buy ${fmtPrice(x.buy)} / Sell ${fmtPrice(x.sell)} VC`;
@@ -52,25 +69,17 @@ function renderHeaderStatus() {
     ? "Synchronisiert"
     : "Nicht verbunden";
   const dirt = list().find((x) => x.id === "DIRT");
-  const number = new Intl.NumberFormat("de-CH", { maximumFractionDigits: 20 });
   $("earthValue").textContent = dirt
-    ? `1 Erde = ${number.format(dirt.sell)} VC (Sell)`
+    ? `1 Erde = ${headerNumberFormatter.format(dirt.sell)} VC (Sell)`
     : "1 Erde = — VC (Sell)";
   const count = list().length;
   $("loadedItems").textContent =
-    new Intl.NumberFormat("de-CH").format(count).replace(/’/g, "'") +
+    countFormatter.format(count).replace(/’/g, "'") +
     (count === 1 ? " Item" : " Items");
   const time = $("priceUpdatedAt");
   if (priceUpdatedAt) {
     time.dateTime = priceUpdatedAt;
-    time.textContent = new Intl.DateTimeFormat("de-CH", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      timeZone: "Europe/Zurich",
-    }).format(new Date(priceUpdatedAt));
+    time.textContent = updatedAtFormatter.format(new Date(priceUpdatedAt));
     time.setAttribute(
       "aria-label",
       "Letzte gespeicherte Preisänderung: " + time.textContent,
@@ -316,6 +325,11 @@ function save() {
       );
       try {
         await loadRemote();
+        status(
+          "Speichern fehlgeschlagen: " +
+            err.message +
+            " · Online-Liste wurde neu geladen; die Änderung wurde nicht gespeichert.",
+        );
       } catch (e) {
         status(
           "Speichern fehlgeschlagen: " +
@@ -523,7 +537,7 @@ function renderEditor() {
   if (!sel.value && sel.options.length) sel.selectedIndex = 0;
   syncEditor();
   $("modifiedCount").textContent =
-    `${list().filter((x) => wasChanged(x.id)).length} Item(s) mit geändertem Buy/Sell-Preis.`;
+    `${list().filter(isChanged).length} Item(s) mit geändertem Buy/Sell-Preis.`;
 }
 function syncEditor() {
   itemPickers.edit?.sync();
@@ -561,6 +575,7 @@ function renderCustom() {
     txt.textContent = `${item.name} · Buy ${fmtPrice(item.buy)} / Sell ${fmtPrice(item.sell)} VC`;
     del.className = "btn";
     del.textContent = "Löschen";
+    del.setAttribute("aria-label", "Löschen: " + item.name);
     del.type = "button";
     del.addEventListener("click", () => {
       custom = custom.filter((x) => x.id !== item.id);
@@ -613,6 +628,7 @@ $("swap").addEventListener("click", () => {
   update();
 });
 $("reset").addEventListener("click", () => {
+  if (!list().length) return;
   $("shopMode").checked = false;
   $("fromSearch").value = "";
   $("toSearch").value = "";

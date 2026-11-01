@@ -1,4 +1,4 @@
-name: Sync VeloCity Discord news
+name: Sync and publish VeloCity news
 
 on:
   workflow_dispatch:
@@ -7,15 +7,19 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
-  group: velocity-news-sync
+  group: velocity-pages
   cancel-in-progress: false
 
 jobs:
-  sync:
+  sync-and-publish:
     runs-on: ubuntu-latest
-    if: ${{ vars.DISCORD_CHANNEL_ID != '' }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -25,20 +29,33 @@ jobs:
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           DISCORD_CHANNEL_ID: ${{ vars.DISCORD_CHANNEL_ID }}
-        run: node scripts/sync-discord.mjs
+        run: |
+          if [ -z "$DISCORD_BOT_TOKEN" ] || [ -z "$DISCORD_CHANNEL_ID" ]; then
+            echo "::error::Configure DISCORD_BOT_TOKEN (secret) and DISCORD_CHANNEL_ID (variable)."
+            exit 1
+          fi
+          node scripts/sync-discord.mjs
       - name: Commit changed news JSON
         run: |
           if git diff --quiet -- assets/data/updates.json; then
             echo "No news changes"
-            exit 0
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/data/updates.json
+            git commit -m "chore: sync Discord news"
+            git push
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/data/updates.json
-          git commit -m "chore: sync Discord news"
-          git push
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
 
-# Deployment note:
-# When Pages uses a branch as its source, commits created by GITHUB_TOKEN
-# do not trigger a Pages build. Switch Pages source to GitHub Actions and
-# create a separate pages deployment workflow, or add a deploy job here.
+# REQUIRED setup in repository Settings > Pages:
+# Set Build and deployment > Source to "GitHub Actions".
+# Existing static HTML/CSS/JS pages continue to work without a build step.

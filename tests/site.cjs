@@ -28,7 +28,7 @@ const server=http.createServer((req,res)=>{
   assert.equal(await page.locator('.site-nav [aria-current="page"]').textContent(),'Startseite');
   assert.equal(await page.locator('.economy-entry').count(),1);
   assert.equal(await page.locator('.site-logo img').evaluate(img=>img.complete&&img.naturalWidth===2171&&img.getAttribute('src').endsWith('.png')),true);assert.equal(await page.locator('#fromItem').count(),0);
-  assert.equal(await page.locator('script[src]').count(),4);assert.ok((await page.locator('script[src]').first().getAttribute('src')).endsWith('/ui.js'));
+  assert.equal(await page.locator('script[src]').count(),4);assert.ok((await page.locator('script[src]').first().getAttribute('src')).split('?')[0].endsWith('/ui.js'));
   assert.equal(requests.some(url=>/\/(app|calculator|config)\.js/.test(url)||url.includes('/preislisten/')),false);
   const background=await page.evaluate(()=>getComputedStyle(document.body).backgroundImage);
   const foot=await page.locator('.foot').boundingBox();assert.ok(foot.y+foot.height>=876);assert.ok(foot.y>=(await page.locator('main').boundingBox()).y+(await page.locator('main').boundingBox()).height);

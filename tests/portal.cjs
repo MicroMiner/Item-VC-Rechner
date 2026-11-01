@@ -59,6 +59,13 @@ const server = http.createServer((req, res) => {
       errors = [],
       requests = [];
     page.on("pageerror", (e) => errors.push(e.message));
+    // Simulate an old cached response for the previous asset URL. Every page
+    // must request the new URL so the shared dialog cannot open uninitialized.
+    let staleUiRequests = 0;
+    await page.route(url => url.pathname.endsWith("/assets/js/ui.js") && !url.search, route => {
+      staleUiRequests++;
+      return route.fulfill({contentType:"application/javascript", body:"throw Error('stale UI asset requested');"});
+    });
     page.on("request", (r) => requests.push(r.url()));
     const gallery = JSON.parse(
       fs.readFileSync(path.join(root, "assets/data/gallery.json")),
@@ -408,6 +415,7 @@ const server = http.createServer((req, res) => {
         .querySelector("#galleryGrid")
         .textContent.includes("konnte nicht geladen werden"),
     );
+    assert.equal(staleUiRequests, 0, "A page still requests the stale UI URL");
     assert.deepEqual(errors, []);
     assert.equal(
       requests.some((url) => url.includes("/presentation/")),

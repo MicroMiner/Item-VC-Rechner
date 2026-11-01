@@ -22,7 +22,10 @@ test('directory discovery, Buy/Sell round-trip, branch selection and write prote
   const body={password:'local-test',sha:'a'.repeat(40),data};
   r=await request('/prices?file=second.json','PUT',body);assert.equal(r.status,200);
   const write=calls.at(-1);assert.ok(write.u.pathname.endsWith('/preislisten/second.json'));
-  const payload=JSON.parse(write.options.body);assert.equal(payload.branch,'test-branch');assert.deepEqual(JSON.parse(Buffer.from(payload.content,'base64')),data);
+  const payload=JSON.parse(write.options.body);assert.equal(payload.branch,'test-branch');const persisted=JSON.parse(Buffer.from(payload.content,'base64'));
+  assert.deepEqual({...persisted,updatedAt:undefined},{...data,updatedAt:undefined});
+  assert.ok(Number.isFinite(Date.parse(persisted.updatedAt)));
+  assert.equal((await r.json()).updatedAt,persisted.updatedAt);
   for(const file of ['../secret.json','index.json','sub/list.json',''])assert.equal((await request('/prices?file='+encodeURIComponent(file))).status,400);
   let count=calls.length;assert.equal((await request('/prices?file=second.json','PUT',{...body,password:'wrong'})).status,401);assert.equal(calls.length,count);
   data.items[0].sell=0;assert.equal((await request('/prices?file=second.json','PUT',body)).status,400);
@@ -50,4 +53,26 @@ test('admin sessions survive revalidation, expire after 30 minutes and reject ta
   assert.equal((await request('/auth','POST',{token:session.token})).status,401);
   assert.equal((await request('/prices?file=second.json','PUT',{token:session.token,sha:'a'.repeat(40),data:fixture})).status,401);assert.equal(writes,1);
  }finally{globalThis.fetch=originalFetch;Date.now=originalNow}
+});
+
+
+test('write timestamps are server generated, persisted, returned and read unchanged',async()=>{
+ const originalFetch=globalThis.fetch;let stored={...structuredClone(fixture),updatedAt:'2020-01-01T00:00:00.000Z'},failWrite=false;
+ globalThis.fetch=async(url,options)=>{
+  if(options.method==='PUT'){
+   if(failWrite)return Response.json({error:'conflict'},{status:409});
+   stored=JSON.parse(Buffer.from(JSON.parse(options.body).content,'base64'));
+   return Response.json({content:{sha:'b'.repeat(40)}});
+  }
+  return Response.json({content:Buffer.from(JSON.stringify(stored)).toString('base64'),sha:'b'.repeat(40)});
+ };
+ try{
+  const before=Date.now();
+  let r=await request('/prices?file=VeloCoin_Preisliste.json','PUT',{password:env.ADMIN_PASSWORD,sha:'a'.repeat(40),data:{...fixture,updatedAt:'2099-12-31T00:00:00.000Z'}});
+  assert.equal(r.status,200);const saved=await r.json();
+  assert.equal(saved.updatedAt,stored.updatedAt);assert.ok(Date.parse(saved.updatedAt)>=before&&Date.parse(saved.updatedAt)<=Date.now());
+  r=await request('/prices?file=VeloCoin_Preisliste.json');assert.equal((await r.json()).data.updatedAt,saved.updatedAt);
+  failWrite=true;r=await request('/prices?file=VeloCoin_Preisliste.json','PUT',{password:env.ADMIN_PASSWORD,sha:'b'.repeat(40),data:fixture});assert.equal(r.status,409);assert.equal((await r.json()).updatedAt,undefined);assert.equal(stored.updatedAt,saved.updatedAt);
+  delete stored.updatedAt;r=await request('/prices?file=VeloCoin_Preisliste.json');assert.equal((await r.json()).data.updatedAt,undefined);
+ }finally{globalThis.fetch=originalFetch}
 });

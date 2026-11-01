@@ -92,11 +92,12 @@ export default {
     const body=JSON.parse(raw);
     if(!await authorized(body,env))return reply({error:'Anmeldung ungültig oder Sitzung abgelaufen.'},401,cors);
     if(!validList(body.data)||typeof body.sha!=='string'||!(/^[a-f0-9]{40}$/i).test(body.sha))return reply({error:'Ungültige Preisliste oder Versionsnummer.'},400,cors);
-    const payload={message:'VeloCity: Preisliste aktualisieren',content:toBase64(JSON.stringify(body.data,null,2)+'\n'),sha:body.sha};
+    const savedData={...body.data,updatedAt:new Date().toISOString()};
+    const payload={message:'VeloCity: Preisliste aktualisieren',content:toBase64(JSON.stringify(savedData,null,2)+'\n'),sha:body.sha};
     if(env.GITHUB_BRANCH)payload.branch=env.GITHUB_BRANCH;
     const gh=await ghRequest(env,'PUT',payload,file);
     if(!gh.ok){const detail=await gh.json().catch(()=>({}));return reply({error:gh.status===409||gh.status===422?'Speicherkonflikt: Die Liste wurde zwischenzeitlich geändert. Bitte erneut laden.':'GitHub-Speichern fehlgeschlagen (HTTP '+gh.status+').'},gh.status===409||gh.status===422?409:502,cors)}
-    const data=await gh.json();return reply({ok:true,sha:data.content.sha},200,cors);
+    const data=await gh.json();return reply({ok:true,sha:data.content.sha,updatedAt:savedData.updatedAt},200,cors);
    }
    return reply({error:'Nicht gefunden.'},404,cors);
   }catch(e){return reply({error:'Anfrage konnte nicht verarbeitet werden.'},400,cors)}

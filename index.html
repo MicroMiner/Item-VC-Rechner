@@ -159,11 +159,17 @@
 .mode-switch{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:8px 0;font-size:.85rem;cursor:pointer}.mode-switch input{width:18px;height:18px;padding:0;margin:0;accent-color:var(--gold)}
 .quantity-shortcuts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin-top:8px}.quantity-shortcuts .btn{min-width:0;padding:7px 2px;border-radius:4px;font-size:.85rem;line-height:1.2}.quantity-shortcuts .quantity-clear{color:#ffb9b9}.result .icon-button{display:inline-flex;align-items:center;justify-content:center;padding:10px}.icon-button svg{width:20px;height:20px}.btn:disabled{opacity:.45;cursor:default}
 .item-picker{position:relative;min-width:0}.item-picker input{padding-right:32px}.picker-arrow{position:absolute;right:12px;top:10px;pointer-events:none;color:var(--sub)}.picker-options{position:absolute;z-index:30;top:calc(100% + 4px);left:0;right:0;max-height:min(260px,45vh);overflow-y:auto;overscroll-behavior:contain;background:var(--field);border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 30px #0008}.picker-options[hidden]{display:none}.picker-option{padding:10px 12px;cursor:pointer;overflow-wrap:anywhere;border-bottom:1px solid var(--line);font-size:.9rem}.picker-option:last-child{border-bottom:0}.picker-option[aria-selected="true"]{background:#34496a;color:var(--gold)}.picker-empty{padding:12px;color:var(--sub);font-size:.9rem}
+.economy-status{flex:0 1 500px;width:500px;max-width:100%;margin-left:auto;padding:6px 10px;background:#0c192be8;border:1px solid #45617e;border-radius:12px;font-size:11.5px;line-height:1.4;font-variant-numeric:tabular-nums;color:var(--fg)}
+.status-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:4px;padding:2px 0}.status-row+.status-row{border-top:1px solid var(--line);margin-top:2px;padding-top:4px}.status-info{display:inline-flex;align-items:center;gap:7px;min-width:0;max-width:100%;white-space:nowrap}.status-info+.status-info{border-left:1px solid #45617e;margin-left:8px;padding-left:8px}.status-info svg{width:16px;height:16px;flex:none;color:var(--gold)}.sync-info{color:#ff9d9d;font-weight:650}.sync-dot{width:8px;height:8px;flex:none;border-radius:50%;background:#ed7373}.economy-status[data-state="synced"] .sync-info{color:var(--green)}.economy-status[data-state="synced"] .sync-dot{background:var(--green)}
+@media(max-width:720px){.top{flex-wrap:wrap;gap:10px}.economy-status{flex-basis:100%;width:100%;margin-left:0}.status-info{white-space:normal}.status-row{justify-content:flex-start;column-gap:0}.status-info+.status-info{margin-left:7px;padding-left:7px}}
 </style>
 </head>
 <body>
 <main class="wrap">
-<header class="top"><div><div class="brand">VELOCITY ECONOMY</div><h1>Item-Umrechner</h1><small>1 Dirt = 1 VC · Minecraft</small></div><span class="tag">Online · Gemeinsame Preisliste</span></header>
+<header class="top"><div><div class="brand">VELOCITY ECONOMY</div><h1>Item-Umrechner</h1></div><aside class="economy-status" id="economyStatus" aria-label="Status der Preisliste" data-state="disconnected">
+<div class="status-row"><span class="status-info sync-info" role="status"><span class="sync-dot" aria-hidden="true"></span><span id="syncState">Nicht verbunden</span></span><span class="status-info" title="Letzte gespeicherte Preisänderung"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18M8 15h2M14 15h2"/></svg><time id="priceUpdatedAt" aria-label="Letzte gespeicherte Preisänderung: unbekannt">Keine Zeitangabe</time></span><span class="status-info" title="Version"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5"/></svg><span id="appVersion"></span></span></div>
+<div class="status-row"><span class="status-info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18m-4-4 4 4-4 4M21 17H3m4-4-4 4 4 4"/></svg><span id="earthValue">1 Erde = — VC (Sell)</span></span><span class="status-info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5v8l-9 5-9-5V8l9-5ZM3 8l9 5 9-5M12 13v8"/></svg><span id="loadedItems">— Items</span></span></div>
+</aside></header>
 <section class="hero" aria-label="Item-Umrechner"><h2 class="section-heading">01 · Umrechnung</h2>
 <div class="hero-grid"><div class="converter-layout">
 <section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><div class="item-picker" id="fromPicker"><input id="fromSearch" type="text" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="fromOptions" placeholder="Item suchen oder auswählen …" autocomplete="off" spellcheck="false"><span class="picker-arrow" aria-hidden="true">⌄</span><div id="fromOptions" class="picker-options" role="listbox" aria-label="Ausgangs-Item" hidden></div><select id="fromItem" hidden aria-hidden="true" tabindex="-1"></select></div><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"><div class="quantity-shortcuts" id="quantityShortcuts" role="group" aria-label="Menge addieren"><button class="btn" type="button" data-amount="1" aria-label="1 zur Menge addieren">1</button><button class="btn" type="button" data-amount="3" aria-label="3 zur Menge addieren">3</button><button class="btn" type="button" data-amount="5" aria-label="5 zur Menge addieren">5</button><button class="btn" type="button" data-amount="10" aria-label="10 zur Menge addieren">10</button><button class="btn" type="button" data-amount="15" aria-label="15 zur Menge addieren">15</button><button class="btn" type="button" data-amount="20" aria-label="20 zur Menge addieren">20</button><button class="btn" type="button" data-amount="30" aria-label="30 zur Menge addieren">30</button><button class="btn" type="button" data-amount="50" aria-label="50 zur Menge addieren">50</button><button class="btn" type="button" data-amount="100" aria-label="100 zur Menge addieren">100</button><button class="btn quantity-clear" id="clearQty" type="button" title="Mengeneingabe löschen" aria-label="Mengeneingabe löschen">⌫</button></div></div><div><label>Verkaufspreis pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
@@ -198,9 +204,11 @@
 <script src="config.js"></script>
 <script>
 'use strict';
+const APP_VERSION='v1.0.30';
 const $=id=>document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
 let defaults=[],custom=[];
+let priceUpdatedAt=null,synchronized=false;
 let writeChain=Promise.resolve();
 const fmt=n=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:8}).format(n);
 const fmtPrice=n=>new Intl.NumberFormat('de-CH',{minimumFractionDigits:2,maximumFractionDigits:20}).format(n);
@@ -216,7 +224,29 @@ const rateMarkup=(x,side)=>{
  return `${fmtPrice(buy?x.buy:x.sell)} VC <span class="original">${buy?'Buy':'Sell'}${wasChanged(x.id)?' · Standard: '+fmtPrice(buy?x.defaultBuy:x.defaultSell)+' VC':''}</span>`;
 };
 const status=message=>$('fileStatus').textContent=message;
-function currentPayload(){const entry=x=>({id:x.id,name:x.name,buy:x.buy,sell:x.sell,defaultBuy:x.defaultBuy,defaultSell:x.defaultSell});return {format:'VeloCoin-Preisliste',version:2,baseCurrency:'VC',baseItem:'DIRT',items:defaults.map(entry),customItems:custom.map(entry)}}
+function readUpdatedAt(value){
+ if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}T/.test(value))return null;
+ const date=new Date(value);return Number.isFinite(date.getTime())?date.toISOString():null;
+}
+function renderHeaderStatus(){
+ $('appVersion').textContent=APP_VERSION;
+ $('economyStatus').dataset.state=synchronized?'synced':'disconnected';
+ $('syncState').textContent=synchronized?'Synchronisiert':'Nicht verbunden';
+ const dirt=list().find(x=>x.id==='DIRT');
+ const number=new Intl.NumberFormat('de-CH',{maximumFractionDigits:20});
+ $('earthValue').textContent=dirt?`1 Erde = ${number.format(dirt.sell)} VC (Sell)`:'1 Erde = — VC (Sell)';
+ const count=list().length;
+ $('loadedItems').textContent=new Intl.NumberFormat('de-CH').format(count).replace(/’/g,"'")+(count===1?' Item':' Items');
+ const time=$('priceUpdatedAt');
+ if(priceUpdatedAt){
+  time.dateTime=priceUpdatedAt;
+  time.textContent=new Intl.DateTimeFormat('de-CH',{day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Zurich'}).format(new Date(priceUpdatedAt));
+  time.setAttribute('aria-label','Letzte gespeicherte Preisänderung: '+time.textContent);
+ }else{time.removeAttribute('datetime');time.textContent='Keine Zeitangabe';time.setAttribute('aria-label','Letzte gespeicherte Preisänderung: unbekannt');}
+}
+function setSynchronized(value){synchronized=value;renderHeaderStatus();}
+
+function currentPayload(){const entry=x=>({id:x.id,name:x.name,buy:x.buy,sell:x.sell,defaultBuy:x.defaultBuy,defaultSell:x.defaultSell});return {format:'VeloCoin-Preisliste',version:2,baseCurrency:'VC',baseItem:'DIRT',...(priceUpdatedAt?{updatedAt:priceUpdatedAt}:{}),items:defaults.map(entry),customItems:custom.map(entry)}}
 function parsePayload(data){
  if(!data||data.format!=='VeloCoin-Preisliste'||data.version!==2||!Array.isArray(data.items)||!Array.isArray(data.customItems))throw Error('Ungültiges JSON-Format. Bitte Version 2 verwenden.');
  if(!data.items.length||data.items.length>3000||data.customItems.length>3000)throw Error('Ungültige Anzahl von Items.');
@@ -233,7 +263,7 @@ function parsePayload(data){
  if(!seen.has('DIRT'))throw Error('Das Basis-Item DIRT fehlt.');
  return {std,cus};
 }
-function applyData(data){const parsed=parsePayload(data);defaults=parsed.std;custom=parsed.cus;for(const id of ['fromSearch','toSearch','editSearch'])$(id).value='';redraw()}
+function applyData(data){const parsed=parsePayload(data);defaults=parsed.std;custom=parsed.cus;priceUpdatedAt=readUpdatedAt(data.updatedAt);for(const id of ['fromSearch','toSearch','editSearch'])$(id).value='';redraw()}
 let apiUrl=(window.VELOCITY_API_URL||'').replace(/\/$/,'');
 let adminSession=null,sessionTimer;
 const sessionStorageKey='velocity.adminSession:'+apiUrl;
@@ -262,12 +292,13 @@ async function restoreSession(){
  catch(err){setUnlocked(false);$('adminStatus').textContent=err.message;}
 }
 async function loadRemote(){
+ setSynchronized(false);
  if(!validFile(selectedFile))throw Error('Bitte eine Preisliste auswählen.');
  const endpoint=apiUrl?apiUrl+'/prices?file='+encodeURIComponent(selectedFile):'./preislisten/'+encodeURIComponent(selectedFile);
  const r=await fetch(endpoint,{cache:'no-store'});
  if(!r.ok)throw Error('Preisliste nicht verfügbar (HTTP '+r.status+')');
  const body=await r.json();const data=apiUrl?body.data:body;
- applyData(data);remoteSha=apiUrl?(body.sha||''):'';
+ applyData(data);remoteSha=apiUrl?(body.sha||''):'';setSynchronized(true);
  status('Preisliste geladen · '+new Date().toLocaleTimeString('de-CH'));
 }
 async function requestAdmin(credentials){
@@ -280,13 +311,16 @@ function save(){
  if(!adminSession||adminSession.expiresAt<=Date.now()){setUnlocked(false);status('Bitte erneut anmelden.');return false}
  if(switching||!validFile(selectedFile)||!remoteSha)return false;
  const snapshot=currentPayload(),file=selectedFile,token=adminSession.token;
+ delete snapshot.updatedAt; // Only the Worker can assign a new committed timestamp.
+ setSynchronized(false);
  writeChain=writeChain.then(async()=>{
+  setSynchronized(false);
   const r=await fetch(apiUrl+'/prices?file='+encodeURIComponent(file),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({token,sha:remoteSha,data:snapshot})});
   const answer=await r.json().catch(()=>({}));
   if(r.status===401){setUnlocked(false);$('adminStatus').textContent='Sitzung abgelaufen. Bitte erneut anmelden.';}
   if(!r.ok)throw Error(answer.error||'HTTP '+r.status);
-  remoteSha=answer.sha;status('Online gespeichert · '+new Date().toLocaleTimeString('de-CH'));
- }).catch(async err=>{status('Speichern fehlgeschlagen: '+err.message+' · Die Online-Liste wird neu geladen.');try{await loadRemote()}catch(e){status('Speichern fehlgeschlagen: '+err.message+'; auch Neuladen fehlgeschlagen.')}});
+  remoteSha=answer.sha;priceUpdatedAt=readUpdatedAt(answer.updatedAt);setSynchronized(true);status('Online gespeichert · '+new Date().toLocaleTimeString('de-CH'));
+ }).catch(async err=>{setSynchronized(false);status('Speichern fehlgeschlagen: '+err.message+' · Die Online-Liste wird neu geladen.');try{await loadRemote()}catch(e){status('Speichern fehlgeschlagen: '+err.message+'; auch Neuladen fehlgeschlagen.')}});
  return true;
 }
 const saveOverrides=save;
@@ -360,7 +394,7 @@ function update(){
  $('total').textContent=shop?`${fmtPrice(value)} VC Verkaufserlös · ${fmtPrice(Math.max(0,value-dest*targetPrice))} VC Rest`:`${fmtPrice(value)} VC Verkaufswert · Beide Items zum Sell-Preis`;
 }
 $('shopMode').addEventListener('change',()=>update());
-function redraw(){renderSelect('from');renderSelect('to');update();renderCustom();renderEditor()}
+function redraw(){renderSelect('from');renderSelect('to');update();renderCustom();renderEditor();renderHeaderStatus()}
 function renderEditor(){const sel=$('editItem'),keep=sel.value||'DIAMOND';sel.replaceChildren();for(const item of list()){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);sel.append(o)}sel.value=keep;if(!sel.value&&sel.options.length)sel.selectedIndex=0;syncEditor();$('modifiedCount').textContent=`${list().filter(x=>wasChanged(x.id)).length} Item(s) mit geändertem Buy/Sell-Preis.`}
 function syncEditor(){itemPickers.edit?.sync();const id=$('editItem').value;if(!id)return;const x=get(id);$('editBuy').value=x.buy;$('editSell').value=x.sell;$('editBuyDefault').textContent='Standard: '+fmtPrice(x.defaultBuy)+' VC';$('editSellDefault').textContent='Standard: '+fmtPrice(x.defaultSell)+' VC';$('restoreEdit').disabled=!wasChanged(id)}
 function refreshPrices(){const from=$('fromItem').value,to=$('toItem').value,edit=$('editItem').value;renderSelect('from');renderSelect('to');$('fromItem').value=from;$('toItem').value=to;update();renderEditor();$('editItem').value=edit;syncEditor()}
@@ -410,8 +444,9 @@ async function init(){
   if(!entries.length)throw Error('Keine Preislisten gefunden.');
   for(const entry of entries){const o=document.createElement('option');o.value=entry.file;o.textContent=entry.name||entry.file;$('priceList').append(o);}
   await chooseList(entries[0].file);
- }catch(err){$('listStatus').textContent=err.message;status('Laden fehlgeschlagen: '+err.message);$('result').textContent='Preisliste nicht verfügbar';}
+ }catch(err){setSynchronized(false);$('listStatus').textContent=err.message;status('Laden fehlgeschlagen: '+err.message);$('result').textContent='Preisliste nicht verfügbar';}
 }
+renderHeaderStatus();
 init();
 
 // Kompakter Taschenrechner ohne eval; Operatorpriorität und Klammern unterstützt.

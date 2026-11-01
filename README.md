@@ -100,3 +100,18 @@ Die erweiterten Sicherheitsprüfungen berücksichtigen Entzaubern, kostenlose Wa
 
 
 Die Itemfelder für Ausgang, Ziel und Verwaltung sind kombinierte Such-/Auswahlfelder. Beim Tippen öffnet sich die direkt gefilterte Trefferliste. ↑/↓ bewegt die Markierung, Enter übernimmt einen Treffer, Escape verwirft die Suche und Tab verlässt das Feld. Ein Klick oder Tippen auf einen Treffer wählt ihn ebenfalls aus. Ohne bestätigte Auswahl bleibt das bisherige Item aktiv.
+
+
+## Header-Status und Änderungszeit
+
+Der Header zeigt den tatsächlichen Ladezustand der aktiven Preisliste, den Sell-Wert von `DIRT` und die Anzahl aller geladenen Standard-/Custom-Items. Die Version steht zentral in `index.html` als `APP_VERSION` (`v1.0.30`). Die Desktop-Kopfzeile bleibt in ihrer bisherigen Höhe; auf Mobilgeräten steht die Statusbox unter dem Titel.
+
+`updatedAt` ist ein optionaler ISO-8601-Zeitstempel im bestehenden JSON-Format Version 2. Der Worker setzt ihn bei einem Preis-Schreibvorgang serverseitig, speichert ihn gemeinsam mit den Daten und bestätigt ihn erst bei erfolgreicher GitHub-Speicherung in der Antwort. Der Browser zeigt diesen gespeicherten Zeitpunkt in der Zeitzone Europe/Zurich und übernimmt ihn auch in JSON-Sicherungen. Ladezeit, Browser-Onlinestatus und eine Client-Uhrzeit ersetzen keinen gespeicherten Änderungszeitpunkt. Alte Listen ohne gültigen Zeitstempel bleiben kompatibel und zeigen „Keine Zeitangabe“; beim nächsten erfolgreichen Speichern mit dem aktualisierten Worker entsteht der erste Zeitstempel. Die bestehende Preisdatei erhält beim Einbau des Headers keine erfundene Änderungszeit.
+
+Für die Zeitstempel-Funktion muss auch `worker/worker.js` bei Cloudflare aktualisiert werden. Ein älterer Worker bleibt beim Laden kompatibel; kann er beim Speichern keinen neuen Zeitstempel bestätigen, zeigt die Oberfläche dafür keine erfundene Zeit an.
+
+Zusätzlicher Integrationstest (lokaler Worker mit simuliertem GitHub-Speicher, keine produktiven Schreibzugriffe):
+
+```sh
+node tests/header.cjs
+```

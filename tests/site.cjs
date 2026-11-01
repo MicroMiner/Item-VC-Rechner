@@ -40,9 +40,11 @@ const server=http.createServer((req,res)=>{
   for(const route of ['index.html','umrechner.html']){
    await page.goto(base+route);
    if(route==='umrechner.html')await page.waitForFunction(()=>document.querySelector('#syncState').textContent==='Synchronisiert');
+   await page.addStyleTag({content:'html { overflow-y: scroll; scrollbar-gutter: stable; }'});
    for(const [width,height] of [[1672,941],[1440,900],[1024,768],[768,1024],[390,844],[320,640]]){
     await page.setViewportSize({width,height});
-    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),route+' overflow at '+width);
+    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth),route+' overflow with reserved scrollbar at '+width);
+    await page.evaluate(()=>scrollTo(100,0));assert.equal(await page.evaluate(()=>scrollX),0,route+' scrolls horizontally at '+width);
     const nav=await page.locator('.site-nav').boundingBox();assert.ok(nav.x>=0&&nav.x+nav.width<=width);
     if(process.env.SITE_SCREENSHOTS&&[1672,1440,390].includes(width)){
      await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(previewDir,'velocity-'+route.replace('.html','')+'-'+width+'.png'),fullPage:true});

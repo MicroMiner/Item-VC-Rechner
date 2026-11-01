@@ -1333,6 +1333,9 @@ select {
 
 /* Shared site chrome and landing page, based on the Startseite reference. */
 .site-page {
+  /* Full-bleed gold rules must not create a horizontal scroll area.
+     clip preserves vertical scrolling and does not create a scroll container. */
+  overflow-x: clip;
   padding: 0 20px;
   background:
     radial-gradient(
@@ -1468,8 +1471,8 @@ select {
   margin: 34px auto 48px;
 }
 .economy-entry {
-  width: min(816px, 100%);
-  padding: 42px 40px 40px;
+  width: min(660px, 100%);
+  padding: 28px 30px;
   background: linear-gradient(
     155deg,
     rgba(31, 58, 87, 0.85),
@@ -1486,24 +1489,24 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 24px;
 }
 .entry-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   flex: none;
-  padding-right: 42px;
-  min-height: 96px;
+  padding-right: 26px;
+  min-height: 76px;
   border-right: 1px solid #526d8c;
 }
 .entry-icon svg {
-  width: 68px;
-  height: 80px;
+  width: 52px;
+  height: 64px;
   color: var(--gold);
 }
 .entry-copy h2 {
-  font-size: clamp(26px, 2.5vw, 42px);
+  font-size: clamp(24px, 2vw, 32px);
   margin: 0;
   line-height: 1.25;
 }
@@ -1513,24 +1516,24 @@ select {
 .entry-copy p {
   margin: 10px 0 0;
   color: var(--sub);
-  font-size: clamp(17px, 1.6vw, 26px);
+  font-size: clamp(15px, 1.25vw, 19px);
 }
 .entry-action {
   display: flex;
   justify-content: center;
-  margin-top: 32px;
+  margin-top: 24px;
 }
 .tool-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  min-height: 68px;
-  min-width: min(374px, 100%);
-  padding: 12px 26px;
-  border: 3px solid var(--gold);
+  min-height: 54px;
+  min-width: min(300px, 100%);
+  padding: 10px 20px;
+  border: 2px solid var(--gold);
   border-radius: 18px;
-  font-size: clamp(18px, 1.55vw, 26px);
+  font-size: clamp(17px, 1.25vw, 20px);
   color: var(--fg);
   background: #142b49;
   text-decoration: none;
@@ -1541,8 +1544,8 @@ select {
   transition: box-shadow 0.15s ease;
 }
 .tool-link svg {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   color: var(--gold);
 }
 .tool-link:hover {

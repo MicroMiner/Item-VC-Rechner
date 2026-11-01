@@ -93,7 +93,10 @@ Die Preisliste wurde anhand der bereitgestellten Shop-CSV und materialbasierter 
 Die vollständigen Regeln, gezielten CSV-Korrekturen und Schätzungen stehen in [pricing/README.md](pricing/README.md). Der [Änderungsbericht](pricing/price-changes.csv) enthält alle Vorher-/Nachher-Preise. Leere CSV-Verkaufspreise und Einträge ohne verifizierte Serverrezepte sind ausdrücklich als Vorschläge zu behandeln. Die Quelldatei bleibt unverändert.
 
 
-Die Symboltaste im Ergebnis übernimmt das Ziel-Item und seine berechnete Menge als neuen Ausgang. Das Ziel-Item bleibt ausgewählt. Unter der Ausgangsmenge addieren die Schnellwahltasten 1, 3, 5, 10, 15, 20, 30, 50 und 100 ihren jeweiligen Wert zur Eingabe. Die Löschtaste leert das Mengenfeld; eine leere Eingabe wird als null berechnet. Die direkte Mengeneingabe bleibt möglich.
+Die Symboltaste im Ergebnis übernimmt das Ziel-Item und seine berechnete Menge als neuen Ausgang. Dabei wird das bisherige Ausgangs-Item zum neuen Ziel-Item; beide Items werden getauscht und die berechnete Ergebnismenge wird als neue Ausgangsmenge eingetragen. Unter der Ausgangsmenge addieren die Schnellwahltasten 1, 3, 5, 10, 15, 20, 30, 50 und 100 ihren jeweiligen Wert zur Eingabe. Die Löschtaste leert das Mengenfeld; eine leere Eingabe wird als null berechnet. Die direkte Mengeneingabe bleibt möglich.
 
 
 Die erweiterten Sicherheitsprüfungen berücksichtigen Entzaubern, kostenlose Wasserfüllung, Lava-Brennstoff und gleichzeitige Behälterrückgaben. Nach der Korrektur findet das unabhängige Inventar-/Geldmodell keine profitablen Kombinationen im geprüften Umfang. [Ergebnis, Grenzen und Reproduktionsbefehle](pricing/security-audit.md).
+
+
+Die Itemfelder für Ausgang, Ziel und Verwaltung sind kombinierte Such-/Auswahlfelder. Beim Tippen öffnet sich die direkt gefilterte Trefferliste. ↑/↓ bewegt die Markierung, Enter übernimmt einen Treffer, Escape verwirft die Suche und Tab verlässt das Feld. Ein Klick oder Tippen auf einen Treffer wählt ihn ebenfalls aus. Ohne bestätigte Auswahl bleibt das bisherige Item aktiv.

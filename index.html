@@ -158,6 +158,7 @@
 .list-loader{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}.list-loader>div{flex:0 1 360px;min-width:0;max-width:100%}.list-loader select{margin-top:0}.list-loader .btn{flex:none}
 .mode-switch{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:8px 0;font-size:.85rem;cursor:pointer}.mode-switch input{width:18px;height:18px;padding:0;margin:0;accent-color:var(--gold)}
 .quantity-shortcuts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin-top:8px}.quantity-shortcuts .btn{min-width:0;padding:7px 2px;border-radius:4px;font-size:.85rem;line-height:1.2}.quantity-shortcuts .quantity-clear{color:#ffb9b9}.result .icon-button{display:inline-flex;align-items:center;justify-content:center;padding:10px}.icon-button svg{width:20px;height:20px}.btn:disabled{opacity:.45;cursor:default}
+.item-picker{position:relative;min-width:0}.item-picker input{padding-right:32px}.picker-arrow{position:absolute;right:12px;top:10px;pointer-events:none;color:var(--sub)}.picker-options{position:absolute;z-index:30;top:calc(100% + 4px);left:0;right:0;max-height:min(260px,45vh);overflow-y:auto;overscroll-behavior:contain;background:var(--field);border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 30px #0008}.picker-options[hidden]{display:none}.picker-option{padding:10px 12px;cursor:pointer;overflow-wrap:anywhere;border-bottom:1px solid var(--line);font-size:.9rem}.picker-option:last-child{border-bottom:0}.picker-option[aria-selected="true"]{background:#34496a;color:var(--gold)}.picker-empty{padding:12px;color:var(--sub);font-size:.9rem}
 </style>
 </head>
 <body>
@@ -165,10 +166,10 @@
 <header class="top"><div><div class="brand">VELOCITY ECONOMY</div><h1>Item-Umrechner</h1><small>1 Dirt = 1 VC · Minecraft</small></div><span class="tag">Online · Gemeinsame Preisliste</span></header>
 <section class="hero" aria-label="Item-Umrechner"><h2 class="section-heading">01 · Umrechnung</h2>
 <div class="hero-grid"><div class="converter-layout">
-<section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><input id="fromSearch" type="search" placeholder="z. B. Diamant, Eisen, Holz …" autocomplete="off"><select id="fromItem" aria-label="Ausgangs-Item"></select><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"><div class="quantity-shortcuts" id="quantityShortcuts" role="group" aria-label="Menge addieren"><button class="btn" type="button" data-amount="1" aria-label="1 zur Menge addieren">1</button><button class="btn" type="button" data-amount="3" aria-label="3 zur Menge addieren">3</button><button class="btn" type="button" data-amount="5" aria-label="5 zur Menge addieren">5</button><button class="btn" type="button" data-amount="10" aria-label="10 zur Menge addieren">10</button><button class="btn" type="button" data-amount="15" aria-label="15 zur Menge addieren">15</button><button class="btn" type="button" data-amount="20" aria-label="20 zur Menge addieren">20</button><button class="btn" type="button" data-amount="30" aria-label="30 zur Menge addieren">30</button><button class="btn" type="button" data-amount="50" aria-label="50 zur Menge addieren">50</button><button class="btn" type="button" data-amount="100" aria-label="100 zur Menge addieren">100</button><button class="btn quantity-clear" id="clearQty" type="button" title="Mengeneingabe löschen" aria-label="Mengeneingabe löschen">⌫</button></div></div><div><label>Verkaufspreis pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
+<section class="card"><label for="fromSearch">Ausgangs-Item suchen</label><div class="item-picker" id="fromPicker"><input id="fromSearch" type="text" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="fromOptions" placeholder="Item suchen oder auswählen …" autocomplete="off" spellcheck="false"><span class="picker-arrow" aria-hidden="true">⌄</span><div id="fromOptions" class="picker-options" role="listbox" aria-label="Ausgangs-Item" hidden></div><select id="fromItem" hidden aria-hidden="true" tabindex="-1"></select></div><div class="fieldrow"><div><label for="fromQty">Menge</label><input id="fromQty" type="number" min="0" step="1" value="1" inputmode="numeric"><div class="quantity-shortcuts" id="quantityShortcuts" role="group" aria-label="Menge addieren"><button class="btn" type="button" data-amount="1" aria-label="1 zur Menge addieren">1</button><button class="btn" type="button" data-amount="3" aria-label="3 zur Menge addieren">3</button><button class="btn" type="button" data-amount="5" aria-label="5 zur Menge addieren">5</button><button class="btn" type="button" data-amount="10" aria-label="10 zur Menge addieren">10</button><button class="btn" type="button" data-amount="15" aria-label="15 zur Menge addieren">15</button><button class="btn" type="button" data-amount="20" aria-label="20 zur Menge addieren">20</button><button class="btn" type="button" data-amount="30" aria-label="30 zur Menge addieren">30</button><button class="btn" type="button" data-amount="50" aria-label="50 zur Menge addieren">50</button><button class="btn" type="button" data-amount="100" aria-label="100 zur Menge addieren">100</button><button class="btn quantity-clear" id="clearQty" type="button" title="Mengeneingabe löschen" aria-label="Mengeneingabe löschen">⌫</button></div></div><div><label>Verkaufspreis pro Item</label><div id="fromRate" class="rate"></div></div></div></section>
 <div class="swap-slot"><button class="btn swap" id="swap" type="button" title="Items tauschen" aria-label="Items tauschen"><span class="swap-icon">⇄</span></button></div>
-<section class="card"><label for="toSearch">Ziel-Item suchen</label><input id="toSearch" type="search" placeholder="z. B. Dirt, Gold, Weizen …" autocomplete="off"><select id="toItem" aria-label="Ziel-Item"></select><div class="fieldrow" style="grid-template-columns:1fr"><div><label id="toRateLabel">Verkaufswert pro Item</label><div id="toRate" class="rate"></div></div></div></section>
-</div><div class="right-stack"><section class="card result" aria-live="polite"><div class="muted" id="resultMode">WERTVERGLEICH · SELL → SELL</div><label class="mode-switch" for="shopMode"><input id="shopMode" type="checkbox" role="switch">Shop-Umrechnung (verkaufen → kaufen)</label><div class="big" id="result">Preisliste wird geladen …</div><div class="line muted" id="total"></div><div class="flex"><button class="btn" id="copy" type="button">Ergebnis kopieren</button><button class="btn icon-button" id="useResult" type="button" title="Ergebnis als Ausgang übernehmen" aria-label="Ergebnis als Ausgang übernehmen" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 14-5-5 5-5M4 9h12a4 4 0 0 1 4 4v7"/></svg></button><button class="btn" id="reset" type="button">Zurücksetzen</button></div><div id="copyStatus" class="status" aria-live="polite"></div></section>
+<section class="card"><label for="toSearch">Ziel-Item suchen</label><div class="item-picker" id="toPicker"><input id="toSearch" type="text" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="toOptions" placeholder="Item suchen oder auswählen …" autocomplete="off" spellcheck="false"><span class="picker-arrow" aria-hidden="true">⌄</span><div id="toOptions" class="picker-options" role="listbox" aria-label="Ziel-Item" hidden></div><select id="toItem" hidden aria-hidden="true" tabindex="-1"></select></div><div class="fieldrow" style="grid-template-columns:1fr"><div><label id="toRateLabel">Verkaufswert pro Item</label><div id="toRate" class="rate"></div></div></div></section>
+</div><div class="right-stack"><section class="card result" aria-live="polite"><div class="muted" id="resultMode">WERTVERGLEICH · SELL → SELL</div><label class="mode-switch" for="shopMode"><input id="shopMode" type="checkbox" role="switch">Shop-Umrechnung (verkaufen → kaufen)</label><div class="big" id="result">Preisliste wird geladen …</div><div class="line muted" id="total"></div><div class="flex"><button class="btn" id="copy" type="button">Ergebnis kopieren</button><button class="btn icon-button" id="useResult" type="button" title="Ergebnis übernehmen und Items tauschen" aria-label="Ergebnis übernehmen und Items tauschen" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 14-5-5 5-5M4 9h12a4 4 0 0 1 4 4v7"/></svg></button><button class="btn" id="reset" type="button">Zurücksetzen</button></div><div id="copyStatus" class="status" aria-live="polite"></div></section>
 <section class="card calculator" aria-label="Taschenrechner">
 <h3>Mini-Taschenrechner</h3>
 <label for="calcInput">Rechnung</label>
@@ -186,7 +187,7 @@
 <div class="admin-overlay" id="adminOverlay"><form class="admin-login" id="adminLogin"><div class="admin-lock-icon">🔒</div><h2>Preisverwaltung gesperrt</h2><p>Nur autorisierte Personen dürfen die zentrale Preisliste ändern. Die Anmeldung bleibt auf diesem Gerät bis zu 30 Minuten gespeichert.</p><label for="adminPassword">Admin-Passwort</label><input id="adminPassword" type="password" required autocomplete="off" placeholder="Passwort eingeben"><button type="submit" class="btn admin-unlock">Verwaltung entsperren</button><div class="status" id="adminStatus" role="status"></div></form></div>
 <div class="admin-inner" id="adminInner" inert><h2 class="section-heading">02 · Preise &amp; Items verwalten</h2>
 <section class="card"><h2>Bestehende Itempreise anpassen</h2><p class="editor-note">Änderungen gelten sofort für beide Seiten des Umrechners. Die ursprünglichen Kauf- und Verkaufspreise bleiben in Klammern sichtbar.</p>
-<div class="editor-grid"><div><label for="editSearch">Item suchen</label><input id="editSearch" type="search" placeholder="z. B. Diamant, Dirt, Gold …" autocomplete="off"><label for="editItem" style="margin-top:12px">Item auswählen</label><select id="editItem"></select></div>
+<div class="editor-grid"><div><label for="editSearch">Item suchen</label><div class="item-picker" id="editPicker"><input id="editSearch" type="text" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="editOptions" placeholder="Item suchen oder auswählen …" autocomplete="off" spellcheck="false"><span class="picker-arrow" aria-hidden="true">⌄</span><div id="editOptions" class="picker-options" role="listbox" aria-label="Item bearbeiten" hidden></div><select id="editItem" hidden aria-hidden="true" tabindex="-1"></select></div></div>
 <div><div class="fieldrow"><div><label for="editBuy">Buy · Kaufpreis (VC)</label><input id="editBuy" type="number" min="0" step="any" inputmode="decimal"><span id="editBuyDefault" class="original"></span></div><div><label for="editSell">Sell · Verkaufspreis (VC)</label><input id="editSell" type="number" min="0" step="any" inputmode="decimal"><span id="editSellDefault" class="original"></span></div></div><div class="editor-actions"><button class="btn" id="saveEdit" type="button">Preis übernehmen</button><button class="btn" id="restoreEdit" type="button">Standard wiederherstellen</button></div></div></div>
 <div id="editStatus" class="status" aria-live="polite"></div><div id="modifiedCount" class="editor-note"></div></section>
 <section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div class="fieldrow" style="margin:0"><div><label for="newBuy">Buy (VC)</label><input id="newBuy" type="number" step="any" min="0" value="10" inputmode="decimal"></div><div><label for="newSell">Sell (VC)</label><input id="newSell" type="number" step="any" min="0" value="5" inputmode="decimal"></div></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
@@ -289,9 +290,60 @@ function save(){
  return true;
 }
 const saveOverrides=save;
-function renderSelect(side){const s=$(side+'Item'),q=$(side+'Search').value.trim().toLocaleLowerCase(),keep=s.value||(side==='from'?'DIAMOND':'DIRT');s.replaceChildren();const found=list().filter(x=>(x.id+' '+x.name).toLocaleLowerCase().includes(q)||x.id===keep);for(const item of found){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);s.append(o)}s.value=keep;if(!s.value&&found.length)s.selectedIndex=0}
+const itemPickers={};
+function createItemPicker(side,onChange){
+ const input=$(side+'Search'),select=$(side+'Item'),popup=$(side+'Options'),wrapper=$(side+'Picker');
+ let opened=false,query='',matches=[],active=-1;
+ const selectedName=()=>list().find(x=>x.id===select.value)?.name||'';
+ function close(){opened=false;popup.hidden=true;input.setAttribute('aria-expanded','false');input.removeAttribute('aria-activedescendant');input.value=selectedName();query='';}
+ function highlight(){
+  const options=popup.querySelectorAll('[role="option"]');
+  options.forEach((option,i)=>option.setAttribute('aria-selected',String(i===active)));
+  if(active>=0&&options[active]){input.setAttribute('aria-activedescendant',options[active].id);options[active].scrollIntoView({block:'nearest'});}
+  else input.removeAttribute('aria-activedescendant');
+ }
+ function show(){
+  const q=query.trim().toLocaleLowerCase();
+  matches=list().filter(x=>(x.id+' '+x.name).toLocaleLowerCase().includes(q));
+  matches.sort((a,b)=>Number(b.id.toLocaleLowerCase()===q)-Number(a.id.toLocaleLowerCase()===q));
+  active=matches.length?0:-1;popup.replaceChildren();
+  const fragment=document.createDocumentFragment();
+  for(const [i,item] of matches.entries()){
+   const option=document.createElement('div');option.className='picker-option';option.id=side+'Option'+i;option.setAttribute('role','option');option.dataset.itemId=item.id;option.textContent=priceLabel(item);fragment.append(option);
+  }
+  if(!matches.length){const empty=document.createElement('div');empty.className='picker-empty';empty.setAttribute('role','status');empty.textContent='Keine Items gefunden.';fragment.append(empty);}
+  popup.append(fragment);opened=true;popup.hidden=false;input.setAttribute('aria-expanded','true');highlight();
+ }
+ function choose(id){select.value=id;close();select.dispatchEvent(new Event('change',{bubbles:true}));}
+ input.addEventListener('focus',()=>{query='';show();input.select();});
+ input.addEventListener('click',()=>{if(!opened){query='';show();input.select();}});
+ input.addEventListener('input',()=>{query=input.value;show();});
+ input.addEventListener('keydown',e=>{
+  if(e.isComposing)return;
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+   e.preventDefault();
+   if(!opened){query='';show();active=e.key==='ArrowUp'?matches.length-1:0;}
+   else active=Math.max(0,Math.min(matches.length-1,active+(e.key==='ArrowDown'?1:-1)));
+   highlight();
+  }else if(e.key==='Enter'&&opened){e.preventDefault();if(matches[active])choose(matches[active].id);}
+  else if(e.key==='Escape'){e.preventDefault();close();}
+  else if(e.key==='Tab')close();
+ });
+ popup.addEventListener('mousedown',e=>e.preventDefault());
+ popup.addEventListener('click',e=>{const option=e.target.closest('[role="option"]');if(option)choose(option.dataset.itemId);});
+ document.addEventListener('pointerdown',e=>{if(opened&&!wrapper.contains(e.target))close();});
+ document.addEventListener('focusin',e=>{if(opened&&!wrapper.contains(e.target))close();});
+ select.addEventListener('change',()=>{close();onChange();});
+ return {sync:close};
+}
+function renderSelect(side){
+ const s=$(side+'Item'),keep=s.value||(side==='from'?'DIAMOND':'DIRT');s.replaceChildren();
+ for(const item of list()){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);s.append(o);}
+ s.value=keep;if(!s.value&&s.options.length)s.selectedIndex=0;itemPickers[side]?.sync();
+}
 let latestConversion=null;
 function update(){
+ itemPickers.from?.sync();itemPickers.to?.sync();
  const a=get($('fromItem').value),b=get($('toItem').value),shop=$('shopMode').checked;
  const targetPrice=shop?b.buy:b.sell;
  $('fromRate').innerHTML=rateMarkup(a,'from');$('toRate').innerHTML=rateMarkup(b,'to');
@@ -309,11 +361,12 @@ function update(){
 }
 $('shopMode').addEventListener('change',()=>update());
 function redraw(){renderSelect('from');renderSelect('to');update();renderCustom();renderEditor()}
-function renderEditor(){const sel=$('editItem'),search=$('editSearch').value.trim().toLocaleLowerCase(),keep=sel.value||'DIAMOND';sel.replaceChildren();const options=list().filter(x=>(x.id+' '+x.name).toLocaleLowerCase().includes(search)||x.id===keep);for(const item of options){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);sel.append(o)}sel.value=keep;if(!sel.value&&options.length)sel.selectedIndex=0;syncEditor();$('modifiedCount').textContent=`${list().filter(x=>wasChanged(x.id)).length} Item(s) mit geändertem Buy/Sell-Preis.`}
-function syncEditor(){const id=$('editItem').value;if(!id)return;const x=get(id);$('editBuy').value=x.buy;$('editSell').value=x.sell;$('editBuyDefault').textContent='Standard: '+fmtPrice(x.defaultBuy)+' VC';$('editSellDefault').textContent='Standard: '+fmtPrice(x.defaultSell)+' VC';$('restoreEdit').disabled=!wasChanged(id)}
+function renderEditor(){const sel=$('editItem'),keep=sel.value||'DIAMOND';sel.replaceChildren();for(const item of list()){const o=document.createElement('option');o.value=item.id;o.textContent=priceLabel(item);sel.append(o)}sel.value=keep;if(!sel.value&&sel.options.length)sel.selectedIndex=0;syncEditor();$('modifiedCount').textContent=`${list().filter(x=>wasChanged(x.id)).length} Item(s) mit geändertem Buy/Sell-Preis.`}
+function syncEditor(){itemPickers.edit?.sync();const id=$('editItem').value;if(!id)return;const x=get(id);$('editBuy').value=x.buy;$('editSell').value=x.sell;$('editBuyDefault').textContent='Standard: '+fmtPrice(x.defaultBuy)+' VC';$('editSellDefault').textContent='Standard: '+fmtPrice(x.defaultSell)+' VC';$('restoreEdit').disabled=!wasChanged(id)}
 function refreshPrices(){const from=$('fromItem').value,to=$('toItem').value,edit=$('editItem').value;renderSelect('from');renderSelect('to');$('fromItem').value=from;$('toItem').value=to;update();renderEditor();$('editItem').value=edit;syncEditor()}
 function renderCustom(){const ul=$('customList');ul.replaceChildren();for(const item of custom){const li=document.createElement('li'),txt=document.createElement('span'),del=document.createElement('button');txt.textContent=`${item.name} · Buy ${fmtPrice(item.buy)} / Sell ${fmtPrice(item.sell)} VC`;del.className='btn';del.textContent='Löschen';del.type='button';del.addEventListener('click',()=>{custom=custom.filter(x=>x.id!==item.id);save();redraw()});li.append(txt,del);ul.append(li)}}
-for(const side of ['from','to']){$(side+'Search').addEventListener('input',()=>{renderSelect(side);update()});$(side+'Item').addEventListener('change',()=>update())}
+for(const side of ['from','to'])itemPickers[side]=createItemPicker(side,()=>update());
+itemPickers.edit=createItemPicker('edit',()=>syncEditor());
 $('fromQty').addEventListener('input',()=>update());
 $('quantityShortcuts').addEventListener('click',e=>{
  const button=e.target.closest('button[data-amount]');if(!button)return;
@@ -324,14 +377,13 @@ $('quantityShortcuts').addEventListener('click',e=>{
 $('clearQty').addEventListener('click',()=>{$('fromQty').value='';update();$('fromQty').focus();});
 $('useResult').addEventListener('click',()=>{
  if(!latestConversion)return;
- const {itemId,amount}=latestConversion;
- $('fromSearch').value='';renderSelect('from');$('fromItem').value=itemId;$('fromQty').value=amount;update();
+ const {itemId,amount}=latestConversion,previousFrom=$('fromItem').value;
+ $('fromSearch').value='';$('toSearch').value='';renderSelect('from');renderSelect('to');$('fromItem').value=itemId;$('toItem').value=previousFrom;$('fromQty').value=amount;update();
 });
 $('swap').addEventListener('click',()=>{const a=$('fromItem').value,b=$('toItem').value;$('fromSearch').value='';$('toSearch').value='';renderSelect('from');renderSelect('to');$('fromItem').value=b;$('toItem').value=a;update()});
 $('reset').addEventListener('click',()=>{$('shopMode').checked=false;$('fromSearch').value='';$('toSearch').value='';$('fromQty').value='1';renderSelect('from');renderSelect('to');$('fromItem').value=list().some(x=>x.id==='DIAMOND')?'DIAMOND':list()[0].id;$('toItem').value='DIRT';update()});
 $('copy').addEventListener('click',async()=>{const msg=$('result').textContent+' ('+$('total').textContent+')';try{await navigator.clipboard.writeText(msg);$('copyStatus').textContent='Ergebnis kopiert.'}catch(e){$('copyStatus').textContent='Kopieren nicht unterstützt.'}});
 $('add').addEventListener('click',()=>{const name=$('newName').value.trim(),buyRaw=num($('newBuy').value),sellRaw=num($('newSell').value),msg=$('addStatus');if(!name||!validPrice(buyRaw)||!validPrice(sellRaw)){msg.textContent='Bitte Namen und beide Preise grösser als null eingeben.';return}const id='CUSTOM_'+Date.now()+'_'+Math.random().toString(36).slice(2,8),buy=buyRaw,sell=sellRaw;custom.push({id,name,buy,sell,defaultBuy:buy,defaultSell:sell,isCustom:true});save();$('fromSearch').value='';redraw();$('fromItem').value=id;update();$('newName').value='';msg.textContent='Eigenes Item hinzugefügt.'});
-$('editSearch').addEventListener('input',renderEditor);$('editItem').addEventListener('change',syncEditor);
 $('saveEdit').addEventListener('click',()=>{const id=$('editItem').value,buyRaw=num($('editBuy').value),sellRaw=num($('editSell').value),msg=$('editStatus');if(!validPrice(buyRaw)||!validPrice(sellRaw)){msg.textContent='Beide Preise müssen endliche Zahlen grösser als null sein.';return}const x=list().find(x=>x.id===id);if(!x)return;x.buy=buyRaw;x.sell=sellRaw;save();msg.textContent='Buy und Sell übernommen.';refreshPrices();renderCustom()});
 $('restoreEdit').addEventListener('click',()=>{const x=list().find(x=>x.id===$('editItem').value);if(!x)return;x.buy=x.defaultBuy;x.sell=x.defaultSell;save();$('editStatus').textContent='Beide Standardpreise wiederhergestellt.';refreshPrices();renderCustom()});
 function exportList(){const blob=new Blob([JSON.stringify(currentPayload(),null,2)+'\n'],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=selectedFile;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);status('JSON-Sicherung heruntergeladen.')}

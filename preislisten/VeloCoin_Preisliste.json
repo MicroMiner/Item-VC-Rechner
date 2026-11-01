@@ -12381,15 +12381,6 @@
       "defaultSell": 30
     }
   ],
-  "customItems": [
-    {
-      "id": "CUSTOM_1793323957536_9w82wq",
-      "name": "Enderperle",
-      "buy": 120,
-      "sell": 30,
-      "defaultBuy": 120,
-      "defaultSell": 30
-    }
-  ],
-  "updatedAt": "2026-11-01T01:45:00.858Z"
+  "customItems": [],
+  "updatedAt": "2026-11-01T01:45:44.030Z"
 }

@@ -132,6 +132,22 @@ await p.waitForFunction(()=>document.querySelector('#adminInner').inert,{},{time
 console.log('PASS session restore after reload, token-only storage/writes, logout, local/server expiry and automatic locking');
 await p.setViewportSize({width:390,height:844});assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.deepEqual(errors,[]);
 console.log('PASS API list switching, separate Buy/Sell writes, default preservation, failure rollback, mobile layout, no uncaught errors');
+// Information area and legal modal preserve page state and native focus behavior.
+assert.equal(await p.locator('#economyAboutTitle').textContent(),'Über das Wirtschaftssystem');
+assert.equal(await p.locator('.economy-about p').count(),2);
+assert.match(await p.locator('.foot').textContent(),/© 2026 VeloCity Economy.*Developed by MicroMiner.*Impressum/);
+const beforeLegal={url:p.url(),origin:await p.evaluate(()=>performance.timeOrigin),item:await p.locator('#fromItem').inputValue(),qty:await p.locator('#fromQty').inputValue()};
+const legalLink=p.getByRole('link',{name:'Impressum',exact:true});
+await legalLink.click();assert.equal(await p.locator('#impressum').isVisible(),true);
+assert.equal(await p.locator('#closeImpressum').evaluate(e=>e===document.activeElement),true);
+await p.locator('#impressumTitle').click();assert.equal(await p.locator('#impressum').isVisible(),true);
+assert.match(await p.locator('.legal-contact').textContent(),/Betreiber\/in.*\[Wird ergänzt\].*Anschrift.*\[Wird ergänzt\].*Kontakt \/ E-Mail.*\[Wird ergänzt\]/);
+await p.locator('#fromSearch').focus();assert.equal(await p.locator('#fromSearch').evaluate(e=>e===document.activeElement),false);
+await p.keyboard.press('Escape');assert.equal(await p.locator('#impressum').isVisible(),false);assert.equal(await legalLink.evaluate(e=>e===document.activeElement),true);
+await legalLink.click();await p.locator('#closeImpressum').click();assert.equal(await p.locator('#impressum').isVisible(),false);
+await legalLink.click();await p.mouse.click(2,2);assert.equal(await p.locator('#impressum').isVisible(),false);
+assert.equal(p.url(),beforeLegal.url);assert.equal(await p.evaluate(()=>performance.timeOrigin),beforeLegal.origin);assert.equal(await p.locator('#fromItem').inputValue(),beforeLegal.item);assert.equal(await p.locator('#fromQty').inputValue(),beforeLegal.qty);
+console.log('PASS exact footer credit, two information paragraphs, modal content, placeholders, close button, Escape, backdrop, focus restoration and no navigation');
 const touch=await b.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
 try{
  const mobile=await touch.newPage();await mobile.goto(base);await mobile.waitForFunction(()=>document.querySelector('#fileStatus').textContent.includes('Preisliste geladen'));
@@ -139,6 +155,13 @@ try{
  assert.equal(await mobile.locator('#toSearch').getAttribute('aria-expanded'),'true');
  await mobile.locator('#toOptions [data-item-id="STONE"]').tap();assert.equal(await mobile.locator('#toItem').inputValue(),'STONE');assert.equal(await mobile.locator('#toSearch').getAttribute('aria-expanded'),'false');
  assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ await mobile.setViewportSize({width:320,height:640});
+ await mobile.getByRole('link',{name:'Impressum',exact:true}).tap();
+ assert.equal(await mobile.locator('#impressum').isVisible(),true);
+ const legalBounds=await mobile.locator('#impressum').boundingBox();assert.ok(legalBounds.x>=0&&legalBounds.x+legalBounds.width<=320&&legalBounds.y>=0&&legalBounds.y+legalBounds.height<=640);
+ assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ await mobile.touchscreen.tap(2,2);assert.equal(await mobile.locator('#impressum').isVisible(),false);
  console.log('PASS touch selection in mobile combobox without horizontal overflow');
+ console.log('PASS responsive legal modal and touch backdrop dismissal at 320px');
 }finally{await touch.close()}
 }finally{await b.close();await new Promise(resolve=>server.close(resolve))}})().catch(e=>{console.error(e);server.close();process.exitCode=1});

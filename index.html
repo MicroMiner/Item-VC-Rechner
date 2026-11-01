@@ -173,6 +173,9 @@
  .right-stack .calculator{min-height:clamp(360px,46vh,480px)}
 }
 @media(min-width:1100px){body{padding-left:100px;padding-right:100px}}
+.economy-about h2{display:flex;align-items:center;gap:8px;font-size:1rem;margin:0}.economy-about h2 svg{width:17px;height:17px;flex:none;color:var(--sub)}.economy-about p{margin:8px 0 0}.foot{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px}.foot a{color:inherit;text-underline-offset:3px}.foot a:hover{color:var(--gold)}.foot a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
+.legal-dialog{width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 32px);margin:auto;padding:24px;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:18px;overflow-y:auto;font-size:.9rem;line-height:1.55}.legal-dialog::backdrop{background:#050c18b3}.legal-dialog h2{font-size:1.2rem;margin:0 42px 16px 0}.legal-dialog h3{font-size:.9rem;margin:16px 0 5px}.legal-dialog p{margin:0;color:var(--sub)}.legal-close{position:absolute;top:12px;right:12px;width:32px;height:32px;padding:0;line-height:1;font-size:1.3rem}.legal-dialog dl{margin:0}.legal-dialog dl>div{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:5px}.legal-dialog dt{color:var(--sub);min-width:110px}.legal-dialog dd{margin:0;overflow-wrap:anywhere}.legal-dialog .legal-placeholder{font-size:.85rem}.legal-contact{padding-top:6px}
+@media(max-width:400px){.legal-dialog{padding:20px 16px}.legal-dialog dl>div{display:block}.legal-dialog dd{margin-top:2px}}
 </style>
 </head>
 <body>
@@ -210,11 +213,28 @@
 <section class="card"><h2>Eigene Items hinzufügen</h2><div class="addgrid"><div><label for="newName">Itemname</label><input id="newName" placeholder="z. B. Netherite Ingot" maxlength="70"></div><div class="fieldrow" style="margin:0"><div><label for="newBuy">Buy (VC)</label><input id="newBuy" type="number" step="any" min="0" value="10" inputmode="decimal"></div><div><label for="newSell">Sell (VC)</label><input id="newSell" type="number" step="any" min="0" value="5" inputmode="decimal"></div></div></div><button id="add" type="button" class="btn">+ Item speichern</button><div id="addStatus" class="status" aria-live="polite"></div></section>
 <section class="card"><h2>Hinzugefügte Items</h2><p class="editor-note">Deine eigenen Items auf voller Breite in zwei Spalten. Die Preise kannst du oben unter «Bestehende Itempreise anpassen» bearbeiten.</p><ul id="customList" class="custom-list"></ul></section>
 <section class="card"><h2>Gemeinsame Online-Preisliste</h2><p class="editor-note">Änderungen werden nach Freigabe direkt ins GitHub-Repository geschrieben. Alle Besucher sehen die aktualisierten Preise beim nächsten Laden der Website.</p><div class="list-loader"><div><label for="priceList">Preisliste auswählen</label><select id="priceList" disabled></select></div><button class="btn" id="reloadData" type="button">Liste laden</button></div><div id="listStatus" class="status" role="status"></div><div class="flex"><button class="btn" id="exportData" type="button">JSON-Sicherung herunterladen</button><button class="btn" id="adminLogout" type="button">Verwaltung sperren</button></div><div class="status" id="fileStatus" role="status"></div></section></div></section>
-<section class="card note"><strong>Hinweis zu den Preisen</strong><p class="muted secondary">Die Werte stammen aus unserer vorläufigen VeloCoin-Preisliste. Sie sind Materialwerte, keine Joblöhne. Buy und Sell können auch Preise mit weiteren Nachkommastellen enthalten. Unbekannte Itemwerte können ergänzt werden. Die Standardwerte für Buy und Sell bleiben beim Bearbeiten separat gespeichert und werden in der Verwaltung angezeigt.</p></section><footer class="foot">VeloCoin · GitHub Pages · Öffentliche Preisliste</footer>
+<section class="card note economy-about" aria-labelledby="economyAboutTitle"><h2 id="economyAboutTitle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg>Über das Wirtschaftssystem</h2><p class="muted secondary">VeloCity Economy bildet die Grundlage für den Handel auf unserem Minecraft-Server. Alle Items besitzen individuelle Kauf- und Verkaufspreise in VeloCoins (VC). Die Preise werden zentral verwaltet und können im Laufe der Zeit angepasst werden.</p><p class="muted secondary">Der Wertvergleich zeigt den relativen Wert zweier Items anhand ihrer Verkaufspreise (Sell). Die Shop-Umrechnung berücksichtigt dagegen den Verkaufspreis (Sell) des Ausgangs-Items und den Kaufpreis (Buy) des Ziel-Items.</p></section>
+<footer class="foot"><span>© 2026 VeloCity Economy</span><span aria-hidden="true">·</span><span>Developed by MicroMiner</span><span aria-hidden="true">·</span><a href="#impressum" id="openImpressum" aria-haspopup="dialog">Impressum</a></footer>
 </main>
+<dialog id="impressum" class="legal-dialog" aria-labelledby="impressumTitle">
+<button class="btn legal-close" id="closeImpressum" type="button" aria-label="Impressum schliessen" autofocus>×</button>
+<h2 id="impressumTitle">Impressum</h2>
+<dl class="legal-project"><div><dt>Projekt</dt><dd>VeloCity Economy</dd></div><div><dt>Entwicklung</dt><dd>MicroMiner</dd></div></dl>
+<h3>Beschreibung</h3><p>VeloCity Economy ist eine unabhängige Web-Anwendung zur Verwaltung und Berechnung von Itempreisen für einen privaten Minecraft-Server.</p>
+<h3>Rechtlicher Hinweis</h3><p>Dieses Projekt ist ein unabhängiges Minecraft-Fanprojekt und steht in keiner offiziellen Verbindung zu Mojang Studios oder Microsoft.</p>
+<h3>Kontakt / Betreiberangaben</h3><p class="legal-placeholder">Platzhalter – die rechtlich erforderlichen Angaben werden später ergänzt.</p><dl class="legal-contact"><div><dt>Betreiber/in</dt><dd>[Wird ergänzt]</dd></div><div><dt>Anschrift</dt><dd>[Wird ergänzt]</dd></div><div><dt>Kontakt / E-Mail</dt><dd>[Wird ergänzt]</dd></div></dl>
+</dialog>
 <script src="config.js"></script>
 <script>
 'use strict';
+const impressumDialog=document.getElementById('impressum');
+document.getElementById('openImpressum').addEventListener('click',event=>{event.preventDefault();if(!impressumDialog.open)impressumDialog.showModal();});
+document.getElementById('closeImpressum').addEventListener('click',()=>impressumDialog.close());
+impressumDialog.addEventListener('click',event=>{
+ if(event.target!==impressumDialog)return;
+ const bounds=impressumDialog.getBoundingClientRect();
+ if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)impressumDialog.close();
+});
 const APP_VERSION='v1.0.30';
 const $=id=>document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}

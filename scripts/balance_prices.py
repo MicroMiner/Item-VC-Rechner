@@ -62,17 +62,48 @@ def recipe(name,output,inputs,count=1,kind='analogy'):
             'inputs':[{'items':[item],'count':qty} for item,qty in inputs.items()]}
 
 
-def recipe_cost(r,values):
+def recipe_cost(r,values,credits=None):
     total=D(0)
     for ingredient in r['inputs']:
         choices=[values[x] for x in ingredient['items'] if x in values]
         if not choices:
             return None
         total+=min(choices)*D(ingredient['count'])
+    if credits is not None:
+        total-=sum((credits.get(item,D(0))*D(count) for item,count in r.get('returns',{}).items()),D(0))
+        if total<=0:
+            raise ValueError('Nebenprodukte decken bereits die gesamten Rezeptkosten: '+r['name'])
     return total/D(r['count'])
 
 
-def relax(seeds,recipes,locked=frozenset()):
+
+def redemption_values(sells,recipes):
+    """Conservative cash value after any single-material conversion chain.
+
+    A returned empty bucket can first be filled with free water and sold. Using
+    only its immediate Sell value would miss small multi-output profit loops.
+    """
+    values=dict(sells)
+    for iteration in range(250):
+        changed=False
+        for r in recipes:
+            if len(r['inputs'])!=1:
+                continue
+            ingredient=r['inputs'][0]
+            if r['output'] not in values:
+                continue
+            value=values[r['output']]*D(r['count'])
+            value+=sum((values.get(k,D(0))*D(n) for k,n in r.get('returns',{}).items()),D(0))
+            value/=D(ingredient['count'])
+            for item in ingredient['items']:
+                if value>values.get(item,D(0))+D('.000000001'):
+                    values[item]=value;changed=True
+        if not changed:
+            return values
+    raise ValueError('Nebenprodukt-Verwertung konvergiert nicht; Umwandlungsschleife prüfen.')
+
+
+def relax(seeds,recipes,locked=frozenset(),credits=None):
     """Least-cost fixed point; outputs are per item, never per crafting batch.
 
     Prices have no compounding processing multiplier inside this graph.
@@ -85,7 +116,7 @@ def relax(seeds,recipes,locked=frozenset()):
             output=r['output']
             if output in locked:
                 continue
-            cost=recipe_cost(r,values)
+            cost=recipe_cost(r,values,credits)
             if cost is not None and cost>0 and (output not in values or cost<values[output]-D('.000000001')):
                 values[output]=cost;chosen[output]=r['name'];changed=True
         if not changed:
@@ -283,6 +314,29 @@ def build_model(current):
             buy_caps.append({'id':item,'beforeBuy':float(buy),'afterBuy':float(maximum_buy),'beforeSell':float(sell),'afterSell':float(new_sell)})
             buy,sell=maximum_buy,new_sell
         proposed[item]={'buy':buy,'sell':min(sell,buy),'method':method,'recipe':buy_recipe.get(item,'reference'),'recipeType':recipe_types.get(buy_recipe.get(item),'reference')}
+    # Safety-only mechanics must not revalue raw material references. They
+    # constrain attainable prices under actual shop Buy quotes instead.
+    for item in sorted(proposed):
+        if item.startswith('ENCHANTED_BOOK_') and 'CURSE' not in item:
+            recipes.append(recipe('grindstone_'+item.lower(),'BOOK',{item:1},kind='modeled_grindstone'))
+    recipes.append(recipe('water_bottle_filling','POTION',{'GLASS_BOTTLE':1},kind='modeled_water_filling'))
+    recipes.append(recipe('water_filling','WATER_BUCKET',{'BUCKET':1},kind='modeled_water_filling'))
+    lava=recipe('lava_fuel_with_bucket_return','FUEL_UNIT',{'LAVA_BUCKET':1},100,kind='modeled_fuel')
+    lava['returns']={'BUCKET':1};recipes.append(lava)
+    for mushroom in ['BROWN_MUSHROOM','RED_MUSHROOM']:
+        recipes.append(recipe('max_drop_'+mushroom.lower()+'_block',mushroom,{mushroom+'_BLOCK':1},2,kind='modeled_maximum_drop'))
+    for r in recipes:
+        if r['type'] in ['crafting_shaped','crafting_shapeless']:
+            remainders={}
+            for ingredient in r['inputs']:
+                if len(ingredient['items'])!=1:
+                    continue
+                item=ingredient['items'][0]
+                container={'MILK_BUCKET':'BUCKET','HONEY_BOTTLE':'GLASS_BOTTLE','WATER_BUCKET':'BUCKET','LAVA_BUCKET':'BUCKET'}.get(item)
+                if container:
+                    remainders[container]=remainders.get(container,0)+ingredient['count']
+            if remainders:
+                r['returns']=remainders
     # Sell is the basis of the actual shop quote. A fixed-point pass closes
     # recipe arbitrage under the configured Buy/Sell ratio, then re-quotes
     # Buy from the corrected Sell. There is no repeated processing discount.
@@ -303,7 +357,8 @@ def build_model(current):
         acquisition_seeds={k:v['buy'] for k,v in proposed.items()}
         for name in policy['services']:
             acquisition_seeds[name]=D(policy['fallbacks'][name][0])
-        acquisition,acq_recipe=relax(acquisition_seeds,recipes)
+        credits=redemption_values({k:v['sell'] for k,v in proposed.items()},recipes)
+        acquisition,acq_recipe=relax(acquisition_seeds,recipes,credits=credits)
         adjusted=False
         for item,price in proposed.items():
             cost=acquisition[item]

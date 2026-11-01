@@ -37,7 +37,7 @@ Die eingefrorenen Vanilla-Rezepte stammen aus Minecraft Java **1.21.11**, passen
 
 Schmelzen vergleicht Brennstoff aus Kohleblöcken (80 Vorgänge), Kohle/Charcoal (8) und getrockneten Kelpblöcken (20); der günstigste Weg aus aktuellen Buy-Preisen begrenzt die Brennstoffkosten. Die ursprüngliche Referenz von 2.25 VC pro Vorgang ist lediglich eine obere Startschätzung. Lagerfeuerrezepte benötigen keinen verbrauchten Brennstoff. Brauen wird pro Dreiercharge berechnet, mit einem Blaze Powder für 20 Brauvorgänge; Effektpfeile ergeben acht Stück. Ernten, zeitabhängige Farmen, Villager-Handel, Reparatur/XP, Fortune-Schwankungen und unbekannte Plugin-/Mod-Rezepte sind nicht vollständig modelliert. Der Test beweist keine lückenlose Exploitfreiheit auf einem beliebig modifizierten Server.
 
-Nachteilige oder teurere alternative Rezepte sind zulässig; der günstigste bekannte Weg begrenzt den Verkaufserlös. Das ist eine konservative Dauerbetriebsrechnung, kein Einkaufsplan für einen Spieler ohne Werkzeuge oder Startbestand. Rückgabe mehrerer Nebenprodukte und komplexe Weltmechaniken sind nicht vollständig erfasst.
+Nachteilige oder teurere alternative Rezepte sind zulässig; der günstigste bekannte Weg begrenzt den Verkaufserlös. Das ist eine konservative Dauerbetriebsrechnung, kein Einkaufsplan für einen Spieler ohne Werkzeuge oder Startbestand. Behälterrückgaben werden als zusätzliche Rezeptausgaben berücksichtigt, einschliesslich der weiteren Verwertung zurückgegebener Eimer durch kostenloses Wasserfüllen. Komplexe Weltmechaniken und unbekannte Serverrezepte sind weiterhin nicht vollständig erfasst.
 
 ## Ergebnisse nachvollziehen
 
@@ -61,3 +61,17 @@ python3 scripts/balance_prices.py
 ```
 
 Der Generator arbeitet offline, verändert keine Anwendung oder Serverkonfiguration und pusht/deployt nichts. Er erhält die ursprünglichen Vorher-Werte aus dem Bericht, solange kein zwischenzeitlicher manueller Preiswechsel vorliegt. Spätere manuelle Balanceentscheidungen gehören in die Policy, damit sie beim erneuten Berechnen erhalten bleiben.
+
+
+## Erweiterter Sicherheitscheck
+
+Der Generator berücksichtigt jetzt Entzaubern gewöhnlicher verzauberter Bücher (keine Flüche), kostenloses Wasserfüllen, Lavaeimer als Brennstoff für 100 Schmelzvorgänge sowie gleichzeitig zurückgegebene Behälter. Bei Nebenprodukten zählt auch deren beste bekannte Weiterverwertung, nicht nur der unmittelbare Sell-Preis. Die geprüften maximalen Pilzblock-Drops werden als konservative Grenze berücksichtigt.
+
+Die unabhängige lineare Gegenprüfung testet mehrstufige Abläufe und mehrere Ausgaben gleichzeitig anhand der tatsächlichen JSON-Preise. [Aktueller Sicherheitsbericht](security-audit.md); die historischen Befunde bleiben in [security-audit-before.md](security-audit-before.md) erhalten. Alle Prüfungen müssen vor dem Push bestehen:
+
+```sh
+python3 scripts/audit_trade_loops.py
+python3 -m unittest discover -s tests -p 'test_*.py' -v
+```
+
+Das zusätzliche Audit benötigt SciPy; der Preisgenerator selbst bleibt ohne diese Abhängigkeit lauffähig. Exitstatus 1 bedeutet gefundene Gewinnschleifen, 2 eine unvollständige Solverprüfung. Kein Test darf übersprungen oder als bestanden bezeichnet werden, wenn SciPy für die unabhängige Prüfung fehlt.

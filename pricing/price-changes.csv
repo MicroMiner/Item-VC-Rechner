@@ -1,7 +1,7 @@
 id,name,canonical,oldBuy,oldSell,buy,sell,method,recipe,recipeType,acquisitionCost
 DIRT,Erde,DIRT,3,1,4.0,1.0,manual_override,reference,reference,4.0
 STONE,Stein,STONE,20,1,4.0,1.0,csv,reference,reference,4.0
-DEEPSLATE,Tiefenschiefer,DEEPSLATE,40,2,8.0,2.0,csv,reference,reference,8.0
+DEEPSLATE,Tiefenschiefer,DEEPSLATE,40,2,8.0,2.0,csv,reference,reference,7.5562
 GRANITE,Granit,GRANITE,40,2,8.0,2.0,csv,reference,reference,8.0
 DIORITE,Diorit,DIORITE,40,2,8.0,2.0,csv,reference,reference,8.0
 ANDESITE,Andesit,ANDESITE,40,2,8.0,2.0,csv,reference,reference,6.0
@@ -39,8 +39,8 @@ SUGAR_CANE,Zuckerrohr,SUGAR_CANE,10,2,8.0,2.0,csv,reference,reference,8.0
 CACTUS,Kaktus,CACTUS,25,2.5,10.0,2.5,csv,reference,reference,10.0
 KELP,Seetang,KELP,10,1,4.0,1.0,csv,reference,reference,4.0
 SWEET_BERRIES,Süssbeeren,SWEET_BERRIES,10,2,8.0,2.0,csv,reference,reference,8.0
-BROWN_MUSHROOM,Brauner Pilz,BROWN_MUSHROOM,25,2.5,10.0,2.5,csv,reference,reference,10.0
-RED_MUSHROOM,Roter Pilz,RED_MUSHROOM,25,2.5,10.0,2.5,csv,reference,reference,10.0
+BROWN_MUSHROOM,Brauner Pilz,BROWN_MUSHROOM,25,2.5,10.0,2.5,csv,reference,reference,7.0
+RED_MUSHROOM,Roter Pilz,RED_MUSHROOM,25,2.5,10.0,2.5,csv,reference,reference,7.0
 CHORUS_FRUIT,Chorusfrucht,CHORUS_FRUIT,20,4,16.0,4.0,csv,reference,reference,16.0
 WITHER_ROSE,Witherrose,WITHER_ROSE,50,50,200.0,50.0,explicit_reference,reference,reference,200.0
 COD,Kabeljau,COD,30,3,12.0,3.0,csv,reference,reference,12.0
@@ -55,19 +55,19 @@ INK_SAC,Tintensack,INK_SAC,20,3,12.0,3.0,csv,reference,reference,12.0
 LILY_PAD,Seerosenblatt,LILY_PAD,4,4,8.0,2.0,explicit_reference,reference,reference,8.0
 NAME_TAG,Namensschild,NAME_TAG,150,30,120.0,30.0,csv,reference,reference,120.0
 NAUTILUS_SHELL,Nautilusschale,NAUTILUS_SHELL,200,50,200.0,50.0,csv,reference,reference,200.0
-SADDLE,Sattel,SADDLE,250,50,200.0,50.0,csv,reference,reference,175.3
-IRON_INGOT,Eisenbarren,IRON_INGOT,250,20,80.0,20.0,csv,reference,reference,55.3
+SADDLE,Sattel,SADDLE,250,50,200.0,50.0,csv,reference,reference,174.7562
+IRON_INGOT,Eisenbarren,IRON_INGOT,250,20,80.0,20.0,csv,reference,reference,54.7562
 RAW_IRON,Roheisen,RAW_IRON,256,256,64.0,16.0,explicit_reference,reference,reference,54.4
-IRON_NUGGET,Eisenklumpen,IRON_NUGGET,28.5,28.5,7.52,1.88,recipe,iron_nugget,crafting_shapeless,6.144444444444445
-IRON_BLOCK,Eisenblock,IRON_BLOCK,2250,180,720.0,180.0,csv,reference,reference,497.7
+IRON_NUGGET,Eisenklumpen,IRON_NUGGET,28.5,28.5,7.52,1.88,recipe,iron_nugget,crafting_shapeless,6.084022222222222
+IRON_BLOCK,Eisenblock,IRON_BLOCK,2250,180,720.0,180.0,csv,reference,reference,492.8058
 DIAMOND_BLOCK,Diamantblock,DIAMOND_BLOCK,13500,4500,18000.0,4500.0,csv,reference,reference,18000.0
 COAL,Kohle,COAL,70,20,32.0,8.0,csv,reference,reference,8.0
-CHARCOAL,Charcoal,CHARCOAL,50,5,20.0,5.0,csv,reference,reference,17.9
+CHARCOAL,Charcoal,CHARCOAL,50,5,20.0,5.0,csv,reference,reference,17.3562
 COAL_BLOCK,Kohleblock,COAL_BLOCK,180,18,72.0,18.0,csv,reference,reference,72.0
 RAW_COPPER,Rohkupfer,RAW_COPPER,12,12,64.0,16.0,explicit_reference,reference,reference,54.4
-COPPER_INGOT,Kupferbarren,COPPER_INGOT,70,20,80.0,20.0,csv,reference,reference,55.3
-COPPER_NUGGET,Kupferklumpen,COPPER_NUGGET,1.35,1.35,7.52,1.88,recipe,copper_nugget,crafting_shapeless,6.144444444444445
-COPPER_BLOCK,Kupferblock,COPPER_BLOCK,630,180,720.0,180.0,csv,reference,reference,497.7
+COPPER_INGOT,Kupferbarren,COPPER_INGOT,70,20,80.0,20.0,csv,reference,reference,54.7562
+COPPER_NUGGET,Kupferklumpen,COPPER_NUGGET,1.35,1.35,7.52,1.88,recipe,copper_nugget,crafting_shapeless,6.084022222222222
+COPPER_BLOCK,Kupferblock,COPPER_BLOCK,630,180,720.0,180.0,csv,reference,reference,492.8058
 RAW_COPPER_BLOCK,Roh Kupfer Block,RAW_COPPER_BLOCK,108,108,489.6,122.4,recipe,raw_copper_block,crafting_shaped,489.6
 RAW_IRON_BLOCK,Roh Eisen Block,RAW_IRON_BLOCK,2304,2304,489.6,122.4,recipe,raw_iron_block,crafting_shaped,489.6
 GOLD_INGOT,Goldbarren,GOLD_INGOT,250,20,80.0,20.0,csv,reference,reference,36.0
@@ -89,8 +89,8 @@ NETHERITE_BLOCK,Netheritblock,NETHERITE_BLOCK,720000,7200,20000.0,5000.0,csv,ref
 FLINT,Feuerstein,FLINT,20,1,4.0,1.0,csv,reference,reference,4.0
 CLAY_BALL,Tonklumpen,CLAY_BALL,3,3,2.52,0.63,recipe,clay_drops,modeled_drop,2.52
 CLAY,Ton,CLAY,70,3,12.0,3.0,csv,reference,reference,10.08
-BRICK,Ziegel,BRICK,100,1,4.0,1.0,csv,reference,reference,3.42
-BRICKS,Ziegelsteine,BRICKS,16,16,13.6,3.4,recipe,bricks,crafting_shaped,13.6
+BRICK,Ziegel,BRICK,100,1,4.0,1.0,csv,reference,reference,2.8762
+BRICKS,Ziegelsteine,BRICKS,16,16,13.6,3.4,recipe,bricks,crafting_shaped,11.5048
 BONE,Knochen,BONE,20,3,12.0,3.0,csv,reference,reference,12.0
 BONE_MEAL,Knochenmehl,BONE_MEAL,10,2,8.0,2.0,csv,reference,reference,4.0
 ENDER_EYE,Enderauge,ENDER_EYE,250,50,200.0,50.0,csv,reference,reference,192.0
@@ -127,7 +127,7 @@ FEATHER,Feder,FEATHER,20,3,12.0,3.0,csv,reference,reference,12.0
 EGG,Ei,EGG,10,2,8.0,2.0,csv,reference,reference,8.0
 MILK_BUCKET,Milcheimer,MILK_BUCKET,60,10,40.0,10.0,csv,reference,reference,40.0
 BUCKET,Eimer,BUCKET,768,768,34.0,8.5,recipe,milk_bucket_drops,modeled_drop,34.0
-WATER_BUCKET,Wassereimer,WATER_BUCKET,769,769,34.32,8.58,recipe,fill_water_bucket,modeled_service,34.32
+WATER_BUCKET,Wassereimer,WATER_BUCKET,769,769,34.32,8.58,recipe,fill_water_bucket,modeled_service,34.0
 LAVA_BUCKET,Lavaeimer,LAVA_BUCKET,785,785,44.2,11.05,recipe,fill_lava_bucket,modeled_service,44.2
 POWDER_SNOW_BUCKET,Pulverschneeeimer,POWDER_SNOW_BUCKET,780,780,36.72,9.18,recipe,fill_powder_snow_bucket,modeled_service,36.72
 COD_BUCKET,Kabeljaueimer,COD_BUCKET,780,780,36.0,9.0,explicit_reference,reference,reference,36.0
@@ -137,7 +137,7 @@ TROPICAL_FISH_BUCKET,Tropenfischeimer,TROPICAL_FISH_BUCKET,790,790,56.0,14.0,exp
 AXOLOTL_BUCKET,Axolotleimer,AXOLOTL_BUCKET,15000,1500,6000.0,1500.0,csv,reference,reference,6000.0
 TADPOLE_BUCKET,Kaulquappeneimer,TADPOLE_BUCKET,12000,1200,4800.0,1200.0,csv,reference,reference,4800.0
 SPIDER_EYE,Spinnenauge,SPIDER_EYE,30,5,20.0,5.0,csv,reference,reference,20.0
-FERMENTED_SPIDER_EYE,Fermentiertes Spinnenauge,FERMENTED_SPIDER_EYE,120,12,48.0,12.0,csv,reference,reference,36.0
+FERMENTED_SPIDER_EYE,Fermentiertes Spinnenauge,FERMENTED_SPIDER_EYE,120,12,48.0,12.0,csv,reference,reference,33.0
 ROTTEN_FLESH,Verrottet Flesh,ROTTEN_FLESH,25,2.5,10.0,2.5,csv,reference,reference,10.0
 LEATHER_BOOTS,Leder Stiefel,LEATHER_BOOTS,15,15,136.0,34.0,recipe,leather_boots,crafting_shaped,136.0
 RABBIT,Rohes Kaninchenfleisch,RABBIT,55,5.5,22.0,5.5,csv,reference,reference,22.0
@@ -146,11 +146,11 @@ PORKCHOP,Rohes Schweinefleisch,PORKCHOP,45,4.5,18.0,4.5,csv,reference,reference,
 MUTTON,Rohes Hammelfleisch,MUTTON,45,4.5,18.0,4.5,csv,reference,reference,18.0
 CHICKEN,Rohes Hühnchen,CHICKEN,40,4,16.0,4.0,csv,reference,reference,16.0
 HONEYCOMB,Honigwabe,HONEYCOMB,40,8,32.0,8.0,csv,reference,reference,32.0
-HONEY_BOTTLE,Honig Flasche,HONEY_BOTTLE,60,10,40.0,10.0,csv,reference,reference,38.9
-GLASS_BOTTLE,Glasflasche,GLASS_BOTTLE,20,2,8.0,2.0,csv,reference,reference,4.9
+HONEY_BOTTLE,Honig Flasche,HONEY_BOTTLE,60,10,40.0,10.0,csv,reference,reference,38.3562
+GLASS_BOTTLE,Glasflasche,GLASS_BOTTLE,20,2,8.0,2.0,csv,reference,reference,4.3562
 PAPER,Papier,PAPER,20,2,8.0,2.0,csv,reference,reference,8.0
-BOOK,Buch,BOOK,13,13,54.4,13.6,recipe,book,crafting_shapeless,54.4
-BOOKSHELF,Bookshelf,BOOKSHELF,43,43,214.2,53.55,recipe,bookshelf,crafting_shaped,188.7
+BOOK,Buch,BOOK,13,13,32.0,8.0,recipe,book,crafting_shapeless,8.0
+BOOKSHELF,Bookshelf,BOOKSHELF,43,43,198.0,49.5,recipe,bookshelf,crafting_shaped,49.5
 ENCHANTED_BOOK,Verzaubertes Buch,ENCHANTED_BOOK,200,200,120.0,30.0,explicit_reference,reference,reference,120.0
 EXPERIENCE_BOTTLE,Erfahrungsfläschchen,EXPERIENCE_BOTTLE,250,250,60.0,15.0,explicit_reference,reference,reference,60.0
 NETHERITE_UPGRADE_SMITHING_TEMPLATE,Netheritaufwertung (Schmiedevorlage),NETHERITE_UPGRADE_SMITHING_TEMPLATE,1500,1500,6800.0,1700.0,recipe,netherite_upgrade_smithing_template,crafting_shaped,6800.0
@@ -161,7 +161,7 @@ COBBLED_DEEPSLATE,Bruch Tiefenschiefer,COBBLED_DEEPSLATE,1.4,1.4,7.2,1.8,explici
 MOSSY_COBBLESTONE,Bemooster Bruchstein,MOSSY_COBBLESTONE,1.4,1.4,10.2,2.55,recipe,mossy_cobblestone_from_vine,crafting_shapeless,10.2
 MOSSY_STONE_BRICKS,Bemoost Steinziegel,MOSSY_STONE_BRICKS,1.4,1.4,22.08,5.52,recipe,mossy_stone_bricks_from_vine,crafting_shapeless,12.0
 STONE_BRICKS,Steinziegel,STONE_BRICKS,45,4.5,16.0,4.0,csv,reference,reference,4.0
-CRACKED_STONE_BRICKS,Rissig Steinziegel,CRACKED_STONE_BRICKS,2.2,2.2,16.04,4.01,recipe,cracked_stone_bricks,smelting,4.9
+CRACKED_STONE_BRICKS,Rissig Steinziegel,CRACKED_STONE_BRICKS,2.2,2.2,16.04,4.01,recipe,cracked_stone_bricks,smelting,4.3562
 CHISELED_STONE_BRICKS,Gemeißelt Steinziegel,CHISELED_STONE_BRICKS,2.2,2.2,3.4,0.85,recipe,chiseled_stone_bricks_stone_from_stonecutting,stonecutting,3.36
 SMOOTH_STONE,Glatt Stein,SMOOTH_STONE,2.5,2.5,4.16,1.04,recipe,smooth_stone,smelting,4.16
 POLISHED_ANDESITE,Poliert Andesit,POLISHED_ANDESITE,2.5,2.5,6.8,1.7,recipe,polished_andesite,crafting_shaped,6.0
@@ -174,8 +174,8 @@ TUFF_BRICKS,Tuff Ziegel,TUFF_BRICKS,3,3,6.8,1.7,recipe,tuff_bricks,crafting_shap
 CHISELED_TUFF_BRICKS,Gemeißelt Tuff Ziegel,CHISELED_TUFF_BRICKS,3,3,6.8,1.7,recipe,chiseled_tuff_bricks_from_tuff_stonecutting,stonecutting,6.8
 DEEPSLATE_BRICKS,Tiefenschiefer Ziegel,DEEPSLATE_BRICKS,3,3,6.12,1.53,recipe,deepslate_bricks_from_cobbled_deepslate_stonecutting,stonecutting,6.12
 DEEPSLATE_TILES,Tiefenschiefer Tiles,DEEPSLATE_TILES,3,3,6.12,1.53,recipe,deepslate_tiles,crafting_shaped,6.12
-CRACKED_DEEPSLATE_BRICKS,Rissig Tiefenschiefer Ziegel,CRACKED_DEEPSLATE_BRICKS,3,3,6.88,1.72,recipe,cracked_deepslate_bricks,smelting,6.88
-CRACKED_DEEPSLATE_TILES,Rissig Tiefenschiefer Tiles,CRACKED_DEEPSLATE_TILES,3,3,6.88,1.72,recipe,cracked_deepslate_tiles,smelting,6.88
+CRACKED_DEEPSLATE_BRICKS,Rissig Tiefenschiefer Ziegel,CRACKED_DEEPSLATE_BRICKS,3,3,6.88,1.72,recipe,cracked_deepslate_bricks,smelting,6.4762
+CRACKED_DEEPSLATE_TILES,Rissig Tiefenschiefer Tiles,CRACKED_DEEPSLATE_TILES,3,3,6.88,1.72,recipe,cracked_deepslate_tiles,smelting,6.4762
 CHISELED_DEEPSLATE,Gemeißelt Tiefenschiefer,CHISELED_DEEPSLATE,3,3,6.12,1.53,recipe,chiseled_deepslate_from_cobbled_deepslate_stonecutting,stonecutting,6.08
 BASALT,Basalt,BASALT,10,2,8.0,2.0,csv,reference,reference,8.0
 SMOOTH_BASALT,Glatt Basalt,SMOOTH_BASALT,2,2,7.56,1.89,recipe,smooth_basalt,smelting,7.56
@@ -194,7 +194,7 @@ GILDED_BLACKSTONE,Gilded Schwarzstein,GILDED_BLACKSTONE,45,45,40.0,10.0,explicit
 POLISHED_BLACKSTONE,Poliert Schwarzstein,POLISHED_BLACKSTONE,4,4,6.8,1.7,recipe,polished_blackstone,crafting_shaped,6.8
 POLISHED_BLACKSTONE_BRICKS,Poliert Schwarzstein Ziegel,POLISHED_BLACKSTONE_BRICKS,4,4,6.8,1.7,recipe,polished_blackstone_bricks,crafting_shaped,6.8
 CHISELED_POLISHED_BLACKSTONE,Gemeißelt Poliert Schwarzstein,CHISELED_POLISHED_BLACKSTONE,4,4,6.8,1.7,recipe,chiseled_polished_blackstone_from_blackstone_stonecutting,stonecutting,6.8
-CRACKED_POLISHED_BLACKSTONE_BRICKS,Rissig Poliert Schwarzstein Ziegel,CRACKED_POLISHED_BLACKSTONE_BRICKS,4,4,7.56,1.89,recipe,cracked_polished_blackstone_bricks,smelting,7.56
+CRACKED_POLISHED_BLACKSTONE_BRICKS,Rissig Poliert Schwarzstein Ziegel,CRACKED_POLISHED_BLACKSTONE_BRICKS,4,4,7.56,1.89,recipe,cracked_polished_blackstone_bricks,smelting,7.1562
 MAGMA_BLOCK,Magma Block,MAGMA_BLOCK,40,6,24.0,6.0,csv,reference,reference,24.0
 ICE,Eis,ICE,5,5,4.0,1.0,explicit_reference,reference,reference,4.0
 PACKED_ICE,Kompakt Eis,PACKED_ICE,12,12,30.6,7.65,recipe,packed_ice,crafting_shapeless,30.6
@@ -215,8 +215,8 @@ PALE_MOSS_BLOCK,Blass Moos Block,PALE_MOSS_BLOCK,2,2,12.0,3.0,explicit_reference
 MOSS_CARPET,Moos Teppich,MOSS_CARPET,0.5,0.5,6.8,1.7,recipe,moss_carpet,crafting_shaped,6.8
 PALE_MOSS_CARPET,Blass Moos Teppich,PALE_MOSS_CARPET,0.5,0.5,6.8,1.7,recipe,pale_moss_carpet,crafting_shaped,6.8
 TERRACOTTA,Keramik,TERRACOTTA,100,2,8.0,2.0,csv,reference,reference,8.0
-GLASS,Glas,GLASS,70,5,19.6,4.9,csv,reference,reference,4.9
-GLASS_PANE,Glas Scheibe,GLASS_PANE,1.5,1.5,6.36,1.59,recipe,glass_pane,crafting_shaped,1.8375
+GLASS,Glas,GLASS,70,5,17.4,4.35,csv,reference,reference,4.3562
+GLASS_PANE,Glas Scheibe,GLASS_PANE,1.5,1.5,6.36,1.59,recipe,glass_pane,crafting_shaped,1.633575
 GLOWSTONE,Glowstone,GLOWSTONE,20,3,12.0,3.0,csv,reference,reference,12.0
 SHROOMLIGHT,Shroomlight,SHROOMLIGHT,60,10,40.0,10.0,csv,reference,reference,40.0
 SEA_LANTERN,Seelaterne,SEA_LANTERN,80,20,80.0,20.0,csv,reference,reference,80.0
@@ -272,12 +272,12 @@ MANGROVE_ROOTS,Mangroven Wurzeln,MANGROVE_ROOTS,5,5,8.0,2.0,explicit_reference,r
 MUDDY_MANGROVE_ROOTS,Muddy Mangroven Wurzeln,MUDDY_MANGROVE_ROOTS,5,5,13.6,3.4,recipe,muddy_mangrove_roots,crafting_shapeless,13.6
 CHORUS_FLOWER,Chorus Blume,CHORUS_FLOWER,30,5,20.0,5.0,csv,reference,reference,20.0
 CHORUS_PLANT,Chorus Plant,CHORUS_PLANT,70,7,28.0,7.0,csv,reference,reference,28.0
-END_ROD,End Stab,END_ROD,120,20,80.0,20.0,csv,reference,reference,44.225
+END_ROD,End Stab,END_ROD,120,20,80.0,20.0,csv,reference,reference,44.08905
 CRYING_OBSIDIAN,Crying Obsidian,CRYING_OBSIDIAN,1000,20,80.0,20.0,csv,reference,reference,80.0
-LODESTONE,Leitstein,LODESTONE,50000,5000,328.72,82.18,csv,reference,reference,82.18
+LODESTONE,Leitstein,LODESTONE,50000,5000,326.52,81.63,csv,reference,reference,81.6362
 RESPAWN_ANCHOR,Seelenanker,RESPAWN_ANCHOR,300,60,240.0,60.0,csv,reference,reference,240.0
 BEACON,Leuchtfeuer,BEACON,250000,250000,100000.0,25000.0,csv,reference,reference,100000.0
-END_CRYSTAL,Enderkristall,END_CRYSTAL,75000,7500,2185.2,546.3,csv,reference,reference,546.3
+END_CRYSTAL,Enderkristall,END_CRYSTAL,75000,7500,2169.96,542.49,csv,reference,reference,542.4934
 DRIED_KELP,Getrocknet Seetang,DRIED_KELP,20,2,8.0,2.0,csv,reference,reference,4.0
 DRIED_KELP_BLOCK,Getrocknet Seetangblock,DRIED_KELP_BLOCK,120,12,48.0,12.0,csv,reference,reference,36.0
 OAK_WOOD,Eichen Holz,OAK_WOOD,50,5,20.0,5.0,csv,reference,reference,20.0
@@ -615,9 +615,9 @@ POLISHED_TUFF_WALL,Poliert Tuff Wand,POLISHED_TUFF_WALL,2.5,2.5,6.8,1.7,recipe,p
 TUFF_BRICK_SLAB,Tuff Ziegel Stufe,TUFF_BRICK_SLAB,1.5,1.5,3.4,0.85,recipe,tuff_brick_slab_from_polished_tuff_stonecutting,stonecutting,3.4
 TUFF_BRICK_STAIRS,Tuff Ziegel Treppe,TUFF_BRICK_STAIRS,2.25,2.25,6.8,1.7,recipe,tuff_brick_stairs_from_polished_tuff_stonecutting,stonecutting,6.8
 TUFF_BRICK_WALL,Tuff Ziegel Wand,TUFF_BRICK_WALL,3,3,6.8,1.7,recipe,tuff_brick_wall_from_polished_tuff_stonecutting,stonecutting,6.8
-BRICK_SLAB,Ziegel Stufe,BRICK_SLAB,8,8,6.8,1.7,recipe,brick_slab,crafting_shaped,6.8
-BRICK_STAIRS,Ziegel Treppe,BRICK_STAIRS,12,12,13.6,3.4,recipe,brick_stairs_from_bricks_stonecutting,stonecutting,13.6
-BRICK_WALL,Ziegel Wand,BRICK_WALL,16,16,13.6,3.4,recipe,brick_wall,crafting_shaped,13.6
+BRICK_SLAB,Ziegel Stufe,BRICK_SLAB,8,8,6.8,1.7,recipe,brick_slab,crafting_shaped,5.7524
+BRICK_STAIRS,Ziegel Treppe,BRICK_STAIRS,12,12,13.6,3.4,recipe,brick_stairs_from_bricks_stonecutting,stonecutting,11.5048
+BRICK_WALL,Ziegel Wand,BRICK_WALL,16,16,13.6,3.4,recipe,brick_wall,crafting_shaped,11.5048
 MUD_BRICK_SLAB,Mud Ziegel Stufe,MUD_BRICK_SLAB,1.25,1.25,6.8,1.7,recipe,mud_brick_slab,crafting_shaped,6.0
 MUD_BRICK_STAIRS,Mud Ziegel Treppe,MUD_BRICK_STAIRS,1.875,1.875,13.6,3.4,recipe,mud_brick_stairs_from_mud_bricks_stonecutting,stonecutting,12.0
 MUD_BRICK_WALL,Mud Ziegel Wand,MUD_BRICK_WALL,2.5,2.5,13.6,3.4,recipe,mud_brick_wall,crafting_shaped,12.0
@@ -669,21 +669,21 @@ QUARTZ_WALL,Quarz Wand,QUARTZ_WALL,36,36,17.0,4.25,recipe,quartz_wall_shape_anal
 SMOOTH_QUARTZ_SLAB,Glatt Quarz Stufe,SMOOTH_QUARTZ_SLAB,18.5,18.5,20.76,5.19,recipe,smooth_quartz_slab,crafting_shaped,20.76
 SMOOTH_QUARTZ_STAIRS,Glatt Quarz Treppe,SMOOTH_QUARTZ_STAIRS,27.75,27.75,41.56,10.39,recipe,smooth_quartz_stairs_from_smooth_quartz_stonecutting,stonecutting,41.56
 SMOOTH_QUARTZ_WALL,Glatt Quarz Wand,SMOOTH_QUARTZ_WALL,37,37,41.56,10.39,recipe,smooth_quartz_wall_shape_analogue,analogy,41.56
-CUT_COPPER_SLAB,Geschnitten Kupfer Stufe,CUT_COPPER_SLAB,54,54,76.48,19.12,recipe,cut_copper_slab,crafting_shaped,62.2125
-CUT_COPPER_STAIRS,Geschnitten Kupfer Treppe,CUT_COPPER_STAIRS,81,81,153.0,38.25,recipe,cut_copper_stairs_from_copper_block_stonecutting,stonecutting,124.425
-CUT_COPPER_WALL,Geschnitten Kupfer Wand,CUT_COPPER_WALL,108,108,153.0,38.25,recipe,cut_copper_wall_shape_analogue,analogy,124.425
-EXPOSED_CUT_COPPER_SLAB,Angelaufen Geschnitten Kupfer Stufe,EXPOSED_CUT_COPPER_SLAB,57.5,57.5,76.48,19.12,recipe,exposed_cut_copper_slab_oxidation,oxidation,62.2125
-EXPOSED_CUT_COPPER_STAIRS,Angelaufen Geschnitten Kupfer Treppe,EXPOSED_CUT_COPPER_STAIRS,86.25,86.25,153.0,38.25,recipe,exposed_cut_copper_stairs_oxidation,oxidation,124.425
-EXPOSED_CUT_COPPER_WALL,Angelaufen Geschnitten Kupfer Wand,EXPOSED_CUT_COPPER_WALL,115,115,153.0,38.25,recipe,exposed_cut_copper_wall_shape_analogue,analogy,124.425
-WEATHERED_CUT_COPPER_SLAB,Verwittert Geschnitten Kupfer Stufe,WEATHERED_CUT_COPPER_SLAB,60,60,76.48,19.12,recipe,weathered_cut_copper_slab_oxidation,oxidation,62.2125
-WEATHERED_CUT_COPPER_STAIRS,Verwittert Geschnitten Kupfer Treppe,WEATHERED_CUT_COPPER_STAIRS,90,90,153.0,38.25,recipe,weathered_cut_copper_stairs_oxidation,oxidation,124.425
-WEATHERED_CUT_COPPER_WALL,Verwittert Geschnitten Kupfer Wand,WEATHERED_CUT_COPPER_WALL,120,120,153.0,38.25,recipe,weathered_cut_copper_wall_shape_analogue,analogy,124.425
-OXIDIZED_CUT_COPPER_SLAB,Oxidiert Geschnitten Kupfer Stufe,OXIDIZED_CUT_COPPER_SLAB,65,65,76.48,19.12,recipe,oxidized_cut_copper_slab_oxidation,oxidation,62.2125
-OXIDIZED_CUT_COPPER_STAIRS,Oxidiert Geschnitten Kupfer Treppe,OXIDIZED_CUT_COPPER_STAIRS,97.5,97.5,153.0,38.25,recipe,oxidized_cut_copper_stairs_oxidation,oxidation,124.425
-OXIDIZED_CUT_COPPER_WALL,Oxidiert Geschnitten Kupfer Wand,OXIDIZED_CUT_COPPER_WALL,130,130,153.0,38.25,recipe,oxidized_cut_copper_wall_shape_analogue,analogy,124.425
-RESIN_BRICK_SLAB,Harz Ziegel Stufe,RESIN_BRICK_SLAB,4.5,4.5,15.12,3.78,recipe,resin_brick_slab,crafting_shaped,15.12
-RESIN_BRICK_STAIRS,Harz Ziegel Treppe,RESIN_BRICK_STAIRS,6.75,6.75,30.24,7.56,recipe,resin_brick_stairs_from_resin_bricks_stonecutting,stonecutting,30.24
-RESIN_BRICK_WALL,Harz Ziegel Wand,RESIN_BRICK_WALL,9,9,30.24,7.56,recipe,resin_brick_wall,crafting_shaped,30.24
+CUT_COPPER_SLAB,Geschnitten Kupfer Stufe,CUT_COPPER_SLAB,54,54,76.48,19.12,recipe,cut_copper_slab,crafting_shaped,61.600725
+CUT_COPPER_STAIRS,Geschnitten Kupfer Treppe,CUT_COPPER_STAIRS,81,81,153.0,38.25,recipe,cut_copper_stairs_from_copper_block_stonecutting,stonecutting,123.20145
+CUT_COPPER_WALL,Geschnitten Kupfer Wand,CUT_COPPER_WALL,108,108,153.0,38.25,recipe,cut_copper_wall_shape_analogue,analogy,123.20145
+EXPOSED_CUT_COPPER_SLAB,Angelaufen Geschnitten Kupfer Stufe,EXPOSED_CUT_COPPER_SLAB,57.5,57.5,76.48,19.12,recipe,exposed_cut_copper_slab_oxidation,oxidation,61.600725
+EXPOSED_CUT_COPPER_STAIRS,Angelaufen Geschnitten Kupfer Treppe,EXPOSED_CUT_COPPER_STAIRS,86.25,86.25,153.0,38.25,recipe,exposed_cut_copper_stairs_oxidation,oxidation,123.20145
+EXPOSED_CUT_COPPER_WALL,Angelaufen Geschnitten Kupfer Wand,EXPOSED_CUT_COPPER_WALL,115,115,153.0,38.25,recipe,exposed_cut_copper_wall_shape_analogue,analogy,123.20145
+WEATHERED_CUT_COPPER_SLAB,Verwittert Geschnitten Kupfer Stufe,WEATHERED_CUT_COPPER_SLAB,60,60,76.48,19.12,recipe,weathered_cut_copper_slab_oxidation,oxidation,61.600725
+WEATHERED_CUT_COPPER_STAIRS,Verwittert Geschnitten Kupfer Treppe,WEATHERED_CUT_COPPER_STAIRS,90,90,153.0,38.25,recipe,weathered_cut_copper_stairs_oxidation,oxidation,123.20145
+WEATHERED_CUT_COPPER_WALL,Verwittert Geschnitten Kupfer Wand,WEATHERED_CUT_COPPER_WALL,120,120,153.0,38.25,recipe,weathered_cut_copper_wall_shape_analogue,analogy,123.20145
+OXIDIZED_CUT_COPPER_SLAB,Oxidiert Geschnitten Kupfer Stufe,OXIDIZED_CUT_COPPER_SLAB,65,65,76.48,19.12,recipe,oxidized_cut_copper_slab_oxidation,oxidation,61.600725
+OXIDIZED_CUT_COPPER_STAIRS,Oxidiert Geschnitten Kupfer Treppe,OXIDIZED_CUT_COPPER_STAIRS,97.5,97.5,153.0,38.25,recipe,oxidized_cut_copper_stairs_oxidation,oxidation,123.20145
+OXIDIZED_CUT_COPPER_WALL,Oxidiert Geschnitten Kupfer Wand,OXIDIZED_CUT_COPPER_WALL,130,130,153.0,38.25,recipe,oxidized_cut_copper_wall_shape_analogue,analogy,123.20145
+RESIN_BRICK_SLAB,Harz Ziegel Stufe,RESIN_BRICK_SLAB,4.5,4.5,15.12,3.78,recipe,resin_brick_slab,crafting_shaped,14.3124
+RESIN_BRICK_STAIRS,Harz Ziegel Treppe,RESIN_BRICK_STAIRS,6.75,6.75,30.24,7.56,recipe,resin_brick_stairs_from_resin_bricks_stonecutting,stonecutting,28.6248
+RESIN_BRICK_WALL,Harz Ziegel Wand,RESIN_BRICK_WALL,9,9,30.24,7.56,recipe,resin_brick_wall,crafting_shaped,28.6248
 WHITE_WOOL,Weiß Wolle,WHITE_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 WHITE_WOOL_SLAB,Weiß Wolle Stufe,WHITE_WOOL_SLAB,3,3,4.24,1.06,recipe,white_wool_slab_analogue,analogy,4.24
 WHITE_WOOL_STAIRS,Weiß Wolle Treppe,WHITE_WOOL_STAIRS,4.5,4.5,12.72,3.18,recipe,white_wool_stairs_analogue,analogy,12.72
@@ -691,10 +691,10 @@ WHITE_CARPET,Weiß Teppich,WHITE_CARPET,4,4,5.64,1.41,recipe,white_carpet,crafti
 WHITE_BED,Weiß Bett,WHITE_BED,26,26,47.6,11.9,recipe,dye_white_bed,crafting_shapeless,42.75
 WHITE_BANNER,Weiß Banner,WHITE_BANNER,40,40,55.24,13.81,recipe,white_banner,crafting_shaped,55.24
 WHITE_CANDLE,Weiß Kerze,WHITE_CANDLE,12,12,23.8,5.95,recipe,white_candle,crafting_shapeless,23.8
-WHITE_STAINED_GLASS,Weiß Gefärbt Glas,WHITE_STAINED_GLASS,6,6,17.84,4.46,recipe,white_stained_glass,crafting_shaped,5.4
-WHITE_STAINED_GLASS_PANE,Weiß Gefärbt Glas Scheibe,WHITE_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,white_stained_glass_pane,crafting_shaped,2.025
+WHITE_STAINED_GLASS,Weiß Gefärbt Glas,WHITE_STAINED_GLASS,6,6,17.84,4.46,recipe,white_stained_glass,crafting_shaped,4.8562
+WHITE_STAINED_GLASS_PANE,Weiß Gefärbt Glas Scheibe,WHITE_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,white_stained_glass_pane,crafting_shaped,1.821075
 WHITE_TERRACOTTA,Weiß Keramik,WHITE_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.5
-WHITE_GLAZED_TERRACOTTA,Weiß Glasiert Keramik,WHITE_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.4
+WHITE_GLAZED_TERRACOTTA,Weiß Glasiert Keramik,WHITE_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,8.8562
 WHITE_CONCRETE_POWDER,Weiß Beton Pulver,WHITE_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.5
 WHITE_CONCRETE,Weiß Beton,WHITE_CONCRETE,9,9,10.2,2.55,recipe,white_concrete_hydration,hydration,4.5
 WHITE_CONCRETE_SLAB,Weiß Beton Stufe,WHITE_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,white_concrete_slab_analogue,analogy,2.25
@@ -703,7 +703,7 @@ WHITE_SHULKER_BOX,Weiß Shulkerkiste,WHITE_SHULKER_BOX,680,680,1434.8,358.7,reci
 WHITE_DYE,Weiß Farbstoff,WHITE_DYE,20,2,8.0,2.0,csv,reference,reference,4.0
 WHITE_BUNDLE,Weiß Bundle,WHITE_BUNDLE,25,25,51.0,12.75,recipe,white_bundle,crafting_transmute,51.0
 WHITE_CUSHION,Weiß Cushion,WHITE_CUSHION,12,12,17.0,4.25,recipe,white_cushion_analogue,analogy,17.0
-WHITE_HARNESS,Weiß Harness,WHITE_HARNESS,80,80,144.48,36.12,recipe,white_harness,crafting_shaped,139.8
+WHITE_HARNESS,Weiß Harness,WHITE_HARNESS,80,80,144.48,36.12,recipe,white_harness,crafting_shaped,138.7124
 WHITE_POPLAR_LEAVES,Weiß Pappel Laub,WHITE_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 ORANGE_WOOL,Orange Wolle,ORANGE_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 ORANGE_WOOL_SLAB,Orange Wolle Stufe,ORANGE_WOOL_SLAB,3,3,4.24,1.06,recipe,orange_wool_slab_analogue,analogy,4.24
@@ -712,10 +712,10 @@ ORANGE_CARPET,Orange Teppich,ORANGE_CARPET,4,4,5.64,1.41,recipe,orange_carpet,cr
 ORANGE_BED,Orange Bett,ORANGE_BED,26,26,47.6,11.9,recipe,dye_orange_bed,crafting_shapeless,42.75
 ORANGE_BANNER,Orange Banner,ORANGE_BANNER,40,40,55.24,13.81,recipe,orange_banner,crafting_shaped,55.24
 ORANGE_CANDLE,Orange Kerze,ORANGE_CANDLE,12,12,23.8,5.95,recipe,orange_candle,crafting_shapeless,23.8
-ORANGE_STAINED_GLASS,Orange Gefärbt Glas,ORANGE_STAINED_GLASS,6,6,17.84,4.46,recipe,orange_stained_glass,crafting_shaped,5.4
-ORANGE_STAINED_GLASS_PANE,Orange Gefärbt Glas Scheibe,ORANGE_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,orange_stained_glass_pane,crafting_shaped,2.025
+ORANGE_STAINED_GLASS,Orange Gefärbt Glas,ORANGE_STAINED_GLASS,6,6,17.84,4.46,recipe,orange_stained_glass,crafting_shaped,4.8562
+ORANGE_STAINED_GLASS_PANE,Orange Gefärbt Glas Scheibe,ORANGE_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,orange_stained_glass_pane,crafting_shaped,1.821075
 ORANGE_TERRACOTTA,Orange Keramik,ORANGE_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.5
-ORANGE_GLAZED_TERRACOTTA,Orange Glasiert Keramik,ORANGE_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.4
+ORANGE_GLAZED_TERRACOTTA,Orange Glasiert Keramik,ORANGE_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,8.8562
 ORANGE_CONCRETE_POWDER,Orange Beton Pulver,ORANGE_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.5
 ORANGE_CONCRETE,Orange Beton,ORANGE_CONCRETE,9,9,10.2,2.55,recipe,orange_concrete_hydration,hydration,4.5
 ORANGE_CONCRETE_SLAB,Orange Beton Stufe,ORANGE_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,orange_concrete_slab_analogue,analogy,2.25
@@ -724,7 +724,7 @@ ORANGE_SHULKER_BOX,Orange Shulkerkiste,ORANGE_SHULKER_BOX,680,680,1434.8,358.7,r
 ORANGE_DYE,Orange Farbstoff,ORANGE_DYE,20,2,8.0,2.0,csv,reference,reference,4.0
 ORANGE_BUNDLE,Orange Bundle,ORANGE_BUNDLE,25,25,51.0,12.75,recipe,orange_bundle,crafting_transmute,51.0
 ORANGE_CUSHION,Orange Cushion,ORANGE_CUSHION,12,12,17.0,4.25,recipe,orange_cushion_analogue,analogy,17.0
-ORANGE_HARNESS,Orange Harness,ORANGE_HARNESS,80,80,144.48,36.12,recipe,orange_harness,crafting_shaped,139.8
+ORANGE_HARNESS,Orange Harness,ORANGE_HARNESS,80,80,144.48,36.12,recipe,orange_harness,crafting_shaped,138.7124
 ORANGE_POPLAR_LEAVES,Orange Pappel Laub,ORANGE_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 MAGENTA_WOOL,Magenta Wolle,MAGENTA_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 MAGENTA_WOOL_SLAB,Magenta Wolle Stufe,MAGENTA_WOOL_SLAB,3,3,4.24,1.06,recipe,magenta_wool_slab_analogue,analogy,4.24
@@ -733,10 +733,10 @@ MAGENTA_CARPET,Magenta Teppich,MAGENTA_CARPET,4,4,5.64,1.41,recipe,magenta_carpe
 MAGENTA_BED,Magenta Bett,MAGENTA_BED,26,26,47.6,11.9,recipe,dye_magenta_bed,crafting_shapeless,42.75
 MAGENTA_BANNER,Magenta Banner,MAGENTA_BANNER,40,40,55.24,13.81,recipe,magenta_banner,crafting_shaped,55.24
 MAGENTA_CANDLE,Magenta Kerze,MAGENTA_CANDLE,12,12,23.8,5.95,recipe,magenta_candle,crafting_shapeless,23.8
-MAGENTA_STAINED_GLASS,Magenta Gefärbt Glas,MAGENTA_STAINED_GLASS,6,6,17.84,4.46,recipe,magenta_stained_glass,crafting_shaped,5.4
-MAGENTA_STAINED_GLASS_PANE,Magenta Gefärbt Glas Scheibe,MAGENTA_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,magenta_stained_glass_pane,crafting_shaped,2.025
+MAGENTA_STAINED_GLASS,Magenta Gefärbt Glas,MAGENTA_STAINED_GLASS,6,6,17.84,4.46,recipe,magenta_stained_glass,crafting_shaped,4.8562
+MAGENTA_STAINED_GLASS_PANE,Magenta Gefärbt Glas Scheibe,MAGENTA_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,magenta_stained_glass_pane,crafting_shaped,1.821075
 MAGENTA_TERRACOTTA,Magenta Keramik,MAGENTA_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.5
-MAGENTA_GLAZED_TERRACOTTA,Magenta Glasiert Keramik,MAGENTA_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.4
+MAGENTA_GLAZED_TERRACOTTA,Magenta Glasiert Keramik,MAGENTA_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,8.8562
 MAGENTA_CONCRETE_POWDER,Magenta Beton Pulver,MAGENTA_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.5
 MAGENTA_CONCRETE,Magenta Beton,MAGENTA_CONCRETE,9,9,10.2,2.55,recipe,magenta_concrete_hydration,hydration,4.5
 MAGENTA_CONCRETE_SLAB,Magenta Beton Stufe,MAGENTA_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,magenta_concrete_slab_analogue,analogy,2.25
@@ -745,7 +745,7 @@ MAGENTA_SHULKER_BOX,Magenta Shulkerkiste,MAGENTA_SHULKER_BOX,680,680,1434.8,358.
 MAGENTA_DYE,Magenta Farbstoff,MAGENTA_DYE,20,2,8.0,2.0,csv,reference,reference,4.0
 MAGENTA_BUNDLE,Magenta Bundle,MAGENTA_BUNDLE,25,25,51.0,12.75,recipe,magenta_bundle,crafting_transmute,51.0
 MAGENTA_CUSHION,Magenta Cushion,MAGENTA_CUSHION,12,12,17.0,4.25,recipe,magenta_cushion_analogue,analogy,17.0
-MAGENTA_HARNESS,Magenta Harness,MAGENTA_HARNESS,80,80,144.48,36.12,recipe,magenta_harness,crafting_shaped,139.8
+MAGENTA_HARNESS,Magenta Harness,MAGENTA_HARNESS,80,80,144.48,36.12,recipe,magenta_harness,crafting_shaped,138.7124
 MAGENTA_POPLAR_LEAVES,Magenta Pappel Laub,MAGENTA_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 LIGHT_BLUE_WOOL,Hellblau Wolle,LIGHT_BLUE_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 LIGHT_BLUE_WOOL_SLAB,Hellblau Wolle Stufe,LIGHT_BLUE_WOOL_SLAB,3,3,4.24,1.06,recipe,light_blue_wool_slab_analogue,analogy,4.24
@@ -754,10 +754,10 @@ LIGHT_BLUE_CARPET,Hellblau Teppich,LIGHT_BLUE_CARPET,4,4,5.64,1.41,recipe,light_
 LIGHT_BLUE_BED,Hellblau Bett,LIGHT_BLUE_BED,26,26,47.6,11.9,recipe,dye_light_blue_bed,crafting_shapeless,42.75
 LIGHT_BLUE_BANNER,Hellblau Banner,LIGHT_BLUE_BANNER,40,40,55.24,13.81,recipe,light_blue_banner,crafting_shaped,55.24
 LIGHT_BLUE_CANDLE,Hellblau Kerze,LIGHT_BLUE_CANDLE,12,12,23.8,5.95,recipe,light_blue_candle,crafting_shapeless,23.8
-LIGHT_BLUE_STAINED_GLASS,Hellblau Gefärbt Glas,LIGHT_BLUE_STAINED_GLASS,6,6,17.84,4.46,recipe,light_blue_stained_glass,crafting_shaped,5.65
-LIGHT_BLUE_STAINED_GLASS_PANE,Hellblau Gefärbt Glas Scheibe,LIGHT_BLUE_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,light_blue_stained_glass_pane,crafting_shaped,2.11875
+LIGHT_BLUE_STAINED_GLASS,Hellblau Gefärbt Glas,LIGHT_BLUE_STAINED_GLASS,6,6,17.84,4.46,recipe,light_blue_stained_glass,crafting_shaped,5.1062
+LIGHT_BLUE_STAINED_GLASS_PANE,Hellblau Gefärbt Glas Scheibe,LIGHT_BLUE_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,light_blue_stained_glass_pane,crafting_shaped,1.914825
 LIGHT_BLUE_TERRACOTTA,Hellblau Keramik,LIGHT_BLUE_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.75
-LIGHT_BLUE_GLAZED_TERRACOTTA,Hellblau Glasiert Keramik,LIGHT_BLUE_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.65
+LIGHT_BLUE_GLAZED_TERRACOTTA,Hellblau Glasiert Keramik,LIGHT_BLUE_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.1062
 LIGHT_BLUE_CONCRETE_POWDER,Hellblau Beton Pulver,LIGHT_BLUE_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.75
 LIGHT_BLUE_CONCRETE,Hellblau Beton,LIGHT_BLUE_CONCRETE,9,9,10.2,2.55,recipe,light_blue_concrete_hydration,hydration,4.75
 LIGHT_BLUE_CONCRETE_SLAB,Hellblau Beton Stufe,LIGHT_BLUE_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,light_blue_concrete_slab_analogue,analogy,2.375
@@ -766,7 +766,7 @@ LIGHT_BLUE_SHULKER_BOX,Hellblau Shulkerkiste,LIGHT_BLUE_SHULKER_BOX,680,680,1434
 LIGHT_BLUE_DYE,Hellblau Farbstoff,LIGHT_BLUE_DYE,20,2,8.0,2.0,csv,reference,reference,6.0
 LIGHT_BLUE_BUNDLE,Hellblau Bundle,LIGHT_BLUE_BUNDLE,25,25,51.0,12.75,recipe,light_blue_bundle,crafting_transmute,51.0
 LIGHT_BLUE_CUSHION,Hellblau Cushion,LIGHT_BLUE_CUSHION,12,12,17.0,4.25,recipe,light_blue_cushion_analogue,analogy,17.0
-LIGHT_BLUE_HARNESS,Hellblau Harness,LIGHT_BLUE_HARNESS,80,80,144.48,36.12,recipe,light_blue_harness,crafting_shaped,139.8
+LIGHT_BLUE_HARNESS,Hellblau Harness,LIGHT_BLUE_HARNESS,80,80,144.48,36.12,recipe,light_blue_harness,crafting_shaped,138.7124
 LIGHT_BLUE_POPLAR_LEAVES,Hellblau Pappel Laub,LIGHT_BLUE_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 YELLOW_WOOL,Gelb Wolle,YELLOW_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 YELLOW_WOOL_SLAB,Gelb Wolle Stufe,YELLOW_WOOL_SLAB,3,3,4.24,1.06,recipe,yellow_wool_slab_analogue,analogy,4.24
@@ -775,10 +775,10 @@ YELLOW_CARPET,Gelb Teppich,YELLOW_CARPET,4,4,5.64,1.41,recipe,yellow_carpet,craf
 YELLOW_BED,Gelb Bett,YELLOW_BED,26,26,47.6,11.9,recipe,dye_yellow_bed,crafting_shapeless,42.75
 YELLOW_BANNER,Gelb Banner,YELLOW_BANNER,40,40,55.24,13.81,recipe,yellow_banner,crafting_shaped,55.24
 YELLOW_CANDLE,Gelb Kerze,YELLOW_CANDLE,12,12,23.8,5.95,recipe,yellow_candle,crafting_shapeless,23.8
-YELLOW_STAINED_GLASS,Gelb Gefärbt Glas,YELLOW_STAINED_GLASS,6,6,17.84,4.46,recipe,yellow_stained_glass,crafting_shaped,5.4
-YELLOW_STAINED_GLASS_PANE,Gelb Gefärbt Glas Scheibe,YELLOW_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,yellow_stained_glass_pane,crafting_shaped,2.025
+YELLOW_STAINED_GLASS,Gelb Gefärbt Glas,YELLOW_STAINED_GLASS,6,6,17.84,4.46,recipe,yellow_stained_glass,crafting_shaped,4.8562
+YELLOW_STAINED_GLASS_PANE,Gelb Gefärbt Glas Scheibe,YELLOW_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,yellow_stained_glass_pane,crafting_shaped,1.821075
 YELLOW_TERRACOTTA,Gelb Keramik,YELLOW_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.5
-YELLOW_GLAZED_TERRACOTTA,Gelb Glasiert Keramik,YELLOW_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.4
+YELLOW_GLAZED_TERRACOTTA,Gelb Glasiert Keramik,YELLOW_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,8.8562
 YELLOW_CONCRETE_POWDER,Gelb Beton Pulver,YELLOW_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.5
 YELLOW_CONCRETE,Gelb Beton,YELLOW_CONCRETE,9,9,10.2,2.55,recipe,yellow_concrete_hydration,hydration,4.5
 YELLOW_CONCRETE_SLAB,Gelb Beton Stufe,YELLOW_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,yellow_concrete_slab_analogue,analogy,2.25
@@ -787,7 +787,7 @@ YELLOW_SHULKER_BOX,Gelb Shulkerkiste,YELLOW_SHULKER_BOX,680,680,1434.8,358.7,rec
 YELLOW_DYE,Gelb Farbstoff,YELLOW_DYE,20,2,8.0,2.0,csv,reference,reference,4.0
 YELLOW_BUNDLE,Gelb Bundle,YELLOW_BUNDLE,25,25,51.0,12.75,recipe,yellow_bundle,crafting_transmute,51.0
 YELLOW_CUSHION,Gelb Cushion,YELLOW_CUSHION,12,12,17.0,4.25,recipe,yellow_cushion_analogue,analogy,17.0
-YELLOW_HARNESS,Gelb Harness,YELLOW_HARNESS,80,80,144.48,36.12,recipe,yellow_harness,crafting_shaped,139.8
+YELLOW_HARNESS,Gelb Harness,YELLOW_HARNESS,80,80,144.48,36.12,recipe,yellow_harness,crafting_shaped,138.7124
 YELLOW_POPLAR_LEAVES,Gelb Pappel Laub,YELLOW_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 LIME_WOOL,Hellgrün Wolle,LIME_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 LIME_WOOL_SLAB,Hellgrün Wolle Stufe,LIME_WOOL_SLAB,3,3,4.24,1.06,recipe,lime_wool_slab_analogue,analogy,4.24
@@ -796,10 +796,10 @@ LIME_CARPET,Hellgrün Teppich,LIME_CARPET,4,4,5.64,1.41,recipe,lime_carpet,craft
 LIME_BED,Hellgrün Bett,LIME_BED,26,26,47.6,11.9,recipe,dye_lime_bed,crafting_shapeless,42.75
 LIME_BANNER,Hellgrün Banner,LIME_BANNER,40,40,55.24,13.81,recipe,lime_banner,crafting_shaped,55.24
 LIME_CANDLE,Hellgrün Kerze,LIME_CANDLE,12,12,23.8,5.95,recipe,lime_candle,crafting_shapeless,23.8
-LIME_STAINED_GLASS,Hellgrün Gefärbt Glas,LIME_STAINED_GLASS,6,6,17.84,4.46,recipe,lime_stained_glass,crafting_shaped,5.65
-LIME_STAINED_GLASS_PANE,Hellgrün Gefärbt Glas Scheibe,LIME_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,lime_stained_glass_pane,crafting_shaped,2.11875
+LIME_STAINED_GLASS,Hellgrün Gefärbt Glas,LIME_STAINED_GLASS,6,6,17.84,4.46,recipe,lime_stained_glass,crafting_shaped,5.1062
+LIME_STAINED_GLASS_PANE,Hellgrün Gefärbt Glas Scheibe,LIME_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,lime_stained_glass_pane,crafting_shaped,1.914825
 LIME_TERRACOTTA,Hellgrün Keramik,LIME_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.75
-LIME_GLAZED_TERRACOTTA,Hellgrün Glasiert Keramik,LIME_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.65
+LIME_GLAZED_TERRACOTTA,Hellgrün Glasiert Keramik,LIME_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.1062
 LIME_CONCRETE_POWDER,Hellgrün Beton Pulver,LIME_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.75
 LIME_CONCRETE,Hellgrün Beton,LIME_CONCRETE,9,9,10.2,2.55,recipe,lime_concrete_hydration,hydration,4.75
 LIME_CONCRETE_SLAB,Hellgrün Beton Stufe,LIME_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,lime_concrete_slab_analogue,analogy,2.375
@@ -808,7 +808,7 @@ LIME_SHULKER_BOX,Hellgrün Shulkerkiste,LIME_SHULKER_BOX,680,680,1434.8,358.7,re
 LIME_DYE,Hellgrün Farbstoff,LIME_DYE,20,2,8.0,2.0,csv,reference,reference,6.0
 LIME_BUNDLE,Hellgrün Bundle,LIME_BUNDLE,25,25,51.0,12.75,recipe,lime_bundle,crafting_transmute,51.0
 LIME_CUSHION,Hellgrün Cushion,LIME_CUSHION,12,12,17.0,4.25,recipe,lime_cushion_analogue,analogy,17.0
-LIME_HARNESS,Hellgrün Harness,LIME_HARNESS,80,80,144.48,36.12,recipe,lime_harness,crafting_shaped,139.8
+LIME_HARNESS,Hellgrün Harness,LIME_HARNESS,80,80,144.48,36.12,recipe,lime_harness,crafting_shaped,138.7124
 LIME_POPLAR_LEAVES,Hellgrün Pappel Laub,LIME_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 PINK_WOOL,Rosa Wolle,PINK_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 PINK_WOOL_SLAB,Rosa Wolle Stufe,PINK_WOOL_SLAB,3,3,4.24,1.06,recipe,pink_wool_slab_analogue,analogy,4.24
@@ -817,10 +817,10 @@ PINK_CARPET,Rosa Teppich,PINK_CARPET,4,4,5.64,1.41,recipe,pink_carpet,crafting_s
 PINK_BED,Rosa Bett,PINK_BED,26,26,47.6,11.9,recipe,dye_pink_bed,crafting_shapeless,42.75
 PINK_BANNER,Rosa Banner,PINK_BANNER,40,40,55.24,13.81,recipe,pink_banner,crafting_shaped,55.24
 PINK_CANDLE,Rosa Kerze,PINK_CANDLE,12,12,23.8,5.95,recipe,pink_candle,crafting_shapeless,23.8
-PINK_STAINED_GLASS,Rosa Gefärbt Glas,PINK_STAINED_GLASS,6,6,17.84,4.46,recipe,pink_stained_glass,crafting_shaped,5.4
-PINK_STAINED_GLASS_PANE,Rosa Gefärbt Glas Scheibe,PINK_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,pink_stained_glass_pane,crafting_shaped,2.025
+PINK_STAINED_GLASS,Rosa Gefärbt Glas,PINK_STAINED_GLASS,6,6,17.84,4.46,recipe,pink_stained_glass,crafting_shaped,4.8562
+PINK_STAINED_GLASS_PANE,Rosa Gefärbt Glas Scheibe,PINK_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,pink_stained_glass_pane,crafting_shaped,1.821075
 PINK_TERRACOTTA,Rosa Keramik,PINK_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.5
-PINK_GLAZED_TERRACOTTA,Rosa Glasiert Keramik,PINK_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.4
+PINK_GLAZED_TERRACOTTA,Rosa Glasiert Keramik,PINK_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,8.8562
 PINK_CONCRETE_POWDER,Rosa Beton Pulver,PINK_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.5
 PINK_CONCRETE,Rosa Beton,PINK_CONCRETE,9,9,10.2,2.55,recipe,pink_concrete_hydration,hydration,4.5
 PINK_CONCRETE_SLAB,Rosa Beton Stufe,PINK_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,pink_concrete_slab_analogue,analogy,2.25
@@ -829,7 +829,7 @@ PINK_SHULKER_BOX,Rosa Shulkerkiste,PINK_SHULKER_BOX,680,680,1434.8,358.7,recipe,
 PINK_DYE,Rosa Farbstoff,PINK_DYE,20,2,8.0,2.0,csv,reference,reference,4.0
 PINK_BUNDLE,Rosa Bundle,PINK_BUNDLE,25,25,51.0,12.75,recipe,pink_bundle,crafting_transmute,51.0
 PINK_CUSHION,Rosa Cushion,PINK_CUSHION,12,12,17.0,4.25,recipe,pink_cushion_analogue,analogy,17.0
-PINK_HARNESS,Rosa Harness,PINK_HARNESS,80,80,144.48,36.12,recipe,pink_harness,crafting_shaped,139.8
+PINK_HARNESS,Rosa Harness,PINK_HARNESS,80,80,144.48,36.12,recipe,pink_harness,crafting_shaped,138.7124
 PINK_POPLAR_LEAVES,Rosa Pappel Laub,PINK_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 GRAY_WOOL,Grau Wolle,GRAY_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 GRAY_WOOL_SLAB,Grau Wolle Stufe,GRAY_WOOL_SLAB,3,3,4.24,1.06,recipe,gray_wool_slab_analogue,analogy,4.24
@@ -838,10 +838,10 @@ GRAY_CARPET,Grau Teppich,GRAY_CARPET,4,4,5.64,1.41,recipe,gray_carpet,crafting_s
 GRAY_BED,Grau Bett,GRAY_BED,26,26,47.6,11.9,recipe,dye_gray_bed,crafting_shapeless,42.75
 GRAY_BANNER,Grau Banner,GRAY_BANNER,40,40,55.24,13.81,recipe,gray_banner,crafting_shaped,55.24
 GRAY_CANDLE,Grau Kerze,GRAY_CANDLE,12,12,23.8,5.95,recipe,gray_candle,crafting_shapeless,23.8
-GRAY_STAINED_GLASS,Grau Gefärbt Glas,GRAY_STAINED_GLASS,6,6,17.84,4.46,recipe,gray_stained_glass,crafting_shaped,5.65
-GRAY_STAINED_GLASS_PANE,Grau Gefärbt Glas Scheibe,GRAY_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,gray_stained_glass_pane,crafting_shaped,2.11875
+GRAY_STAINED_GLASS,Grau Gefärbt Glas,GRAY_STAINED_GLASS,6,6,17.84,4.46,recipe,gray_stained_glass,crafting_shaped,5.1062
+GRAY_STAINED_GLASS_PANE,Grau Gefärbt Glas Scheibe,GRAY_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,gray_stained_glass_pane,crafting_shaped,1.914825
 GRAY_TERRACOTTA,Grau Keramik,GRAY_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.75
-GRAY_GLAZED_TERRACOTTA,Grau Glasiert Keramik,GRAY_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.65
+GRAY_GLAZED_TERRACOTTA,Grau Glasiert Keramik,GRAY_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.1062
 GRAY_CONCRETE_POWDER,Grau Beton Pulver,GRAY_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.75
 GRAY_CONCRETE,Grau Beton,GRAY_CONCRETE,9,9,10.2,2.55,recipe,gray_concrete_hydration,hydration,4.75
 GRAY_CONCRETE_SLAB,Grau Beton Stufe,GRAY_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,gray_concrete_slab_analogue,analogy,2.375
@@ -850,7 +850,7 @@ GRAY_SHULKER_BOX,Grau Shulkerkiste,GRAY_SHULKER_BOX,680,680,1434.8,358.7,recipe,
 GRAY_DYE,Grau Farbstoff,GRAY_DYE,20,2,8.0,2.0,csv,reference,reference,6.0
 GRAY_BUNDLE,Grau Bundle,GRAY_BUNDLE,25,25,51.0,12.75,recipe,gray_bundle,crafting_transmute,51.0
 GRAY_CUSHION,Grau Cushion,GRAY_CUSHION,12,12,17.0,4.25,recipe,gray_cushion_analogue,analogy,17.0
-GRAY_HARNESS,Grau Harness,GRAY_HARNESS,80,80,144.48,36.12,recipe,gray_harness,crafting_shaped,139.8
+GRAY_HARNESS,Grau Harness,GRAY_HARNESS,80,80,144.48,36.12,recipe,gray_harness,crafting_shaped,138.7124
 GRAY_POPLAR_LEAVES,Grau Pappel Laub,GRAY_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 LIGHT_GRAY_WOOL,Hellgrau Wolle,LIGHT_GRAY_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 LIGHT_GRAY_WOOL_SLAB,Hellgrau Wolle Stufe,LIGHT_GRAY_WOOL_SLAB,3,3,4.24,1.06,recipe,light_gray_wool_slab_analogue,analogy,4.24
@@ -859,10 +859,10 @@ LIGHT_GRAY_CARPET,Hellgrau Teppich,LIGHT_GRAY_CARPET,4,4,5.64,1.41,recipe,light_
 LIGHT_GRAY_BED,Hellgrau Bett,LIGHT_GRAY_BED,26,26,47.6,11.9,recipe,dye_light_gray_bed,crafting_shapeless,42.75
 LIGHT_GRAY_BANNER,Hellgrau Banner,LIGHT_GRAY_BANNER,40,40,55.24,13.81,recipe,light_gray_banner,crafting_shaped,55.24
 LIGHT_GRAY_CANDLE,Hellgrau Kerze,LIGHT_GRAY_CANDLE,12,12,23.8,5.95,recipe,light_gray_candle,crafting_shapeless,23.8
-LIGHT_GRAY_STAINED_GLASS,Hellgrau Gefärbt Glas,LIGHT_GRAY_STAINED_GLASS,6,6,17.84,4.46,recipe,light_gray_stained_glass,crafting_shaped,5.525
-LIGHT_GRAY_STAINED_GLASS_PANE,Hellgrau Gefärbt Glas Scheibe,LIGHT_GRAY_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,light_gray_stained_glass_pane,crafting_shaped,2.071875
+LIGHT_GRAY_STAINED_GLASS,Hellgrau Gefärbt Glas,LIGHT_GRAY_STAINED_GLASS,6,6,17.84,4.46,recipe,light_gray_stained_glass,crafting_shaped,4.9812
+LIGHT_GRAY_STAINED_GLASS_PANE,Hellgrau Gefärbt Glas Scheibe,LIGHT_GRAY_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,light_gray_stained_glass_pane,crafting_shaped,1.86795
 LIGHT_GRAY_TERRACOTTA,Hellgrau Keramik,LIGHT_GRAY_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.625
-LIGHT_GRAY_GLAZED_TERRACOTTA,Hellgrau Glasiert Keramik,LIGHT_GRAY_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.525
+LIGHT_GRAY_GLAZED_TERRACOTTA,Hellgrau Glasiert Keramik,LIGHT_GRAY_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,8.9812
 LIGHT_GRAY_CONCRETE_POWDER,Hellgrau Beton Pulver,LIGHT_GRAY_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.625
 LIGHT_GRAY_CONCRETE,Hellgrau Beton,LIGHT_GRAY_CONCRETE,9,9,10.2,2.55,recipe,light_gray_concrete_hydration,hydration,4.625
 LIGHT_GRAY_CONCRETE_SLAB,Hellgrau Beton Stufe,LIGHT_GRAY_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,light_gray_concrete_slab_analogue,analogy,2.3125
@@ -871,7 +871,7 @@ LIGHT_GRAY_SHULKER_BOX,Hellgrau Shulkerkiste,LIGHT_GRAY_SHULKER_BOX,680,680,1434
 LIGHT_GRAY_DYE,Hellgrau Farbstoff,LIGHT_GRAY_DYE,20,2,8.0,2.0,csv,reference,reference,5.0
 LIGHT_GRAY_BUNDLE,Hellgrau Bundle,LIGHT_GRAY_BUNDLE,25,25,51.0,12.75,recipe,light_gray_bundle,crafting_transmute,51.0
 LIGHT_GRAY_CUSHION,Hellgrau Cushion,LIGHT_GRAY_CUSHION,12,12,17.0,4.25,recipe,light_gray_cushion_analogue,analogy,17.0
-LIGHT_GRAY_HARNESS,Hellgrau Harness,LIGHT_GRAY_HARNESS,80,80,144.48,36.12,recipe,light_gray_harness,crafting_shaped,139.8
+LIGHT_GRAY_HARNESS,Hellgrau Harness,LIGHT_GRAY_HARNESS,80,80,144.48,36.12,recipe,light_gray_harness,crafting_shaped,138.7124
 LIGHT_GRAY_POPLAR_LEAVES,Hellgrau Pappel Laub,LIGHT_GRAY_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 CYAN_WOOL,Türkis Wolle,CYAN_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 CYAN_WOOL_SLAB,Türkis Wolle Stufe,CYAN_WOOL_SLAB,3,3,4.24,1.06,recipe,cyan_wool_slab_analogue,analogy,4.24
@@ -880,10 +880,10 @@ CYAN_CARPET,Türkis Teppich,CYAN_CARPET,4,4,5.64,1.41,recipe,cyan_carpet,craftin
 CYAN_BED,Türkis Bett,CYAN_BED,26,26,47.6,11.9,recipe,dye_cyan_bed,crafting_shapeless,42.75
 CYAN_BANNER,Türkis Banner,CYAN_BANNER,40,40,55.24,13.81,recipe,cyan_banner,crafting_shaped,55.24
 CYAN_CANDLE,Türkis Kerze,CYAN_CANDLE,12,12,23.8,5.95,recipe,cyan_candle,crafting_shapeless,23.8
-CYAN_STAINED_GLASS,Türkis Gefärbt Glas,CYAN_STAINED_GLASS,6,6,17.84,4.46,recipe,cyan_stained_glass,crafting_shaped,5.4
-CYAN_STAINED_GLASS_PANE,Türkis Gefärbt Glas Scheibe,CYAN_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,cyan_stained_glass_pane,crafting_shaped,2.025
+CYAN_STAINED_GLASS,Türkis Gefärbt Glas,CYAN_STAINED_GLASS,6,6,17.84,4.46,recipe,cyan_stained_glass,crafting_shaped,4.8562
+CYAN_STAINED_GLASS_PANE,Türkis Gefärbt Glas Scheibe,CYAN_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,cyan_stained_glass_pane,crafting_shaped,1.821075
 CYAN_TERRACOTTA,Türkis Keramik,CYAN_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.5
-CYAN_GLAZED_TERRACOTTA,Türkis Glasiert Keramik,CYAN_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.4
+CYAN_GLAZED_TERRACOTTA,Türkis Glasiert Keramik,CYAN_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,8.8562
 CYAN_CONCRETE_POWDER,Türkis Beton Pulver,CYAN_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.5
 CYAN_CONCRETE,Türkis Beton,CYAN_CONCRETE,9,9,10.2,2.55,recipe,cyan_concrete_hydration,hydration,4.5
 CYAN_CONCRETE_SLAB,Türkis Beton Stufe,CYAN_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,cyan_concrete_slab_analogue,analogy,2.25
@@ -892,7 +892,7 @@ CYAN_SHULKER_BOX,Türkis Shulkerkiste,CYAN_SHULKER_BOX,680,680,1434.8,358.7,reci
 CYAN_DYE,Türkis Farbstoff,CYAN_DYE,20,2,8.0,2.0,csv,reference,reference,4.0
 CYAN_BUNDLE,Türkis Bundle,CYAN_BUNDLE,25,25,51.0,12.75,recipe,cyan_bundle,crafting_transmute,51.0
 CYAN_CUSHION,Türkis Cushion,CYAN_CUSHION,12,12,17.0,4.25,recipe,cyan_cushion_analogue,analogy,17.0
-CYAN_HARNESS,Türkis Harness,CYAN_HARNESS,80,80,144.48,36.12,recipe,cyan_harness,crafting_shaped,139.8
+CYAN_HARNESS,Türkis Harness,CYAN_HARNESS,80,80,144.48,36.12,recipe,cyan_harness,crafting_shaped,138.7124
 CYAN_POPLAR_LEAVES,Türkis Pappel Laub,CYAN_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 PURPLE_WOOL,Violett Wolle,PURPLE_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 PURPLE_WOOL_SLAB,Violett Wolle Stufe,PURPLE_WOOL_SLAB,3,3,4.24,1.06,recipe,purple_wool_slab_analogue,analogy,4.24
@@ -901,10 +901,10 @@ PURPLE_CARPET,Violett Teppich,PURPLE_CARPET,4,4,5.64,1.41,recipe,purple_carpet,c
 PURPLE_BED,Violett Bett,PURPLE_BED,26,26,47.6,11.9,recipe,dye_purple_bed,crafting_shapeless,42.75
 PURPLE_BANNER,Violett Banner,PURPLE_BANNER,40,40,55.24,13.81,recipe,purple_banner,crafting_shaped,55.24
 PURPLE_CANDLE,Violett Kerze,PURPLE_CANDLE,12,12,23.8,5.95,recipe,purple_candle,crafting_shapeless,23.8
-PURPLE_STAINED_GLASS,Violett Gefärbt Glas,PURPLE_STAINED_GLASS,6,6,17.84,4.46,recipe,purple_stained_glass,crafting_shaped,5.65
-PURPLE_STAINED_GLASS_PANE,Violett Gefärbt Glas Scheibe,PURPLE_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,purple_stained_glass_pane,crafting_shaped,2.11875
+PURPLE_STAINED_GLASS,Violett Gefärbt Glas,PURPLE_STAINED_GLASS,6,6,17.84,4.46,recipe,purple_stained_glass,crafting_shaped,5.1062
+PURPLE_STAINED_GLASS_PANE,Violett Gefärbt Glas Scheibe,PURPLE_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,purple_stained_glass_pane,crafting_shaped,1.914825
 PURPLE_TERRACOTTA,Violett Keramik,PURPLE_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.75
-PURPLE_GLAZED_TERRACOTTA,Violett Glasiert Keramik,PURPLE_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.65
+PURPLE_GLAZED_TERRACOTTA,Violett Glasiert Keramik,PURPLE_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.1062
 PURPLE_CONCRETE_POWDER,Violett Beton Pulver,PURPLE_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.75
 PURPLE_CONCRETE,Violett Beton,PURPLE_CONCRETE,9,9,10.2,2.55,recipe,purple_concrete_hydration,hydration,4.75
 PURPLE_CONCRETE_SLAB,Violett Beton Stufe,PURPLE_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,purple_concrete_slab_analogue,analogy,2.375
@@ -913,7 +913,7 @@ PURPLE_SHULKER_BOX,Violett Shulkerkiste,PURPLE_SHULKER_BOX,680,680,1434.8,358.7,
 PURPLE_DYE,Violett Farbstoff,PURPLE_DYE,20,2,8.0,2.0,csv,reference,reference,6.0
 PURPLE_BUNDLE,Violett Bundle,PURPLE_BUNDLE,25,25,51.0,12.75,recipe,purple_bundle,crafting_transmute,51.0
 PURPLE_CUSHION,Violett Cushion,PURPLE_CUSHION,12,12,17.0,4.25,recipe,purple_cushion_analogue,analogy,17.0
-PURPLE_HARNESS,Violett Harness,PURPLE_HARNESS,80,80,144.48,36.12,recipe,purple_harness,crafting_shaped,139.8
+PURPLE_HARNESS,Violett Harness,PURPLE_HARNESS,80,80,144.48,36.12,recipe,purple_harness,crafting_shaped,138.7124
 PURPLE_POPLAR_LEAVES,Violett Pappel Laub,PURPLE_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 BLUE_WOOL,Blau Wolle,BLUE_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 BLUE_WOOL_SLAB,Blau Wolle Stufe,BLUE_WOOL_SLAB,3,3,4.24,1.06,recipe,blue_wool_slab_analogue,analogy,4.24
@@ -922,10 +922,10 @@ BLUE_CARPET,Blau Teppich,BLUE_CARPET,4,4,5.64,1.41,recipe,blue_carpet,crafting_s
 BLUE_BED,Blau Bett,BLUE_BED,26,26,47.6,11.9,recipe,dye_blue_bed,crafting_shapeless,42.75
 BLUE_BANNER,Blau Banner,BLUE_BANNER,40,40,55.24,13.81,recipe,blue_banner,crafting_shaped,55.24
 BLUE_CANDLE,Blau Kerze,BLUE_CANDLE,12,12,23.8,5.95,recipe,blue_candle,crafting_shapeless,23.8
-BLUE_STAINED_GLASS,Blau Gefärbt Glas,BLUE_STAINED_GLASS,6,6,17.84,4.46,recipe,blue_stained_glass,crafting_shaped,5.9
-BLUE_STAINED_GLASS_PANE,Blau Gefärbt Glas Scheibe,BLUE_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,blue_stained_glass_pane,crafting_shaped,2.2125
+BLUE_STAINED_GLASS,Blau Gefärbt Glas,BLUE_STAINED_GLASS,6,6,17.84,4.46,recipe,blue_stained_glass,crafting_shaped,5.3562
+BLUE_STAINED_GLASS_PANE,Blau Gefärbt Glas Scheibe,BLUE_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,blue_stained_glass_pane,crafting_shaped,2.008575
 BLUE_TERRACOTTA,Blau Keramik,BLUE_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,9.0
-BLUE_GLAZED_TERRACOTTA,Blau Glasiert Keramik,BLUE_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.9
+BLUE_GLAZED_TERRACOTTA,Blau Glasiert Keramik,BLUE_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.3562
 BLUE_CONCRETE_POWDER,Blau Beton Pulver,BLUE_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,5.0
 BLUE_CONCRETE,Blau Beton,BLUE_CONCRETE,9,9,10.2,2.55,recipe,blue_concrete_hydration,hydration,5.0
 BLUE_CONCRETE_SLAB,Blau Beton Stufe,BLUE_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,blue_concrete_slab_analogue,analogy,2.5
@@ -934,7 +934,7 @@ BLUE_SHULKER_BOX,Blau Shulkerkiste,BLUE_SHULKER_BOX,680,680,1434.8,358.7,recipe,
 BLUE_DYE,Blau Farbstoff,BLUE_DYE,20,2,8.0,2.0,csv,reference,reference,8.0
 BLUE_BUNDLE,Blau Bundle,BLUE_BUNDLE,25,25,51.0,12.75,recipe,blue_bundle,crafting_transmute,51.0
 BLUE_CUSHION,Blau Cushion,BLUE_CUSHION,12,12,17.0,4.25,recipe,blue_cushion_analogue,analogy,17.0
-BLUE_HARNESS,Blau Harness,BLUE_HARNESS,80,80,144.48,36.12,recipe,blue_harness,crafting_shaped,139.8
+BLUE_HARNESS,Blau Harness,BLUE_HARNESS,80,80,144.48,36.12,recipe,blue_harness,crafting_shaped,138.7124
 BLUE_POPLAR_LEAVES,Blau Pappel Laub,BLUE_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 BROWN_WOOL,Braun Wolle,BROWN_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 BROWN_WOOL_SLAB,Braun Wolle Stufe,BROWN_WOOL_SLAB,3,3,4.24,1.06,recipe,brown_wool_slab_analogue,analogy,4.24
@@ -943,10 +943,10 @@ BROWN_CARPET,Braun Teppich,BROWN_CARPET,4,4,5.64,1.41,recipe,brown_carpet,crafti
 BROWN_BED,Braun Bett,BROWN_BED,26,26,47.6,11.9,recipe,dye_brown_bed,crafting_shapeless,42.75
 BROWN_BANNER,Braun Banner,BROWN_BANNER,40,40,55.24,13.81,recipe,brown_banner,crafting_shaped,55.24
 BROWN_CANDLE,Braun Kerze,BROWN_CANDLE,12,12,23.8,5.95,recipe,brown_candle,crafting_shapeless,23.8
-BROWN_STAINED_GLASS,Braun Gefärbt Glas,BROWN_STAINED_GLASS,6,6,17.84,4.46,recipe,brown_stained_glass,crafting_shaped,5.9
-BROWN_STAINED_GLASS_PANE,Braun Gefärbt Glas Scheibe,BROWN_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,brown_stained_glass_pane,crafting_shaped,2.2125
+BROWN_STAINED_GLASS,Braun Gefärbt Glas,BROWN_STAINED_GLASS,6,6,17.84,4.46,recipe,brown_stained_glass,crafting_shaped,5.3562
+BROWN_STAINED_GLASS_PANE,Braun Gefärbt Glas Scheibe,BROWN_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,brown_stained_glass_pane,crafting_shaped,2.008575
 BROWN_TERRACOTTA,Braun Keramik,BROWN_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,9.0
-BROWN_GLAZED_TERRACOTTA,Braun Glasiert Keramik,BROWN_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.9
+BROWN_GLAZED_TERRACOTTA,Braun Glasiert Keramik,BROWN_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.3562
 BROWN_CONCRETE_POWDER,Braun Beton Pulver,BROWN_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,5.0
 BROWN_CONCRETE,Braun Beton,BROWN_CONCRETE,9,9,10.2,2.55,recipe,brown_concrete_hydration,hydration,5.0
 BROWN_CONCRETE_SLAB,Braun Beton Stufe,BROWN_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,brown_concrete_slab_analogue,analogy,2.5
@@ -955,7 +955,7 @@ BROWN_SHULKER_BOX,Braun Shulkerkiste,BROWN_SHULKER_BOX,680,680,1434.8,358.7,reci
 BROWN_DYE,Braun Farbstoff,BROWN_DYE,20,2,8.0,2.0,csv,reference,reference,8.0
 BROWN_BUNDLE,Braun Bundle,BROWN_BUNDLE,25,25,51.0,12.75,recipe,brown_bundle,crafting_transmute,51.0
 BROWN_CUSHION,Braun Cushion,BROWN_CUSHION,12,12,17.0,4.25,recipe,brown_cushion_analogue,analogy,17.0
-BROWN_HARNESS,Braun Harness,BROWN_HARNESS,80,80,144.48,36.12,recipe,brown_harness,crafting_shaped,139.8
+BROWN_HARNESS,Braun Harness,BROWN_HARNESS,80,80,144.48,36.12,recipe,brown_harness,crafting_shaped,138.7124
 BROWN_POPLAR_LEAVES,Braun Pappel Laub,BROWN_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 GREEN_WOOL,Grün Wolle,GREEN_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 GREEN_WOOL_SLAB,Grün Wolle Stufe,GREEN_WOOL_SLAB,3,3,4.24,1.06,recipe,green_wool_slab_analogue,analogy,4.24
@@ -964,10 +964,10 @@ GREEN_CARPET,Grün Teppich,GREEN_CARPET,4,4,5.64,1.41,recipe,green_carpet,crafti
 GREEN_BED,Grün Bett,GREEN_BED,26,26,47.6,11.9,recipe,dye_green_bed,crafting_shapeless,42.75
 GREEN_BANNER,Grün Banner,GREEN_BANNER,40,40,55.24,13.81,recipe,green_banner,crafting_shaped,55.24
 GREEN_CANDLE,Grün Kerze,GREEN_CANDLE,12,12,23.8,5.95,recipe,green_candle,crafting_shapeless,23.8
-GREEN_STAINED_GLASS,Grün Gefärbt Glas,GREEN_STAINED_GLASS,6,6,17.84,4.46,recipe,green_stained_glass,crafting_shaped,5.9
-GREEN_STAINED_GLASS_PANE,Grün Gefärbt Glas Scheibe,GREEN_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,green_stained_glass_pane,crafting_shaped,2.2125
+GREEN_STAINED_GLASS,Grün Gefärbt Glas,GREEN_STAINED_GLASS,6,6,17.84,4.46,recipe,green_stained_glass,crafting_shaped,5.3562
+GREEN_STAINED_GLASS_PANE,Grün Gefärbt Glas Scheibe,GREEN_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,green_stained_glass_pane,crafting_shaped,2.008575
 GREEN_TERRACOTTA,Grün Keramik,GREEN_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,9.0
-GREEN_GLAZED_TERRACOTTA,Grün Glasiert Keramik,GREEN_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.9
+GREEN_GLAZED_TERRACOTTA,Grün Glasiert Keramik,GREEN_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.3562
 GREEN_CONCRETE_POWDER,Grün Beton Pulver,GREEN_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,5.0
 GREEN_CONCRETE,Grün Beton,GREEN_CONCRETE,9,9,10.2,2.55,recipe,green_concrete_hydration,hydration,5.0
 GREEN_CONCRETE_SLAB,Grün Beton Stufe,GREEN_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,green_concrete_slab_analogue,analogy,2.5
@@ -976,7 +976,7 @@ GREEN_SHULKER_BOX,Grün Shulkerkiste,GREEN_SHULKER_BOX,680,680,1434.8,358.7,reci
 GREEN_DYE,Grün Farbstoff,GREEN_DYE,20,2,8.0,2.0,csv,reference,reference,8.0
 GREEN_BUNDLE,Grün Bundle,GREEN_BUNDLE,25,25,51.0,12.75,recipe,green_bundle,crafting_transmute,51.0
 GREEN_CUSHION,Grün Cushion,GREEN_CUSHION,12,12,17.0,4.25,recipe,green_cushion_analogue,analogy,17.0
-GREEN_HARNESS,Grün Harness,GREEN_HARNESS,80,80,144.48,36.12,recipe,green_harness,crafting_shaped,139.8
+GREEN_HARNESS,Grün Harness,GREEN_HARNESS,80,80,144.48,36.12,recipe,green_harness,crafting_shaped,138.7124
 GREEN_POPLAR_LEAVES,Grün Pappel Laub,GREEN_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 RED_WOOL,Rot Wolle,RED_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 RED_WOOL_SLAB,Rot Wolle Stufe,RED_WOOL_SLAB,3,3,4.24,1.06,recipe,red_wool_slab_analogue,analogy,4.24
@@ -985,10 +985,10 @@ RED_CARPET,Rot Teppich,RED_CARPET,4,4,5.64,1.41,recipe,red_carpet,crafting_shape
 RED_BED,Rot Bett,RED_BED,120,12,48.0,12.0,csv,reference,reference,42.75
 RED_BANNER,Rot Banner,RED_BANNER,40,40,55.24,13.81,recipe,red_banner,crafting_shaped,55.24
 RED_CANDLE,Rot Kerze,RED_CANDLE,12,12,23.8,5.95,recipe,red_candle,crafting_shapeless,23.8
-RED_STAINED_GLASS,Rot Gefärbt Glas,RED_STAINED_GLASS,6,6,17.84,4.46,recipe,red_stained_glass,crafting_shaped,5.4
-RED_STAINED_GLASS_PANE,Rot Gefärbt Glas Scheibe,RED_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,red_stained_glass_pane,crafting_shaped,2.025
+RED_STAINED_GLASS,Rot Gefärbt Glas,RED_STAINED_GLASS,6,6,17.84,4.46,recipe,red_stained_glass,crafting_shaped,4.8562
+RED_STAINED_GLASS_PANE,Rot Gefärbt Glas Scheibe,RED_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,red_stained_glass_pane,crafting_shaped,1.821075
 RED_TERRACOTTA,Rot Keramik,RED_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,8.5
-RED_GLAZED_TERRACOTTA,Rot Glasiert Keramik,RED_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.4
+RED_GLAZED_TERRACOTTA,Rot Glasiert Keramik,RED_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,8.8562
 RED_CONCRETE_POWDER,Rot Beton Pulver,RED_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,4.5
 RED_CONCRETE,Rot Beton,RED_CONCRETE,9,9,10.2,2.55,recipe,red_concrete_hydration,hydration,4.5
 RED_CONCRETE_SLAB,Rot Beton Stufe,RED_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,red_concrete_slab_analogue,analogy,2.25
@@ -997,7 +997,7 @@ RED_SHULKER_BOX,Rot Shulkerkiste,RED_SHULKER_BOX,680,680,1434.8,358.7,recipe,red
 RED_DYE,Rot Farbstoff,RED_DYE,20,2,8.0,2.0,csv,reference,reference,4.0
 RED_BUNDLE,Rot Bundle,RED_BUNDLE,25,25,51.0,12.75,recipe,red_bundle,crafting_transmute,51.0
 RED_CUSHION,Rot Cushion,RED_CUSHION,12,12,17.0,4.25,recipe,red_cushion_analogue,analogy,17.0
-RED_HARNESS,Rot Harness,RED_HARNESS,80,80,144.48,36.12,recipe,red_harness,crafting_shaped,139.8
+RED_HARNESS,Rot Harness,RED_HARNESS,80,80,144.48,36.12,recipe,red_harness,crafting_shaped,138.7124
 RED_POPLAR_LEAVES,Rot Pappel Laub,RED_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 BLACK_WOOL,Schwarz Wolle,BLACK_WOOL,25,2.5,10.0,2.5,csv,reference,reference,10.0
 BLACK_WOOL_SLAB,Schwarz Wolle Stufe,BLACK_WOOL_SLAB,3,3,4.24,1.06,recipe,black_wool_slab_analogue,analogy,4.24
@@ -1006,10 +1006,10 @@ BLACK_CARPET,Schwarz Teppich,BLACK_CARPET,4,4,5.64,1.41,recipe,black_carpet,craf
 BLACK_BED,Schwarz Bett,BLACK_BED,26,26,47.6,11.9,recipe,dye_black_bed,crafting_shapeless,42.75
 BLACK_BANNER,Schwarz Banner,BLACK_BANNER,40,40,55.24,13.81,recipe,black_banner,crafting_shaped,55.24
 BLACK_CANDLE,Schwarz Kerze,BLACK_CANDLE,12,12,23.8,5.95,recipe,black_candle,crafting_shapeless,23.8
-BLACK_STAINED_GLASS,Schwarz Gefärbt Glas,BLACK_STAINED_GLASS,6,6,17.84,4.46,recipe,black_stained_glass,crafting_shaped,5.9
-BLACK_STAINED_GLASS_PANE,Schwarz Gefärbt Glas Scheibe,BLACK_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,black_stained_glass_pane,crafting_shaped,2.2125
+BLACK_STAINED_GLASS,Schwarz Gefärbt Glas,BLACK_STAINED_GLASS,6,6,17.84,4.46,recipe,black_stained_glass,crafting_shaped,5.3562
+BLACK_STAINED_GLASS_PANE,Schwarz Gefärbt Glas Scheibe,BLACK_STAINED_GLASS_PANE,2.5,2.5,6.68,1.67,recipe,black_stained_glass_pane,crafting_shaped,2.008575
 BLACK_TERRACOTTA,Schwarz Keramik,BLACK_TERRACOTTA,55,5.5,22.0,5.5,csv,reference,reference,9.0
-BLACK_GLAZED_TERRACOTTA,Schwarz Glasiert Keramik,BLACK_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.9
+BLACK_GLAZED_TERRACOTTA,Schwarz Glasiert Keramik,BLACK_GLAZED_TERRACOTTA,80,8,32.0,8.0,csv,reference,reference,9.3562
 BLACK_CONCRETE_POWDER,Schwarz Beton Pulver,BLACK_CONCRETE_POWDER,30,3,12.0,3.0,csv,reference,reference,5.0
 BLACK_CONCRETE,Schwarz Beton,BLACK_CONCRETE,9,9,10.2,2.55,recipe,black_concrete_hydration,hydration,5.0
 BLACK_CONCRETE_SLAB,Schwarz Beton Stufe,BLACK_CONCRETE_SLAB,4.5,4.5,5.08,1.27,recipe,black_concrete_slab_analogue,analogy,2.5
@@ -1018,7 +1018,7 @@ BLACK_SHULKER_BOX,Schwarz Shulkerkiste,BLACK_SHULKER_BOX,680,680,1434.8,358.7,re
 BLACK_DYE,Schwarz Farbstoff,BLACK_DYE,20,2,8.0,2.0,csv,reference,reference,8.0
 BLACK_BUNDLE,Schwarz Bundle,BLACK_BUNDLE,25,25,51.0,12.75,recipe,black_bundle,crafting_transmute,51.0
 BLACK_CUSHION,Schwarz Cushion,BLACK_CUSHION,12,12,17.0,4.25,recipe,black_cushion_analogue,analogy,17.0
-BLACK_HARNESS,Schwarz Harness,BLACK_HARNESS,80,80,144.48,36.12,recipe,black_harness,crafting_shaped,139.8
+BLACK_HARNESS,Schwarz Harness,BLACK_HARNESS,80,80,144.48,36.12,recipe,black_harness,crafting_shaped,138.7124
 BLACK_POPLAR_LEAVES,Schwarz Pappel Laub,BLACK_POPLAR_LEAVES,3,3,12.0,3.0,foliage_reference,reference,reference,12.0
 DANDELION,Dandelion,DANDELION,20,2,8.0,2.0,csv,reference,reference,8.0
 POPPY,Poppy,POPPY,20,2,8.0,2.0,csv,reference,reference,8.0
@@ -1059,38 +1059,38 @@ BROWN_MUSHROOM_BLOCK,Brauner Pilz Block,BROWN_MUSHROOM_BLOCK,35,3.5,14.0,3.5,csv
 RED_MUSHROOM_BLOCK,Roter Pilz Block,RED_MUSHROOM_BLOCK,35,3.5,14.0,3.5,csv,reference,reference,14.0
 CRAFTING_TABLE,Werkbank,CRAFTING_TABLE,3,3,34.0,8.5,recipe,crafting_table,crafting_shaped,17.0
 FURNACE,Ofen,FURNACE,12,12,27.2,6.8,recipe,furnace,crafting_shaped,27.2
-BLAST_FURNACE,Schmelzofen,BLAST_FURNACE,800,800,379.68,94.92,recipe,blast_furnace,crafting_shaped,316.18
+BLAST_FURNACE,Schmelzofen,BLAST_FURNACE,800,800,379.68,94.92,recipe,blast_furnace,crafting_shaped,313.461
 SMOKER,Räucherofen,SMOKER,25,25,95.2,23.8,recipe,smoker,crafting_shaped,95.2
 CAMPFIRE,Campfire,CAMPFIRE,18,18,80.72,20.18,recipe,campfire,crafting_shaped,65.375
 SOUL_CAMPFIRE,Seelen Campfire,SOUL_CAMPFIRE,25,25,73.92,18.48,recipe,soul_campfire,crafting_shaped,69.375
 CHEST,Truhe,CHEST,12,12,68.0,17.0,recipe,chest,crafting_shaped,34.0
-TRAPPED_CHEST,Trapped Truhe,TRAPPED_CHEST,22,22,108.36,27.09,recipe,trapped_chest,crafting_shapeless,64.8375
+TRAPPED_CHEST,Trapped Truhe,TRAPPED_CHEST,22,22,108.36,27.09,recipe,trapped_chest,crafting_shapeless,64.5656
 BARREL,Fass,BARREL,11,11,59.48,14.87,recipe,barrel,crafting_shaped,29.75
-HOPPER,Trichter,HOPPER,1300,1300,408.0,102.0,recipe,hopper,crafting_shaped,310.5
+HOPPER,Trichter,HOPPER,1300,1300,408.0,102.0,recipe,hopper,crafting_shaped,307.781
 DISPENSER,Werfer,DISPENSER,35,35,101.12,25.28,recipe,dispenser,crafting_shaped,83.70833333333333
 DROPPER,Spender,DROPPER,25,25,57.8,14.45,recipe,dropper,crafting_shaped,41.333333333333336
 OBSERVER,Beobachter,OBSERVER,30,30,105.4,26.35,recipe,observer,crafting_shaped,70.66666666666667
-PISTON,Kolben,PISTON,55,55,141.08,35.27,recipe,piston,crafting_shaped,97.38333333333334
-STICKY_PISTON,Klebrig Kolben,STICKY_PISTON,64,64,175.08,43.77,recipe,sticky_piston,crafting_shaped,105.38333333333334
+PISTON,Kolben,PISTON,55,55,141.08,35.27,recipe,piston,crafting_shaped,96.83953333333334
+STICKY_PISTON,Klebrig Kolben,STICKY_PISTON,64,64,175.08,43.77,recipe,sticky_piston,crafting_shaped,104.83953333333334
 REPEATER,Verstärker,REPEATER,25,25,120.68,30.17,recipe,repeater,crafting_shaped,56.25
 COMPARATOR,Komparator,COMPARATOR,60,60,141.92,35.48,recipe,comparator,crafting_shaped,78.375
-DAYLIGHT_DETECTOR,Tageslicht Detektor,DAYLIGHT_DETECTOR,55,55,114.72,28.68,recipe,daylight_detector,crafting_shaped,81.075
+DAYLIGHT_DETECTOR,Tageslicht Detektor,DAYLIGHT_DETECTOR,55,55,114.72,28.68,recipe,daylight_detector,crafting_shaped,79.4436
 TARGET,Zielblock,TARGET,40,40,197.2,49.3,recipe,target,crafting_shaped,125.33333333333333
-TRIPWIRE_HOOK,Stolperdraht Haken,TRIPWIRE_HOOK,120,120,40.36,10.09,recipe,tripwire_hook,crafting_shaped,30.8375
+TRIPWIRE_HOOK,Stolperdraht Haken,TRIPWIRE_HOOK,120,120,40.36,10.09,recipe,tripwire_hook,crafting_shaped,30.5656
 LEVER,Hebel,LEVER,2,2,7.64,1.91,recipe,lever,crafting_shaped,6.125
 STONE_BUTTON,Stein Knopf,STONE_BUTTON,1,1,3.4,0.85,recipe,stone_button,crafting_shapeless,3.4
 STONE_PRESSURE_PLATE,Stein Druckplatte,STONE_PRESSURE_PLATE,4,4,6.8,1.7,recipe,stone_pressure_plate,crafting_shaped,6.8
 LIGHT_WEIGHTED_PRESSURE_PLATE,Licht Weighted Druckplatte,LIGHT_WEIGHTED_PRESSURE_PLATE,1000,1000,136.0,34.0,recipe,light_weighted_pressure_plate,crafting_shaped,72.0
-HEAVY_WEIGHTED_PRESSURE_PLATE,Schwer Weighted Druckplatte,HEAVY_WEIGHTED_PRESSURE_PLATE,800,800,136.0,34.0,recipe,heavy_weighted_pressure_plate,crafting_shaped,110.6
-RAIL,Schiene,RAIL,100,100,25.76,6.44,recipe,rail,crafting_shaped,20.8703125
+HEAVY_WEIGHTED_PRESSURE_PLATE,Schwer Weighted Druckplatte,HEAVY_WEIGHTED_PRESSURE_PLATE,800,800,136.0,34.0,recipe,heavy_weighted_pressure_plate,crafting_shaped,109.5124
+RAIL,Schiene,RAIL,100,100,25.76,6.44,recipe,rail,crafting_shaped,20.6663875
 POWERED_RAIL,Antriebs Schiene,POWERED_RAIL,1000,1000,74.36,18.59,recipe,powered_rail,crafting_shaped,38.576388888888886
-DETECTOR_RAIL,Detektor Schiene,DETECTOR_RAIL,280,280,74.8,18.7,recipe,detector_rail,crafting_shaped,58.65555555555556
-ACTIVATOR_RAIL,Aktivierungs Schiene,ACTIVATOR_RAIL,250,250,75.76,18.94,recipe,activator_rail,crafting_shaped,58.584722222222226
-MINECART,Lore,MINECART,1280,1280,340.0,85.0,recipe,minecart,crafting_shaped,276.5
-CHEST_MINECART,Güterlore,CHEST_MINECART,1292,1292,408.0,102.0,recipe,chest_minecart,crafting_shapeless,310.5
-HOPPER_MINECART,Trichterlore,HOPPER_MINECART,2580,2580,748.0,187.0,recipe,hopper_minecart,crafting_shapeless,587.0
-TNT_MINECART,TNT-Lore,TNT_MINECART,1400,1400,1190.0,297.5,recipe,tnt_minecart,crafting_shapeless,492.5
-FURNACE_MINECART,Antriebslore,FURNACE_MINECART,1300,1300,367.2,91.8,recipe,furnace_minecart,crafting_shapeless,303.7
+DETECTOR_RAIL,Detektor Schiene,DETECTOR_RAIL,280,280,74.8,18.7,recipe,detector_rail,crafting_shaped,58.111755555555554
+ACTIVATOR_RAIL,Aktivierungs Schiene,ACTIVATOR_RAIL,250,250,75.76,18.94,recipe,activator_rail,crafting_shaped,58.04092222222222
+MINECART,Lore,MINECART,1280,1280,340.0,85.0,recipe,minecart,crafting_shaped,273.781
+CHEST_MINECART,Güterlore,CHEST_MINECART,1292,1292,408.0,102.0,recipe,chest_minecart,crafting_shapeless,307.781
+HOPPER_MINECART,Trichterlore,HOPPER_MINECART,2580,2580,748.0,187.0,recipe,hopper_minecart,crafting_shapeless,581.562
+TNT_MINECART,TNT-Lore,TNT_MINECART,1400,1400,1190.0,297.5,recipe,tnt_minecart,crafting_shapeless,489.781
+FURNACE_MINECART,Antriebslore,FURNACE_MINECART,1300,1300,367.2,91.8,recipe,furnace_minecart,crafting_shapeless,300.981
 TNT,TNT,TNT,2500,250,864.0,216.0,csv,reference,reference,216.0
 REDSTONE_TORCH,Redstone Fackel,REDSTONE_TORCH,6,6,38.24,9.56,recipe,redstone_torch,crafting_shaped,15.458333333333334
 REDSTONE_LAMP,Redstone Lamp,REDSTONE_LAMP,38,38,146.2,36.55,recipe,redstone_lamp,crafting_shaped,65.33333333333333
@@ -1098,30 +1098,30 @@ TORCH,Fackel,TORCH,2,2,5.28,1.32,recipe,torch,crafting_shaped,2.53125
 SOUL_TORCH,Seelen Fackel,SOUL_TORCH,35,3.5,14.0,3.5,csv,reference,reference,5.53125
 LANTERN,Laterne,LANTERN,50,10,40.0,10.0,csv,reference,reference,40.0
 SOUL_LANTERN,Seelen Laterne,SOUL_LANTERN,50,10,40.0,10.0,csv,reference,reference,40.0
-COPPER_LANTERN,Kupfer Laterne,COPPER_LANTERN,75,75,67.64,16.91,recipe,copper_lantern,crafting_shaped,53.22291666666667
+COPPER_LANTERN,Kupfer Laterne,COPPER_LANTERN,75,75,67.64,16.91,recipe,copper_lantern,crafting_shaped,52.72443333333333
 CHAIN,Kette,IRON_CHAIN,300,300,40.0,10.0,csv,reference,reference,40.0
-IRON_BARS,Eisen Stäbe,IRON_BARS,150,150,25.48,6.37,recipe,iron_bars,crafting_shaped,20.7375
-IRON_DOOR,Eisen Tür,IRON_DOOR,520,520,136.0,34.0,recipe,iron_door,crafting_shaped,110.6
-IRON_TRAPDOOR,Eisen Falltür,IRON_TRAPDOOR,1050,1050,272.0,68.0,recipe,iron_trapdoor,crafting_shaped,221.2
+IRON_BARS,Eisen Stäbe,IRON_BARS,150,150,25.48,6.37,recipe,iron_bars,crafting_shaped,20.533575
+IRON_DOOR,Eisen Tür,IRON_DOOR,520,520,136.0,34.0,recipe,iron_door,crafting_shaped,109.5124
+IRON_TRAPDOOR,Eisen Falltür,IRON_TRAPDOOR,1050,1050,272.0,68.0,recipe,iron_trapdoor,crafting_shaped,219.0248
 CAULDRON,Kessel,CAULDRON,120,30,120.0,30.0,csv,reference,reference,120.0
 BREWING_STAND,Braustand,BREWING_STAND,200,50,200.0,50.0,csv,reference,reference,172.0
 ENCHANTING_TABLE,Zaubertisch,ENCHANTING_TABLE,16900,16900,4542.4,1135.6,recipe,enchanting_table,crafting_shaped,4542.4
-ANVIL,Amboss,ANVIL,7950,7950,2108.0,527.0,recipe,anvil,crafting_shaped,1714.3
+ANVIL,Amboss,ANVIL,7950,7950,2108.0,527.0,recipe,anvil,crafting_shaped,1697.4422
 CHIPPED_ANVIL,Angeschlagen Amboss,CHIPPED_ANVIL,5300,5300,800.0,200.0,explicit_reference,reference,reference,800.0
 DAMAGED_ANVIL,Beschädigt Amboss,DAMAGED_ANVIL,2700,2700,400.0,100.0,explicit_reference,reference,reference,400.0
 GRINDSTONE,Schleifstein,GRINDSTONE,280,280,27.2,6.8,recipe,grindstone,crafting_shaped,14.43
-SMITHING_TABLE,Schmiedetisch,SMITHING_TABLE,525,525,170.0,42.5,recipe,smithing_table,crafting_shaped,127.6
+SMITHING_TABLE,Schmiedetisch,SMITHING_TABLE,525,525,170.0,42.5,recipe,smithing_table,crafting_shaped,126.5124
 CARTOGRAPHY_TABLE,Kartentisch,CARTOGRAPHY_TABLE,12,12,47.6,11.9,recipe,cartography_table,crafting_shaped,33.0
 FLETCHING_TABLE,Bognertisch,FLETCHING_TABLE,15,15,40.8,10.2,recipe,fletching_table,crafting_shaped,25.0
 LOOM,Webstuhl,LOOM,8,8,37.4,9.35,recipe,loom,crafting_shaped,32.5
-STONECUTTER,Steinsäge,STONECUTTER,260,260,78.2,19.55,recipe,stonecutter,crafting_shaped,67.3
+STONECUTTER,Steinsäge,STONECUTTER,260,260,78.2,19.55,recipe,stonecutter,crafting_shaped,66.7562
 COMPOSTER,Komposter,COMPOSTER,8,8,29.72,7.43,recipe,composter,crafting_shaped,14.875
-LECTERN,Lesepult,LECTERN,24,24,231.2,57.8,recipe,lectern,crafting_shaped,197.2
+LECTERN,Lesepult,LECTERN,24,24,231.2,57.8,recipe,lectern,crafting_shaped,58.0
 JUKEBOX,Plattenspieler,JUKEBOX,8300,8300,1768.0,442.0,recipe,jukebox,crafting_shaped,1768.0
 NOTE_BLOCK,Notenblock,NOTE_BLOCK,260,260,102.0,25.5,recipe,note_block,crafting_shaped,47.333333333333336
 BELL,Bell,BELL,900,900,1000.0,250.0,explicit_reference,reference,reference,1000.0
-DECORATED_POT,Decorated Pot,DECORATED_POT,40,40,13.6,3.4,recipe,decorated_pot_simple,crafting_shaped,13.6
-FLOWER_POT,Blume Pot,FLOWER_POT,50,10,40.0,10.0,csv,reference,reference,10.26
+DECORATED_POT,Decorated Pot,DECORATED_POT,40,40,13.6,3.4,recipe,decorated_pot_simple,crafting_shaped,11.5048
+FLOWER_POT,Blume Pot,FLOWER_POT,50,10,34.48,8.62,csv,reference,reference,8.6286
 ARMOR_STAND,Rüstung Stand,ARMOR_STAND,12,12,27.56,6.89,recipe,armor_stand,crafting_shaped,14.83
 ITEM_FRAME,Gegenstand Rahmen,ITEM_FRAME,80,20,80.0,20.0,csv,reference,reference,57.0
 GLOW_ITEM_FRAME,Leucht Gegenstand Rahmen,GLOW_ITEM_FRAME,200,50,200.0,50.0,csv,reference,reference,97.0
@@ -1129,29 +1129,29 @@ PAINTING,Painting,PAINTING,18,18,42.48,10.62,recipe,painting,crafting_shaped,27.
 LADDER,Ladder,LADDER,20,2,8.0,2.0,csv,reference,reference,4.958333333333333
 SCAFFOLDING,Scaffolding,SCAFFOLDING,5,5,5.08,1.27,recipe,scaffolding,crafting_shaped,5.08
 COBWEB,Cobweb,COBWEB,20,20,16.0,4.0,explicit_reference,reference,reference,16.0
-SHEARS,Schere,SHEARS,520,520,136.0,34.0,recipe,shears,crafting_shaped,110.6
-FLINT_AND_STEEL,Feuerstein And Stahl,FLINT_AND_STEEL,265,265,71.4,17.85,recipe,flint_and_steel,crafting_shapeless,59.3
+SHEARS,Schere,SHEARS,520,520,136.0,34.0,recipe,shears,crafting_shaped,109.5124
+FLINT_AND_STEEL,Feuerstein And Stahl,FLINT_AND_STEEL,265,265,71.4,17.85,recipe,flint_and_steel,crafting_shapeless,58.7562
 FISHING_ROD,Angel,FISHING_ROD,20,20,33.12,8.28,recipe,fishing_rod,crafting_shaped,30.375
 CARROT_ON_A_STICK,Karotte On A Stock,CARROT_ON_A_STICK,300,30,120.0,30.0,csv,reference,reference,38.375
 WARPED_FUNGUS_ON_A_STICK,Wirr Pilz On A Stock,WARPED_FUNGUS_ON_A_STICK,500,50,177.48,44.37,csv,reference,reference,44.375
 LEAD,Leine,LEAD,50,10,40.0,10.0,csv,reference,reference,30.0
-COMPASS,Kompass,COMPASS,1050,1050,306.0,76.5,recipe,compass,crafting_shaped,234.53333333333333
+COMPASS,Kompass,COMPASS,1050,1050,306.0,76.5,recipe,compass,crafting_shaped,232.35813333333334
 RECOVERY_COMPASS,Recovery Kompass,RECOVERY_COMPASS,4400,4400,41106.0,10276.5,recipe,recovery_compass,crafting_shaped,41106.0
 CLOCK,Uhr,CLOCK,2100,2100,306.0,76.5,recipe,clock,crafting_shaped,157.33333333333334
-SPYGLASS,Spyglass,SPYGLASS,45,45,204.0,51.0,recipe,spyglass,crafting_shaped,128.6
-BRUSH,Pinsel,BRUSH,275,275,82.44,20.61,recipe,brush,crafting_shaped,69.425
-MAP,Leere Karte,MAP,5,5,360.4,90.1,recipe,map,crafting_shaped,298.53333333333336
-FILLED_MAP,Karte,FILLED_MAP,20,20,367.2,91.8,recipe,filled_map_analogue,analogy,318.53333333333336
-WRITABLE_BOOK,Buch und Feder,WRITABLE_BOOK,20,20,74.8,18.7,recipe,writable_book,crafting_shapeless,74.8
-WRITTEN_BOOK,Beschriebenes Buch,WRITTEN_BOOK,30,30,81.6,20.4,recipe,written_book_analogue,analogy,81.6
+SPYGLASS,Spyglass,SPYGLASS,45,45,204.0,51.0,recipe,spyglass,crafting_shaped,127.5124
+BRUSH,Pinsel,BRUSH,275,275,82.44,20.61,recipe,brush,crafting_shaped,68.8812
+MAP,Leere Karte,MAP,5,5,360.4,90.1,recipe,map,crafting_shaped,296.35813333333334
+FILLED_MAP,Karte,FILLED_MAP,20,20,367.2,91.8,recipe,filled_map_analogue,analogy,316.35813333333334
+WRITABLE_BOOK,Buch und Feder,WRITABLE_BOOK,20,20,74.8,18.7,recipe,writable_book,crafting_shapeless,32.0
+WRITTEN_BOOK,Beschriebenes Buch,WRITTEN_BOOK,30,30,81.6,20.4,recipe,written_book_analogue,analogy,52.0
 BREAD,Bread,BREAD,35,3.5,14.0,3.5,csv,reference,reference,14.0
 COOKIE,Cookie,COOKIE,20,2,8.0,2.0,csv,reference,reference,3.5
 CAKE,Cake,CAKE,180,18,72.0,18.0,csv,reference,reference,72.0
 PUMPKIN_PIE,Kürbiskuchen,PUMPKIN_PIE,55,5.5,22.0,5.5,csv,reference,reference,22.0
-MUSHROOM_STEW,Pilzsuppe,MUSHROOM_STEW,80,8,32.0,8.0,csv,reference,reference,23.1875
-RABBIT_STEW,Kaninchenragout,RABBIT_STEW,140,14,56.0,14.0,csv,reference,reference,51.1875
+MUSHROOM_STEW,Pilzsuppe,MUSHROOM_STEW,80,8,32.0,8.0,csv,reference,reference,17.1875
+RABBIT_STEW,Kaninchenragout,RABBIT_STEW,140,14,56.0,14.0,csv,reference,reference,48.1875
 BEETROOT_SOUP,Borschtsch,BEETROOT_SOUP,70,7,28.0,7.0,csv,reference,reference,28.0
-SUSPICIOUS_STEW,Seltsame Suppe,SUSPICIOUS_STEW,15,15,30.16,7.54,recipe,suspicious_stew_from_allium,crafting_shapeless,30.16
+SUSPICIOUS_STEW,Seltsame Suppe,SUSPICIOUS_STEW,15,15,30.16,7.54,recipe,suspicious_stew_from_allium,crafting_shapeless,25.1875
 GOLDEN_APPLE,Goldener Apfel,GOLDEN_APPLE,4100,4100,561.0,140.25,recipe,golden_apple,crafting_shaped,308.0
 ENCHANTED_GOLDEN_APPLE,Verzauberter goldener Apfel,ENCHANTED_GOLDEN_APPLE,25000,25000,10000.0,2500.0,csv,reference,reference,10000.0
 GOLDEN_CARROT,Golden Karotte,GOLDEN_CARROT,80,20,80.0,20.0,csv,reference,reference,40.0
@@ -1166,8 +1166,8 @@ PUMPKIN_SEEDS,Kürbis Samen,PUMPKIN_SEEDS,25,2.5,10.0,2.5,csv,reference,referenc
 MELON_SEEDS,Melone Samen,MELON_SEEDS,25,2.5,5.32,1.33,csv,reference,reference,1.3333333333333333
 HAY_BLOCK,Hay Block,HAY_BLOCK,180,18,72.0,18.0,csv,reference,reference,72.0
 SUGAR,Zucker,SUGAR,15,1.5,6.0,1.5,csv,reference,reference,6.0
-POTION,Trank,POTION,20,20,7.12,1.78,recipe,base_water_potion,modeled_service,5.9
-SPLASH_POTION,Wurf Trank,SPLASH_POTION,30,30,18.44,4.61,recipe,base_splash_potion,modeled_brewing,18.44
+POTION,Trank,POTION,20,20,7.12,1.78,recipe,base_water_potion,modeled_service,4.3562
+SPLASH_POTION,Wurf Trank,SPLASH_POTION,30,30,18.44,4.61,recipe,base_splash_potion,modeled_brewing,17.689533333333333
 LINGERING_POTION,Verweil Trank,LINGERING_POTION,55,55,154.44,38.61,recipe,base_lingering_potion,modeled_brewing,154.44
 TIPPED_ARROW,Getränkt Pfeil,TIPPED_ARROW,13,13,26.08,6.52,recipe,base_tipped_arrow,modeled_brewing,23.83625
 ARROW,Pfeil,ARROW,10,2,8.0,2.0,csv,reference,reference,4.53125
@@ -1177,7 +1177,7 @@ FIREWORK_STAR,Feuerwerk Stern,FIREWORK_STAR,14,14,40.8,10.2,recipe,firework_star
 FIRE_CHARGE,Feuerkugel,FIRE_CHARGE,25,25,37.4,9.35,recipe,fire_charge,crafting_shapeless,37.4
 SNOWBALL,Schneeball,SNOWBALL,0.5,0.5,0.8,0.2,explicit_reference,reference,reference,0.8
 BOW,Bogen,BOW,25,25,43.32,10.83,recipe,bow,crafting_shaped,42.375
-CROSSBOW,Armbrust,CROSSBOW,1200,1200,141.52,35.38,recipe,crossbow,crafting_shaped,116.5125
+CROSSBOW,Armbrust,CROSSBOW,1200,1200,141.52,35.38,recipe,crossbow,crafting_shaped,115.6968
 SHIELD,Schild,SHIELD,30,5,20.0,5.0,csv,reference,reference,20.0
 OMINOUS_BOTTLE,Unheilvoll Flasche,OMINOUS_BOTTLE,160,160,200.0,50.0,explicit_reference,reference,reference,200.0
 TRIAL_KEY,Prüfungsschlüssel,TRIAL_KEY,50,50,400.0,100.0,explicit_reference,reference,reference,400.0
@@ -1185,7 +1185,7 @@ OMINOUS_TRIAL_KEY,Unheilvoller Prüfungsschlüssel,OMINOUS_TRIAL_KEY,220,220,200
 CREAKING_HEART,Knarrendes Herz,CREAKING_HEART,900,900,95.2,23.8,recipe,creaking_heart,crafting_shaped,95.2
 RESIN_CLUMP,Harz Clump,RESIN_CLUMP,10,10,8.0,2.0,explicit_reference,reference,reference,6.8
 RESIN_BLOCK,Harz Block,RESIN_BLOCK,90,90,61.2,15.3,recipe,resin_block,crafting_shaped,61.2
-RESIN_BRICK,Harz Ziegel,RESIN_BRICK,9,9,7.56,1.89,recipe,resin_brick,smelting,7.56
+RESIN_BRICK,Harz Ziegel,RESIN_BRICK,9,9,7.56,1.89,recipe,resin_brick,smelting,7.1562
 SNIFFER_EGG,Schnüffler-Ei,SNIFFER_EGG,800,800,2000.0,500.0,explicit_reference,reference,reference,2000.0
 TURTLE_EGG,Schildkrötenei,TURTLE_EGG,500,100,400.0,100.0,csv,reference,reference,400.0
 FROGSPAWN,Frogspawn,FROGSPAWN,100,100,400.0,100.0,explicit_reference,reference,reference,400.0
@@ -1196,105 +1196,105 @@ WITHER_SKELETON_SKULL,Wither Skelett Skull,WITHER_SKELETON_SKULL,1200,1200,1000.
 ZOMBIE_HEAD,Zombie Head,ZOMBIE_HEAD,100,100,1000.0,250.0,trophy_reference,reference,reference,1000.0
 CREEPER_HEAD,Creeper Head,CREEPER_HEAD,150,150,1000.0,250.0,trophy_reference,reference,reference,1000.0
 PIGLIN_HEAD,Piglin Head,PIGLIN_HEAD,180,180,1000.0,250.0,trophy_reference,reference,reference,1000.0
-LIGHTNING_ROD,Blitz Stab,LIGHTNING_ROD,45,45,204.0,51.0,recipe,lightning_rod,crafting_shaped,165.9
-TINTED_GLASS,Tinted Glas,TINTED_GLASS,80,80,144.48,36.12,recipe,tinted_glass,crafting_shaped,38.45
-COPPER_GRATE,Kupfer Gitter,COPPER_GRATE,108,108,153.0,38.25,recipe,copper_grate_from_copper_block_stonecutting,stonecutting,124.425
-COPPER_BULB,Kupfer Leuchte,COPPER_BULB,145,145,501.48,125.37,recipe,copper_bulb,crafting_shaped,416.60833333333335
-COPPER_DOOR,Kupfer Tür,COPPER_DOOR,72,72,136.0,34.0,recipe,copper_door,crafting_shaped,110.6
-COPPER_TRAPDOOR,Kupfer Falltür,COPPER_TRAPDOOR,108,108,272.0,68.0,recipe,copper_trapdoor,crafting_shaped,221.2
-COPPER_CHEST,Kupfer Truhe,COPPER_CHEST,140,140,612.0,153.0,recipe,copper_chest,crafting_shaped,476.4
+LIGHTNING_ROD,Blitz Stab,LIGHTNING_ROD,45,45,204.0,51.0,recipe,lightning_rod,crafting_shaped,164.2686
+TINTED_GLASS,Tinted Glas,TINTED_GLASS,80,80,144.48,36.12,recipe,tinted_glass,crafting_shaped,38.1781
+COPPER_GRATE,Kupfer Gitter,COPPER_GRATE,108,108,153.0,38.25,recipe,copper_grate_from_copper_block_stonecutting,stonecutting,123.20145
+COPPER_BULB,Kupfer Leuchte,COPPER_BULB,145,145,501.48,125.37,recipe,copper_bulb,crafting_shaped,412.9376833333333
+COPPER_DOOR,Kupfer Tür,COPPER_DOOR,72,72,136.0,34.0,recipe,copper_door,crafting_shaped,109.5124
+COPPER_TRAPDOOR,Kupfer Falltür,COPPER_TRAPDOOR,108,108,272.0,68.0,recipe,copper_trapdoor,crafting_shaped,219.0248
+COPPER_CHEST,Kupfer Truhe,COPPER_CHEST,140,140,612.0,153.0,recipe,copper_chest,crafting_shaped,472.0496
 NETHER_BRICK,Netherziegel,NETHER_BRICK,4,4,4.16,1.04,recipe,nether_brick,smelting,4.16
-SPEAR,Speer,IRON_SPEAR,200,200,76.48,19.12,recipe,iron_spear,crafting_shaped,59.55
-COPPER,Kupfer,COPPER_BLOCK,108,108,720.0,180.0,csv,reference,reference,497.7
-WAXED_COPPER,Gewachst Kupfer,WAXED_COPPER_BLOCK,113,113,639.2,159.8,recipe,waxed_copper_block_from_honeycomb,crafting_shapeless,529.7
-CUT_COPPER,Geschnitten Kupfer,CUT_COPPER,108,108,153.0,38.25,recipe,cut_copper_from_copper_block_stonecutting,stonecutting,124.425
-WAXED_CUT_COPPER,Gewachst Geschnitten Kupfer,WAXED_CUT_COPPER,113,113,159.8,39.95,recipe,waxed_cut_copper_from_waxed_copper_block_stonecutting,stonecutting,132.425
-CHISELED_COPPER,Gemeißelt Kupfer,CHISELED_COPPER,108,108,153.0,38.25,recipe,chiseled_copper_from_copper_block_stonecutting,stonecutting,124.425
-WAXED_CHISELED_COPPER,Gewachst Gemeißelt Kupfer,WAXED_CHISELED_COPPER,113,113,159.8,39.95,recipe,waxed_chiseled_copper,crafting_shaped,132.425
-WAXED_COPPER_GRATE,Gewachst Kupfer Gitter,WAXED_COPPER_GRATE,113,113,159.8,39.95,recipe,waxed_copper_grate_from_waxed_copper_block_stonecutting,stonecutting,132.425
-WAXED_COPPER_BULB,Gewachst Kupfer Leuchte,WAXED_COPPER_BULB,150,150,521.88,130.47,recipe,waxed_copper_bulb,crafting_shaped,440.60833333333335
-WAXED_COPPER_DOOR,Gewachst Kupfer Tür,WAXED_COPPER_DOOR,77,77,163.2,40.8,recipe,waxed_copper_door_from_honeycomb,crafting_shapeless,142.6
-WAXED_COPPER_TRAPDOOR,Gewachst Kupfer Falltür,WAXED_COPPER_TRAPDOOR,113,113,299.2,74.8,recipe,waxed_copper_trapdoor_from_honeycomb,crafting_shapeless,253.2
-WAXED_COPPER_LANTERN,Gewachst Kupfer Laterne,WAXED_COPPER_LANTERN,80,80,94.84,23.71,recipe,waxed_copper_lantern_from_honeycomb,crafting_shapeless,85.22291666666666
-WAXED_COPPER_CHEST,Gewachst Kupfer Truhe,WAXED_COPPER_CHEST,145,145,639.2,159.8,recipe,waxed_copper_chest_from_honeycomb,crafting_shapeless,508.4
-WAXED_CUT_COPPER_STAIRS,Gewachst Geschnitten Kupfer Treppe,WAXED_CUT_COPPER_STAIRS,86,86,159.8,39.95,recipe,waxed_cut_copper_stairs_from_waxed_copper_block_stonecutting,stonecutting,132.425
-WAXED_CUT_COPPER_SLAB,Gewachst Geschnitten Kupfer Stufe,WAXED_CUT_COPPER_SLAB,59,59,79.88,19.97,recipe,waxed_cut_copper_slab,crafting_shaped,66.2125
-COPPER_CHAIN,Kupfer Kette,COPPER_CHAIN,100,100,83.08,20.77,recipe,copper_chain,crafting_shaped,67.58888888888889
-WAXED_COPPER_CHAIN,Gewachst Kupfer Kette,WAXED_COPPER_CHAIN,105,105,110.28,27.57,recipe,waxed_copper_chain_from_honeycomb,crafting_shapeless,99.58888888888889
-COPPER_BARS,Kupfer Stäbe,COPPER_BARS,70,70,25.48,6.37,recipe,copper_bars,crafting_shaped,20.7375
-WAXED_COPPER_BARS,Gewachst Kupfer Stäbe,WAXED_COPPER_BARS,75,75,52.68,13.17,recipe,waxed_copper_bars_from_honeycomb,crafting_shapeless,52.68
-EXPOSED_COPPER,Angelaufen Kupfer,EXPOSED_COPPER,118,118,612.0,153.0,recipe,exposed_copper_oxidation,oxidation,497.7
-WAXED_EXPOSED_COPPER,Gewachst Angelaufen Kupfer,WAXED_EXPOSED_COPPER,123,123,639.2,159.8,recipe,waxed_exposed_copper_from_honeycomb,crafting_shapeless,529.7
-EXPOSED_CUT_COPPER,Angelaufen Geschnitten Kupfer,EXPOSED_CUT_COPPER,118,118,153.0,38.25,recipe,exposed_cut_copper_oxidation,oxidation,124.425
-WAXED_EXPOSED_CUT_COPPER,Gewachst Angelaufen Geschnitten Kupfer,WAXED_EXPOSED_CUT_COPPER,123,123,159.8,39.95,recipe,waxed_exposed_cut_copper_from_waxed_exposed_copper_stonecutting,stonecutting,132.425
-EXPOSED_CHISELED_COPPER,Angelaufen Gemeißelt Kupfer,EXPOSED_CHISELED_COPPER,118,118,153.0,38.25,recipe,exposed_chiseled_copper_oxidation,oxidation,124.425
-WAXED_EXPOSED_CHISELED_COPPER,Gewachst Angelaufen Gemeißelt Kupfer,WAXED_EXPOSED_CHISELED_COPPER,123,123,159.8,39.95,recipe,waxed_exposed_chiseled_copper,crafting_shaped,132.425
-EXPOSED_COPPER_GRATE,Angelaufen Kupfer Gitter,EXPOSED_COPPER_GRATE,118,118,153.0,38.25,recipe,exposed_copper_grate_oxidation,oxidation,124.425
-WAXED_EXPOSED_COPPER_GRATE,Gewachst Angelaufen Kupfer Gitter,WAXED_EXPOSED_COPPER_GRATE,123,123,159.8,39.95,recipe,waxed_exposed_copper_grate_from_waxed_exposed_copper_stonecutting,stonecutting,132.425
-EXPOSED_COPPER_BULB,Angelaufen Kupfer Leuchte,EXPOSED_COPPER_BULB,155,155,501.48,125.37,recipe,exposed_copper_bulb_oxidation,oxidation,416.60833333333335
-WAXED_EXPOSED_COPPER_BULB,Gewachst Angelaufen Kupfer Leuchte,WAXED_EXPOSED_COPPER_BULB,160,160,521.88,130.47,recipe,waxed_exposed_copper_bulb,crafting_shaped,440.60833333333335
-EXPOSED_COPPER_DOOR,Angelaufen Kupfer Tür,EXPOSED_COPPER_DOOR,82,82,136.0,34.0,recipe,exposed_copper_door_oxidation,oxidation,110.6
-WAXED_EXPOSED_COPPER_DOOR,Gewachst Angelaufen Kupfer Tür,WAXED_EXPOSED_COPPER_DOOR,87,87,163.2,40.8,recipe,waxed_exposed_copper_door_from_honeycomb,crafting_shapeless,142.6
-EXPOSED_COPPER_TRAPDOOR,Angelaufen Kupfer Falltür,EXPOSED_COPPER_TRAPDOOR,118,118,272.0,68.0,recipe,exposed_copper_trapdoor_oxidation,oxidation,221.2
-WAXED_EXPOSED_COPPER_TRAPDOOR,Gewachst Angelaufen Kupfer Falltür,WAXED_EXPOSED_COPPER_TRAPDOOR,123,123,299.2,74.8,recipe,waxed_exposed_copper_trapdoor_from_honeycomb,crafting_shapeless,253.2
-EXPOSED_COPPER_LANTERN,Angelaufen Kupfer Laterne,EXPOSED_COPPER_LANTERN,85,85,67.64,16.91,recipe,exposed_copper_lantern_oxidation,oxidation,53.22291666666667
-WAXED_EXPOSED_COPPER_LANTERN,Gewachst Angelaufen Kupfer Laterne,WAXED_EXPOSED_COPPER_LANTERN,90,90,94.84,23.71,recipe,waxed_exposed_copper_lantern_from_honeycomb,crafting_shapeless,85.22291666666666
-EXPOSED_COPPER_CHEST,Angelaufen Kupfer Truhe,EXPOSED_COPPER_CHEST,150,150,612.0,153.0,recipe,exposed_copper_chest_oxidation,oxidation,476.4
-WAXED_EXPOSED_COPPER_CHEST,Gewachst Angelaufen Kupfer Truhe,WAXED_EXPOSED_COPPER_CHEST,155,155,639.2,159.8,recipe,waxed_exposed_copper_chest_from_honeycomb,crafting_shapeless,508.4
-WAXED_EXPOSED_CUT_COPPER_STAIRS,Gewachst Angelaufen Geschnitten Kupfer Treppe,WAXED_EXPOSED_CUT_COPPER_STAIRS,96,96,159.8,39.95,recipe,waxed_exposed_cut_copper_stairs_from_waxed_exposed_copper_stonecutting,stonecutting,132.425
-WAXED_EXPOSED_CUT_COPPER_SLAB,Gewachst Angelaufen Geschnitten Kupfer Stufe,WAXED_EXPOSED_CUT_COPPER_SLAB,69,69,79.88,19.97,recipe,waxed_exposed_cut_copper_slab,crafting_shaped,66.2125
-EXPOSED_COPPER_CHAIN,Angelaufen Kupfer Kette,EXPOSED_COPPER_CHAIN,110,110,83.08,20.77,recipe,exposed_copper_chain_oxidation,oxidation,67.58888888888889
-WAXED_EXPOSED_COPPER_CHAIN,Gewachst Angelaufen Kupfer Kette,WAXED_EXPOSED_COPPER_CHAIN,115,115,110.28,27.57,recipe,waxed_exposed_copper_chain_from_honeycomb,crafting_shapeless,99.58888888888889
-EXPOSED_COPPER_BARS,Angelaufen Kupfer Stäbe,EXPOSED_COPPER_BARS,80,80,25.48,6.37,recipe,exposed_copper_bars_oxidation,oxidation,20.7375
-WAXED_EXPOSED_COPPER_BARS,Gewachst Angelaufen Kupfer Stäbe,WAXED_EXPOSED_COPPER_BARS,85,85,52.68,13.17,recipe,waxed_exposed_copper_bars_from_honeycomb,crafting_shapeless,52.68
-WEATHERED_COPPER,Verwittert Kupfer,WEATHERED_COPPER,128,128,612.0,153.0,recipe,weathered_copper_oxidation,oxidation,497.7
-WAXED_WEATHERED_COPPER,Gewachst Verwittert Kupfer,WAXED_WEATHERED_COPPER,133,133,639.2,159.8,recipe,waxed_weathered_copper_from_honeycomb,crafting_shapeless,529.7
-WEATHERED_CUT_COPPER,Verwittert Geschnitten Kupfer,WEATHERED_CUT_COPPER,128,128,153.0,38.25,recipe,weathered_cut_copper_oxidation,oxidation,124.425
-WAXED_WEATHERED_CUT_COPPER,Gewachst Verwittert Geschnitten Kupfer,WAXED_WEATHERED_CUT_COPPER,133,133,159.8,39.95,recipe,waxed_weathered_cut_copper_from_waxed_weathered_copper_stonecutting,stonecutting,132.425
-WEATHERED_CHISELED_COPPER,Verwittert Gemeißelt Kupfer,WEATHERED_CHISELED_COPPER,128,128,153.0,38.25,recipe,weathered_chiseled_copper_oxidation,oxidation,124.425
-WAXED_WEATHERED_CHISELED_COPPER,Gewachst Verwittert Gemeißelt Kupfer,WAXED_WEATHERED_CHISELED_COPPER,133,133,159.8,39.95,recipe,waxed_weathered_chiseled_copper,crafting_shaped,132.425
-WEATHERED_COPPER_GRATE,Verwittert Kupfer Gitter,WEATHERED_COPPER_GRATE,128,128,153.0,38.25,recipe,weathered_copper_grate_oxidation,oxidation,124.425
-WAXED_WEATHERED_COPPER_GRATE,Gewachst Verwittert Kupfer Gitter,WAXED_WEATHERED_COPPER_GRATE,133,133,159.8,39.95,recipe,waxed_weathered_copper_grate_from_waxed_weathered_copper_stonecutting,stonecutting,132.425
-WEATHERED_COPPER_BULB,Verwittert Kupfer Leuchte,WEATHERED_COPPER_BULB,165,165,501.48,125.37,recipe,weathered_copper_bulb_oxidation,oxidation,416.60833333333335
-WAXED_WEATHERED_COPPER_BULB,Gewachst Verwittert Kupfer Leuchte,WAXED_WEATHERED_COPPER_BULB,170,170,521.88,130.47,recipe,waxed_weathered_copper_bulb,crafting_shaped,440.60833333333335
-WEATHERED_COPPER_DOOR,Verwittert Kupfer Tür,WEATHERED_COPPER_DOOR,92,92,136.0,34.0,recipe,weathered_copper_door_oxidation,oxidation,110.6
-WAXED_WEATHERED_COPPER_DOOR,Gewachst Verwittert Kupfer Tür,WAXED_WEATHERED_COPPER_DOOR,97,97,163.2,40.8,recipe,waxed_weathered_copper_door_from_honeycomb,crafting_shapeless,142.6
-WEATHERED_COPPER_TRAPDOOR,Verwittert Kupfer Falltür,WEATHERED_COPPER_TRAPDOOR,128,128,272.0,68.0,recipe,weathered_copper_trapdoor_oxidation,oxidation,221.2
-WAXED_WEATHERED_COPPER_TRAPDOOR,Gewachst Verwittert Kupfer Falltür,WAXED_WEATHERED_COPPER_TRAPDOOR,133,133,299.2,74.8,recipe,waxed_weathered_copper_trapdoor_from_honeycomb,crafting_shapeless,253.2
-WEATHERED_COPPER_LANTERN,Verwittert Kupfer Laterne,WEATHERED_COPPER_LANTERN,95,95,67.64,16.91,recipe,weathered_copper_lantern_oxidation,oxidation,53.22291666666667
-WAXED_WEATHERED_COPPER_LANTERN,Gewachst Verwittert Kupfer Laterne,WAXED_WEATHERED_COPPER_LANTERN,100,100,94.84,23.71,recipe,waxed_weathered_copper_lantern_from_honeycomb,crafting_shapeless,85.22291666666666
-WEATHERED_COPPER_CHEST,Verwittert Kupfer Truhe,WEATHERED_COPPER_CHEST,160,160,612.0,153.0,recipe,weathered_copper_chest_oxidation,oxidation,476.4
-WAXED_WEATHERED_COPPER_CHEST,Gewachst Verwittert Kupfer Truhe,WAXED_WEATHERED_COPPER_CHEST,165,165,639.2,159.8,recipe,waxed_weathered_copper_chest_from_honeycomb,crafting_shapeless,508.4
-WAXED_WEATHERED_CUT_COPPER_STAIRS,Gewachst Verwittert Geschnitten Kupfer Treppe,WAXED_WEATHERED_CUT_COPPER_STAIRS,106,106,159.8,39.95,recipe,waxed_weathered_cut_copper_stairs_from_waxed_weathered_copper_stonecutting,stonecutting,132.425
-WAXED_WEATHERED_CUT_COPPER_SLAB,Gewachst Verwittert Geschnitten Kupfer Stufe,WAXED_WEATHERED_CUT_COPPER_SLAB,79,79,79.88,19.97,recipe,waxed_weathered_cut_copper_slab,crafting_shaped,66.2125
-WEATHERED_COPPER_CHAIN,Verwittert Kupfer Kette,WEATHERED_COPPER_CHAIN,120,120,83.08,20.77,recipe,weathered_copper_chain_oxidation,oxidation,67.58888888888889
-WAXED_WEATHERED_COPPER_CHAIN,Gewachst Verwittert Kupfer Kette,WAXED_WEATHERED_COPPER_CHAIN,125,125,110.28,27.57,recipe,waxed_weathered_copper_chain_from_honeycomb,crafting_shapeless,99.58888888888889
-WEATHERED_COPPER_BARS,Verwittert Kupfer Stäbe,WEATHERED_COPPER_BARS,90,90,25.48,6.37,recipe,weathered_copper_bars_oxidation,oxidation,20.7375
-WAXED_WEATHERED_COPPER_BARS,Gewachst Verwittert Kupfer Stäbe,WAXED_WEATHERED_COPPER_BARS,95,95,52.68,13.17,recipe,waxed_weathered_copper_bars_from_honeycomb,crafting_shapeless,52.68
-OXIDIZED_COPPER,Oxidiert Kupfer,OXIDIZED_COPPER,138,138,612.0,153.0,recipe,oxidized_copper_oxidation,oxidation,497.7
-WAXED_OXIDIZED_COPPER,Gewachst Oxidiert Kupfer,WAXED_OXIDIZED_COPPER,143,143,639.2,159.8,recipe,waxed_oxidized_copper_from_honeycomb,crafting_shapeless,529.7
-OXIDIZED_CUT_COPPER,Oxidiert Geschnitten Kupfer,OXIDIZED_CUT_COPPER,138,138,153.0,38.25,recipe,oxidized_cut_copper_oxidation,oxidation,124.425
-WAXED_OXIDIZED_CUT_COPPER,Gewachst Oxidiert Geschnitten Kupfer,WAXED_OXIDIZED_CUT_COPPER,143,143,159.8,39.95,recipe,waxed_oxidized_cut_copper_from_waxed_oxidized_copper_stonecutting,stonecutting,132.425
-OXIDIZED_CHISELED_COPPER,Oxidiert Gemeißelt Kupfer,OXIDIZED_CHISELED_COPPER,138,138,153.0,38.25,recipe,oxidized_chiseled_copper_oxidation,oxidation,124.425
-WAXED_OXIDIZED_CHISELED_COPPER,Gewachst Oxidiert Gemeißelt Kupfer,WAXED_OXIDIZED_CHISELED_COPPER,143,143,159.8,39.95,recipe,waxed_oxidized_chiseled_copper,crafting_shaped,132.425
-OXIDIZED_COPPER_GRATE,Oxidiert Kupfer Gitter,OXIDIZED_COPPER_GRATE,138,138,153.0,38.25,recipe,oxidized_copper_grate_oxidation,oxidation,124.425
-WAXED_OXIDIZED_COPPER_GRATE,Gewachst Oxidiert Kupfer Gitter,WAXED_OXIDIZED_COPPER_GRATE,143,143,159.8,39.95,recipe,waxed_oxidized_copper_grate_from_waxed_oxidized_copper_stonecutting,stonecutting,132.425
-OXIDIZED_COPPER_BULB,Oxidiert Kupfer Leuchte,OXIDIZED_COPPER_BULB,175,175,501.48,125.37,recipe,oxidized_copper_bulb_oxidation,oxidation,416.60833333333335
-WAXED_OXIDIZED_COPPER_BULB,Gewachst Oxidiert Kupfer Leuchte,WAXED_OXIDIZED_COPPER_BULB,180,180,521.88,130.47,recipe,waxed_oxidized_copper_bulb,crafting_shaped,440.60833333333335
-OXIDIZED_COPPER_DOOR,Oxidiert Kupfer Tür,OXIDIZED_COPPER_DOOR,102,102,136.0,34.0,recipe,oxidized_copper_door_oxidation,oxidation,110.6
-WAXED_OXIDIZED_COPPER_DOOR,Gewachst Oxidiert Kupfer Tür,WAXED_OXIDIZED_COPPER_DOOR,107,107,163.2,40.8,recipe,waxed_oxidized_copper_door_from_honeycomb,crafting_shapeless,142.6
-OXIDIZED_COPPER_TRAPDOOR,Oxidiert Kupfer Falltür,OXIDIZED_COPPER_TRAPDOOR,138,138,272.0,68.0,recipe,oxidized_copper_trapdoor_oxidation,oxidation,221.2
-WAXED_OXIDIZED_COPPER_TRAPDOOR,Gewachst Oxidiert Kupfer Falltür,WAXED_OXIDIZED_COPPER_TRAPDOOR,143,143,299.2,74.8,recipe,waxed_oxidized_copper_trapdoor_from_honeycomb,crafting_shapeless,253.2
-OXIDIZED_COPPER_LANTERN,Oxidiert Kupfer Laterne,OXIDIZED_COPPER_LANTERN,105,105,67.64,16.91,recipe,oxidized_copper_lantern_oxidation,oxidation,53.22291666666667
-WAXED_OXIDIZED_COPPER_LANTERN,Gewachst Oxidiert Kupfer Laterne,WAXED_OXIDIZED_COPPER_LANTERN,110,110,94.84,23.71,recipe,waxed_oxidized_copper_lantern_from_honeycomb,crafting_shapeless,85.22291666666666
-OXIDIZED_COPPER_CHEST,Oxidiert Kupfer Truhe,OXIDIZED_COPPER_CHEST,170,170,612.0,153.0,recipe,oxidized_copper_chest_oxidation,oxidation,476.4
-WAXED_OXIDIZED_COPPER_CHEST,Gewachst Oxidiert Kupfer Truhe,WAXED_OXIDIZED_COPPER_CHEST,175,175,639.2,159.8,recipe,waxed_oxidized_copper_chest_from_honeycomb,crafting_shapeless,508.4
-WAXED_OXIDIZED_CUT_COPPER_STAIRS,Gewachst Oxidiert Geschnitten Kupfer Treppe,WAXED_OXIDIZED_CUT_COPPER_STAIRS,116,116,159.8,39.95,recipe,waxed_oxidized_cut_copper_stairs_from_waxed_oxidized_copper_stonecutting,stonecutting,132.425
-WAXED_OXIDIZED_CUT_COPPER_SLAB,Gewachst Oxidiert Geschnitten Kupfer Stufe,WAXED_OXIDIZED_CUT_COPPER_SLAB,89,89,79.88,19.97,recipe,waxed_oxidized_cut_copper_slab,crafting_shaped,66.2125
-OXIDIZED_COPPER_CHAIN,Oxidiert Kupfer Kette,OXIDIZED_COPPER_CHAIN,130,130,83.08,20.77,recipe,oxidized_copper_chain_oxidation,oxidation,67.58888888888889
-WAXED_OXIDIZED_COPPER_CHAIN,Gewachst Oxidiert Kupfer Kette,WAXED_OXIDIZED_COPPER_CHAIN,135,135,110.28,27.57,recipe,waxed_oxidized_copper_chain_from_honeycomb,crafting_shapeless,99.58888888888889
-OXIDIZED_COPPER_BARS,Oxidiert Kupfer Stäbe,OXIDIZED_COPPER_BARS,100,100,25.48,6.37,recipe,oxidized_copper_bars_oxidation,oxidation,20.7375
-WAXED_OXIDIZED_COPPER_BARS,Gewachst Oxidiert Kupfer Stäbe,WAXED_OXIDIZED_COPPER_BARS,105,105,52.68,13.17,recipe,waxed_oxidized_copper_bars_from_honeycomb,crafting_shapeless,52.68
+SPEAR,Speer,IRON_SPEAR,200,200,76.48,19.12,recipe,iron_spear,crafting_shaped,59.0062
+COPPER,Kupfer,COPPER_BLOCK,108,108,720.0,180.0,csv,reference,reference,492.8058
+WAXED_COPPER,Gewachst Kupfer,WAXED_COPPER_BLOCK,113,113,639.2,159.8,recipe,waxed_copper_block_from_honeycomb,crafting_shapeless,524.8058
+CUT_COPPER,Geschnitten Kupfer,CUT_COPPER,108,108,153.0,38.25,recipe,cut_copper_from_copper_block_stonecutting,stonecutting,123.20145
+WAXED_CUT_COPPER,Gewachst Geschnitten Kupfer,WAXED_CUT_COPPER,113,113,159.8,39.95,recipe,waxed_cut_copper_from_waxed_copper_block_stonecutting,stonecutting,131.20145
+CHISELED_COPPER,Gemeißelt Kupfer,CHISELED_COPPER,108,108,153.0,38.25,recipe,chiseled_copper_from_copper_block_stonecutting,stonecutting,123.20145
+WAXED_CHISELED_COPPER,Gewachst Gemeißelt Kupfer,WAXED_CHISELED_COPPER,113,113,159.8,39.95,recipe,waxed_chiseled_copper,crafting_shaped,131.20145
+WAXED_COPPER_GRATE,Gewachst Kupfer Gitter,WAXED_COPPER_GRATE,113,113,159.8,39.95,recipe,waxed_copper_grate_from_waxed_copper_block_stonecutting,stonecutting,131.20145
+WAXED_COPPER_BULB,Gewachst Kupfer Leuchte,WAXED_COPPER_BULB,150,150,521.88,130.47,recipe,waxed_copper_bulb,crafting_shaped,436.9376833333333
+WAXED_COPPER_DOOR,Gewachst Kupfer Tür,WAXED_COPPER_DOOR,77,77,163.2,40.8,recipe,waxed_copper_door_from_honeycomb,crafting_shapeless,141.5124
+WAXED_COPPER_TRAPDOOR,Gewachst Kupfer Falltür,WAXED_COPPER_TRAPDOOR,113,113,299.2,74.8,recipe,waxed_copper_trapdoor_from_honeycomb,crafting_shapeless,251.0248
+WAXED_COPPER_LANTERN,Gewachst Kupfer Laterne,WAXED_COPPER_LANTERN,80,80,94.84,23.71,recipe,waxed_copper_lantern_from_honeycomb,crafting_shapeless,84.72443333333334
+WAXED_COPPER_CHEST,Gewachst Kupfer Truhe,WAXED_COPPER_CHEST,145,145,639.2,159.8,recipe,waxed_copper_chest_from_honeycomb,crafting_shapeless,504.0496
+WAXED_CUT_COPPER_STAIRS,Gewachst Geschnitten Kupfer Treppe,WAXED_CUT_COPPER_STAIRS,86,86,159.8,39.95,recipe,waxed_cut_copper_stairs_from_waxed_copper_block_stonecutting,stonecutting,131.20145
+WAXED_CUT_COPPER_SLAB,Gewachst Geschnitten Kupfer Stufe,WAXED_CUT_COPPER_SLAB,59,59,79.88,19.97,recipe,waxed_cut_copper_slab,crafting_shaped,65.600725
+COPPER_CHAIN,Kupfer Kette,COPPER_CHAIN,100,100,83.08,20.77,recipe,copper_chain,crafting_shaped,66.92424444444444
+WAXED_COPPER_CHAIN,Gewachst Kupfer Kette,WAXED_COPPER_CHAIN,105,105,110.28,27.57,recipe,waxed_copper_chain_from_honeycomb,crafting_shapeless,98.92424444444444
+COPPER_BARS,Kupfer Stäbe,COPPER_BARS,70,70,25.48,6.37,recipe,copper_bars,crafting_shaped,20.533575
+WAXED_COPPER_BARS,Gewachst Kupfer Stäbe,WAXED_COPPER_BARS,75,75,52.68,13.17,recipe,waxed_copper_bars_from_honeycomb,crafting_shapeless,52.533575
+EXPOSED_COPPER,Angelaufen Kupfer,EXPOSED_COPPER,118,118,612.0,153.0,recipe,exposed_copper_oxidation,oxidation,492.8058
+WAXED_EXPOSED_COPPER,Gewachst Angelaufen Kupfer,WAXED_EXPOSED_COPPER,123,123,639.2,159.8,recipe,waxed_exposed_copper_from_honeycomb,crafting_shapeless,524.8058
+EXPOSED_CUT_COPPER,Angelaufen Geschnitten Kupfer,EXPOSED_CUT_COPPER,118,118,153.0,38.25,recipe,exposed_cut_copper_oxidation,oxidation,123.20145
+WAXED_EXPOSED_CUT_COPPER,Gewachst Angelaufen Geschnitten Kupfer,WAXED_EXPOSED_CUT_COPPER,123,123,159.8,39.95,recipe,waxed_exposed_cut_copper_from_waxed_exposed_copper_stonecutting,stonecutting,131.20145
+EXPOSED_CHISELED_COPPER,Angelaufen Gemeißelt Kupfer,EXPOSED_CHISELED_COPPER,118,118,153.0,38.25,recipe,exposed_chiseled_copper_oxidation,oxidation,123.20145
+WAXED_EXPOSED_CHISELED_COPPER,Gewachst Angelaufen Gemeißelt Kupfer,WAXED_EXPOSED_CHISELED_COPPER,123,123,159.8,39.95,recipe,waxed_exposed_chiseled_copper,crafting_shaped,131.20145
+EXPOSED_COPPER_GRATE,Angelaufen Kupfer Gitter,EXPOSED_COPPER_GRATE,118,118,153.0,38.25,recipe,exposed_copper_grate_oxidation,oxidation,123.20145
+WAXED_EXPOSED_COPPER_GRATE,Gewachst Angelaufen Kupfer Gitter,WAXED_EXPOSED_COPPER_GRATE,123,123,159.8,39.95,recipe,waxed_exposed_copper_grate_from_waxed_exposed_copper_stonecutting,stonecutting,131.20145
+EXPOSED_COPPER_BULB,Angelaufen Kupfer Leuchte,EXPOSED_COPPER_BULB,155,155,501.48,125.37,recipe,exposed_copper_bulb_oxidation,oxidation,412.9376833333333
+WAXED_EXPOSED_COPPER_BULB,Gewachst Angelaufen Kupfer Leuchte,WAXED_EXPOSED_COPPER_BULB,160,160,521.88,130.47,recipe,waxed_exposed_copper_bulb,crafting_shaped,436.9376833333333
+EXPOSED_COPPER_DOOR,Angelaufen Kupfer Tür,EXPOSED_COPPER_DOOR,82,82,136.0,34.0,recipe,exposed_copper_door_oxidation,oxidation,109.5124
+WAXED_EXPOSED_COPPER_DOOR,Gewachst Angelaufen Kupfer Tür,WAXED_EXPOSED_COPPER_DOOR,87,87,163.2,40.8,recipe,waxed_exposed_copper_door_from_honeycomb,crafting_shapeless,141.5124
+EXPOSED_COPPER_TRAPDOOR,Angelaufen Kupfer Falltür,EXPOSED_COPPER_TRAPDOOR,118,118,272.0,68.0,recipe,exposed_copper_trapdoor_oxidation,oxidation,219.0248
+WAXED_EXPOSED_COPPER_TRAPDOOR,Gewachst Angelaufen Kupfer Falltür,WAXED_EXPOSED_COPPER_TRAPDOOR,123,123,299.2,74.8,recipe,waxed_exposed_copper_trapdoor_from_honeycomb,crafting_shapeless,251.0248
+EXPOSED_COPPER_LANTERN,Angelaufen Kupfer Laterne,EXPOSED_COPPER_LANTERN,85,85,67.64,16.91,recipe,exposed_copper_lantern_oxidation,oxidation,52.72443333333333
+WAXED_EXPOSED_COPPER_LANTERN,Gewachst Angelaufen Kupfer Laterne,WAXED_EXPOSED_COPPER_LANTERN,90,90,94.84,23.71,recipe,waxed_exposed_copper_lantern_from_honeycomb,crafting_shapeless,84.72443333333334
+EXPOSED_COPPER_CHEST,Angelaufen Kupfer Truhe,EXPOSED_COPPER_CHEST,150,150,612.0,153.0,recipe,exposed_copper_chest_oxidation,oxidation,472.0496
+WAXED_EXPOSED_COPPER_CHEST,Gewachst Angelaufen Kupfer Truhe,WAXED_EXPOSED_COPPER_CHEST,155,155,639.2,159.8,recipe,waxed_exposed_copper_chest_from_honeycomb,crafting_shapeless,504.0496
+WAXED_EXPOSED_CUT_COPPER_STAIRS,Gewachst Angelaufen Geschnitten Kupfer Treppe,WAXED_EXPOSED_CUT_COPPER_STAIRS,96,96,159.8,39.95,recipe,waxed_exposed_cut_copper_stairs_from_waxed_exposed_copper_stonecutting,stonecutting,131.20145
+WAXED_EXPOSED_CUT_COPPER_SLAB,Gewachst Angelaufen Geschnitten Kupfer Stufe,WAXED_EXPOSED_CUT_COPPER_SLAB,69,69,79.88,19.97,recipe,waxed_exposed_cut_copper_slab,crafting_shaped,65.600725
+EXPOSED_COPPER_CHAIN,Angelaufen Kupfer Kette,EXPOSED_COPPER_CHAIN,110,110,83.08,20.77,recipe,exposed_copper_chain_oxidation,oxidation,66.92424444444444
+WAXED_EXPOSED_COPPER_CHAIN,Gewachst Angelaufen Kupfer Kette,WAXED_EXPOSED_COPPER_CHAIN,115,115,110.28,27.57,recipe,waxed_exposed_copper_chain_from_honeycomb,crafting_shapeless,98.92424444444444
+EXPOSED_COPPER_BARS,Angelaufen Kupfer Stäbe,EXPOSED_COPPER_BARS,80,80,25.48,6.37,recipe,exposed_copper_bars_oxidation,oxidation,20.533575
+WAXED_EXPOSED_COPPER_BARS,Gewachst Angelaufen Kupfer Stäbe,WAXED_EXPOSED_COPPER_BARS,85,85,52.68,13.17,recipe,waxed_exposed_copper_bars_from_honeycomb,crafting_shapeless,52.533575
+WEATHERED_COPPER,Verwittert Kupfer,WEATHERED_COPPER,128,128,612.0,153.0,recipe,weathered_copper_oxidation,oxidation,492.8058
+WAXED_WEATHERED_COPPER,Gewachst Verwittert Kupfer,WAXED_WEATHERED_COPPER,133,133,639.2,159.8,recipe,waxed_weathered_copper_from_honeycomb,crafting_shapeless,524.8058
+WEATHERED_CUT_COPPER,Verwittert Geschnitten Kupfer,WEATHERED_CUT_COPPER,128,128,153.0,38.25,recipe,weathered_cut_copper_oxidation,oxidation,123.20145
+WAXED_WEATHERED_CUT_COPPER,Gewachst Verwittert Geschnitten Kupfer,WAXED_WEATHERED_CUT_COPPER,133,133,159.8,39.95,recipe,waxed_weathered_cut_copper_from_waxed_weathered_copper_stonecutting,stonecutting,131.20145
+WEATHERED_CHISELED_COPPER,Verwittert Gemeißelt Kupfer,WEATHERED_CHISELED_COPPER,128,128,153.0,38.25,recipe,weathered_chiseled_copper_oxidation,oxidation,123.20145
+WAXED_WEATHERED_CHISELED_COPPER,Gewachst Verwittert Gemeißelt Kupfer,WAXED_WEATHERED_CHISELED_COPPER,133,133,159.8,39.95,recipe,waxed_weathered_chiseled_copper,crafting_shaped,131.20145
+WEATHERED_COPPER_GRATE,Verwittert Kupfer Gitter,WEATHERED_COPPER_GRATE,128,128,153.0,38.25,recipe,weathered_copper_grate_oxidation,oxidation,123.20145
+WAXED_WEATHERED_COPPER_GRATE,Gewachst Verwittert Kupfer Gitter,WAXED_WEATHERED_COPPER_GRATE,133,133,159.8,39.95,recipe,waxed_weathered_copper_grate_from_waxed_weathered_copper_stonecutting,stonecutting,131.20145
+WEATHERED_COPPER_BULB,Verwittert Kupfer Leuchte,WEATHERED_COPPER_BULB,165,165,501.48,125.37,recipe,weathered_copper_bulb_oxidation,oxidation,412.9376833333333
+WAXED_WEATHERED_COPPER_BULB,Gewachst Verwittert Kupfer Leuchte,WAXED_WEATHERED_COPPER_BULB,170,170,521.88,130.47,recipe,waxed_weathered_copper_bulb,crafting_shaped,436.9376833333333
+WEATHERED_COPPER_DOOR,Verwittert Kupfer Tür,WEATHERED_COPPER_DOOR,92,92,136.0,34.0,recipe,weathered_copper_door_oxidation,oxidation,109.5124
+WAXED_WEATHERED_COPPER_DOOR,Gewachst Verwittert Kupfer Tür,WAXED_WEATHERED_COPPER_DOOR,97,97,163.2,40.8,recipe,waxed_weathered_copper_door_from_honeycomb,crafting_shapeless,141.5124
+WEATHERED_COPPER_TRAPDOOR,Verwittert Kupfer Falltür,WEATHERED_COPPER_TRAPDOOR,128,128,272.0,68.0,recipe,weathered_copper_trapdoor_oxidation,oxidation,219.0248
+WAXED_WEATHERED_COPPER_TRAPDOOR,Gewachst Verwittert Kupfer Falltür,WAXED_WEATHERED_COPPER_TRAPDOOR,133,133,299.2,74.8,recipe,waxed_weathered_copper_trapdoor_from_honeycomb,crafting_shapeless,251.0248
+WEATHERED_COPPER_LANTERN,Verwittert Kupfer Laterne,WEATHERED_COPPER_LANTERN,95,95,67.64,16.91,recipe,weathered_copper_lantern_oxidation,oxidation,52.72443333333333
+WAXED_WEATHERED_COPPER_LANTERN,Gewachst Verwittert Kupfer Laterne,WAXED_WEATHERED_COPPER_LANTERN,100,100,94.84,23.71,recipe,waxed_weathered_copper_lantern_from_honeycomb,crafting_shapeless,84.72443333333334
+WEATHERED_COPPER_CHEST,Verwittert Kupfer Truhe,WEATHERED_COPPER_CHEST,160,160,612.0,153.0,recipe,weathered_copper_chest_oxidation,oxidation,472.0496
+WAXED_WEATHERED_COPPER_CHEST,Gewachst Verwittert Kupfer Truhe,WAXED_WEATHERED_COPPER_CHEST,165,165,639.2,159.8,recipe,waxed_weathered_copper_chest_from_honeycomb,crafting_shapeless,504.0496
+WAXED_WEATHERED_CUT_COPPER_STAIRS,Gewachst Verwittert Geschnitten Kupfer Treppe,WAXED_WEATHERED_CUT_COPPER_STAIRS,106,106,159.8,39.95,recipe,waxed_weathered_cut_copper_stairs_from_waxed_weathered_copper_stonecutting,stonecutting,131.20145
+WAXED_WEATHERED_CUT_COPPER_SLAB,Gewachst Verwittert Geschnitten Kupfer Stufe,WAXED_WEATHERED_CUT_COPPER_SLAB,79,79,79.88,19.97,recipe,waxed_weathered_cut_copper_slab,crafting_shaped,65.600725
+WEATHERED_COPPER_CHAIN,Verwittert Kupfer Kette,WEATHERED_COPPER_CHAIN,120,120,83.08,20.77,recipe,weathered_copper_chain_oxidation,oxidation,66.92424444444444
+WAXED_WEATHERED_COPPER_CHAIN,Gewachst Verwittert Kupfer Kette,WAXED_WEATHERED_COPPER_CHAIN,125,125,110.28,27.57,recipe,waxed_weathered_copper_chain_from_honeycomb,crafting_shapeless,98.92424444444444
+WEATHERED_COPPER_BARS,Verwittert Kupfer Stäbe,WEATHERED_COPPER_BARS,90,90,25.48,6.37,recipe,weathered_copper_bars_oxidation,oxidation,20.533575
+WAXED_WEATHERED_COPPER_BARS,Gewachst Verwittert Kupfer Stäbe,WAXED_WEATHERED_COPPER_BARS,95,95,52.68,13.17,recipe,waxed_weathered_copper_bars_from_honeycomb,crafting_shapeless,52.533575
+OXIDIZED_COPPER,Oxidiert Kupfer,OXIDIZED_COPPER,138,138,612.0,153.0,recipe,oxidized_copper_oxidation,oxidation,492.8058
+WAXED_OXIDIZED_COPPER,Gewachst Oxidiert Kupfer,WAXED_OXIDIZED_COPPER,143,143,639.2,159.8,recipe,waxed_oxidized_copper_from_honeycomb,crafting_shapeless,524.8058
+OXIDIZED_CUT_COPPER,Oxidiert Geschnitten Kupfer,OXIDIZED_CUT_COPPER,138,138,153.0,38.25,recipe,oxidized_cut_copper_oxidation,oxidation,123.20145
+WAXED_OXIDIZED_CUT_COPPER,Gewachst Oxidiert Geschnitten Kupfer,WAXED_OXIDIZED_CUT_COPPER,143,143,159.8,39.95,recipe,waxed_oxidized_cut_copper_from_waxed_oxidized_copper_stonecutting,stonecutting,131.20145
+OXIDIZED_CHISELED_COPPER,Oxidiert Gemeißelt Kupfer,OXIDIZED_CHISELED_COPPER,138,138,153.0,38.25,recipe,oxidized_chiseled_copper_oxidation,oxidation,123.20145
+WAXED_OXIDIZED_CHISELED_COPPER,Gewachst Oxidiert Gemeißelt Kupfer,WAXED_OXIDIZED_CHISELED_COPPER,143,143,159.8,39.95,recipe,waxed_oxidized_chiseled_copper,crafting_shaped,131.20145
+OXIDIZED_COPPER_GRATE,Oxidiert Kupfer Gitter,OXIDIZED_COPPER_GRATE,138,138,153.0,38.25,recipe,oxidized_copper_grate_oxidation,oxidation,123.20145
+WAXED_OXIDIZED_COPPER_GRATE,Gewachst Oxidiert Kupfer Gitter,WAXED_OXIDIZED_COPPER_GRATE,143,143,159.8,39.95,recipe,waxed_oxidized_copper_grate_from_waxed_oxidized_copper_stonecutting,stonecutting,131.20145
+OXIDIZED_COPPER_BULB,Oxidiert Kupfer Leuchte,OXIDIZED_COPPER_BULB,175,175,501.48,125.37,recipe,oxidized_copper_bulb_oxidation,oxidation,412.9376833333333
+WAXED_OXIDIZED_COPPER_BULB,Gewachst Oxidiert Kupfer Leuchte,WAXED_OXIDIZED_COPPER_BULB,180,180,521.88,130.47,recipe,waxed_oxidized_copper_bulb,crafting_shaped,436.9376833333333
+OXIDIZED_COPPER_DOOR,Oxidiert Kupfer Tür,OXIDIZED_COPPER_DOOR,102,102,136.0,34.0,recipe,oxidized_copper_door_oxidation,oxidation,109.5124
+WAXED_OXIDIZED_COPPER_DOOR,Gewachst Oxidiert Kupfer Tür,WAXED_OXIDIZED_COPPER_DOOR,107,107,163.2,40.8,recipe,waxed_oxidized_copper_door_from_honeycomb,crafting_shapeless,141.5124
+OXIDIZED_COPPER_TRAPDOOR,Oxidiert Kupfer Falltür,OXIDIZED_COPPER_TRAPDOOR,138,138,272.0,68.0,recipe,oxidized_copper_trapdoor_oxidation,oxidation,219.0248
+WAXED_OXIDIZED_COPPER_TRAPDOOR,Gewachst Oxidiert Kupfer Falltür,WAXED_OXIDIZED_COPPER_TRAPDOOR,143,143,299.2,74.8,recipe,waxed_oxidized_copper_trapdoor_from_honeycomb,crafting_shapeless,251.0248
+OXIDIZED_COPPER_LANTERN,Oxidiert Kupfer Laterne,OXIDIZED_COPPER_LANTERN,105,105,67.64,16.91,recipe,oxidized_copper_lantern_oxidation,oxidation,52.72443333333333
+WAXED_OXIDIZED_COPPER_LANTERN,Gewachst Oxidiert Kupfer Laterne,WAXED_OXIDIZED_COPPER_LANTERN,110,110,94.84,23.71,recipe,waxed_oxidized_copper_lantern_from_honeycomb,crafting_shapeless,84.72443333333334
+OXIDIZED_COPPER_CHEST,Oxidiert Kupfer Truhe,OXIDIZED_COPPER_CHEST,170,170,612.0,153.0,recipe,oxidized_copper_chest_oxidation,oxidation,472.0496
+WAXED_OXIDIZED_COPPER_CHEST,Gewachst Oxidiert Kupfer Truhe,WAXED_OXIDIZED_COPPER_CHEST,175,175,639.2,159.8,recipe,waxed_oxidized_copper_chest_from_honeycomb,crafting_shapeless,504.0496
+WAXED_OXIDIZED_CUT_COPPER_STAIRS,Gewachst Oxidiert Geschnitten Kupfer Treppe,WAXED_OXIDIZED_CUT_COPPER_STAIRS,116,116,159.8,39.95,recipe,waxed_oxidized_cut_copper_stairs_from_waxed_oxidized_copper_stonecutting,stonecutting,131.20145
+WAXED_OXIDIZED_CUT_COPPER_SLAB,Gewachst Oxidiert Geschnitten Kupfer Stufe,WAXED_OXIDIZED_CUT_COPPER_SLAB,89,89,79.88,19.97,recipe,waxed_oxidized_cut_copper_slab,crafting_shaped,65.600725
+OXIDIZED_COPPER_CHAIN,Oxidiert Kupfer Kette,OXIDIZED_COPPER_CHAIN,130,130,83.08,20.77,recipe,oxidized_copper_chain_oxidation,oxidation,66.92424444444444
+WAXED_OXIDIZED_COPPER_CHAIN,Gewachst Oxidiert Kupfer Kette,WAXED_OXIDIZED_COPPER_CHAIN,135,135,110.28,27.57,recipe,waxed_oxidized_copper_chain_from_honeycomb,crafting_shapeless,98.92424444444444
+OXIDIZED_COPPER_BARS,Oxidiert Kupfer Stäbe,OXIDIZED_COPPER_BARS,100,100,25.48,6.37,recipe,oxidized_copper_bars_oxidation,oxidation,20.533575
+WAXED_OXIDIZED_COPPER_BARS,Gewachst Oxidiert Kupfer Stäbe,WAXED_OXIDIZED_COPPER_BARS,105,105,52.68,13.17,recipe,waxed_oxidized_copper_bars_from_honeycomb,crafting_shapeless,52.533575
 WOODEN_SWORD,Wooden Schwert,WOODEN_SWORD,22,22,21.24,5.31,recipe,wooden_sword,crafting_shaped,10.625
 WOODEN_SHOVEL,Wooden Schaufel,WOODEN_SHOVEL,16,16,17.0,4.25,recipe,wooden_shovel,crafting_shaped,8.5
 WOODEN_PICKAXE,Wooden Spitzhacke,WOODEN_PICKAXE,28,28,34.0,8.5,recipe,wooden_pickaxe,crafting_shaped,17.0
@@ -1307,27 +1307,27 @@ STONE_PICKAXE,Stein Spitzhacke,STONE_PICKAXE,46,46,18.68,4.67,recipe,stone_picka
 STONE_AXE,Stein Axt,STONE_AXE,46,46,18.68,4.67,recipe,stone_axe,crafting_shaped,16.25
 STONE_HOE,Stein Hacke,STONE_HOE,34,34,15.28,3.82,recipe,stone_hoe,crafting_shaped,12.25
 STONE_SPEAR,Stein Speer,STONE_SPEAR,34,34,11.88,2.97,recipe,stone_spear,crafting_shaped,8.25
-COPPER_SWORD,Kupfer Schwert,COPPER_SWORD,34,34,140.24,35.06,recipe,copper_sword,crafting_shaped,112.725
-COPPER_SHOVEL,Kupfer Schaufel,COPPER_SHOVEL,22,22,76.48,19.12,recipe,copper_shovel,crafting_shaped,59.55
-COPPER_PICKAXE,Kupfer Spitzhacke,COPPER_PICKAXE,46,46,212.48,53.12,recipe,copper_pickaxe,crafting_shaped,170.15
-COPPER_AXE,Kupfer Axt,COPPER_AXE,46,46,212.48,53.12,recipe,copper_axe,crafting_shaped,170.15
-COPPER_HOE,Kupfer Hacke,COPPER_HOE,34,34,144.48,36.12,recipe,copper_hoe,crafting_shaped,114.85
-COPPER_SPEAR,Kupfer Speer,COPPER_SPEAR,34,34,76.48,19.12,recipe,copper_spear,crafting_shaped,59.55
-COPPER_HELMET,Kupfer Helm,COPPER_HELMET,80,80,340.0,85.0,recipe,copper_helmet,crafting_shaped,276.5
-COPPER_CHESTPLATE,Kupfer Brustplatte,COPPER_CHESTPLATE,116,116,544.0,136.0,recipe,copper_chestplate,crafting_shaped,442.4
-COPPER_LEGGINGS,Kupfer Beinschutz,COPPER_LEGGINGS,104,104,476.0,119.0,recipe,copper_leggings,crafting_shaped,387.1
-COPPER_BOOTS,Kupfer Stiefel,COPPER_BOOTS,68,68,272.0,68.0,recipe,copper_boots,crafting_shaped,221.2
+COPPER_SWORD,Kupfer Schwert,COPPER_SWORD,34,34,140.24,35.06,recipe,copper_sword,crafting_shaped,111.6374
+COPPER_SHOVEL,Kupfer Schaufel,COPPER_SHOVEL,22,22,76.48,19.12,recipe,copper_shovel,crafting_shaped,59.0062
+COPPER_PICKAXE,Kupfer Spitzhacke,COPPER_PICKAXE,46,46,212.48,53.12,recipe,copper_pickaxe,crafting_shaped,168.5186
+COPPER_AXE,Kupfer Axt,COPPER_AXE,46,46,212.48,53.12,recipe,copper_axe,crafting_shaped,168.5186
+COPPER_HOE,Kupfer Hacke,COPPER_HOE,34,34,144.48,36.12,recipe,copper_hoe,crafting_shaped,113.7624
+COPPER_SPEAR,Kupfer Speer,COPPER_SPEAR,34,34,76.48,19.12,recipe,copper_spear,crafting_shaped,59.0062
+COPPER_HELMET,Kupfer Helm,COPPER_HELMET,80,80,340.0,85.0,recipe,copper_helmet,crafting_shaped,273.781
+COPPER_CHESTPLATE,Kupfer Brustplatte,COPPER_CHESTPLATE,116,116,544.0,136.0,recipe,copper_chestplate,crafting_shaped,438.0496
+COPPER_LEGGINGS,Kupfer Beinschutz,COPPER_LEGGINGS,104,104,476.0,119.0,recipe,copper_leggings,crafting_shaped,383.2934
+COPPER_BOOTS,Kupfer Stiefel,COPPER_BOOTS,68,68,272.0,68.0,recipe,copper_boots,crafting_shaped,219.0248
 COPPER_HORSE_ARMOR,Kupfer Pferd Rüstung,COPPER_HORSE_ARMOR,92,92,196.0,49.0,explicit_reference,reference,reference,196.0
-IRON_SWORD,Eisen Schwert,IRON_SWORD,522,522,140.24,35.06,recipe,iron_sword,crafting_shaped,112.725
-IRON_SHOVEL,Eisen Schaufel,IRON_SHOVEL,266,266,76.48,19.12,recipe,iron_shovel,crafting_shaped,59.55
-IRON_PICKAXE,Eisen Spitzhacke,IRON_PICKAXE,778,778,212.48,53.12,recipe,iron_pickaxe,crafting_shaped,170.15
-IRON_AXE,Eisen Axt,IRON_AXE,778,778,212.48,53.12,recipe,iron_axe,crafting_shaped,170.15
-IRON_HOE,Eisen Hacke,IRON_HOE,522,522,144.48,36.12,recipe,iron_hoe,crafting_shaped,114.85
-IRON_SPEAR,Eisen Speer,IRON_SPEAR,522,522,76.48,19.12,recipe,iron_spear,crafting_shaped,59.55
-IRON_HELMET,Eisen Helm,IRON_HELMET,1300,1300,340.0,85.0,recipe,iron_helmet,crafting_shaped,276.5
-IRON_CHESTPLATE,Eisen Brustplatte,IRON_CHESTPLATE,2068,2068,544.0,136.0,recipe,iron_chestplate,crafting_shaped,442.4
-IRON_LEGGINGS,Eisen Beinschutz,IRON_LEGGINGS,1812,1812,476.0,119.0,recipe,iron_leggings,crafting_shaped,387.1
-IRON_BOOTS,Eisen Stiefel,IRON_BOOTS,1044,1044,272.0,68.0,recipe,iron_boots,crafting_shaped,221.2
+IRON_SWORD,Eisen Schwert,IRON_SWORD,522,522,140.24,35.06,recipe,iron_sword,crafting_shaped,111.6374
+IRON_SHOVEL,Eisen Schaufel,IRON_SHOVEL,266,266,76.48,19.12,recipe,iron_shovel,crafting_shaped,59.0062
+IRON_PICKAXE,Eisen Spitzhacke,IRON_PICKAXE,778,778,212.48,53.12,recipe,iron_pickaxe,crafting_shaped,168.5186
+IRON_AXE,Eisen Axt,IRON_AXE,778,778,212.48,53.12,recipe,iron_axe,crafting_shaped,168.5186
+IRON_HOE,Eisen Hacke,IRON_HOE,522,522,144.48,36.12,recipe,iron_hoe,crafting_shaped,113.7624
+IRON_SPEAR,Eisen Speer,IRON_SPEAR,522,522,76.48,19.12,recipe,iron_spear,crafting_shaped,59.0062
+IRON_HELMET,Eisen Helm,IRON_HELMET,1300,1300,340.0,85.0,recipe,iron_helmet,crafting_shaped,273.781
+IRON_CHESTPLATE,Eisen Brustplatte,IRON_CHESTPLATE,2068,2068,544.0,136.0,recipe,iron_chestplate,crafting_shaped,438.0496
+IRON_LEGGINGS,Eisen Beinschutz,IRON_LEGGINGS,1812,1812,476.0,119.0,recipe,iron_leggings,crafting_shaped,383.2934
+IRON_BOOTS,Eisen Stiefel,IRON_BOOTS,1044,1044,272.0,68.0,recipe,iron_boots,crafting_shaped,219.0248
 IRON_HORSE_ARMOR,Eisen Pferd Rüstung,IRON_HORSE_ARMOR,750,750,300.0,75.0,csv,reference,reference,300.0
 GOLDEN_SWORD,Golden Schwert,GOLDEN_SWORD,1010,1010,140.24,35.06,recipe,golden_sword,crafting_shaped,74.125
 GOLDEN_SHOVEL,Golden Schaufel,GOLDEN_SHOVEL,510,510,76.48,19.12,recipe,golden_shovel,crafting_shaped,40.25
@@ -1466,44 +1466,44 @@ GLOWSTONE_DUST,Glowstone Dust,GLOWSTONE_DUST,,,12.0,3.0,csv,reference,reference,
 ENDER_PEARL,Ender Pearl,ENDER_PEARL,,,120.0,30.0,csv,reference,reference,120.0
 GLOW_INK_SAC,Glow Ink Sac,GLOW_INK_SAC,,,40.0,10.0,csv,reference,reference,40.0
 PHANTOM_MEMBRANE,Phantom Membrane,PHANTOM_MEMBRANE,,,200.0,50.0,csv,reference,reference,200.0
-POTION_OF_SWIFTNESS_II,Potion of Swiftness II,POTION_OF_SWIFTNESS_II,,,82.0,20.5,csv,reference,reference,20.5
-POTION_OF_SLOWNESS_IV,Potion of Slowness IV,POTION_OF_SLOWNESS_IV,,,134.8,33.7,csv,reference,reference,33.7
-POTION_OF_STRENGTH_II,Potion of Strength II,POTION_OF_STRENGTH_II,,,74.0,18.5,csv,reference,reference,18.5
-POTION_OF_JUMP_BOOST_II,Potion of Jump Boost II,POTION_OF_JUMP_BOOST_II,,,140.0,35.0,csv,reference,reference,85.16666666666667
-POTION_OF_REGENERATION_II,Potion of Regeneration II,POTION_OF_REGENERATION_II,,,180.0,45.0,csv,reference,reference,125.16666666666667
-POTION_OF_FIRE_RESISTANCE,Potion of Fire Resistance,POTION_OF_FIRE_RESISTANCE,,,100.0,25.0,csv,reference,reference,42.96666666666667
-POTION_OF_WATER_BREATHING,Potion of Water Breathing,POTION_OF_WATER_BREATHING,,,100.0,25.0,csv,reference,reference,26.966666666666665
-POTION_OF_NIGHT_VISION,Potion of Night Vision,POTION_OF_NIGHT_VISION,,,100.0,25.0,csv,reference,reference,29.633333333333333
-POTION_OF_INVISIBILITY,Potion of Invisibility,POTION_OF_INVISIBILITY,,,120.0,30.0,csv,reference,reference,42.833333333333336
-POTION_OF_HEALING_II,Potion of Healing II,POTION_OF_HEALING_II,,,114.8,28.7,csv,reference,reference,28.7
-POTION_OF_HARMING_II,Potion of Harming II,POTION_OF_HARMING_II,,,167.6,41.9,csv,reference,reference,41.9
-POTION_OF_POISON_II,Potion of Poison II,POTION_OF_POISON_II,,,100.64,25.16,csv,reference,reference,25.166666666666668
-POTION_OF_WEAKNESS,Potion of Weakness,POTION_OF_WEAKNESS,,,76.4,19.1,csv,reference,reference,19.1
-POTION_OF_SLOW_FALLING,Potion of Slow Falling,POTION_OF_SLOW_FALLING,,,120.0,30.0,csv,reference,reference,82.96666666666667
+POTION_OF_SWIFTNESS_II,Potion of Swiftness II,POTION_OF_SWIFTNESS_II,,,75.8,18.95,csv,reference,reference,18.9562
+POTION_OF_SLOWNESS_IV,Potion of Slowness IV,POTION_OF_SLOWNESS_IV,,,124.6,31.15,csv,reference,reference,31.1562
+POTION_OF_STRENGTH_II,Potion of Strength II,POTION_OF_STRENGTH_II,,,67.8,16.95,csv,reference,reference,16.9562
+POTION_OF_JUMP_BOOST_II,Potion of Jump Boost II,POTION_OF_JUMP_BOOST_II,,,140.0,35.0,csv,reference,reference,83.62286666666667
+POTION_OF_REGENERATION_II,Potion of Regeneration II,POTION_OF_REGENERATION_II,,,180.0,45.0,csv,reference,reference,123.62286666666667
+POTION_OF_FIRE_RESISTANCE,Potion of Fire Resistance,POTION_OF_FIRE_RESISTANCE,,,100.0,25.0,csv,reference,reference,41.422866666666664
+POTION_OF_WATER_BREATHING,Potion of Water Breathing,POTION_OF_WATER_BREATHING,,,100.0,25.0,csv,reference,reference,25.422866666666668
+POTION_OF_NIGHT_VISION,Potion of Night Vision,POTION_OF_NIGHT_VISION,,,100.0,25.0,csv,reference,reference,28.089533333333332
+POTION_OF_INVISIBILITY,Potion of Invisibility,POTION_OF_INVISIBILITY,,,120.0,30.0,csv,reference,reference,40.28953333333333
+POTION_OF_HEALING_II,Potion of Healing II,POTION_OF_HEALING_II,,,108.6,27.15,csv,reference,reference,27.1562
+POTION_OF_HARMING_II,Potion of Harming II,POTION_OF_HARMING_II,,,157.4,39.35,csv,reference,reference,39.3562
+POTION_OF_POISON_II,Potion of Poison II,POTION_OF_POISON_II,,,94.48,23.62,csv,reference,reference,23.622866666666667
+POTION_OF_WEAKNESS,Potion of Weakness,POTION_OF_WEAKNESS,,,66.2,16.55,csv,reference,reference,16.5562
+POTION_OF_SLOW_FALLING,Potion of Slow Falling,POTION_OF_SLOW_FALLING,,,120.0,30.0,csv,reference,reference,81.42286666666666
 POTION_OF_TURTLE_MASTER_II,Potion of Turtle Master II,POTION_OF_TURTLE_MASTER_II,,,300.0,75.0,csv,reference,reference,300.0
 POTION_OF_WIND_CHARGING,Potion of Wind Charging,POTION_OF_WIND_CHARGING,,,140.0,35.0,csv,reference,reference,140.0
-POTION_OF_WEAVING,Potion of Weaving,POTION_OF_WEAVING,,,86.52,21.63,csv,reference,reference,21.633333333333333
-POTION_OF_OOZING,Potion of Oozing,POTION_OF_OOZING,,,140.0,35.0,csv,reference,reference,40.3
-POTION_OF_INFESTATION,Potion of Infestation,POTION_OF_INFESTATION,,,70.52,17.63,csv,reference,reference,17.633333333333333
-TIPPED_ARROW_SWIFTNESS_II,Tipped Arrow – Swiftness II,TIPPED_ARROW_SWIFTNESS_II,,,116.24,29.06,csv,reference,reference,29.060416666666665
-TIPPED_ARROW_SLOWNESS_IV,Tipped Arrow – Slowness IV,TIPPED_ARROW_SLOWNESS_IV,,,122.84,30.71,csv,reference,reference,30.710416666666667
-TIPPED_ARROW_STRENGTH_II,Tipped Arrow – Strength II,TIPPED_ARROW_STRENGTH_II,,,115.24,28.81,csv,reference,reference,28.810416666666665
-TIPPED_ARROW_JUMP_BOOST_II,Tipped Arrow – Jump Boost II,TIPPED_ARROW_JUMP_BOOST_II,,,140.0,35.0,csv,reference,reference,37.14375
-TIPPED_ARROW_REGENERATION_II,Tipped Arrow – Regeneration II,TIPPED_ARROW_REGENERATION_II,,,168.56,42.14,csv,reference,reference,42.14375
-TIPPED_ARROW_FIRE_RESISTANCE,Tipped Arrow – Fire Resistance,TIPPED_ARROW_FIRE_RESISTANCE,,,100.0,25.0,csv,reference,reference,31.86875
-TIPPED_ARROW_WATER_BREATHING,Tipped Arrow – Water Breathing,TIPPED_ARROW_WATER_BREATHING,,,100.0,25.0,csv,reference,reference,29.86875
-TIPPED_ARROW_NIGHT_VISION,Tipped Arrow – Night Vision,TIPPED_ARROW_NIGHT_VISION,,,100.0,25.0,csv,reference,reference,30.202083333333334
-TIPPED_ARROW_INVISIBILITY,Tipped Arrow – Invisibility,TIPPED_ARROW_INVISIBILITY,,,120.0,30.0,csv,reference,reference,31.852083333333333
-TIPPED_ARROW_HEALING_II,Tipped Arrow – Healing II,TIPPED_ARROW_HEALING_II,,,120.32,30.08,csv,reference,reference,30.085416666666667
-TIPPED_ARROW_HARMING_II,Tipped Arrow – Harming II,TIPPED_ARROW_HARMING_II,,,126.92,31.73,csv,reference,reference,31.735416666666666
-TIPPED_ARROW_POISON_II,Tipped Arrow – Poison II,TIPPED_ARROW_POISON_II,,,118.56,29.64,csv,reference,reference,29.64375
-TIPPED_ARROW_WEAKNESS,Tipped Arrow – Weakness,TIPPED_ARROW_WEAKNESS,,,80.0,20.0,csv,reference,reference,28.885416666666668
-TIPPED_ARROW_SLOW_FALLING,Tipped Arrow – Slow Falling,TIPPED_ARROW_SLOW_FALLING,,,120.0,30.0,csv,reference,reference,36.86875
+POTION_OF_WEAVING,Potion of Weaving,POTION_OF_WEAVING,,,80.32,20.08,csv,reference,reference,20.089533333333332
+POTION_OF_OOZING,Potion of Oozing,POTION_OF_OOZING,,,140.0,35.0,csv,reference,reference,38.7562
+POTION_OF_INFESTATION,Potion of Infestation,POTION_OF_INFESTATION,,,64.32,16.08,csv,reference,reference,16.089533333333332
+TIPPED_ARROW_SWIFTNESS_II,Tipped Arrow – Swiftness II,TIPPED_ARROW_SWIFTNESS_II,,,115.44,28.86,csv,reference,reference,28.867441666666668
+TIPPED_ARROW_SLOWNESS_IV,Tipped Arrow – Slowness IV,TIPPED_ARROW_SLOWNESS_IV,,,121.56,30.39,csv,reference,reference,30.392441666666667
+TIPPED_ARROW_STRENGTH_II,Tipped Arrow – Strength II,TIPPED_ARROW_STRENGTH_II,,,114.44,28.61,csv,reference,reference,28.617441666666668
+TIPPED_ARROW_JUMP_BOOST_II,Tipped Arrow – Jump Boost II,TIPPED_ARROW_JUMP_BOOST_II,,,140.0,35.0,csv,reference,reference,36.950775
+TIPPED_ARROW_REGENERATION_II,Tipped Arrow – Regeneration II,TIPPED_ARROW_REGENERATION_II,,,167.8,41.95,csv,reference,reference,41.950775
+TIPPED_ARROW_FIRE_RESISTANCE,Tipped Arrow – Fire Resistance,TIPPED_ARROW_FIRE_RESISTANCE,,,100.0,25.0,csv,reference,reference,31.675775
+TIPPED_ARROW_WATER_BREATHING,Tipped Arrow – Water Breathing,TIPPED_ARROW_WATER_BREATHING,,,100.0,25.0,csv,reference,reference,29.675775
+TIPPED_ARROW_NIGHT_VISION,Tipped Arrow – Night Vision,TIPPED_ARROW_NIGHT_VISION,,,100.0,25.0,csv,reference,reference,30.009108333333334
+TIPPED_ARROW_INVISIBILITY,Tipped Arrow – Invisibility,TIPPED_ARROW_INVISIBILITY,,,120.0,30.0,csv,reference,reference,31.534108333333332
+TIPPED_ARROW_HEALING_II,Tipped Arrow – Healing II,TIPPED_ARROW_HEALING_II,,,119.56,29.89,csv,reference,reference,29.892441666666667
+TIPPED_ARROW_HARMING_II,Tipped Arrow – Harming II,TIPPED_ARROW_HARMING_II,,,125.64,31.41,csv,reference,reference,31.417441666666665
+TIPPED_ARROW_POISON_II,Tipped Arrow – Poison II,TIPPED_ARROW_POISON_II,,,117.8,29.45,csv,reference,reference,29.450775
+TIPPED_ARROW_WEAKNESS,Tipped Arrow – Weakness,TIPPED_ARROW_WEAKNESS,,,80.0,20.0,csv,reference,reference,28.567441666666667
+TIPPED_ARROW_SLOW_FALLING,Tipped Arrow – Slow Falling,TIPPED_ARROW_SLOW_FALLING,,,120.0,30.0,csv,reference,reference,36.675775
 TIPPED_ARROW_TURTLE_MASTER_II,Tipped Arrow – Turtle Master II,TIPPED_ARROW_TURTLE_MASTER_II,,,255.96,63.99,csv,reference,reference,63.99791666666667
 TIPPED_ARROW_WIND_CHARGING,Tipped Arrow – Wind Charging,TIPPED_ARROW_WIND_CHARGING,,,140.0,35.0,csv,reference,reference,43.99791666666667
-TIPPED_ARROW_WEAVING,Tipped Arrow – Weaving,TIPPED_ARROW_WEAVING,,,116.8,29.2,csv,reference,reference,29.202083333333334
-TIPPED_ARROW_OOZING,Tipped Arrow – Oozing,TIPPED_ARROW_OOZING,,,126.12,31.53,csv,reference,reference,31.535416666666666
-TIPPED_ARROW_INFESTATION,Tipped Arrow – Infestation,TIPPED_ARROW_INFESTATION,,,114.8,28.7,csv,reference,reference,28.702083333333334
+TIPPED_ARROW_WEAVING,Tipped Arrow – Weaving,TIPPED_ARROW_WEAVING,,,116.0,29.0,csv,reference,reference,29.009108333333334
+TIPPED_ARROW_OOZING,Tipped Arrow – Oozing,TIPPED_ARROW_OOZING,,,125.36,31.34,csv,reference,reference,31.342441666666666
+TIPPED_ARROW_INFESTATION,Tipped Arrow – Infestation,TIPPED_ARROW_INFESTATION,,,114.0,28.5,csv,reference,reference,28.509108333333334
 ENCHANTED_BOOK_AQUA_AFFINITY_1,Enchanted Book – Aqua Affinity 1,ENCHANTED_BOOK_AQUA_AFFINITY_1,,,20.0,5.0,csv,reference,reference,20.0
 ENCHANTED_BOOK_BANE_OF_ARTHROPODS_5,Enchanted Book – Bane of Arthropods 5,ENCHANTED_BOOK_BANE_OF_ARTHROPODS_5,,,30.0,7.5,csv,reference,reference,30.0
 ENCHANTED_BOOK_BLAST_PROTECTION_4,Enchanted Book – Blast Protection 4,ENCHANTED_BOOK_BLAST_PROTECTION_4,,,30.0,7.5,csv,reference,reference,30.0

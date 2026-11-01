@@ -94,3 +94,6 @@ Die vollständigen Regeln, gezielten CSV-Korrekturen und Schätzungen stehen in 
 
 
 Die Symboltaste im Ergebnis übernimmt das Ziel-Item und seine berechnete Menge als neuen Ausgang. Das Ziel-Item bleibt ausgewählt. Unter der Ausgangsmenge addieren die Schnellwahltasten 1, 3, 5, 10, 15, 20, 30, 50 und 100 ihren jeweiligen Wert zur Eingabe. Die Löschtaste leert das Mengenfeld; eine leere Eingabe wird als null berechnet. Die direkte Mengeneingabe bleibt möglich.
+
+
+Die erweiterten Sicherheitsprüfungen berücksichtigen Entzaubern, kostenlose Wasserfüllung, Lava-Brennstoff und gleichzeitige Behälterrückgaben. Nach der Korrektur findet das unabhängige Inventar-/Geldmodell keine profitablen Kombinationen im geprüften Umfang. [Ergebnis, Grenzen und Reproduktionsbefehle](pricing/security-audit.md).

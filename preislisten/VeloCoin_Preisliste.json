@@ -1207,18 +1207,18 @@
     {
       "id": "BOOK",
       "name": "Buch",
-      "buy": 54.4,
-      "sell": 13.6,
-      "defaultBuy": 54.4,
-      "defaultSell": 13.6
+      "buy": 32.0,
+      "sell": 8.0,
+      "defaultBuy": 32.0,
+      "defaultSell": 8.0
     },
     {
       "id": "BOOKSHELF",
       "name": "Bookshelf",
-      "buy": 214.2,
-      "sell": 53.55,
-      "defaultBuy": 214.2,
-      "defaultSell": 53.55
+      "buy": 198.0,
+      "sell": 49.5,
+      "defaultBuy": 198.0,
+      "defaultSell": 49.5
     },
     {
       "id": "ENCHANTED_BOOK",
@@ -1735,10 +1735,10 @@
     {
       "id": "GLASS",
       "name": "Glas",
-      "buy": 19.6,
-      "sell": 4.9,
-      "defaultBuy": 19.6,
-      "defaultSell": 4.9
+      "buy": 17.4,
+      "sell": 4.35,
+      "defaultBuy": 17.4,
+      "defaultSell": 4.35
     },
     {
       "id": "GLASS_PANE",
@@ -2207,10 +2207,10 @@
     {
       "id": "LODESTONE",
       "name": "Leitstein",
-      "buy": 328.72,
-      "sell": 82.18,
-      "defaultBuy": 328.72,
-      "defaultSell": 82.18
+      "buy": 326.52,
+      "sell": 81.63,
+      "defaultBuy": 326.52,
+      "defaultSell": 81.63
     },
     {
       "id": "RESPAWN_ANCHOR",
@@ -2231,10 +2231,10 @@
     {
       "id": "END_CRYSTAL",
       "name": "Enderkristall",
-      "buy": 2185.2,
-      "sell": 546.3,
-      "defaultBuy": 2185.2,
-      "defaultSell": 546.3
+      "buy": 2169.96,
+      "sell": 542.49,
+      "defaultBuy": 2169.96,
+      "defaultSell": 542.49
     },
     {
       "id": "DRIED_KELP",
@@ -8983,10 +8983,10 @@
     {
       "id": "FLOWER_POT",
       "name": "Blume Pot",
-      "buy": 40.0,
-      "sell": 10.0,
-      "defaultBuy": 40.0,
-      "defaultSell": 10.0
+      "buy": 34.48,
+      "sell": 8.62,
+      "defaultBuy": 34.48,
+      "defaultSell": 8.62
     },
     {
       "id": "ARMOR_STAND",
@@ -11743,26 +11743,26 @@
     {
       "id": "POTION_OF_SWIFTNESS_II",
       "name": "Potion of Swiftness II",
-      "buy": 82.0,
-      "sell": 20.5,
-      "defaultBuy": 82.0,
-      "defaultSell": 20.5
+      "buy": 75.8,
+      "sell": 18.95,
+      "defaultBuy": 75.8,
+      "defaultSell": 18.95
     },
     {
       "id": "POTION_OF_SLOWNESS_IV",
       "name": "Potion of Slowness IV",
-      "buy": 134.8,
-      "sell": 33.7,
-      "defaultBuy": 134.8,
-      "defaultSell": 33.7
+      "buy": 124.6,
+      "sell": 31.15,
+      "defaultBuy": 124.6,
+      "defaultSell": 31.15
     },
     {
       "id": "POTION_OF_STRENGTH_II",
       "name": "Potion of Strength II",
-      "buy": 74.0,
-      "sell": 18.5,
-      "defaultBuy": 74.0,
-      "defaultSell": 18.5
+      "buy": 67.8,
+      "sell": 16.95,
+      "defaultBuy": 67.8,
+      "defaultSell": 16.95
     },
     {
       "id": "POTION_OF_JUMP_BOOST_II",
@@ -11815,34 +11815,34 @@
     {
       "id": "POTION_OF_HEALING_II",
       "name": "Potion of Healing II",
-      "buy": 114.8,
-      "sell": 28.7,
-      "defaultBuy": 114.8,
-      "defaultSell": 28.7
+      "buy": 108.6,
+      "sell": 27.15,
+      "defaultBuy": 108.6,
+      "defaultSell": 27.15
     },
     {
       "id": "POTION_OF_HARMING_II",
       "name": "Potion of Harming II",
-      "buy": 167.6,
-      "sell": 41.9,
-      "defaultBuy": 167.6,
-      "defaultSell": 41.9
+      "buy": 157.4,
+      "sell": 39.35,
+      "defaultBuy": 157.4,
+      "defaultSell": 39.35
     },
     {
       "id": "POTION_OF_POISON_II",
       "name": "Potion of Poison II",
-      "buy": 100.64,
-      "sell": 25.16,
-      "defaultBuy": 100.64,
-      "defaultSell": 25.16
+      "buy": 94.48,
+      "sell": 23.62,
+      "defaultBuy": 94.48,
+      "defaultSell": 23.62
     },
     {
       "id": "POTION_OF_WEAKNESS",
       "name": "Potion of Weakness",
-      "buy": 76.4,
-      "sell": 19.1,
-      "defaultBuy": 76.4,
-      "defaultSell": 19.1
+      "buy": 66.2,
+      "sell": 16.55,
+      "defaultBuy": 66.2,
+      "defaultSell": 16.55
     },
     {
       "id": "POTION_OF_SLOW_FALLING",
@@ -11871,10 +11871,10 @@
     {
       "id": "POTION_OF_WEAVING",
       "name": "Potion of Weaving",
-      "buy": 86.52,
-      "sell": 21.63,
-      "defaultBuy": 86.52,
-      "defaultSell": 21.63
+      "buy": 80.32,
+      "sell": 20.08,
+      "defaultBuy": 80.32,
+      "defaultSell": 20.08
     },
     {
       "id": "POTION_OF_OOZING",
@@ -11887,34 +11887,34 @@
     {
       "id": "POTION_OF_INFESTATION",
       "name": "Potion of Infestation",
-      "buy": 70.52,
-      "sell": 17.63,
-      "defaultBuy": 70.52,
-      "defaultSell": 17.63
+      "buy": 64.32,
+      "sell": 16.08,
+      "defaultBuy": 64.32,
+      "defaultSell": 16.08
     },
     {
       "id": "TIPPED_ARROW_SWIFTNESS_II",
       "name": "Tipped Arrow – Swiftness II",
-      "buy": 116.24,
-      "sell": 29.06,
-      "defaultBuy": 116.24,
-      "defaultSell": 29.06
+      "buy": 115.44,
+      "sell": 28.86,
+      "defaultBuy": 115.44,
+      "defaultSell": 28.86
     },
     {
       "id": "TIPPED_ARROW_SLOWNESS_IV",
       "name": "Tipped Arrow – Slowness IV",
-      "buy": 122.84,
-      "sell": 30.71,
-      "defaultBuy": 122.84,
-      "defaultSell": 30.71
+      "buy": 121.56,
+      "sell": 30.39,
+      "defaultBuy": 121.56,
+      "defaultSell": 30.39
     },
     {
       "id": "TIPPED_ARROW_STRENGTH_II",
       "name": "Tipped Arrow – Strength II",
-      "buy": 115.24,
-      "sell": 28.81,
-      "defaultBuy": 115.24,
-      "defaultSell": 28.81
+      "buy": 114.44,
+      "sell": 28.61,
+      "defaultBuy": 114.44,
+      "defaultSell": 28.61
     },
     {
       "id": "TIPPED_ARROW_JUMP_BOOST_II",
@@ -11927,10 +11927,10 @@
     {
       "id": "TIPPED_ARROW_REGENERATION_II",
       "name": "Tipped Arrow – Regeneration II",
-      "buy": 168.56,
-      "sell": 42.14,
-      "defaultBuy": 168.56,
-      "defaultSell": 42.14
+      "buy": 167.8,
+      "sell": 41.95,
+      "defaultBuy": 167.8,
+      "defaultSell": 41.95
     },
     {
       "id": "TIPPED_ARROW_FIRE_RESISTANCE",
@@ -11967,26 +11967,26 @@
     {
       "id": "TIPPED_ARROW_HEALING_II",
       "name": "Tipped Arrow – Healing II",
-      "buy": 120.32,
-      "sell": 30.08,
-      "defaultBuy": 120.32,
-      "defaultSell": 30.08
+      "buy": 119.56,
+      "sell": 29.89,
+      "defaultBuy": 119.56,
+      "defaultSell": 29.89
     },
     {
       "id": "TIPPED_ARROW_HARMING_II",
       "name": "Tipped Arrow – Harming II",
-      "buy": 126.92,
-      "sell": 31.73,
-      "defaultBuy": 126.92,
-      "defaultSell": 31.73
+      "buy": 125.64,
+      "sell": 31.41,
+      "defaultBuy": 125.64,
+      "defaultSell": 31.41
     },
     {
       "id": "TIPPED_ARROW_POISON_II",
       "name": "Tipped Arrow – Poison II",
-      "buy": 118.56,
-      "sell": 29.64,
-      "defaultBuy": 118.56,
-      "defaultSell": 29.64
+      "buy": 117.8,
+      "sell": 29.45,
+      "defaultBuy": 117.8,
+      "defaultSell": 29.45
     },
     {
       "id": "TIPPED_ARROW_WEAKNESS",
@@ -12023,26 +12023,26 @@
     {
       "id": "TIPPED_ARROW_WEAVING",
       "name": "Tipped Arrow – Weaving",
-      "buy": 116.8,
-      "sell": 29.2,
-      "defaultBuy": 116.8,
-      "defaultSell": 29.2
+      "buy": 116.0,
+      "sell": 29.0,
+      "defaultBuy": 116.0,
+      "defaultSell": 29.0
     },
     {
       "id": "TIPPED_ARROW_OOZING",
       "name": "Tipped Arrow – Oozing",
-      "buy": 126.12,
-      "sell": 31.53,
-      "defaultBuy": 126.12,
-      "defaultSell": 31.53
+      "buy": 125.36,
+      "sell": 31.34,
+      "defaultBuy": 125.36,
+      "defaultSell": 31.34
     },
     {
       "id": "TIPPED_ARROW_INFESTATION",
       "name": "Tipped Arrow – Infestation",
-      "buy": 114.8,
-      "sell": 28.7,
-      "defaultBuy": 114.8,
-      "defaultSell": 28.7
+      "buy": 114.0,
+      "sell": 28.5,
+      "defaultBuy": 114.0,
+      "defaultSell": 28.5
     },
     {
       "id": "ENCHANTED_BOOK_AQUA_AFFINITY_1",

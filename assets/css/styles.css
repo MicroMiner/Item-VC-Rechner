@@ -1969,3 +1969,27 @@ select:focus-visible {
   .converter-tools { flex: 1 1 100%; width: 100%; }
   .converter-tools .economy-status { flex: 1; width: auto; }
 }
+
+/* Inset result panel within the existing converter card. */
+.conversion-result-content {
+  width: 100%;
+  max-width: 560px;
+  min-width: 0;
+  margin-inline: auto;
+  padding: clamp(24px, 3vw, 40px) clamp(16px, 2vw, 28px);
+  border: 1px solid rgba(66, 91, 119, 0.55);
+  border-radius: var(--site-radius);
+  background: rgba(8, 19, 38, 0.66);
+  box-shadow: 0 8px 24px rgba(4, 13, 28, 0.14);
+}
+.right-stack .conversion-result-content .big {
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  margin: 24px 0;
+  overflow-wrap: anywhere;
+}
+.conversion-result-content .flex { flex-wrap: wrap; }
+@media (max-width: 480px) {
+  .right-stack .result { padding: 20px 12px; }
+  .conversion-result-content { padding: 24px 14px; }
+  .conversion-result-content .btn { padding: 9px 10px; font-size: 0.85rem; }
+}

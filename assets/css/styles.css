@@ -2010,15 +2010,16 @@ select:focus-visible {
   .converter-layout-two .hero-grid { grid-template-columns: minmax(0, 1fr); }
   .converter-layout-two .converter-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 65px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr);
+    column-gap: 8px;
     height: auto;
     min-height: 0;
     align-items: stretch;
   }
   .converter-layout-two .swap-slot .swap-icon { transform: none; }
-  .converter-layout-two .swap-slot .swap { width: 52px; height: 40px; }
+  .converter-layout-two .swap-slot .swap { width: 36px; height: 52px; font-size: 1.1rem; }
   .converter-layout-two .right-stack {
-    width: 50%;
+    width: calc(100% * 4 / 6);
     min-width: 0;
     justify-self: center;
     margin-top: 8px;

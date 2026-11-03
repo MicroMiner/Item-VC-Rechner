@@ -1,6 +1,6 @@
 "use strict";
 
-const APP_VERSION = "v1.0.32";
+const APP_VERSION = "v1.0.34";
 const $ = (id) => document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
 let defaults = [],
@@ -74,18 +74,20 @@ function localizedItemName(item) {
 const priceLabel = (x) =>
   `${localizedItemName(x)} · Buy ${fmtPrice(x.buy)} / Sell ${fmtPrice(x.sell)} VC` +
   (Number.isFinite(x.grundwert) ? ` · Grundwert ${fmtPrice(x.grundwert)} VC` : "");
+const priceModes = { from: "grundwert", to: "grundwert" };
+const priceNames = { sell: "Sell", buy: "Buy", grundwert: "Grundwert" };
 const rateMarkup = (x, side) => {
-  const buy = side === "to" && $("shopMode").checked;
   return [
-    ["Sell", x.sell, x.defaultSell, !buy],
-    ["Buy", x.buy, x.defaultBuy, buy],
-    ["Grundwert", x.grundwert, x.grundwert, false],
-  ].map(([label, value, standard, used]) =>
-    `<div class="item-price-row${used ? " is-used" : ""}"${used ? ' title="Für die aktuelle Berechnung verwendet"' : ""}>` +
+    ["sell", x.sell, x.defaultSell],
+    ["buy", x.buy, x.defaultBuy],
+    ["grundwert", x.grundwert, x.grundwert],
+  ].map(([key, value, standard]) => {
+    const used = priceModes[side] === key && validPrice(value), label = priceNames[key];
+    return `<button type="button" class="item-price-row${used ? " is-used" : ""}" data-price="${key}" aria-pressed="${used}"${validPrice(value) ? "" : ' disabled title="Kein positiver Preis hinterlegt"'}>` +
     `<span class="item-price-label">${label}</span>` +
     `<span class="item-price-value">${Number.isFinite(value) ? `${fmtPrice(value)} <small>VC</small>` : '<span aria-label="Kein Grundwert hinterlegt">—</span>'}` +
-    `${Number.isFinite(value) && value !== standard ? `<small class="item-price-default">Standard: ${fmtPrice(standard)} VC</small>` : ""}</span></div>`
-  ).join("");
+    `${Number.isFinite(value) && value !== standard ? `<small class="item-price-default">Standard: ${fmtPrice(standard)} VC</small>` : ""}</span></button>`;
+  }).join("");
 };
 const status = (message) => ($("fileStatus").textContent = message);
 function readUpdatedAt(value) {
@@ -526,18 +528,28 @@ function update() {
   itemPickers.to?.sync();
   const a = get($("fromItem").value),
     b = get($("toItem").value),
-    shop = $("shopMode").checked;
-  const targetPrice = shop ? b.buy : b.sell;
+    shop = priceModes.from === "sell" && priceModes.to === "buy";
+  const sourcePrice = a[priceModes.from], targetPrice = b[priceModes.to];
+  const focused = document.activeElement?.closest("button[data-price]");
+  const focusedSide = focused?.closest(".rate")?.id;
+  const focusedPrice = focused?.dataset.price;
   $("fromRate").innerHTML = rateMarkup(a, "from");
   $("toRate").innerHTML = rateMarkup(b, "to");
+  if (focusedSide) $(focusedSide).querySelector(`[data-price="${focusedPrice}"]`)?.focus({ preventScroll: true });
   $("toRateLabel").textContent = "Preise pro Item";
   $("resultMode").textContent = shop
-    ? "SHOP · SELL → BUY"
-    : "WERTVERGLEICH · SELL → SELL";
+    ? "SHOP · SELL → BUY · GANZE ITEMS"
+    : `${priceNames[priceModes.from]} → ${priceNames[priceModes.to]}`;
   $("fromQty").step = shop ? "1" : "any";
   const amount = shop ? whole($("fromQty").value) : num($("fromQty").value);
   if ($("fromQty").value !== "") $("fromQty").value = amount;
-  const value = amount * a.sell,
+  if (!validPrice(sourcePrice) || !validPrice(targetPrice)) {
+    latestConversion = null;
+    $("useResult").disabled = true;
+    $("result").textContent = "Für diese Preisart fehlt ein positiver Wert. Bitte Sell oder Buy auswählen.";
+    return;
+  }
+  const value = amount * sourcePrice,
     ratio = value / targetPrice;
   const dest = shop ? Math.max(0, Math.floor(ratio + 1e-10)) : ratio;
   latestConversion =
@@ -549,7 +561,14 @@ function update() {
     ? `${fmt(amount)} × ${localizedItemName(a)} verkaufen → ${fmt(dest)} × ${localizedItemName(b)} kaufen`
     : `${fmt(amount)} × ${localizedItemName(a)} = ${fmt(dest)} × ${localizedItemName(b)}`;
 }
-$("shopMode").addEventListener("change", () => update());
+for (const side of ["from", "to"]) {
+  $(side + "Rate").addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-price]");
+    if (!button || button.disabled) return;
+    priceModes[side] = button.dataset.price;
+    update();
+  });
+}
 function redraw() {
   renderSelect("from");
   renderSelect("to");
@@ -648,6 +667,7 @@ $("useResult").addEventListener("click", () => {
   renderSelect("to");
   $("fromItem").value = itemId;
   $("toItem").value = previousFrom;
+  [priceModes.from, priceModes.to] = [priceModes.to, priceModes.from];
   $("fromQty").value = amount;
   update();
 });
@@ -660,11 +680,12 @@ $("swap").addEventListener("click", () => {
   renderSelect("to");
   $("fromItem").value = b;
   $("toItem").value = a;
+  [priceModes.from, priceModes.to] = [priceModes.to, priceModes.from];
   update();
 });
 $("reset").addEventListener("click", () => {
   if (!list().length) return;
-  $("shopMode").checked = false;
+  priceModes.from = priceModes.to = "grundwert";
   $("fromSearch").value = "";
   $("toSearch").value = "";
   $("fromQty").value = "1";

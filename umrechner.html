@@ -10,7 +10,7 @@
       sizes="48x48"
       href="assets/images/favicon.png"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=1.0.37" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=1.0.38" />
   </head>
   <body class="site-page converter-page">
     <div class="wrap">
@@ -46,6 +46,9 @@
               <rect x="6.5" y="5" width="11" height="5" rx="1.2" fill="currentColor" fill-opacity="0.12"/>
               <path d="M7 14h1m3.5 0h1m3.5 0h1M7 18h1m3.5 0h1M7 22h1m3.5 0h1M17 18v4" stroke-width="2.2"/>
             </svg>
+          </button>
+          <button class="calculator-toggle layout-toggle" id="toggleLayout" type="button" aria-label="Zu Layout 2 wechseln" aria-pressed="false" title="Layout 1 · Zu Layout 2 wechseln">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="8" rx="1.5"/><rect x="14" y="3" width="7" height="8" rx="1.5"/><rect x="6" y="15" width="12" height="6" rx="1.5"/></svg>
           </button>
           <aside
             class="economy-status"
@@ -641,7 +644,7 @@
                     placeholder="z. B. 350 * 64"
                     autocomplete="off"
                     aria-label="Rechnung eingeben"
-                  /><button
+                  /><button class="btn" id="calcBackspace" type="button" aria-label="Ein Zeichen löschen" title="Ein Zeichen links vom Cursor löschen">⌫</button><button
                     class="btn"
                     id="calcClear"
                     type="button"
@@ -713,9 +716,9 @@
                   Ergebnis
                 </div>
               </section>
-    <script src="config.js?v=1.0.35" defer></script>
+    <script src="config.js?v=1.0.38" defer></script>
     <script src="assets/js/ui.js?v=legal-2" defer></script>
-    <script src="assets/js/app.js?v=1.0.35" defer></script>
-    <script src="assets/js/calculator.js?v=1.0.35" defer></script>
+    <script src="assets/js/app.js?v=1.0.38" defer></script>
+    <script src="assets/js/calculator.js?v=1.0.38" defer></script>
   </body>
 </html>

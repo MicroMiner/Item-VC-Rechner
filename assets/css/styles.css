@@ -1316,7 +1316,10 @@ select:focus-visible {
 }
 /* Presentation states and layout overrides formerly embedded in markup/JS. */
 .converter-layout .target-fieldrow {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+}
+.converter-layout .target-fieldrow > div {
+  grid-column: 2;
 }
 .management .fieldrow.new-item-prices {
   margin: 0;
@@ -1367,6 +1370,18 @@ select:focus-visible {
 }
 .item-price-default {
   display: block;
+}
+
+@media (min-width: 721px) {
+  .converter-layout {
+    height: auto;
+    min-height: clamp(490px, calc(100dvh - 170px), 560px);
+  }
+  .converter-layout .card:first-child,
+  .converter-layout .card:last-child {
+    flex: 1 0 auto;
+    min-height: min-content;
+  }
 }
 
 /* Shared site chrome and landing page, based on the Startseite reference. */

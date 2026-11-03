@@ -1,6 +1,6 @@
 "use strict";
 
-const APP_VERSION = "v1.0.35";
+const APP_VERSION = "v1.0.38";
 const $ = (id) => document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
 let defaults = [],
@@ -866,3 +866,23 @@ async function init() {
 }
 renderHeaderStatus();
 init();
+
+// Keep the chosen converter layout across visits, independently of price data.
+(() => {
+  const toggle = document.getElementById('toggleLayout');
+  const key = 'velocity.converterLayout';
+  let alternate = false;
+  try { alternate = localStorage.getItem(key) === '2'; } catch {}
+  function renderLayout() {
+    document.body.classList.toggle('converter-layout-two', alternate);
+    toggle.setAttribute('aria-pressed', String(alternate));
+    toggle.setAttribute('aria-label', alternate ? 'Zu Layout 1 wechseln' : 'Zu Layout 2 wechseln');
+    toggle.title = `Layout ${alternate ? '2' : '1'} · ${toggle.getAttribute('aria-label')}`;
+  }
+  toggle.addEventListener('click', () => {
+    alternate = !alternate;
+    renderLayout();
+    try { localStorage.setItem(key, alternate ? '2' : '1'); } catch {}
+  });
+  renderLayout();
+})();

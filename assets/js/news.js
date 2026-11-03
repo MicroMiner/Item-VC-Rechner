@@ -1,132 +1,31 @@
-import { loadData, safeUrl, element } from "./portal-data.js";
-const container = document.getElementById("newsList");
-const preview = container.dataset.preview === "true";
-const categories = new Set(["Ankündigung", "Update", "Changelog", "Wartung"]);
-const dateFormatter = new Intl.DateTimeFormat("de-CH", {
-  day: "2-digit",
-  month: "2-digit",
-  year: "numeric",
-  timeZone: "Europe/Zurich",
-});
-function validEntry(entry) {
-  return (
-    entry &&
-    typeof entry.id === "string" &&
-    entry.id.trim() &&
-    ["manual", "discord"].includes(entry.source) &&
-    (entry.source === "manual"
-      ? entry.sourceId == null || typeof entry.sourceId === "string"
-      : typeof entry.sourceId === "string" && entry.sourceId.trim()) &&
-    categories.has(entry.category) &&
-    typeof entry.title === "string" &&
-    entry.title.trim() &&
-    typeof entry.content === "string" &&
-    entry.content.trim() &&
-    typeof entry.publishedAt === "string" &&
-    /^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(entry.publishedAt) &&
-    Number.isFinite(Date.parse(entry.publishedAt))
-  );
-}
-function renderEntry(entry) {
-  const article = element(
-    "article",
-    preview ? "news-preview" : "card news-card",
-  );
-  const meta = element("div", "news-meta");
-  meta.append(element("span", "news-category", entry.category));
-  const time = element(
-    "time",
-    "",
-    dateFormatter.format(new Date(entry.publishedAt)),
-  );
-  time.dateTime = entry.publishedAt;
-  meta.append(time);
-  const heading = element(preview ? "h3" : "h2", "", entry.title);
-  const excerpt =
-    entry.content.length > 180
-      ? entry.content.slice(0, 180).trimEnd() + " …"
-      : entry.content;
-  article.append(
-    meta,
-    heading,
-    element("p", "news-content", preview ? excerpt : entry.content),
-  );
-  if (!preview) {
-    const src = safeUrl(entry.image);
-    if (src) {
-      const image = element("img", "news-image");
-      image.src = src;
-      image.alt = entry.title;
-      image.loading = "lazy";
-      image.decoding = "async";
-      image.addEventListener(
-        "error",
-        () => {
-          image.remove();
-          article.append(
-            element(
-              "p",
-              "muted",
-              "Das Beitragsbild ist derzeit nicht verfügbar.",
-            ),
-          );
-        },
-        { once: true },
-      );
-      article.append(image);
-    }
-    const url = safeUrl(entry.url);
-    if (url) {
-      const link = element("a", "portal-link", "Mehr erfahren");
-      link.href = url;
-      link.rel = "noopener noreferrer";
-      article.append(link);
-    }
-  }
-  return article;
+import { loadNews, request, api } from './news-data.js';
+import { element, cover, metadata, article, safeUrl } from './news-format.js';
+const container=document.getElementById('newsList'),preview=container.dataset.preview==='true';
+function card(post) {
+ const card=element('article',preview?'news-preview':'news-blog-card');
+ const copy=element('div','news-card-copy');
+ if(!preview){const img=cover(post,'',()=>card.classList.add('no-image'));if(img)card.append(img);else card.classList.add('no-image');}
+ const excerpt=(post.excerpt||post.content.replace(/[#*`>]/g,'')).slice(0,preview?180:230);
+ copy.append(metadata(post),element(preview?'h3':'h2','',post.title),element('p','',excerpt+(post.content.length>230&&!post.excerpt?' …':'')));
+ const link=element('a',preview?'portal-link':'news-read-more','Weiterlesen →');link.href='neuigkeiten.html?beitrag='+encodeURIComponent(post.slug);link.setAttribute('aria-label','Weiterlesen: '+post.title);copy.append(link);card.append(copy);return card;
 }
 try {
-  const raw = await loadData("assets/data/updates.json", "updates");
-  const seen = new Set();
-  const entries = raw
-    .filter((entry) => {
-      if (!validEntry(entry) || seen.has(entry.id)) return false;
-      seen.add(entry.id);
-      return true;
-    })
-    .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
-  container.replaceChildren();
-  if (!entries.length) {
-    container.append(
-      element(
-        "p",
-        "muted",
-        raw.length
-          ? "Derzeit sind keine gültigen Neuigkeiten verfügbar."
-          : preview
-            ? "Aktuell gibt es noch keine Neuigkeiten."
-            : "Noch keine Neuigkeiten vorhanden. Hier findest du zukünftig alle wichtigen Änderungen rund um VeloCity.",
-      ),
-    );
-  } else {
-    container.append(
-      ...(preview ? entries.slice(0, 1) : entries).map(renderEntry),
-    );
-    if (!preview && entries.length < raw.length)
-      container.append(
-        element(
-          "p",
-          "muted",
-          "Einige ungültige oder doppelte Meldungen wurden nicht angezeigt.",
-        ),
-      );
+ const {posts,backend,total}=await loadNews();container.replaceChildren();
+ if(preview){if(posts.length)container.append(card(posts[0]));else container.append(element('p','muted','Aktuell gibt es noch keine Neuigkeiten.'));}
+ else {
+  const slug=new URLSearchParams(location.search).get('beitrag');
+  if(slug){document.getElementById('newsOverview').hidden=true;const detail=document.getElementById('newsDetail');detail.hidden=false;let p=posts.find(p=>p.slug===slug||p.id===slug);if(!p&&api)try{p=(await request('/news?slug='+encodeURIComponent(slug))).post;}catch{}if(p){detail.append(article(p));document.title=p.title+' · VeloCity';}else{const back=element('a','news-back','← Zurück zur Übersicht');back.href='neuigkeiten.html';detail.append(back,element('h1','','Beitrag nicht gefunden'),element('p','muted','Dieser Beitrag ist nicht veröffentlicht oder nicht mehr verfügbar.'));}}
+  else {
+   let shown=0,count=total;const more=document.getElementById('moreNews');async function append(){more.disabled=true;try{if(shown>=posts.length&&backend&&posts.length<count){const page=await request('/news?limit=50&offset='+posts.length);const seen=new Set(posts.map(p=>p.id));posts.push(...page.posts.filter(p=>!seen.has(p.id)));count=page.total;}const chunk=posts.slice(shown,shown+10);container.append(...chunk.map(card));shown+=chunk.length;more.hidden=shown>=posts.length&&(!backend||posts.length>=count);}catch{more.textContent='Erneut versuchen';}finally{more.disabled=false;}}
+   if(!posts.length)container.append(element('div','news-empty','Noch keine Neuigkeiten vorhanden. Hier findest du künftig Ankündigungen, Updates und Änderungen rund um VeloCity.'));
+   else append();more.addEventListener('click',append);
   }
-} catch {
-  container.replaceChildren(
-    element(
-      "p",
-      "portal-error",
-      "Neuigkeiten konnten nicht geladen werden. Bitte versuche es später erneut.",
-    ),
-  );
+ }
+} catch {container.replaceChildren(element('p','news-empty','Neuigkeiten konnten nicht geladen werden. Bitte versuche es später erneut.'));}
+if(!preview){
+ const invite=safeUrl(window.VELOCITY_CONFIG?.discordInvite),link=document.getElementById('discordInvite');
+ if(invite&&/^https:\/\/(?:discord\.gg\/|discord\.com\/invite\/)[a-zA-Z0-9_-]+\/?$/.test(invite)){link.href=invite;link.hidden=false;}
+ async function status(){const node=document.getElementById('discordStatus');let value='not_configured';if(api)try{const data=await request('/news/status');value=data.discord?.status||'not_configured';}catch(e){value=e.status===404||e.configured===false?'not_configured':'error';}const labels={connected:'Verbunden',disconnected:'Nicht verbunden',not_configured:'Nicht eingerichtet',error:'Verbindungsfehler'};node.dataset.state=labels[value]?value:'error';node.textContent=labels[node.dataset.state];}
+ status();setInterval(status,60000);
+ await import('./news-admin.js');
 }

@@ -1,6 +1,7 @@
 // VeloCity: imports news from one explicitly configured Discord channel.
 // Node.js 22+, no third-party dependencies. Never expose the bot token to the browser.
 import { readFile, writeFile } from "node:fs/promises";
+import { createNewsBridge } from "./discord-news-client.mjs";
 
 const token = process.env.DISCORD_BOT_TOKEN;
 const channel = process.env.DISCORD_CHANNEL_ID;
@@ -67,6 +68,22 @@ function convert(m) {
     image: null,
     url: `https://discord.com/channels/${m.guild_id}/${channel}/${m.id}`
   };
+}
+
+// Backend mode shares the persistent news store and never exposes the ingest token.
+if (process.env.NEWS_API_URL) {
+  const bridge = createNewsBridge();
+  try {
+    // Verify the configured guild against Discord, rather than inventing guild IDs.
+    const metadata = await fetch(`https://discord.com/api/v10/channels/${channel}`, {headers:{Authorization:`Bot ${token}`}});
+    if(!metadata.ok)throw Error('Discord channel lookup failed.');
+    const info=await metadata.json();
+    if(info.guild_id!==process.env.DISCORD_GUILD_ID)throw Error('Configured guild does not match the news channel.');
+    for(const message of messages)if(message.type===0)await bridge.message({...message,guild_id:info.guild_id,channel_id:channel});
+    await bridge.heartbeat(true);
+    console.log('Authenticated news synchronization completed.');
+  } catch(error) { await bridge.heartbeat(false).catch(()=>{});throw error; }
+  process.exit(0);
 }
 
 const fetchedIds = new Set(messages.map(m => String(m.id)));

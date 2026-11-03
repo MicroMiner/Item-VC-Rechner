@@ -1,4 +1,5 @@
 // VeloCity admin backend – deployed as Cloudflare Worker.
+import { newsRequest } from './news.js';
 // ADMIN_PASSWORD and GITHUB_TOKEN MUST be stored as Cloudflare Secrets.
 const jsonHeaders = {'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'};
 const reply=(data,status=200,headers={})=>new Response(JSON.stringify(data),{status,headers:{...jsonHeaders,...headers}});
@@ -60,7 +61,12 @@ export default {
  async fetch(request,env){
   const origin=request.headers.get('Origin')||'';
   const allowed=env.SITE_ORIGIN?.replace(/\/$/,'');
-  const cors=origin===allowed?{'Access-Control-Allow-Origin':origin,'Vary':'Origin','Access-Control-Allow-Methods':'GET,POST,PUT,OPTIONS','Access-Control-Allow-Headers':'Content-Type'}:{};
+  const cors=origin===allowed?{'Access-Control-Allow-Origin':origin,'Vary':'Origin','Access-Control-Allow-Methods':'GET,POST,PUT,OPTIONS','Access-Control-Allow-Headers':'Content-Type,Authorization'}:{};
+  const newsPath=new URL(request.url).pathname;
+  if(newsPath==='/news'||newsPath.startsWith('/news/')||newsPath.startsWith('/discord/')){
+   if(!allowed||!env.ADMIN_PASSWORD)return reply({error:'Worker-Konfiguration unvollständig.'},503,cors);
+   return newsRequest(request,env,{verifySession,sameSecret,cors});
+  }
   if(!allowed||!env.ADMIN_PASSWORD||!env.GITHUB_TOKEN||!env.GITHUB_OWNER||!env.GITHUB_REPO)return reply({error:'Worker-Konfiguration unvollständig.'},503,cors);
   if(origin!==allowed)return reply({error:'Origin nicht zugelassen.'},403,cors);
   if(request.method==='OPTIONS')return new Response(null,{status:204,headers:cors});

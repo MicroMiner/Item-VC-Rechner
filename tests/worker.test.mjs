@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import worker from '../worker/worker.js';
-const fixture=JSON.parse(await readFile(new URL('../preislisten/VeloCoin_Preisliste.json',import.meta.url)));
+const fixture=JSON.parse(await readFile(new URL('../preislisten/VeloCoin_Preisliste_aktuell.json',import.meta.url)));
 const env={SITE_ORIGIN:'http://localhost',ADMIN_PASSWORD:'local-test',GITHUB_TOKEN:'mock-only',GITHUB_OWNER:'MicroMiner',GITHUB_REPO:'VeloCity',GITHUB_BRANCH:'test-branch'};
 function request(path,method='GET',body,origin=env.SITE_ORIGIN){return worker.fetch(new Request('http://worker'+path,{method,headers:{Origin:origin},body:body?JSON.stringify(body):undefined}),env)}
 test('directory discovery, Buy/Sell round-trip, branch selection and write protection',async()=>{

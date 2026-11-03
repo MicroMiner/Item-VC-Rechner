@@ -1,7 +1,20 @@
-# ...
+name = "holy-sunset-4eb4velocity-admin-api"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
 [vars]
 GITHUB_BRANCH = "main"
 GITHUB_OWNER = "MicroMiner"
 GITHUB_REPO = "VeloCity"
 SITE_ORIGIN = "https://microminer.github.io"
-# ...
+DISCORD_DELETE_MODE = "hide"
+# DISCORD_GUILD_ID = "set-your-server-id"
+# DISCORD_CHANNEL_ID = "set-your-news-channel-id"
+
+# After creating the D1 database, uncomment and insert its actual ID.
+# [[d1_databases]]
+# binding = "NEWS_DB"
+# database_name = "velocity-news"
+# database_id = "actual-database-uuid"
+# migrations_dir = "migrations"
+# Secrets: existing ADMIN_PASSWORD/GITHUB_TOKEN; new DISCORD_INGEST_TOKEN.

@@ -1,6 +1,6 @@
 "use strict";
 
-const APP_VERSION = "v1.0.31";
+const APP_VERSION = "v1.0.32";
 const $ = (id) => document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
 let defaults = [],
@@ -76,7 +76,16 @@ const priceLabel = (x) =>
   (Number.isFinite(x.grundwert) ? ` · Grundwert ${fmtPrice(x.grundwert)} VC` : "");
 const rateMarkup = (x, side) => {
   const buy = side === "to" && $("shopMode").checked;
-  return `${fmtPrice(buy ? x.buy : x.sell)} VC <span class="original">${buy ? "Buy" : "Sell"}${wasChanged(x.id) ? " · Standard: " + fmtPrice(buy ? x.defaultBuy : x.defaultSell) + " VC" : ""}</span>`;
+  return [
+    ["Sell", x.sell, x.defaultSell, !buy],
+    ["Buy", x.buy, x.defaultBuy, buy],
+    ["Grundwert", x.grundwert, x.grundwert, false],
+  ].map(([label, value, standard, used]) =>
+    `<div class="item-price-row${used ? " is-used" : ""}"${used ? ' title="Für die aktuelle Berechnung verwendet"' : ""}>` +
+    `<span class="item-price-label">${label}</span>` +
+    `<span class="item-price-value">${Number.isFinite(value) ? `${fmtPrice(value)} <small>VC</small>` : '<span aria-label="Kein Grundwert hinterlegt">—</span>'}` +
+    `${Number.isFinite(value) && value !== standard ? `<small class="item-price-default">Standard: ${fmtPrice(standard)} VC</small>` : ""}</span></div>`
+  ).join("");
 };
 const status = (message) => ($("fileStatus").textContent = message);
 function readUpdatedAt(value) {
@@ -521,9 +530,7 @@ function update() {
   const targetPrice = shop ? b.buy : b.sell;
   $("fromRate").innerHTML = rateMarkup(a, "from");
   $("toRate").innerHTML = rateMarkup(b, "to");
-  $("toRateLabel").textContent = shop
-    ? "Kaufpreis pro Item"
-    : "Verkaufswert pro Item";
+  $("toRateLabel").textContent = "Preise pro Item";
   $("resultMode").textContent = shop
     ? "SHOP · SELL → BUY"
     : "WERTVERGLEICH · SELL → SELL";

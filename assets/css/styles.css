@@ -1912,7 +1912,7 @@ select:focus-visible {
   background: rgba(11, 25, 45, 0.9);
   cursor: pointer;
 }
-.calculator-toggle svg { width: 26px; height: 26px; }
+.calculator-toggle svg { width: 30px; height: 34px; flex: none; }
 .calculator-toggle:hover,
 .calculator-toggle[aria-expanded="true"] { border-color: var(--accent-gold); }
 .calculator-toggle:focus-visible,
@@ -1945,6 +1945,10 @@ select:focus-visible {
 }
 .calculator-window h3.is-dragging { cursor: grabbing; }
 .calculator-close {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  line-height: 1;
   flex: 0 0 34px;
   height: 34px;
   border: 1px solid var(--danger);
@@ -1954,6 +1958,7 @@ select:focus-visible {
   font-size: 1.5rem;
   cursor: pointer;
 }
+.calculator-close svg { display: block; width: 20px; height: 20px; }
 .calculator-window .calc-grid { gap: 8px; margin-top: 12px; }
 .calculator-window .calc-grid .btn { height: 44px; padding: 6px; font-size: 1rem; }
 .calculator-window .calc-feedback { margin: 12px 0 0; font-size: 0.75rem; }

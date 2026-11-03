@@ -1,9 +1,7 @@
-name = "velocity-pricelist"
-main = "worker.js"
-compatibility_date = "2026-10-01"
-
+# ...
 [vars]
-GITHUB_OWNER = "DEIN_GITHUB_NAME"
-GITHUB_REPO = "VeloCity"
 GITHUB_BRANCH = "main"
-SITE_ORIGIN = "https://DEIN_GITHUB_NAME.github.io"
+GITHUB_OWNER = "MicroMiner"
+GITHUB_REPO = "VeloCity"
+SITE_ORIGIN = "https://microminer.github.io"
+# ...

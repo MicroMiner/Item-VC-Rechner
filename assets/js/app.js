@@ -1,6 +1,6 @@
 "use strict";
 
-const APP_VERSION = "v1.0.34";
+const APP_VERSION = "v1.0.35";
 const $ = (id) => document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
 let defaults = [],
@@ -537,9 +537,7 @@ function update() {
   $("toRate").innerHTML = rateMarkup(b, "to");
   if (focusedSide) $(focusedSide).querySelector(`[data-price="${focusedPrice}"]`)?.focus({ preventScroll: true });
   $("toRateLabel").textContent = "Preise pro Item";
-  $("resultMode").textContent = shop
-    ? "SHOP · SELL → BUY · GANZE ITEMS"
-    : `${priceNames[priceModes.from]} → ${priceNames[priceModes.to]}`;
+  $("resultMode").textContent = `${priceNames[priceModes.from]} → ${priceNames[priceModes.to]}`;
   $("fromQty").step = shop ? "1" : "any";
   const amount = shop ? whole($("fromQty").value) : num($("fromQty").value);
   if ($("fromQty").value !== "") $("fromQty").value = amount;

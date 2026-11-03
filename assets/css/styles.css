@@ -2031,3 +2031,54 @@ select:focus-visible {
   .converter-tools { flex-wrap: wrap; justify-content: flex-start; }
   .converter-tools .economy-status { flex: 1 1 100%; width: 100%; }
 }
+
+/* One movable group for all three compact converter cards. */
+.converter-wrapper {
+  width: 100%;
+  min-width: 0;
+  padding: clamp(20px, 3vw, 44px);
+  border: 1px solid rgba(66, 91, 119, 0.65);
+  border-radius: 24px;
+  background: rgba(8, 19, 38, 0.5);
+  box-shadow: var(--panel-shadow);
+}
+.converter-wrapper > .hero-grid {
+  width: 100%;
+  max-width: 1120px;
+  min-width: 0;
+  margin-inline: auto;
+  align-items: stretch;
+}
+.converter-wrapper .converter-layout {
+  height: auto;
+  min-height: 0;
+}
+.converter-wrapper .converter-layout .card {
+  padding: 16px;
+}
+.converter-wrapper .right-stack .result {
+  padding: 24px 18px;
+}
+.converter-wrapper .conversion-result-content {
+  padding: 28px 18px;
+}
+.converter-wrapper .conversion-result-content .big {
+  font-size: clamp(1.15rem, 1.6vw, 1.6rem);
+  margin-block: 20px;
+}
+@media (max-width: 720px) {
+  .converter-wrapper { padding: 14px; border-radius: 20px; }
+  .converter-wrapper > .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .converter-wrapper .card { margin-bottom: 0; }
+  .converter-wrapper .swap-slot { margin: 0 auto; }
+}
+@media (max-width: 400px) {
+  .converter-wrapper { padding: 10px; }
+  .converter-wrapper .converter-layout .card { padding: 12px; }
+  .converter-wrapper .right-stack .result { padding: 16px 10px; }
+  .converter-wrapper .conversion-result-content { padding: 22px 12px; }
+}
+.converter-wrapper .converter-layout input { height: 40px; min-height: 0; padding: 8px 10px; font-size: 0.95rem; }
+.converter-wrapper .converter-layout .fieldrow { margin-top: 12px; padding-top: 0; }
+.converter-wrapper .item-price-row { padding: 4px 8px; font-size: 0.85rem; }
+.converter-wrapper .quantity-shortcuts .btn { padding: 4px 9px; min-height: 26px; }

@@ -1,6 +1,6 @@
 "use strict";
 
-const APP_VERSION = "v1.0.38";
+const APP_VERSION = "v1.0.42";
 const $ = (id) => document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
 let defaults = [],
@@ -26,6 +26,7 @@ const updatedAtFormatter = new Intl.DateTimeFormat("de-CH", {
   year: "2-digit",
   hour: "2-digit",
   minute: "2-digit",
+  second: "2-digit",
   timeZone: "Europe/Zurich",
 });
 const fmt = (n) => quantityFormatter.format(n);
@@ -68,7 +69,7 @@ const enchantmentNames = {
 function localizedItemName(item) {
   const match = /^ENCHANTED_BOOK_(.+)_(\d+)$/.exec(item.id);
   return match && enchantmentNames[match[1]]
-    ? `Verzaubertes Buch – ${enchantmentNames[match[1]]} ${match[2]}`
+    ? `Verzaubertes Buch ${enchantmentNames[match[1]]} [${match[2]}]`
     : item.name;
 }
 const priceLabel = (x) =>
@@ -110,23 +111,16 @@ function renderHeaderStatus() {
   $("loadedItems").textContent =
     countFormatter.format(count).replace(/’/g, "'") +
     (count === 1 ? " Item" : " Items");
-  const time = $("priceUpdatedAt");
-  if (priceUpdatedAt) {
-    time.dateTime = priceUpdatedAt;
-    time.textContent = updatedAtFormatter.format(new Date(priceUpdatedAt));
-    time.setAttribute(
-      "aria-label",
-      "Letzte gespeicherte Preisänderung: " + time.textContent,
-    );
-  } else {
-    time.removeAttribute("datetime");
-    time.textContent = "Keine Zeitangabe";
-    time.setAttribute(
-      "aria-label",
-      "Letzte gespeicherte Preisänderung: unbekannt",
-    );
-  }
+  renderClock();
 }
+function renderClock() {
+  const now = new Date(), time = $("priceUpdatedAt");
+  time.dateTime = now.toISOString();
+  time.textContent = updatedAtFormatter.format(now);
+  time.setAttribute("aria-label", "Aktuelles Datum und Uhrzeit in Zürich: " + time.textContent);
+}
+setInterval(renderClock, 1000);
+
 function setSynchronized(value) {
   synchronized = value;
   renderHeaderStatus();
@@ -555,9 +549,15 @@ function update() {
       ? { itemId: b.id, amount: dest }
       : null;
   $("useResult").disabled = !latestConversion;
-  $("result").textContent = shop
-    ? `${fmt(amount)} × ${localizedItemName(a)} verkaufen → ${fmt(dest)} × ${localizedItemName(b)} kaufen`
-    : `${fmt(amount)} × ${localizedItemName(a)} = ${fmt(dest)} × ${localizedItemName(b)}`;
+  const source = document.createElement("span"),
+    equals = document.createElement("span"),
+    target = document.createElement("span");
+  source.className = target.className = "result-value-line";
+  equals.className = "result-equals";
+  source.textContent = `${fmt(amount)} × ${localizedItemName(a)}${shop ? " verkaufen" : ""}`;
+  equals.textContent = "=";
+  target.textContent = `${fmt(dest)} × ${localizedItemName(b)}${shop ? " kaufen" : ""}`;
+  $("result").replaceChildren(source, document.createTextNode("\n"), equals, document.createTextNode("\n"), target);
 }
 for (const side of ["from", "to"]) {
   $(side + "Rate").addEventListener("click", (event) => {

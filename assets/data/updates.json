@@ -1,7 +1,18 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T10:03:16.856Z",
+  "updatedAt": "2026-11-03T23:36:13.207Z",
   "updates": [
+    {
+      "id": "discord-1567321389105676334",
+      "source": "discord",
+      "sourceId": "1567321389105676334",
+      "category": "Ankündigung",
+      "title": "Neue Updates werden nun ausgelesen, dass ist daher nur ein Test",
+      "content": "Neue Updates werden nun ausgelesen, dass ist daher nur ein Test",
+      "publishedAt": "2026-11-03T23:35:38.586000+00:00",
+      "image": null,
+      "url": "https://discord.com/channels/undefined/1566486495303434350/1567321389105676334"
+    },
     {
       "id": "velocity-news-welcome-test",
       "slug": "test-beitrag-willkommen-bei-den-news-velocity",

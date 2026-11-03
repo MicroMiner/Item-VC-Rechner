@@ -11,7 +11,7 @@
       "sell": 1,
       "defaultBuy": 4,
       "defaultSell": 1,
-      "grundwert": 0.8
+      "grundwert": 0.80
     },
     {
       "id": "STONE",
@@ -29,7 +29,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "GRANITE",
@@ -38,7 +38,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "DIORITE",
@@ -47,7 +47,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "ANDESITE",
@@ -56,7 +56,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "TUFF",
@@ -74,7 +74,7 @@
       "sell": 1,
       "defaultBuy": 4,
       "defaultSell": 1,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "BLACKSTONE",
@@ -83,7 +83,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "GRAVEL",
@@ -92,7 +92,7 @@
       "sell": 1,
       "defaultBuy": 4,
       "defaultSell": 1,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "SAND",
@@ -101,7 +101,7 @@
       "sell": 1,
       "defaultBuy": 4,
       "defaultSell": 1,
-      "grundwert": 0.8
+      "grundwert": 0.80
     },
     {
       "id": "CALCITE",
@@ -110,7 +110,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "DRIPSTONE_BLOCK",
@@ -119,7 +119,7 @@
       "sell": 4.5,
       "defaultBuy": 18,
       "defaultSell": 4.5,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "OBSIDIAN",
@@ -128,7 +128,7 @@
       "sell": 80,
       "defaultBuy": 320,
       "defaultSell": 80,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "DIAMOND",
@@ -137,7 +137,7 @@
       "sell": 500,
       "defaultBuy": 625,
       "defaultSell": 500,
-      "grundwert": 500.0
+      "grundwert": 500.00
     },
     {
       "id": "ANCIENT_DEBRIS",
@@ -146,7 +146,7 @@
       "sell": 1800,
       "defaultBuy": 2250,
       "defaultSell": 1800,
-      "grundwert": 1800.0
+      "grundwert": 1800.00
     },
     {
       "id": "OAK_LOG",
@@ -155,7 +155,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "SPRUCE_LOG",
@@ -164,7 +164,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "BIRCH_LOG",
@@ -173,7 +173,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "JUNGLE_LOG",
@@ -182,7 +182,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "ACACIA_LOG",
@@ -191,7 +191,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "DARK_OAK_LOG",
@@ -200,7 +200,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "MANGROVE_LOG",
@@ -209,7 +209,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "CHERRY_LOG",
@@ -218,7 +218,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "PALE_OAK_LOG",
@@ -227,7 +227,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "CRIMSON_STEM",
@@ -236,7 +236,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "WARPED_STEM",
@@ -245,7 +245,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "BAMBOO",
@@ -254,7 +254,7 @@
       "sell": 1,
       "defaultBuy": 4,
       "defaultSell": 1,
-      "grundwert": 0.2
+      "grundwert": 0.20
     },
     {
       "id": "WHEAT",
@@ -263,7 +263,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "CARROT",
@@ -299,7 +299,7 @@
       "sell": 6,
       "defaultBuy": 24,
       "defaultSell": 6,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "COCOA_BEANS",
@@ -335,7 +335,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "CACTUS",
@@ -344,7 +344,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "KELP",
@@ -353,7 +353,7 @@
       "sell": 1,
       "defaultBuy": 4,
       "defaultSell": 1,
-      "grundwert": 0.1
+      "grundwert": 0.10
     },
     {
       "id": "SWEET_BERRIES",
@@ -371,7 +371,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "RED_MUSHROOM",
@@ -380,7 +380,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "CHORUS_FRUIT",
@@ -389,7 +389,7 @@
       "sell": 4,
       "defaultBuy": 16,
       "defaultSell": 4,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "WITHER_ROSE",
@@ -398,7 +398,7 @@
       "sell": 50,
       "defaultBuy": 200,
       "defaultSell": 50,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "COD",
@@ -416,7 +416,7 @@
       "sell": 4.5,
       "defaultBuy": 18,
       "defaultSell": 4.5,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "TROPICAL_FISH",
@@ -425,7 +425,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "PUFFERFISH",
@@ -434,7 +434,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "BOWL",
@@ -443,7 +443,7 @@
       "sell": 1.59,
       "defaultBuy": 6.36,
       "defaultSell": 1.59,
-      "grundwert": 0.9375
+      "grundwert": 0.94
     },
     {
       "id": "STICK",
@@ -452,7 +452,7 @@
       "sell": 1.06,
       "defaultBuy": 4.24,
       "defaultSell": 1.06,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "STRING",
@@ -461,7 +461,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "LEATHER",
@@ -470,7 +470,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "INK_SAC",
@@ -479,7 +479,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "LILY_PAD",
@@ -497,7 +497,7 @@
       "sell": 30,
       "defaultBuy": 120,
       "defaultSell": 30,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "NAUTILUS_SHELL",
@@ -506,7 +506,7 @@
       "sell": 50,
       "defaultBuy": 200,
       "defaultSell": 50,
-      "grundwert": 6.0
+      "grundwert": 6.00
     },
     {
       "id": "SADDLE",
@@ -515,7 +515,7 @@
       "sell": 50,
       "defaultBuy": 200,
       "defaultSell": 50,
-      "grundwert": 10.0
+      "grundwert": 10.00
     },
     {
       "id": "IRON_INGOT",
@@ -524,7 +524,7 @@
       "sell": 20,
       "defaultBuy": 80,
       "defaultSell": 20,
-      "grundwert": 20.0
+      "grundwert": 20.00
     },
     {
       "id": "RAW_IRON",
@@ -542,7 +542,7 @@
       "sell": 1.88,
       "defaultBuy": 7.52,
       "defaultSell": 1.88,
-      "grundwert": 2.222222222
+      "grundwert": 2.22
     },
     {
       "id": "IRON_BLOCK",
@@ -551,7 +551,7 @@
       "sell": 180,
       "defaultBuy": 720,
       "defaultSell": 180,
-      "grundwert": 180.0
+      "grundwert": 180.00
     },
     {
       "id": "DIAMOND_BLOCK",
@@ -560,7 +560,7 @@
       "sell": 4500,
       "defaultBuy": 5625,
       "defaultSell": 4500,
-      "grundwert": 4500.0
+      "grundwert": 4500.00
     },
     {
       "id": "COAL",
@@ -569,7 +569,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 8.0
+      "grundwert": 8.00
     },
     {
       "id": "CHARCOAL",
@@ -587,7 +587,7 @@
       "sell": 18,
       "defaultBuy": 72,
       "defaultSell": 18,
-      "grundwert": 72.0
+      "grundwert": 72.00
     },
     {
       "id": "RAW_COPPER",
@@ -605,7 +605,7 @@
       "sell": 20,
       "defaultBuy": 80,
       "defaultSell": 20,
-      "grundwert": 20.0
+      "grundwert": 20.00
     },
     {
       "id": "COPPER_NUGGET",
@@ -614,7 +614,7 @@
       "sell": 1.88,
       "defaultBuy": 7.52,
       "defaultSell": 1.88,
-      "grundwert": 2.222222222
+      "grundwert": 2.22
     },
     {
       "id": "COPPER_BLOCK",
@@ -623,7 +623,7 @@
       "sell": 180,
       "defaultBuy": 720,
       "defaultSell": 180,
-      "grundwert": 180.0
+      "grundwert": 180.00
     },
     {
       "id": "RAW_COPPER_BLOCK",
@@ -650,7 +650,7 @@
       "sell": 20,
       "defaultBuy": 80,
       "defaultSell": 20,
-      "grundwert": 25.0
+      "grundwert": 25.00
     },
     {
       "id": "RAW_GOLD",
@@ -668,7 +668,7 @@
       "sell": 1,
       "defaultBuy": 4,
       "defaultSell": 1,
-      "grundwert": 2.777777778
+      "grundwert": 2.78
     },
     {
       "id": "GOLD_BLOCK",
@@ -677,7 +677,7 @@
       "sell": 180,
       "defaultBuy": 720,
       "defaultSell": 180,
-      "grundwert": 225.0
+      "grundwert": 225.00
     },
     {
       "id": "RAW_GOLD_BLOCK",
@@ -695,7 +695,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 10.0
+      "grundwert": 10.00
     },
     {
       "id": "REDSTONE_BLOCK",
@@ -704,7 +704,7 @@
       "sell": 30,
       "defaultBuy": 120,
       "defaultSell": 30,
-      "grundwert": 90.0
+      "grundwert": 90.00
     },
     {
       "id": "LAPIS_LAZULI",
@@ -713,7 +713,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 15.0
+      "grundwert": 15.00
     },
     {
       "id": "LAPIS_BLOCK",
@@ -722,7 +722,7 @@
       "sell": 40,
       "defaultBuy": 160,
       "defaultSell": 40,
-      "grundwert": 135.0
+      "grundwert": 135.00
     },
     {
       "id": "EMERALD",
@@ -731,7 +731,7 @@
       "sell": 300,
       "defaultBuy": 375,
       "defaultSell": 300,
-      "grundwert": 300.0
+      "grundwert": 300.00
     },
     {
       "id": "EMERALD_BLOCK",
@@ -740,7 +740,7 @@
       "sell": 2700,
       "defaultBuy": 3375,
       "defaultSell": 2700,
-      "grundwert": 2700.0
+      "grundwert": 2700.00
     },
     {
       "id": "QUARTZ",
@@ -749,7 +749,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "QUARTZ_BLOCK",
@@ -758,7 +758,7 @@
       "sell": 12,
       "defaultBuy": 48,
       "defaultSell": 12,
-      "grundwert": 20.0
+      "grundwert": 20.00
     },
     {
       "id": "NETHERITE_SCRAP",
@@ -776,7 +776,7 @@
       "sell": 7280,
       "defaultBuy": 9100,
       "defaultSell": 7280,
-      "grundwert": 7301.0
+      "grundwert": 7301.00
     },
     {
       "id": "NETHERITE_BLOCK",
@@ -785,7 +785,7 @@
       "sell": 65520,
       "defaultBuy": 81900,
       "defaultSell": 65520,
-      "grundwert": 65709.0
+      "grundwert": 65709.00
     },
     {
       "id": "FLINT",
@@ -794,7 +794,7 @@
       "sell": 1,
       "defaultBuy": 4,
       "defaultSell": 1,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "CLAY_BALL",
@@ -803,7 +803,7 @@
       "sell": 0.63,
       "defaultBuy": 2.52,
       "defaultSell": 0.63,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "CLAY",
@@ -812,7 +812,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "BRICK",
@@ -830,7 +830,7 @@
       "sell": 3.4,
       "defaultBuy": 13.6,
       "defaultSell": 3.4,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "BONE",
@@ -839,7 +839,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "BONE_MEAL",
@@ -848,7 +848,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "ENDER_EYE",
@@ -857,7 +857,7 @@
       "sell": 50,
       "defaultBuy": 200,
       "defaultSell": 50,
-      "grundwert": 7.5
+      "grundwert": 7.50
     },
     {
       "id": "BLAZE_ROD",
@@ -866,7 +866,7 @@
       "sell": 40,
       "defaultBuy": 160,
       "defaultSell": 40,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "BLAZE_POWDER",
@@ -875,7 +875,7 @@
       "sell": 18,
       "defaultBuy": 72,
       "defaultSell": 18,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "GHAST_TEAR",
@@ -884,7 +884,7 @@
       "sell": 80,
       "defaultBuy": 320,
       "defaultSell": 80,
-      "grundwert": 10.0
+      "grundwert": 10.00
     },
     {
       "id": "SLIME_BALL",
@@ -893,7 +893,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "MAGMA_CREAM",
@@ -902,7 +902,7 @@
       "sell": 20,
       "defaultBuy": 80,
       "defaultSell": 20,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "GUNPOWDER",
@@ -911,7 +911,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "AMETHYST_SHARD",
@@ -929,7 +929,7 @@
       "sell": 60,
       "defaultBuy": 240,
       "defaultSell": 60,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "ECHO_SHARD",
@@ -938,7 +938,7 @@
       "sell": 1500,
       "defaultBuy": 6000,
       "defaultSell": 1500,
-      "grundwert": 200.0
+      "grundwert": 200.00
     },
     {
       "id": "DISC_FRAGMENT_5",
@@ -983,7 +983,7 @@
       "sell": 25000,
       "defaultBuy": 100000,
       "defaultSell": 25000,
-      "grundwert": 600.0
+      "grundwert": 600.00
     },
     {
       "id": "DRAGON_BREATH",
@@ -992,7 +992,7 @@
       "sell": 120,
       "defaultBuy": 480,
       "defaultSell": 120,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "DRAGON_EGG",
@@ -1010,7 +1010,7 @@
       "sell": 50000,
       "defaultBuy": 200000,
       "defaultSell": 50000,
-      "grundwert": 2500.0
+      "grundwert": 2500.00
     },
     {
       "id": "TOTEM_OF_UNDYING",
@@ -1019,7 +1019,7 @@
       "sell": 400,
       "defaultBuy": 1600,
       "defaultSell": 400,
-      "grundwert": 60.0
+      "grundwert": 60.00
     },
     {
       "id": "SHULKER_SHELL",
@@ -1028,7 +1028,7 @@
       "sell": 200,
       "defaultBuy": 800,
       "defaultSell": 200,
-      "grundwert": 12.0
+      "grundwert": 12.00
     },
     {
       "id": "HEART_OF_THE_SEA",
@@ -1037,7 +1037,7 @@
       "sell": 25,
       "defaultBuy": 100,
       "defaultSell": 25,
-      "grundwert": 30.0
+      "grundwert": 30.00
     },
     {
       "id": "PRISMARINE_SHARD",
@@ -1046,7 +1046,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 0.375
+      "grundwert": 0.38
     },
     {
       "id": "PRISMARINE_CRYSTALS",
@@ -1055,7 +1055,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "SPONGE",
@@ -1064,7 +1064,7 @@
       "sell": 50,
       "defaultBuy": 200,
       "defaultSell": 50,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "WET_SPONGE",
@@ -1073,7 +1073,7 @@
       "sell": 50,
       "defaultBuy": 200,
       "defaultSell": 50,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "CONDUIT",
@@ -1091,7 +1091,7 @@
       "sell": 120,
       "defaultBuy": 480,
       "defaultSell": 120,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "ARMADILLO_SCUTE",
@@ -1100,7 +1100,7 @@
       "sell": 150,
       "defaultBuy": 600,
       "defaultSell": 150,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "RABBIT_HIDE",
@@ -1109,7 +1109,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 0.375
+      "grundwert": 0.38
     },
     {
       "id": "RABBIT_FOOT",
@@ -1118,7 +1118,7 @@
       "sell": 50,
       "defaultBuy": 200,
       "defaultSell": 50,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "FEATHER",
@@ -1127,7 +1127,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "EGG",
@@ -1145,7 +1145,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 60.5
+      "grundwert": 60.50
     },
     {
       "id": "BUCKET",
@@ -1154,7 +1154,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 60.0
+      "grundwert": 60.00
     },
     {
       "id": "WATER_BUCKET",
@@ -1217,7 +1217,7 @@
       "sell": 14,
       "defaultBuy": 56,
       "defaultSell": 14,
-      "grundwert": 61.5
+      "grundwert": 61.50
     },
     {
       "id": "AXOLOTL_BUCKET",
@@ -1226,7 +1226,7 @@
       "sell": 1500,
       "defaultBuy": 6000,
       "defaultSell": 1500,
-      "grundwert": 250.0
+      "grundwert": 250.00
     },
     {
       "id": "TADPOLE_BUCKET",
@@ -1235,7 +1235,7 @@
       "sell": 1200,
       "defaultBuy": 4800,
       "defaultSell": 1200,
-      "grundwert": 95.0
+      "grundwert": 95.00
     },
     {
       "id": "SPIDER_EYE",
@@ -1244,7 +1244,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "FERMENTED_SPIDER_EYE",
@@ -1253,7 +1253,7 @@
       "sell": 12,
       "defaultBuy": 48,
       "defaultSell": 12,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "ROTTEN_FLESH",
@@ -1289,7 +1289,7 @@
       "sell": 4.5,
       "defaultBuy": 18,
       "defaultSell": 4.5,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "PORKCHOP",
@@ -1298,7 +1298,7 @@
       "sell": 4.5,
       "defaultBuy": 18,
       "defaultSell": 4.5,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "MUTTON",
@@ -1325,7 +1325,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "HONEY_BOTTLE",
@@ -1334,7 +1334,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "GLASS_BOTTLE",
@@ -1352,7 +1352,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "BOOK",
@@ -1361,7 +1361,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "BOOKSHELF",
@@ -1406,7 +1406,7 @@
       "sell": 5000,
       "defaultBuy": 20000,
       "defaultSell": 5000,
-      "grundwert": 1000.0
+      "grundwert": 1000.00
     },
     {
       "id": "MACE",
@@ -1424,7 +1424,7 @@
       "sell": 1,
       "defaultBuy": 4,
       "defaultSell": 1,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "COBBLED_DEEPSLATE",
@@ -1433,7 +1433,7 @@
       "sell": 1.8,
       "defaultBuy": 7.2,
       "defaultSell": 1.8,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "MOSSY_COBBLESTONE",
@@ -1451,7 +1451,7 @@
       "sell": 5.52,
       "defaultBuy": 22.08,
       "defaultSell": 5.52,
-      "grundwert": 1.3
+      "grundwert": 1.30
     },
     {
       "id": "STONE_BRICKS",
@@ -1469,7 +1469,7 @@
       "sell": 4.01,
       "defaultBuy": 16.04,
       "defaultSell": 4.01,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "CHISELED_STONE_BRICKS",
@@ -1487,7 +1487,7 @@
       "sell": 1.04,
       "defaultBuy": 4.16,
       "defaultSell": 1.04,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "POLISHED_ANDESITE",
@@ -1496,7 +1496,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "POLISHED_DIORITE",
@@ -1505,7 +1505,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "POLISHED_GRANITE",
@@ -1514,7 +1514,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "POLISHED_TUFF",
@@ -1532,7 +1532,7 @@
       "sell": 1.53,
       "defaultBuy": 6.12,
       "defaultSell": 1.53,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "CHISELED_TUFF",
@@ -1613,7 +1613,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "SMOOTH_BASALT",
@@ -1631,7 +1631,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "END_STONE",
@@ -1640,7 +1640,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "END_STONE_BRICKS",
@@ -1649,7 +1649,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "PURPUR_BLOCK",
@@ -1685,7 +1685,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "CRIMSON_NYLIUM",
@@ -1712,7 +1712,7 @@
       "sell": 4,
       "defaultBuy": 16,
       "defaultSell": 4,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "RED_NETHER_BRICKS",
@@ -1721,7 +1721,7 @@
       "sell": 12.28,
       "defaultBuy": 49.12,
       "defaultSell": 12.28,
-      "grundwert": 3.5
+      "grundwert": 3.50
     },
     {
       "id": "GILDED_BLACKSTONE",
@@ -1775,7 +1775,7 @@
       "sell": 6,
       "defaultBuy": 24,
       "defaultSell": 6,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "ICE",
@@ -1784,7 +1784,7 @@
       "sell": 1,
       "defaultBuy": 4,
       "defaultSell": 1,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "PACKED_ICE",
@@ -1793,7 +1793,7 @@
       "sell": 7.65,
       "defaultBuy": 30.6,
       "defaultSell": 7.65,
-      "grundwert": 4.5
+      "grundwert": 4.50
     },
     {
       "id": "BLUE_ICE",
@@ -1802,7 +1802,7 @@
       "sell": 15,
       "defaultBuy": 60,
       "defaultSell": 15,
-      "grundwert": 40.5
+      "grundwert": 40.50
     },
     {
       "id": "SNOW_BLOCK",
@@ -1811,7 +1811,7 @@
       "sell": 0.8,
       "defaultBuy": 3.2,
       "defaultSell": 0.8,
-      "grundwert": 0.4
+      "grundwert": 0.40
     },
     {
       "id": "SNOW",
@@ -1820,7 +1820,7 @@
       "sell": 0.34,
       "defaultBuy": 1.36,
       "defaultSell": 0.34,
-      "grundwert": 0.2
+      "grundwert": 0.20
     },
     {
       "id": "POWDER_SNOW",
@@ -1829,7 +1829,7 @@
       "sell": 1,
       "defaultBuy": 4,
       "defaultSell": 1,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "MUD",
@@ -1838,7 +1838,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "PACKED_MUD",
@@ -1847,7 +1847,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "MUD_BRICKS",
@@ -1856,7 +1856,7 @@
       "sell": 4,
       "defaultBuy": 16,
       "defaultSell": 4,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "ROOTED_DIRT",
@@ -1865,7 +1865,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "COARSE_DIRT",
@@ -1874,7 +1874,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 0.9
+      "grundwert": 0.90
     },
     {
       "id": "GRASS_BLOCK",
@@ -1883,7 +1883,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "PODZOL",
@@ -1892,7 +1892,7 @@
       "sell": 3.5,
       "defaultBuy": 14,
       "defaultSell": 3.5,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "MYCELIUM",
@@ -1901,7 +1901,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "MOSS_BLOCK",
@@ -1928,7 +1928,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 0.3
+      "grundwert": 0.30
     },
     {
       "id": "PALE_MOSS_CARPET",
@@ -1973,7 +1973,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "SHROOMLIGHT",
@@ -1982,7 +1982,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "SEA_LANTERN",
@@ -1991,7 +1991,7 @@
       "sell": 20,
       "defaultBuy": 80,
       "defaultSell": 20,
-      "grundwert": 6.5
+      "grundwert": 6.50
     },
     {
       "id": "PEARLESCENT_FROGLIGHT",
@@ -2000,7 +2000,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "VERDANT_FROGLIGHT",
@@ -2009,7 +2009,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "OCHRE_FROGLIGHT",
@@ -2018,7 +2018,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "PRISMARINE",
@@ -2027,7 +2027,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "PRISMARINE_BRICKS",
@@ -2036,7 +2036,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 3.375
+      "grundwert": 3.38
     },
     {
       "id": "DARK_PRISMARINE",
@@ -2045,7 +2045,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 4.0
+      "grundwert": 4.00
     },
     {
       "id": "NETHER_WART_BLOCK",
@@ -2099,7 +2099,7 @@
       "sell": 15.3,
       "defaultBuy": 61.2,
       "defaultSell": 15.3,
-      "grundwert": 4.5
+      "grundwert": 4.50
     },
     {
       "id": "BAMBOO_BLOCK",
@@ -2108,7 +2108,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 1.8
+      "grundwert": 1.80
     },
     {
       "id": "STRIPPED_BAMBOO_BLOCK",
@@ -2126,7 +2126,7 @@
       "sell": 2.12,
       "defaultBuy": 8.48,
       "defaultSell": 2.12,
-      "grundwert": 0.9
+      "grundwert": 0.90
     },
     {
       "id": "BAMBOO_MOSAIC",
@@ -2135,7 +2135,7 @@
       "sell": 2.12,
       "defaultBuy": 8.48,
       "defaultSell": 2.12,
-      "grundwert": 0.9
+      "grundwert": 0.90
     },
     {
       "id": "SANDSTONE",
@@ -2144,7 +2144,7 @@
       "sell": 4.5,
       "defaultBuy": 18,
       "defaultSell": 4.5,
-      "grundwert": 3.2
+      "grundwert": 3.20
     },
     {
       "id": "RED_SANDSTONE",
@@ -2153,7 +2153,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 4.0
+      "grundwert": 4.00
     },
     {
       "id": "SMOOTH_SANDSTONE",
@@ -2180,7 +2180,7 @@
       "sell": 3.82,
       "defaultBuy": 15.28,
       "defaultSell": 3.82,
-      "grundwert": 3.2
+      "grundwert": 3.20
     },
     {
       "id": "CUT_RED_SANDSTONE",
@@ -2189,7 +2189,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 4.0
+      "grundwert": 4.00
     },
     {
       "id": "CHISELED_SANDSTONE",
@@ -2198,7 +2198,7 @@
       "sell": 3.82,
       "defaultBuy": 15.28,
       "defaultSell": 3.82,
-      "grundwert": 3.2
+      "grundwert": 3.20
     },
     {
       "id": "CHISELED_RED_SANDSTONE",
@@ -2207,7 +2207,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 4.0
+      "grundwert": 4.00
     },
     {
       "id": "QUARTZ_BRICKS",
@@ -2306,7 +2306,7 @@
       "sell": 18,
       "defaultBuy": 72,
       "defaultSell": 18,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "POINTED_DRIPSTONE",
@@ -2315,7 +2315,7 @@
       "sell": 1.5,
       "defaultBuy": 6,
       "defaultSell": 1.5,
-      "grundwert": 0.375
+      "grundwert": 0.38
     },
     {
       "id": "SMALL_DRIPLEAF",
@@ -2450,7 +2450,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "CHORUS_PLANT",
@@ -2468,7 +2468,7 @@
       "sell": 20,
       "defaultBuy": 80,
       "defaultSell": 20,
-      "grundwert": 1.8125
+      "grundwert": 1.81
     },
     {
       "id": "CRYING_OBSIDIAN",
@@ -2486,7 +2486,7 @@
       "sell": 81.63,
       "defaultBuy": 326.52,
       "defaultSell": 81.63,
-      "grundwert": 30.0
+      "grundwert": 30.00
     },
     {
       "id": "RESPAWN_ANCHOR",
@@ -2495,7 +2495,7 @@
       "sell": 60,
       "defaultBuy": 240,
       "defaultSell": 60,
-      "grundwert": 33.0
+      "grundwert": 33.00
     },
     {
       "id": "BEACON",
@@ -2540,7 +2540,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "OAK_STEM",
@@ -2549,7 +2549,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "OAK_HYPHAE",
@@ -2558,7 +2558,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "OAK_STRIPPED_LOG",
@@ -2567,7 +2567,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "OAK_STRIPPED_WOOD",
@@ -2576,7 +2576,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "OAK_STRIPPED_STEM",
@@ -2585,7 +2585,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "OAK_STRIPPED_HYPHAE",
@@ -2594,7 +2594,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "OAK_PLANKS",
@@ -2612,7 +2612,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "OAK_STAIRS",
@@ -2621,7 +2621,7 @@
       "sell": 5.1,
       "defaultBuy": 20.4,
       "defaultSell": 5.1,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "OAK_FENCE",
@@ -2630,7 +2630,7 @@
       "sell": 5.24,
       "defaultBuy": 20.96,
       "defaultSell": 5.24,
-      "grundwert": 2.083333333
+      "grundwert": 2.08
     },
     {
       "id": "OAK_FENCE_GATE",
@@ -2639,7 +2639,7 @@
       "sell": 11.05,
       "defaultBuy": 44.2,
       "defaultSell": 11.05,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "OAK_DOOR",
@@ -2648,7 +2648,7 @@
       "sell": 6.8,
       "defaultBuy": 27.2,
       "defaultSell": 6.8,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "OAK_TRAPDOOR",
@@ -2675,7 +2675,7 @@
       "sell": 6.8,
       "defaultBuy": 27.2,
       "defaultSell": 6.8,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "OAK_SIGN",
@@ -2684,7 +2684,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 2.708333333
+      "grundwert": 2.71
     },
     {
       "id": "OAK_HANGING_SIGN",
@@ -2747,7 +2747,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "SPRUCE_STEM",
@@ -2756,7 +2756,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "SPRUCE_HYPHAE",
@@ -2765,7 +2765,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "SPRUCE_STRIPPED_LOG",
@@ -2774,7 +2774,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "SPRUCE_STRIPPED_WOOD",
@@ -2783,7 +2783,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "SPRUCE_STRIPPED_STEM",
@@ -2792,7 +2792,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "SPRUCE_STRIPPED_HYPHAE",
@@ -2801,7 +2801,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "SPRUCE_PLANKS",
@@ -2819,7 +2819,7 @@
       "sell": 1.91,
       "defaultBuy": 7.64,
       "defaultSell": 1.91,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "SPRUCE_STAIRS",
@@ -2828,7 +2828,7 @@
       "sell": 5.73,
       "defaultBuy": 22.92,
       "defaultSell": 5.73,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "SPRUCE_FENCE",
@@ -2837,7 +2837,7 @@
       "sell": 5.8,
       "defaultBuy": 23.2,
       "defaultSell": 5.8,
-      "grundwert": 2.083333333
+      "grundwert": 2.08
     },
     {
       "id": "SPRUCE_FENCE_GATE",
@@ -2846,7 +2846,7 @@
       "sell": 11.9,
       "defaultBuy": 47.6,
       "defaultSell": 11.9,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "SPRUCE_DOOR",
@@ -2855,7 +2855,7 @@
       "sell": 7.65,
       "defaultBuy": 30.6,
       "defaultSell": 7.65,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "SPRUCE_TRAPDOOR",
@@ -2882,7 +2882,7 @@
       "sell": 7.65,
       "defaultBuy": 30.6,
       "defaultSell": 7.65,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "SPRUCE_SIGN",
@@ -2891,7 +2891,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.708333333
+      "grundwert": 2.71
     },
     {
       "id": "SPRUCE_HANGING_SIGN",
@@ -2954,7 +2954,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "BIRCH_STEM",
@@ -2963,7 +2963,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "BIRCH_HYPHAE",
@@ -2972,7 +2972,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "BIRCH_STRIPPED_LOG",
@@ -2981,7 +2981,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "BIRCH_STRIPPED_WOOD",
@@ -2990,7 +2990,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "BIRCH_STRIPPED_STEM",
@@ -2999,7 +2999,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "BIRCH_STRIPPED_HYPHAE",
@@ -3008,7 +3008,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "BIRCH_PLANKS",
@@ -3026,7 +3026,7 @@
       "sell": 1.91,
       "defaultBuy": 7.64,
       "defaultSell": 1.91,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "BIRCH_STAIRS",
@@ -3035,7 +3035,7 @@
       "sell": 5.73,
       "defaultBuy": 22.92,
       "defaultSell": 5.73,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "BIRCH_FENCE",
@@ -3044,7 +3044,7 @@
       "sell": 5.8,
       "defaultBuy": 23.2,
       "defaultSell": 5.8,
-      "grundwert": 2.083333333
+      "grundwert": 2.08
     },
     {
       "id": "BIRCH_FENCE_GATE",
@@ -3053,7 +3053,7 @@
       "sell": 11.9,
       "defaultBuy": 47.6,
       "defaultSell": 11.9,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "BIRCH_DOOR",
@@ -3062,7 +3062,7 @@
       "sell": 7.65,
       "defaultBuy": 30.6,
       "defaultSell": 7.65,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "BIRCH_TRAPDOOR",
@@ -3089,7 +3089,7 @@
       "sell": 7.65,
       "defaultBuy": 30.6,
       "defaultSell": 7.65,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "BIRCH_SIGN",
@@ -3098,7 +3098,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.708333333
+      "grundwert": 2.71
     },
     {
       "id": "BIRCH_HANGING_SIGN",
@@ -3161,7 +3161,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "JUNGLE_STEM",
@@ -3170,7 +3170,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "JUNGLE_HYPHAE",
@@ -3179,7 +3179,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "JUNGLE_STRIPPED_LOG",
@@ -3188,7 +3188,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "JUNGLE_STRIPPED_WOOD",
@@ -3197,7 +3197,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "JUNGLE_STRIPPED_STEM",
@@ -3206,7 +3206,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "JUNGLE_STRIPPED_HYPHAE",
@@ -3215,7 +3215,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "JUNGLE_PLANKS",
@@ -3233,7 +3233,7 @@
       "sell": 1.91,
       "defaultBuy": 7.64,
       "defaultSell": 1.91,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "JUNGLE_STAIRS",
@@ -3242,7 +3242,7 @@
       "sell": 5.73,
       "defaultBuy": 22.92,
       "defaultSell": 5.73,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "JUNGLE_FENCE",
@@ -3251,7 +3251,7 @@
       "sell": 5.8,
       "defaultBuy": 23.2,
       "defaultSell": 5.8,
-      "grundwert": 2.083333333
+      "grundwert": 2.08
     },
     {
       "id": "JUNGLE_FENCE_GATE",
@@ -3260,7 +3260,7 @@
       "sell": 11.9,
       "defaultBuy": 47.6,
       "defaultSell": 11.9,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "JUNGLE_DOOR",
@@ -3269,7 +3269,7 @@
       "sell": 7.65,
       "defaultBuy": 30.6,
       "defaultSell": 7.65,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "JUNGLE_TRAPDOOR",
@@ -3296,7 +3296,7 @@
       "sell": 7.65,
       "defaultBuy": 30.6,
       "defaultSell": 7.65,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "JUNGLE_SIGN",
@@ -3305,7 +3305,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.708333333
+      "grundwert": 2.71
     },
     {
       "id": "JUNGLE_HANGING_SIGN",
@@ -3368,7 +3368,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "ACACIA_STEM",
@@ -3377,7 +3377,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "ACACIA_HYPHAE",
@@ -3386,7 +3386,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "ACACIA_STRIPPED_LOG",
@@ -3395,7 +3395,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "ACACIA_STRIPPED_WOOD",
@@ -3404,7 +3404,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "ACACIA_STRIPPED_STEM",
@@ -3413,7 +3413,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "ACACIA_STRIPPED_HYPHAE",
@@ -3422,7 +3422,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "ACACIA_PLANKS",
@@ -3440,7 +3440,7 @@
       "sell": 1.91,
       "defaultBuy": 7.64,
       "defaultSell": 1.91,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "ACACIA_STAIRS",
@@ -3449,7 +3449,7 @@
       "sell": 5.73,
       "defaultBuy": 22.92,
       "defaultSell": 5.73,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "ACACIA_FENCE",
@@ -3458,7 +3458,7 @@
       "sell": 5.8,
       "defaultBuy": 23.2,
       "defaultSell": 5.8,
-      "grundwert": 2.083333333
+      "grundwert": 2.08
     },
     {
       "id": "ACACIA_FENCE_GATE",
@@ -3467,7 +3467,7 @@
       "sell": 11.9,
       "defaultBuy": 47.6,
       "defaultSell": 11.9,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "ACACIA_DOOR",
@@ -3476,7 +3476,7 @@
       "sell": 7.65,
       "defaultBuy": 30.6,
       "defaultSell": 7.65,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "ACACIA_TRAPDOOR",
@@ -3503,7 +3503,7 @@
       "sell": 7.65,
       "defaultBuy": 30.6,
       "defaultSell": 7.65,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "ACACIA_SIGN",
@@ -3512,7 +3512,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.708333333
+      "grundwert": 2.71
     },
     {
       "id": "ACACIA_HANGING_SIGN",
@@ -3575,7 +3575,7 @@
       "sell": 6,
       "defaultBuy": 24,
       "defaultSell": 6,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "DARK_OAK_STEM",
@@ -3584,7 +3584,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "DARK_OAK_HYPHAE",
@@ -3593,7 +3593,7 @@
       "sell": 6,
       "defaultBuy": 24,
       "defaultSell": 6,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "DARK_OAK_STRIPPED_LOG",
@@ -3602,7 +3602,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "DARK_OAK_STRIPPED_WOOD",
@@ -3611,7 +3611,7 @@
       "sell": 5.1,
       "defaultBuy": 20.4,
       "defaultSell": 5.1,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "DARK_OAK_STRIPPED_STEM",
@@ -3620,7 +3620,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "DARK_OAK_STRIPPED_HYPHAE",
@@ -3629,7 +3629,7 @@
       "sell": 5.1,
       "defaultBuy": 20.4,
       "defaultSell": 5.1,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "DARK_OAK_PLANKS",
@@ -3647,7 +3647,7 @@
       "sell": 2.12,
       "defaultBuy": 8.48,
       "defaultSell": 2.12,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "DARK_OAK_STAIRS",
@@ -3656,7 +3656,7 @@
       "sell": 6.37,
       "defaultBuy": 25.48,
       "defaultSell": 6.37,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "DARK_OAK_FENCE",
@@ -3665,7 +3665,7 @@
       "sell": 6.37,
       "defaultBuy": 25.48,
       "defaultSell": 6.37,
-      "grundwert": 2.083333333
+      "grundwert": 2.08
     },
     {
       "id": "DARK_OAK_FENCE_GATE",
@@ -3674,7 +3674,7 @@
       "sell": 12.75,
       "defaultBuy": 51,
       "defaultSell": 12.75,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "DARK_OAK_DOOR",
@@ -3683,7 +3683,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "DARK_OAK_TRAPDOOR",
@@ -3710,7 +3710,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "DARK_OAK_SIGN",
@@ -3719,7 +3719,7 @@
       "sell": 8.85,
       "defaultBuy": 35.4,
       "defaultSell": 8.85,
-      "grundwert": 2.708333333
+      "grundwert": 2.71
     },
     {
       "id": "DARK_OAK_HANGING_SIGN",
@@ -3782,7 +3782,7 @@
       "sell": 6.5,
       "defaultBuy": 26,
       "defaultSell": 6.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "MANGROVE_STEM",
@@ -3791,7 +3791,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "MANGROVE_HYPHAE",
@@ -3800,7 +3800,7 @@
       "sell": 6.5,
       "defaultBuy": 26,
       "defaultSell": 6.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "MANGROVE_STRIPPED_LOG",
@@ -3809,7 +3809,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "MANGROVE_STRIPPED_WOOD",
@@ -3818,7 +3818,7 @@
       "sell": 5.52,
       "defaultBuy": 22.08,
       "defaultSell": 5.52,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "MANGROVE_STRIPPED_STEM",
@@ -3827,7 +3827,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "MANGROVE_STRIPPED_HYPHAE",
@@ -3836,7 +3836,7 @@
       "sell": 5.52,
       "defaultBuy": 22.08,
       "defaultSell": 5.52,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "MANGROVE_PLANKS",
@@ -3854,7 +3854,7 @@
       "sell": 2.12,
       "defaultBuy": 8.48,
       "defaultSell": 2.12,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "MANGROVE_STAIRS",
@@ -3863,7 +3863,7 @@
       "sell": 6.37,
       "defaultBuy": 25.48,
       "defaultSell": 6.37,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "MANGROVE_FENCE",
@@ -3872,7 +3872,7 @@
       "sell": 6.94,
       "defaultBuy": 27.76,
       "defaultSell": 6.94,
-      "grundwert": 2.083333333
+      "grundwert": 2.08
     },
     {
       "id": "MANGROVE_FENCE_GATE",
@@ -3881,7 +3881,7 @@
       "sell": 13.6,
       "defaultBuy": 54.4,
       "defaultSell": 13.6,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "MANGROVE_DOOR",
@@ -3890,7 +3890,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "MANGROVE_TRAPDOOR",
@@ -3917,7 +3917,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "MANGROVE_SIGN",
@@ -3926,7 +3926,7 @@
       "sell": 9.2,
       "defaultBuy": 36.8,
       "defaultSell": 9.2,
-      "grundwert": 2.708333333
+      "grundwert": 2.71
     },
     {
       "id": "MANGROVE_HANGING_SIGN",
@@ -3989,7 +3989,7 @@
       "sell": 6.5,
       "defaultBuy": 26,
       "defaultSell": 6.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "CHERRY_STEM",
@@ -3998,7 +3998,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "CHERRY_HYPHAE",
@@ -4007,7 +4007,7 @@
       "sell": 6.5,
       "defaultBuy": 26,
       "defaultSell": 6.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "CHERRY_STRIPPED_LOG",
@@ -4016,7 +4016,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "CHERRY_STRIPPED_WOOD",
@@ -4025,7 +4025,7 @@
       "sell": 5.52,
       "defaultBuy": 22.08,
       "defaultSell": 5.52,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "CHERRY_STRIPPED_STEM",
@@ -4034,7 +4034,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "CHERRY_STRIPPED_HYPHAE",
@@ -4043,7 +4043,7 @@
       "sell": 5.52,
       "defaultBuy": 22.08,
       "defaultSell": 5.52,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "CHERRY_PLANKS",
@@ -4061,7 +4061,7 @@
       "sell": 2.12,
       "defaultBuy": 8.48,
       "defaultSell": 2.12,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "CHERRY_STAIRS",
@@ -4070,7 +4070,7 @@
       "sell": 6.37,
       "defaultBuy": 25.48,
       "defaultSell": 6.37,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "CHERRY_FENCE",
@@ -4079,7 +4079,7 @@
       "sell": 6.94,
       "defaultBuy": 27.76,
       "defaultSell": 6.94,
-      "grundwert": 2.083333333
+      "grundwert": 2.08
     },
     {
       "id": "CHERRY_FENCE_GATE",
@@ -4088,7 +4088,7 @@
       "sell": 13.6,
       "defaultBuy": 54.4,
       "defaultSell": 13.6,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "CHERRY_DOOR",
@@ -4097,7 +4097,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "CHERRY_TRAPDOOR",
@@ -4124,7 +4124,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "CHERRY_SIGN",
@@ -4133,7 +4133,7 @@
       "sell": 9.2,
       "defaultBuy": 36.8,
       "defaultSell": 9.2,
-      "grundwert": 2.708333333
+      "grundwert": 2.71
     },
     {
       "id": "CHERRY_HANGING_SIGN",
@@ -4196,7 +4196,7 @@
       "sell": 6.5,
       "defaultBuy": 26,
       "defaultSell": 6.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "PALE_OAK_STEM",
@@ -4205,7 +4205,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "PALE_OAK_HYPHAE",
@@ -4214,7 +4214,7 @@
       "sell": 6.5,
       "defaultBuy": 26,
       "defaultSell": 6.5,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "PALE_OAK_STRIPPED_LOG",
@@ -4223,7 +4223,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "PALE_OAK_STRIPPED_WOOD",
@@ -4232,7 +4232,7 @@
       "sell": 5.52,
       "defaultBuy": 22.08,
       "defaultSell": 5.52,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "PALE_OAK_STRIPPED_STEM",
@@ -4241,7 +4241,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "PALE_OAK_STRIPPED_HYPHAE",
@@ -4250,7 +4250,7 @@
       "sell": 5.52,
       "defaultBuy": 22.08,
       "defaultSell": 5.52,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "PALE_OAK_PLANKS",
@@ -4268,7 +4268,7 @@
       "sell": 2.12,
       "defaultBuy": 8.48,
       "defaultSell": 2.12,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "PALE_OAK_STAIRS",
@@ -4277,7 +4277,7 @@
       "sell": 6.37,
       "defaultBuy": 25.48,
       "defaultSell": 6.37,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "PALE_OAK_FENCE",
@@ -4286,7 +4286,7 @@
       "sell": 6.94,
       "defaultBuy": 27.76,
       "defaultSell": 6.94,
-      "grundwert": 2.083333333
+      "grundwert": 2.08
     },
     {
       "id": "PALE_OAK_FENCE_GATE",
@@ -4295,7 +4295,7 @@
       "sell": 13.6,
       "defaultBuy": 54.4,
       "defaultSell": 13.6,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "PALE_OAK_DOOR",
@@ -4304,7 +4304,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "PALE_OAK_TRAPDOOR",
@@ -4331,7 +4331,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "PALE_OAK_SIGN",
@@ -4340,7 +4340,7 @@
       "sell": 9.2,
       "defaultBuy": 36.8,
       "defaultSell": 9.2,
-      "grundwert": 2.708333333
+      "grundwert": 2.71
     },
     {
       "id": "PALE_OAK_HANGING_SIGN",
@@ -4403,7 +4403,7 @@
       "sell": 6,
       "defaultBuy": 24,
       "defaultSell": 6,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "CRIMSON_STRIPPED_STEM",
@@ -4412,7 +4412,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "CRIMSON_STRIPPED_HYPHAE",
@@ -4421,7 +4421,7 @@
       "sell": 5.1,
       "defaultBuy": 20.4,
       "defaultSell": 5.1,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "CRIMSON_PLANKS",
@@ -4439,7 +4439,7 @@
       "sell": 2.12,
       "defaultBuy": 8.48,
       "defaultSell": 2.12,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "CRIMSON_STAIRS",
@@ -4448,7 +4448,7 @@
       "sell": 6.37,
       "defaultBuy": 25.48,
       "defaultSell": 6.37,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "CRIMSON_FENCE",
@@ -4457,7 +4457,7 @@
       "sell": 6.37,
       "defaultBuy": 25.48,
       "defaultSell": 6.37,
-      "grundwert": 2.083333333
+      "grundwert": 2.08
     },
     {
       "id": "CRIMSON_FENCE_GATE",
@@ -4466,7 +4466,7 @@
       "sell": 12.75,
       "defaultBuy": 51,
       "defaultSell": 12.75,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "CRIMSON_DOOR",
@@ -4475,7 +4475,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "CRIMSON_TRAPDOOR",
@@ -4502,7 +4502,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "CRIMSON_SIGN",
@@ -4511,7 +4511,7 @@
       "sell": 8.85,
       "defaultBuy": 35.4,
       "defaultSell": 8.85,
-      "grundwert": 2.708333333
+      "grundwert": 2.71
     },
     {
       "id": "CRIMSON_HANGING_SIGN",
@@ -4547,7 +4547,7 @@
       "sell": 6,
       "defaultBuy": 24,
       "defaultSell": 6,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "WARPED_STRIPPED_STEM",
@@ -4556,7 +4556,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "WARPED_STRIPPED_HYPHAE",
@@ -4565,7 +4565,7 @@
       "sell": 5.1,
       "defaultBuy": 20.4,
       "defaultSell": 5.1,
-      "grundwert": 6.666666667
+      "grundwert": 6.67
     },
     {
       "id": "WARPED_PLANKS",
@@ -4583,7 +4583,7 @@
       "sell": 2.12,
       "defaultBuy": 8.48,
       "defaultSell": 2.12,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "WARPED_STAIRS",
@@ -4592,7 +4592,7 @@
       "sell": 6.37,
       "defaultBuy": 25.48,
       "defaultSell": 6.37,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "WARPED_FENCE",
@@ -4601,7 +4601,7 @@
       "sell": 6.37,
       "defaultBuy": 25.48,
       "defaultSell": 6.37,
-      "grundwert": 2.083333333
+      "grundwert": 2.08
     },
     {
       "id": "WARPED_FENCE_GATE",
@@ -4610,7 +4610,7 @@
       "sell": 12.75,
       "defaultBuy": 51,
       "defaultSell": 12.75,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "WARPED_DOOR",
@@ -4619,7 +4619,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "WARPED_TRAPDOOR",
@@ -4646,7 +4646,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "WARPED_SIGN",
@@ -4655,7 +4655,7 @@
       "sell": 8.85,
       "defaultBuy": 35.4,
       "defaultSell": 8.85,
-      "grundwert": 2.708333333
+      "grundwert": 2.71
     },
     {
       "id": "WARPED_HANGING_SIGN",
@@ -5033,7 +5033,7 @@
       "sell": 3.5,
       "defaultBuy": 14,
       "defaultSell": 3.5,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "STONE_SLAB",
@@ -5042,7 +5042,7 @@
       "sell": 0.42,
       "defaultBuy": 1.68,
       "defaultSell": 0.42,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "STONE_STAIRS",
@@ -5051,7 +5051,7 @@
       "sell": 0.85,
       "defaultBuy": 3.4,
       "defaultSell": 0.85,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "STONE_WALL",
@@ -5069,7 +5069,7 @@
       "sell": 0.42,
       "defaultBuy": 1.68,
       "defaultSell": 0.42,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "COBBLESTONE_STAIRS",
@@ -5078,7 +5078,7 @@
       "sell": 0.85,
       "defaultBuy": 3.4,
       "defaultSell": 0.85,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "COBBLESTONE_WALL",
@@ -5087,7 +5087,7 @@
       "sell": 0.85,
       "defaultBuy": 3.4,
       "defaultSell": 0.85,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "MOSSY_COBBLESTONE_SLAB",
@@ -5123,7 +5123,7 @@
       "sell": 0.42,
       "defaultBuy": 1.68,
       "defaultSell": 0.42,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "STONE_BRICK_STAIRS",
@@ -5132,7 +5132,7 @@
       "sell": 0.85,
       "defaultBuy": 3.4,
       "defaultSell": 0.85,
-      "grundwert": 1.875
+      "grundwert": 1.88
     },
     {
       "id": "STONE_BRICK_WALL",
@@ -5195,7 +5195,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "POLISHED_GRANITE_SLAB",
@@ -5249,7 +5249,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "POLISHED_ANDESITE_SLAB",
@@ -5303,7 +5303,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "POLISHED_DIORITE_SLAB",
@@ -5384,7 +5384,7 @@
       "sell": 1.53,
       "defaultBuy": 6.12,
       "defaultSell": 1.53,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "POLISHED_DEEPSLATE_SLAB",
@@ -5411,7 +5411,7 @@
       "sell": 1.53,
       "defaultBuy": 6.12,
       "defaultSell": 1.53,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "DEEPSLATE_BRICK_SLAB",
@@ -5474,7 +5474,7 @@
       "sell": 0.85,
       "defaultBuy": 3.4,
       "defaultSell": 0.85,
-      "grundwert": 0.375
+      "grundwert": 0.38
     },
     {
       "id": "TUFF_STAIRS",
@@ -5483,7 +5483,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 1.125
+      "grundwert": 1.13
     },
     {
       "id": "TUFF_WALL",
@@ -5501,7 +5501,7 @@
       "sell": 0.85,
       "defaultBuy": 3.4,
       "defaultSell": 0.85,
-      "grundwert": 0.375
+      "grundwert": 0.38
     },
     {
       "id": "POLISHED_TUFF_STAIRS",
@@ -5510,7 +5510,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 1.125
+      "grundwert": 1.13
     },
     {
       "id": "POLISHED_TUFF_WALL",
@@ -5528,7 +5528,7 @@
       "sell": 0.85,
       "defaultBuy": 3.4,
       "defaultSell": 0.85,
-      "grundwert": 0.375
+      "grundwert": 0.38
     },
     {
       "id": "TUFF_BRICK_STAIRS",
@@ -5537,7 +5537,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 1.125
+      "grundwert": 1.13
     },
     {
       "id": "TUFF_BRICK_WALL",
@@ -5555,7 +5555,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "BRICK_STAIRS",
@@ -5564,7 +5564,7 @@
       "sell": 3.4,
       "defaultBuy": 13.6,
       "defaultSell": 3.4,
-      "grundwert": 4.5
+      "grundwert": 4.50
     },
     {
       "id": "BRICK_WALL",
@@ -5573,7 +5573,7 @@
       "sell": 3.4,
       "defaultBuy": 13.6,
       "defaultSell": 3.4,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "MUD_BRICK_SLAB",
@@ -5600,7 +5600,7 @@
       "sell": 3.4,
       "defaultBuy": 13.6,
       "defaultSell": 3.4,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "SANDSTONE_SLAB",
@@ -5609,7 +5609,7 @@
       "sell": 1.91,
       "defaultBuy": 7.64,
       "defaultSell": 1.91,
-      "grundwert": 1.6
+      "grundwert": 1.60
     },
     {
       "id": "SANDSTONE_STAIRS",
@@ -5618,7 +5618,7 @@
       "sell": 3.82,
       "defaultBuy": 15.28,
       "defaultSell": 3.82,
-      "grundwert": 4.8
+      "grundwert": 4.80
     },
     {
       "id": "SANDSTONE_WALL",
@@ -5627,7 +5627,7 @@
       "sell": 3.82,
       "defaultBuy": 15.28,
       "defaultSell": 3.82,
-      "grundwert": 3.2
+      "grundwert": 3.20
     },
     {
       "id": "SMOOTH_SANDSTONE_SLAB",
@@ -5636,7 +5636,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 1.725
+      "grundwert": 1.73
     },
     {
       "id": "SMOOTH_SANDSTONE_STAIRS",
@@ -5645,7 +5645,7 @@
       "sell": 4.01,
       "defaultBuy": 16.04,
       "defaultSell": 4.01,
-      "grundwert": 5.175
+      "grundwert": 5.18
     },
     {
       "id": "SMOOTH_SANDSTONE_WALL",
@@ -5663,7 +5663,7 @@
       "sell": 2.33,
       "defaultBuy": 9.32,
       "defaultSell": 2.33,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "RED_SANDSTONE_STAIRS",
@@ -5672,7 +5672,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 6.0
+      "grundwert": 6.00
     },
     {
       "id": "RED_SANDSTONE_WALL",
@@ -5681,7 +5681,7 @@
       "sell": 4.67,
       "defaultBuy": 18.68,
       "defaultSell": 4.67,
-      "grundwert": 4.0
+      "grundwert": 4.00
     },
     {
       "id": "SMOOTH_RED_SANDSTONE_SLAB",
@@ -5690,7 +5690,7 @@
       "sell": 2.43,
       "defaultBuy": 9.72,
       "defaultSell": 2.43,
-      "grundwert": 2.125
+      "grundwert": 2.13
     },
     {
       "id": "SMOOTH_RED_SANDSTONE_STAIRS",
@@ -5699,7 +5699,7 @@
       "sell": 4.86,
       "defaultBuy": 19.44,
       "defaultSell": 4.86,
-      "grundwert": 6.375
+      "grundwert": 6.38
     },
     {
       "id": "SMOOTH_RED_SANDSTONE_WALL",
@@ -5762,7 +5762,7 @@
       "sell": 12.28,
       "defaultBuy": 49.12,
       "defaultSell": 12.28,
-      "grundwert": 3.5
+      "grundwert": 3.50
     },
     {
       "id": "BLACKSTONE_SLAB",
@@ -5771,7 +5771,7 @@
       "sell": 0.85,
       "defaultBuy": 3.4,
       "defaultSell": 0.85,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "BLACKSTONE_STAIRS",
@@ -5780,7 +5780,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "BLACKSTONE_WALL",
@@ -5789,7 +5789,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "POLISHED_BLACKSTONE_SLAB",
@@ -5852,7 +5852,7 @@
       "sell": 0.85,
       "defaultBuy": 3.4,
       "defaultSell": 0.85,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "END_STONE_BRICK_STAIRS",
@@ -5861,7 +5861,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 4.5
+      "grundwert": 4.50
     },
     {
       "id": "END_STONE_BRICK_WALL",
@@ -5870,7 +5870,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "PURPUR_SLAB",
@@ -5879,7 +5879,7 @@
       "sell": 1.79,
       "defaultBuy": 7.16,
       "defaultSell": 1.79,
-      "grundwert": 1.125
+      "grundwert": 1.13
     },
     {
       "id": "PURPUR_STAIRS",
@@ -5888,7 +5888,7 @@
       "sell": 3.59,
       "defaultBuy": 14.36,
       "defaultSell": 3.59,
-      "grundwert": 3.375
+      "grundwert": 3.38
     },
     {
       "id": "PURPUR_WALL",
@@ -5924,7 +5924,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "PRISMARINE_BRICK_SLAB",
@@ -5933,7 +5933,7 @@
       "sell": 2.12,
       "defaultBuy": 8.48,
       "defaultSell": 2.12,
-      "grundwert": 1.6875
+      "grundwert": 1.69
     },
     {
       "id": "PRISMARINE_BRICK_STAIRS",
@@ -5942,7 +5942,7 @@
       "sell": 4.25,
       "defaultBuy": 17,
       "defaultSell": 4.25,
-      "grundwert": 5.0625
+      "grundwert": 5.06
     },
     {
       "id": "PRISMARINE_BRICK_WALL",
@@ -6176,7 +6176,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "WHITE_WOOL_SLAB",
@@ -6203,7 +6203,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 1.33333333
+      "grundwert": 1.33
     },
     {
       "id": "WHITE_BED",
@@ -6239,7 +6239,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.1125
+      "grundwert": 1.11
     },
     {
       "id": "WHITE_STAINED_GLASS_PANE",
@@ -6248,7 +6248,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.4171875
+      "grundwert": 0.42
     },
     {
       "id": "WHITE_TERRACOTTA",
@@ -6257,7 +6257,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.3125
+      "grundwert": 2.31
     },
     {
       "id": "WHITE_GLAZED_TERRACOTTA",
@@ -6266,7 +6266,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.5625
+      "grundwert": 2.56
     },
     {
       "id": "WHITE_CONCRETE_POWDER",
@@ -6275,7 +6275,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "WHITE_CONCRETE",
@@ -6284,7 +6284,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "WHITE_CONCRETE_SLAB",
@@ -6320,7 +6320,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "WHITE_BUNDLE",
@@ -6365,7 +6365,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "ORANGE_WOOL_SLAB",
@@ -6392,7 +6392,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 1.66666667
+      "grundwert": 1.67
     },
     {
       "id": "ORANGE_BED",
@@ -6428,7 +6428,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.1125
+      "grundwert": 1.11
     },
     {
       "id": "ORANGE_STAINED_GLASS_PANE",
@@ -6437,7 +6437,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.4171875
+      "grundwert": 0.42
     },
     {
       "id": "ORANGE_TERRACOTTA",
@@ -6446,7 +6446,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.3125
+      "grundwert": 2.31
     },
     {
       "id": "ORANGE_GLAZED_TERRACOTTA",
@@ -6455,7 +6455,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.5625
+      "grundwert": 2.56
     },
     {
       "id": "ORANGE_CONCRETE_POWDER",
@@ -6464,7 +6464,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "ORANGE_CONCRETE",
@@ -6473,7 +6473,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "ORANGE_CONCRETE_SLAB",
@@ -6509,7 +6509,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "ORANGE_BUNDLE",
@@ -6554,7 +6554,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 2.625
+      "grundwert": 2.63
     },
     {
       "id": "MAGENTA_WOOL_SLAB",
@@ -6617,7 +6617,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.128125
+      "grundwert": 1.13
     },
     {
       "id": "MAGENTA_STAINED_GLASS_PANE",
@@ -6626,7 +6626,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.42304688
+      "grundwert": 0.42
     },
     {
       "id": "MAGENTA_TERRACOTTA",
@@ -6635,7 +6635,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.328125
+      "grundwert": 2.33
     },
     {
       "id": "MAGENTA_GLAZED_TERRACOTTA",
@@ -6644,7 +6644,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.578125
+      "grundwert": 2.58
     },
     {
       "id": "MAGENTA_CONCRETE_POWDER",
@@ -6653,7 +6653,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.978125
+      "grundwert": 0.98
     },
     {
       "id": "MAGENTA_CONCRETE",
@@ -6662,7 +6662,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.978125
+      "grundwert": 0.98
     },
     {
       "id": "MAGENTA_CONCRETE_SLAB",
@@ -6698,7 +6698,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "MAGENTA_BUNDLE",
@@ -6743,7 +6743,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 2.625
+      "grundwert": 2.63
     },
     {
       "id": "LIGHT_BLUE_WOOL_SLAB",
@@ -6806,7 +6806,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.128125
+      "grundwert": 1.13
     },
     {
       "id": "LIGHT_BLUE_STAINED_GLASS_PANE",
@@ -6815,7 +6815,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.42304688
+      "grundwert": 0.42
     },
     {
       "id": "LIGHT_BLUE_TERRACOTTA",
@@ -6824,7 +6824,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.328125
+      "grundwert": 2.33
     },
     {
       "id": "LIGHT_BLUE_GLAZED_TERRACOTTA",
@@ -6833,7 +6833,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.578125
+      "grundwert": 2.58
     },
     {
       "id": "LIGHT_BLUE_CONCRETE_POWDER",
@@ -6842,7 +6842,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.978125
+      "grundwert": 0.98
     },
     {
       "id": "LIGHT_BLUE_CONCRETE",
@@ -6851,7 +6851,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.978125
+      "grundwert": 0.98
     },
     {
       "id": "LIGHT_BLUE_CONCRETE_SLAB",
@@ -6887,7 +6887,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "LIGHT_BLUE_BUNDLE",
@@ -6932,7 +6932,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "YELLOW_WOOL_SLAB",
@@ -6959,7 +6959,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 1.66666667
+      "grundwert": 1.67
     },
     {
       "id": "YELLOW_BED",
@@ -6995,7 +6995,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.1125
+      "grundwert": 1.11
     },
     {
       "id": "YELLOW_STAINED_GLASS_PANE",
@@ -7004,7 +7004,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.4171875
+      "grundwert": 0.42
     },
     {
       "id": "YELLOW_TERRACOTTA",
@@ -7013,7 +7013,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.3125
+      "grundwert": 2.31
     },
     {
       "id": "YELLOW_GLAZED_TERRACOTTA",
@@ -7022,7 +7022,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.5625
+      "grundwert": 2.56
     },
     {
       "id": "YELLOW_CONCRETE_POWDER",
@@ -7031,7 +7031,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "YELLOW_CONCRETE",
@@ -7040,7 +7040,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "YELLOW_CONCRETE_SLAB",
@@ -7076,7 +7076,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "YELLOW_BUNDLE",
@@ -7121,7 +7121,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 2.625
+      "grundwert": 2.63
     },
     {
       "id": "LIME_WOOL_SLAB",
@@ -7184,7 +7184,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.128125
+      "grundwert": 1.13
     },
     {
       "id": "LIME_STAINED_GLASS_PANE",
@@ -7193,7 +7193,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.42304688
+      "grundwert": 0.42
     },
     {
       "id": "LIME_TERRACOTTA",
@@ -7202,7 +7202,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.328125
+      "grundwert": 2.33
     },
     {
       "id": "LIME_GLAZED_TERRACOTTA",
@@ -7211,7 +7211,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.578125
+      "grundwert": 2.58
     },
     {
       "id": "LIME_CONCRETE_POWDER",
@@ -7220,7 +7220,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.978125
+      "grundwert": 0.98
     },
     {
       "id": "LIME_CONCRETE",
@@ -7229,7 +7229,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.978125
+      "grundwert": 0.98
     },
     {
       "id": "LIME_CONCRETE_SLAB",
@@ -7265,7 +7265,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "LIME_BUNDLE",
@@ -7310,7 +7310,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "PINK_WOOL_SLAB",
@@ -7337,7 +7337,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 1.66666667
+      "grundwert": 1.67
     },
     {
       "id": "PINK_BED",
@@ -7373,7 +7373,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.1125
+      "grundwert": 1.11
     },
     {
       "id": "PINK_STAINED_GLASS_PANE",
@@ -7382,7 +7382,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.4171875
+      "grundwert": 0.42
     },
     {
       "id": "PINK_TERRACOTTA",
@@ -7391,7 +7391,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.3125
+      "grundwert": 2.31
     },
     {
       "id": "PINK_GLAZED_TERRACOTTA",
@@ -7400,7 +7400,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.5625
+      "grundwert": 2.56
     },
     {
       "id": "PINK_CONCRETE_POWDER",
@@ -7409,7 +7409,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "PINK_CONCRETE",
@@ -7418,7 +7418,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "PINK_CONCRETE_SLAB",
@@ -7454,7 +7454,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "PINK_BUNDLE",
@@ -7526,7 +7526,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 1.83333333
+      "grundwert": 1.83
     },
     {
       "id": "GRAY_BED",
@@ -7562,7 +7562,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.14375
+      "grundwert": 1.14
     },
     {
       "id": "GRAY_STAINED_GLASS_PANE",
@@ -7571,7 +7571,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.42890625
+      "grundwert": 0.43
     },
     {
       "id": "GRAY_TERRACOTTA",
@@ -7580,7 +7580,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.34375
+      "grundwert": 2.34
     },
     {
       "id": "GRAY_GLAZED_TERRACOTTA",
@@ -7589,7 +7589,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.59375
+      "grundwert": 2.59
     },
     {
       "id": "GRAY_CONCRETE_POWDER",
@@ -7598,7 +7598,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.99375
+      "grundwert": 0.99
     },
     {
       "id": "GRAY_CONCRETE",
@@ -7607,7 +7607,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.99375
+      "grundwert": 0.99
     },
     {
       "id": "GRAY_CONCRETE_SLAB",
@@ -7688,7 +7688,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "LIGHT_GRAY_WOOL_SLAB",
@@ -7715,7 +7715,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 1.66666667
+      "grundwert": 1.67
     },
     {
       "id": "LIGHT_GRAY_BED",
@@ -7751,7 +7751,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.1125
+      "grundwert": 1.11
     },
     {
       "id": "LIGHT_GRAY_STAINED_GLASS_PANE",
@@ -7760,7 +7760,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.4171875
+      "grundwert": 0.42
     },
     {
       "id": "LIGHT_GRAY_TERRACOTTA",
@@ -7769,7 +7769,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.3125
+      "grundwert": 2.31
     },
     {
       "id": "LIGHT_GRAY_GLAZED_TERRACOTTA",
@@ -7778,7 +7778,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.5625
+      "grundwert": 2.56
     },
     {
       "id": "LIGHT_GRAY_CONCRETE_POWDER",
@@ -7787,7 +7787,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "LIGHT_GRAY_CONCRETE",
@@ -7796,7 +7796,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "LIGHT_GRAY_CONCRETE_SLAB",
@@ -7832,7 +7832,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "LIGHT_GRAY_BUNDLE",
@@ -7904,7 +7904,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 1.83333333
+      "grundwert": 1.83
     },
     {
       "id": "CYAN_BED",
@@ -7940,7 +7940,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.14375
+      "grundwert": 1.14
     },
     {
       "id": "CYAN_STAINED_GLASS_PANE",
@@ -7949,7 +7949,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.42890625
+      "grundwert": 0.43
     },
     {
       "id": "CYAN_TERRACOTTA",
@@ -7958,7 +7958,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.34375
+      "grundwert": 2.34
     },
     {
       "id": "CYAN_GLAZED_TERRACOTTA",
@@ -7967,7 +7967,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.59375
+      "grundwert": 2.59
     },
     {
       "id": "CYAN_CONCRETE_POWDER",
@@ -7976,7 +7976,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.99375
+      "grundwert": 0.99
     },
     {
       "id": "CYAN_CONCRETE",
@@ -7985,7 +7985,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.99375
+      "grundwert": 0.99
     },
     {
       "id": "CYAN_CONCRETE_SLAB",
@@ -8066,7 +8066,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 2.625
+      "grundwert": 2.63
     },
     {
       "id": "PURPLE_WOOL_SLAB",
@@ -8129,7 +8129,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.128125
+      "grundwert": 1.13
     },
     {
       "id": "PURPLE_STAINED_GLASS_PANE",
@@ -8138,7 +8138,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.42304688
+      "grundwert": 0.42
     },
     {
       "id": "PURPLE_TERRACOTTA",
@@ -8147,7 +8147,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.328125
+      "grundwert": 2.33
     },
     {
       "id": "PURPLE_GLAZED_TERRACOTTA",
@@ -8156,7 +8156,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.578125
+      "grundwert": 2.58
     },
     {
       "id": "PURPLE_CONCRETE_POWDER",
@@ -8165,7 +8165,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.978125
+      "grundwert": 0.98
     },
     {
       "id": "PURPLE_CONCRETE",
@@ -8174,7 +8174,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.978125
+      "grundwert": 0.98
     },
     {
       "id": "PURPLE_CONCRETE_SLAB",
@@ -8210,7 +8210,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.625
+      "grundwert": 0.63
     },
     {
       "id": "PURPLE_BUNDLE",
@@ -8282,7 +8282,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 1.83333333
+      "grundwert": 1.83
     },
     {
       "id": "BLUE_BED",
@@ -8318,7 +8318,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.14375
+      "grundwert": 1.14
     },
     {
       "id": "BLUE_STAINED_GLASS_PANE",
@@ -8327,7 +8327,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.42890625
+      "grundwert": 0.43
     },
     {
       "id": "BLUE_TERRACOTTA",
@@ -8336,7 +8336,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.34375
+      "grundwert": 2.34
     },
     {
       "id": "BLUE_GLAZED_TERRACOTTA",
@@ -8345,7 +8345,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.59375
+      "grundwert": 2.59
     },
     {
       "id": "BLUE_CONCRETE_POWDER",
@@ -8354,7 +8354,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.99375
+      "grundwert": 0.99
     },
     {
       "id": "BLUE_CONCRETE",
@@ -8363,7 +8363,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.99375
+      "grundwert": 0.99
     },
     {
       "id": "BLUE_CONCRETE_SLAB",
@@ -8471,7 +8471,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 1.83333333
+      "grundwert": 1.83
     },
     {
       "id": "BROWN_BED",
@@ -8507,7 +8507,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.14375
+      "grundwert": 1.14
     },
     {
       "id": "BROWN_STAINED_GLASS_PANE",
@@ -8516,7 +8516,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.42890625
+      "grundwert": 0.43
     },
     {
       "id": "BROWN_TERRACOTTA",
@@ -8525,7 +8525,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.34375
+      "grundwert": 2.34
     },
     {
       "id": "BROWN_GLAZED_TERRACOTTA",
@@ -8534,7 +8534,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.59375
+      "grundwert": 2.59
     },
     {
       "id": "BROWN_CONCRETE_POWDER",
@@ -8543,7 +8543,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.99375
+      "grundwert": 0.99
     },
     {
       "id": "BROWN_CONCRETE",
@@ -8552,7 +8552,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.99375
+      "grundwert": 0.99
     },
     {
       "id": "BROWN_CONCRETE_SLAB",
@@ -8660,7 +8660,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 1.83333333
+      "grundwert": 1.83
     },
     {
       "id": "GREEN_BED",
@@ -8696,7 +8696,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.14375
+      "grundwert": 1.14
     },
     {
       "id": "GREEN_STAINED_GLASS_PANE",
@@ -8705,7 +8705,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.42890625
+      "grundwert": 0.43
     },
     {
       "id": "GREEN_TERRACOTTA",
@@ -8714,7 +8714,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.34375
+      "grundwert": 2.34
     },
     {
       "id": "GREEN_GLAZED_TERRACOTTA",
@@ -8723,7 +8723,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.59375
+      "grundwert": 2.59
     },
     {
       "id": "GREEN_CONCRETE_POWDER",
@@ -8732,7 +8732,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.99375
+      "grundwert": 0.99
     },
     {
       "id": "GREEN_CONCRETE",
@@ -8741,7 +8741,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.99375
+      "grundwert": 0.99
     },
     {
       "id": "GREEN_CONCRETE_SLAB",
@@ -8822,7 +8822,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "RED_WOOL_SLAB",
@@ -8849,7 +8849,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 1.66666667
+      "grundwert": 1.67
     },
     {
       "id": "RED_BED",
@@ -8885,7 +8885,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.1125
+      "grundwert": 1.11
     },
     {
       "id": "RED_STAINED_GLASS_PANE",
@@ -8894,7 +8894,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.4171875
+      "grundwert": 0.42
     },
     {
       "id": "RED_TERRACOTTA",
@@ -8903,7 +8903,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.3125
+      "grundwert": 2.31
     },
     {
       "id": "RED_GLAZED_TERRACOTTA",
@@ -8912,7 +8912,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.5625
+      "grundwert": 2.56
     },
     {
       "id": "RED_CONCRETE_POWDER",
@@ -8921,7 +8921,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "RED_CONCRETE",
@@ -8930,7 +8930,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 0.9625
+      "grundwert": 0.96
     },
     {
       "id": "RED_CONCRETE_SLAB",
@@ -8966,7 +8966,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "RED_BUNDLE",
@@ -9011,7 +9011,7 @@
       "sell": 2.5,
       "defaultBuy": 10,
       "defaultSell": 2.5,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "BLACK_WOOL_SLAB",
@@ -9038,7 +9038,7 @@
       "sell": 1.41,
       "defaultBuy": 5.64,
       "defaultSell": 1.41,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "BLACK_BED",
@@ -9074,7 +9074,7 @@
       "sell": 4.46,
       "defaultBuy": 17.84,
       "defaultSell": 4.46,
-      "grundwert": 1.175
+      "grundwert": 1.18
     },
     {
       "id": "BLACK_STAINED_GLASS_PANE",
@@ -9083,7 +9083,7 @@
       "sell": 1.67,
       "defaultBuy": 6.68,
       "defaultSell": 1.67,
-      "grundwert": 0.440625
+      "grundwert": 0.44
     },
     {
       "id": "BLACK_TERRACOTTA",
@@ -9092,7 +9092,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.375
+      "grundwert": 2.38
     },
     {
       "id": "BLACK_GLAZED_TERRACOTTA",
@@ -9101,7 +9101,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.625
+      "grundwert": 2.63
     },
     {
       "id": "BLACK_CONCRETE_POWDER",
@@ -9110,7 +9110,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 1.025
+      "grundwert": 1.03
     },
     {
       "id": "BLACK_CONCRETE",
@@ -9119,7 +9119,7 @@
       "sell": 2.55,
       "defaultBuy": 10.2,
       "defaultSell": 2.55,
-      "grundwert": 1.025
+      "grundwert": 1.03
     },
     {
       "id": "BLACK_CONCRETE_SLAB",
@@ -9155,7 +9155,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "BLACK_BUNDLE",
@@ -9353,7 +9353,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "PITCHER_PLANT",
@@ -9362,7 +9362,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 1.5
+      "grundwert": 1.50
     },
     {
       "id": "PITCHER_POD",
@@ -9515,7 +9515,7 @@
       "sell": 3.5,
       "defaultBuy": 14,
       "defaultSell": 3.5,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "RED_MUSHROOM_BLOCK",
@@ -9524,7 +9524,7 @@
       "sell": 3.5,
       "defaultBuy": 14,
       "defaultSell": 3.5,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "CRAFTING_TABLE",
@@ -9533,7 +9533,7 @@
       "sell": 8.5,
       "defaultBuy": 34,
       "defaultSell": 8.5,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "FURNACE",
@@ -9587,7 +9587,7 @@
       "sell": 17,
       "defaultBuy": 68,
       "defaultSell": 17,
-      "grundwert": 10.0
+      "grundwert": 10.00
     },
     {
       "id": "TRAPPED_CHEST",
@@ -9731,7 +9731,7 @@
       "sell": 1.7,
       "defaultBuy": 6.8,
       "defaultSell": 1.7,
-      "grundwert": 2.5
+      "grundwert": 2.50
     },
     {
       "id": "LIGHT_WEIGHTED_PRESSURE_PLATE",
@@ -9839,7 +9839,7 @@
       "sell": 216,
       "defaultBuy": 864,
       "defaultSell": 216,
-      "grundwert": 13.2
+      "grundwert": 13.20
     },
     {
       "id": "REDSTONE_TORCH",
@@ -9875,7 +9875,7 @@
       "sell": 3.5,
       "defaultBuy": 14,
       "defaultSell": 3.5,
-      "grundwert": 1.65625
+      "grundwert": 1.66
     },
     {
       "id": "LANTERN",
@@ -9884,7 +9884,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 19.246527778
+      "grundwert": 19.25
     },
     {
       "id": "SOUL_LANTERN",
@@ -9893,7 +9893,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 19.434027778
+      "grundwert": 19.43
     },
     {
       "id": "COPPER_LANTERN",
@@ -9911,7 +9911,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 24.444444444
+      "grundwert": 24.44
     },
     {
       "id": "IRON_BARS",
@@ -9947,7 +9947,7 @@
       "sell": 30,
       "defaultBuy": 120,
       "defaultSell": 30,
-      "grundwert": 140.0
+      "grundwert": 140.00
     },
     {
       "id": "BREWING_STAND",
@@ -9956,7 +9956,7 @@
       "sell": 50,
       "defaultBuy": 200,
       "defaultSell": 50,
-      "grundwert": 8.0
+      "grundwert": 8.00
     },
     {
       "id": "ENCHANTING_TABLE",
@@ -10055,7 +10055,7 @@
       "sell": 7.43,
       "defaultBuy": 29.72,
       "defaultSell": 7.43,
-      "grundwert": 4.375
+      "grundwert": 4.38
     },
     {
       "id": "LECTERN",
@@ -10127,7 +10127,7 @@
       "sell": 20,
       "defaultBuy": 80,
       "defaultSell": 20,
-      "grundwert": 6.5
+      "grundwert": 6.50
     },
     {
       "id": "GLOW_ITEM_FRAME",
@@ -10136,7 +10136,7 @@
       "sell": 50,
       "defaultBuy": 200,
       "defaultSell": 50,
-      "grundwert": 7.5
+      "grundwert": 7.50
     },
     {
       "id": "PAINTING",
@@ -10199,7 +10199,7 @@
       "sell": 8.28,
       "defaultBuy": 33.12,
       "defaultSell": 8.28,
-      "grundwert": 2.875
+      "grundwert": 2.88
     },
     {
       "id": "CARROT_ON_A_STICK",
@@ -10208,7 +10208,7 @@
       "sell": 30,
       "defaultBuy": 120,
       "defaultSell": 30,
-      "grundwert": 3.625
+      "grundwert": 3.63
     },
     {
       "id": "WARPED_FUNGUS_ON_A_STICK",
@@ -10217,7 +10217,7 @@
       "sell": 44.37,
       "defaultBuy": 177.48,
       "defaultSell": 44.37,
-      "grundwert": 5.875
+      "grundwert": 5.88
     },
     {
       "id": "LEAD",
@@ -10343,7 +10343,7 @@
       "sell": 5.5,
       "defaultBuy": 22,
       "defaultSell": 5.5,
-      "grundwert": 2.0
+      "grundwert": 2.00
     },
     {
       "id": "MUSHROOM_STEW",
@@ -10352,7 +10352,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2.9375
+      "grundwert": 2.94
     },
     {
       "id": "RABBIT_STEW",
@@ -10361,7 +10361,7 @@
       "sell": 14,
       "defaultBuy": 56,
       "defaultSell": 14,
-      "grundwert": 4.6875
+      "grundwert": 4.69
     },
     {
       "id": "BEETROOT_SOUP",
@@ -10397,7 +10397,7 @@
       "sell": 2500,
       "defaultBuy": 10000,
       "defaultSell": 2500,
-      "grundwert": 1000.0
+      "grundwert": 1000.00
     },
     {
       "id": "GOLDEN_CARROT",
@@ -10406,7 +10406,7 @@
       "sell": 20,
       "defaultBuy": 80,
       "defaultSell": 20,
-      "grundwert": 22.972222222
+      "grundwert": 22.97
     },
     {
       "id": "GLISTERING_MELON_SLICE",
@@ -10442,7 +10442,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 0.2
+      "grundwert": 0.20
     },
     {
       "id": "POISONOUS_POTATO",
@@ -10505,7 +10505,7 @@
       "sell": 1.5,
       "defaultBuy": 6,
       "defaultSell": 1.5,
-      "grundwert": 0.5
+      "grundwert": 0.50
     },
     {
       "id": "POTION",
@@ -10550,7 +10550,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 0.53125
+      "grundwert": 0.53
     },
     {
       "id": "SPECTRAL_ARROW",
@@ -10568,7 +10568,7 @@
       "sell": 15,
       "defaultBuy": 60,
       "defaultSell": 15,
-      "grundwert": 0.833333333
+      "grundwert": 0.83
     },
     {
       "id": "FIREWORK_STAR",
@@ -10595,7 +10595,7 @@
       "sell": 0.2,
       "defaultBuy": 0.8,
       "defaultSell": 0.2,
-      "grundwert": 0.1
+      "grundwert": 0.10
     },
     {
       "id": "BOW",
@@ -10622,7 +10622,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 27.5
+      "grundwert": 27.50
     },
     {
       "id": "OMINOUS_BOTTLE",
@@ -10703,7 +10703,7 @@
       "sell": 100,
       "defaultBuy": 400,
       "defaultSell": 100,
-      "grundwert": 3.0
+      "grundwert": 3.00
     },
     {
       "id": "FROGSPAWN",
@@ -10721,7 +10721,7 @@
       "sell": 15000,
       "defaultBuy": 60000,
       "defaultSell": 15000,
-      "grundwert": 1500.0
+      "grundwert": 1500.00
     },
     {
       "id": "PLAYER_HEAD",
@@ -11972,7 +11972,7 @@
       "sell": 75,
       "defaultBuy": 300,
       "defaultSell": 75,
-      "grundwert": 80.0
+      "grundwert": 80.00
     },
     {
       "id": "GOLDEN_SWORD",
@@ -12071,7 +12071,7 @@
       "sell": 150,
       "defaultBuy": 600,
       "defaultSell": 150,
-      "grundwert": 100.0
+      "grundwert": 100.00
     },
     {
       "id": "DIAMOND_SWORD",
@@ -12170,7 +12170,7 @@
       "sell": 500,
       "defaultBuy": 2000,
       "defaultSell": 500,
-      "grundwert": 750.0
+      "grundwert": 750.00
     },
     {
       "id": "NETHERITE_SWORD",
@@ -12314,7 +12314,7 @@
       "sell": 500,
       "defaultBuy": 2000,
       "defaultSell": 500,
-      "grundwert": 6.0
+      "grundwert": 6.00
     },
     {
       "id": "COAST_ARMOR_TRIM_SMITHING_TEMPLATE",
@@ -12908,7 +12908,7 @@
       "sell": 3,
       "defaultBuy": 12,
       "defaultSell": 3,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "ARMADILLO_SPAWN_EGG",
@@ -12917,7 +12917,7 @@
       "sell": 1200,
       "defaultBuy": 4800,
       "defaultSell": 1200,
-      "grundwert": 350.0
+      "grundwert": 350.00
     },
     {
       "id": "DONKEY_SPAWN_EGG",
@@ -12926,7 +12926,7 @@
       "sell": 150,
       "defaultBuy": 600,
       "defaultSell": 150,
-      "grundwert": 150.0
+      "grundwert": 150.00
     },
     {
       "id": "FOX_SPAWN_EGG",
@@ -12935,7 +12935,7 @@
       "sell": 900,
       "defaultBuy": 3600,
       "defaultSell": 900,
-      "grundwert": 250.0
+      "grundwert": 250.00
     },
     {
       "id": "GOAT_SPAWN_EGG",
@@ -12944,7 +12944,7 @@
       "sell": 100,
       "defaultBuy": 400,
       "defaultSell": 100,
-      "grundwert": 150.0
+      "grundwert": 150.00
     },
     {
       "id": "HORSE_SPAWN_EGG",
@@ -12953,7 +12953,7 @@
       "sell": 250,
       "defaultBuy": 1000,
       "defaultSell": 250,
-      "grundwert": 200.0
+      "grundwert": 200.00
     },
     {
       "id": "LEATHER_HORSE_ARMOR",
@@ -12962,7 +12962,7 @@
       "sell": 100,
       "defaultBuy": 400,
       "defaultSell": 100,
-      "grundwert": 10.5
+      "grundwert": 10.50
     },
     {
       "id": "LLAMA_SPAWN_EGG",
@@ -12971,7 +12971,7 @@
       "sell": 150,
       "defaultBuy": 600,
       "defaultSell": 150,
-      "grundwert": 150.0
+      "grundwert": 150.00
     },
     {
       "id": "AZALEA_LEAVES",
@@ -13088,7 +13088,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "BAKED_POTATO",
@@ -13097,7 +13097,7 @@
       "sell": 6,
       "defaultBuy": 24,
       "defaultSell": 6,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "COOKED_BEEF",
@@ -13115,7 +13115,7 @@
       "sell": 7,
       "defaultBuy": 28,
       "defaultSell": 7,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "COOKED_COD",
@@ -13124,7 +13124,7 @@
       "sell": 7,
       "defaultBuy": 28,
       "defaultSell": 7,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "COOKED_MUTTON",
@@ -13133,7 +13133,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "COOKED_PORKCHOP",
@@ -13151,7 +13151,7 @@
       "sell": 9,
       "defaultBuy": 36,
       "defaultSell": 9,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "COOKED_SALMON",
@@ -13169,7 +13169,7 @@
       "sell": 80,
       "defaultBuy": 320,
       "defaultSell": 80,
-      "grundwert": 27.5
+      "grundwert": 27.50
     },
     {
       "id": "GLOWSTONE_DUST",
@@ -13187,7 +13187,7 @@
       "sell": 30,
       "defaultBuy": 120,
       "defaultSell": 30,
-      "grundwert": 5.0
+      "grundwert": 5.00
     },
     {
       "id": "GLOW_INK_SAC",
@@ -13196,7 +13196,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 1.0
+      "grundwert": 1.00
     },
     {
       "id": "PHANTOM_MEMBRANE",
@@ -13205,7 +13205,7 @@
       "sell": 50,
       "defaultBuy": 200,
       "defaultSell": 50,
-      "grundwert": 4.0
+      "grundwert": 4.00
     },
     {
       "id": "POTION_OF_SWIFTNESS_II",
@@ -13556,7 +13556,7 @@
       "sell": 5,
       "defaultBuy": 20,
       "defaultSell": 5,
-      "grundwert": 203
+      "grundwert": 203.00
     },
     {
       "id": "ENCHANTED_BOOK_BANE_OF_ARTHROPODS_5",
@@ -13565,7 +13565,7 @@
       "sell": 7.5,
       "defaultBuy": 30,
       "defaultSell": 7.5,
-      "grundwert": 1283
+      "grundwert": 1283.00
     },
     {
       "id": "ENCHANTED_BOOK_BLAST_PROTECTION_4",
@@ -13574,7 +13574,7 @@
       "sell": 7.5,
       "defaultBuy": 30,
       "defaultSell": 7.5,
-      "grundwert": 963
+      "grundwert": 963.00
     },
     {
       "id": "ENCHANTED_BOOK_BREACH_4",
@@ -13583,7 +13583,7 @@
       "sell": 15,
       "defaultBuy": 60,
       "defaultSell": 15,
-      "grundwert": 2803
+      "grundwert": 2803.00
     },
     {
       "id": "ENCHANTED_BOOK_CHANNELING_1",
@@ -13592,7 +13592,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 303
+      "grundwert": 303.00
     },
     {
       "id": "ENCHANTED_BOOK_BINDING_CURSE_1",
@@ -13601,7 +13601,7 @@
       "sell": 0.01,
       "defaultBuy": 0.04,
       "defaultSell": 0.01,
-      "grundwert": 13
+      "grundwert": 13.00
     },
     {
       "id": "ENCHANTED_BOOK_VANISHING_CURSE_1",
@@ -13610,7 +13610,7 @@
       "sell": 2,
       "defaultBuy": 8,
       "defaultSell": 2,
-      "grundwert": 13
+      "grundwert": 13.00
     },
     {
       "id": "ENCHANTED_BOOK_DENSITY_5",
@@ -13619,7 +13619,7 @@
       "sell": 15,
       "defaultBuy": 60,
       "defaultSell": 15,
-      "grundwert": 5603
+      "grundwert": 5603.00
     },
     {
       "id": "ENCHANTED_BOOK_DEPTH_STRIDER_3",
@@ -13628,7 +13628,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 403
+      "grundwert": 403.00
     },
     {
       "id": "ENCHANTED_BOOK_EFFICIENCY_5",
@@ -13637,7 +13637,7 @@
       "sell": 12,
       "defaultBuy": 48,
       "defaultSell": 12,
-      "grundwert": 243
+      "grundwert": 243.00
     },
     {
       "id": "ENCHANTED_BOOK_FEATHER_FALLING_4",
@@ -13646,7 +13646,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 1123
+      "grundwert": 1123.00
     },
     {
       "id": "ENCHANTED_BOOK_FIRE_ASPECT_2",
@@ -13655,7 +13655,7 @@
       "sell": 9,
       "defaultBuy": 36,
       "defaultSell": 9,
-      "grundwert": 1003
+      "grundwert": 1003.00
     },
     {
       "id": "ENCHANTED_BOOK_FIRE_PROTECTION_4",
@@ -13664,7 +13664,7 @@
       "sell": 7.5,
       "defaultBuy": 30,
       "defaultSell": 7.5,
-      "grundwert": 963
+      "grundwert": 963.00
     },
     {
       "id": "ENCHANTED_BOOK_FLAME_1",
@@ -13673,7 +13673,7 @@
       "sell": 8,
       "defaultBuy": 32,
       "defaultSell": 8,
-      "grundwert": 2003
+      "grundwert": 2003.00
     },
     {
       "id": "ENCHANTED_BOOK_FORTUNE_3",
@@ -13682,7 +13682,7 @@
       "sell": 18,
       "defaultBuy": 72,
       "defaultSell": 18,
-      "grundwert": 12003
+      "grundwert": 12003.00
     },
     {
       "id": "ENCHANTED_BOOK_FROST_WALKER_2",
@@ -13691,7 +13691,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 203
+      "grundwert": 203.00
     },
     {
       "id": "ENCHANTED_BOOK_IMPALING_5",
@@ -13700,7 +13700,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 1603
+      "grundwert": 1603.00
     },
     {
       "id": "ENCHANTED_BOOK_INFINITY_1",
@@ -13709,7 +13709,7 @@
       "sell": 20,
       "defaultBuy": 80,
       "defaultSell": 20,
-      "grundwert": 2003
+      "grundwert": 2003.00
     },
     {
       "id": "ENCHANTED_BOOK_KNOCKBACK_2",
@@ -13718,7 +13718,7 @@
       "sell": 6.5,
       "defaultBuy": 26,
       "defaultSell": 6.5,
-      "grundwert": 403
+      "grundwert": 403.00
     },
     {
       "id": "ENCHANTED_BOOK_LOOTING_3",
@@ -13727,7 +13727,7 @@
       "sell": 18,
       "defaultBuy": 72,
       "defaultSell": 18,
-      "grundwert": 6003
+      "grundwert": 6003.00
     },
     {
       "id": "ENCHANTED_BOOK_LOYALTY_3",
@@ -13736,7 +13736,7 @@
       "sell": 12,
       "defaultBuy": 48,
       "defaultSell": 12,
-      "grundwert": 2003
+      "grundwert": 2003.00
     },
     {
       "id": "ENCHANTED_BOOK_LUCK_OF_THE_SEA_3",
@@ -13745,7 +13745,7 @@
       "sell": 9,
       "defaultBuy": 36,
       "defaultSell": 9,
-      "grundwert": 723
+      "grundwert": 723.00
     },
     {
       "id": "ENCHANTED_BOOK_LURE_3",
@@ -13754,7 +13754,7 @@
       "sell": 9,
       "defaultBuy": 36,
       "defaultSell": 9,
-      "grundwert": 323
+      "grundwert": 323.00
     },
     {
       "id": "ENCHANTED_BOOK_MENDING_1",
@@ -13763,7 +13763,7 @@
       "sell": 30,
       "defaultBuy": 120,
       "defaultSell": 30,
-      "grundwert": 30003
+      "grundwert": 30003.00
     },
     {
       "id": "ENCHANTED_BOOK_MULTISHOT_1",
@@ -13772,7 +13772,7 @@
       "sell": 12,
       "defaultBuy": 48,
       "defaultSell": 12,
-      "grundwert": 203
+      "grundwert": 203.00
     },
     {
       "id": "ENCHANTED_BOOK_PIERCING_4",
@@ -13781,7 +13781,7 @@
       "sell": 9,
       "defaultBuy": 36,
       "defaultSell": 9,
-      "grundwert": 803
+      "grundwert": 803.00
     },
     {
       "id": "ENCHANTED_BOOK_POWER_5",
@@ -13790,7 +13790,7 @@
       "sell": 12,
       "defaultBuy": 48,
       "defaultSell": 12,
-      "grundwert": 8003
+      "grundwert": 8003.00
     },
     {
       "id": "ENCHANTED_BOOK_PROJECTILE_PROTECTION_4",
@@ -13799,7 +13799,7 @@
       "sell": 7.5,
       "defaultBuy": 30,
       "defaultSell": 7.5,
-      "grundwert": 963
+      "grundwert": 963.00
     },
     {
       "id": "ENCHANTED_BOOK_PROTECTION_4",
@@ -13808,7 +13808,7 @@
       "sell": 12,
       "defaultBuy": 48,
       "defaultSell": 12,
-      "grundwert": 83
+      "grundwert": 83.00
     },
     {
       "id": "ENCHANTED_BOOK_PUNCH_2",
@@ -13817,7 +13817,7 @@
       "sell": 6.5,
       "defaultBuy": 26,
       "defaultSell": 6.5,
-      "grundwert": 1003
+      "grundwert": 1003.00
     },
     {
       "id": "ENCHANTED_BOOK_QUICK_CHARGE_3",
@@ -13826,7 +13826,7 @@
       "sell": 9,
       "defaultBuy": 36,
       "defaultSell": 9,
-      "grundwert": 403
+      "grundwert": 403.00
     },
     {
       "id": "ENCHANTED_BOOK_RESPIRATION_3",
@@ -13835,7 +13835,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 523
+      "grundwert": 523.00
     },
     {
       "id": "ENCHANTED_BOOK_RIPTIDE_3",
@@ -13844,7 +13844,7 @@
       "sell": 12,
       "defaultBuy": 48,
       "defaultSell": 12,
-      "grundwert": 4003
+      "grundwert": 4003.00
     },
     {
       "id": "ENCHANTED_BOOK_SHARPNESS_5",
@@ -13853,7 +13853,7 @@
       "sell": 20,
       "defaultBuy": 80,
       "defaultSell": 20,
-      "grundwert": 3203
+      "grundwert": 3203.00
     },
     {
       "id": "ENCHANTED_BOOK_SILK_TOUCH_1",
@@ -13862,7 +13862,7 @@
       "sell": 25,
       "defaultBuy": 100,
       "defaultSell": 25,
-      "grundwert": 20003
+      "grundwert": 20003.00
     },
     {
       "id": "ENCHANTED_BOOK_SMITE_5",
@@ -13871,7 +13871,7 @@
       "sell": 7.5,
       "defaultBuy": 30,
       "defaultSell": 7.5,
-      "grundwert": 1283
+      "grundwert": 1283.00
     },
     {
       "id": "ENCHANTED_BOOK_SOUL_SPEED_3",
@@ -13880,7 +13880,7 @@
       "sell": 15,
       "defaultBuy": 60,
       "defaultSell": 15,
-      "grundwert": 403
+      "grundwert": 403.00
     },
     {
       "id": "ENCHANTED_BOOK_SWEEPING_EDGE_3",
@@ -13889,7 +13889,7 @@
       "sell": 12,
       "defaultBuy": 48,
       "defaultSell": 12,
-      "grundwert": 603
+      "grundwert": 603.00
     },
     {
       "id": "ENCHANTED_BOOK_SWIFT_SNEAK_3",
@@ -13898,7 +13898,7 @@
       "sell": 25,
       "defaultBuy": 100,
       "defaultSell": 25,
-      "grundwert": 3203
+      "grundwert": 3203.00
     },
     {
       "id": "ENCHANTED_BOOK_THORNS_3",
@@ -13907,7 +13907,7 @@
       "sell": 10,
       "defaultBuy": 40,
       "defaultSell": 10,
-      "grundwert": 323
+      "grundwert": 323.00
     },
     {
       "id": "ENCHANTED_BOOK_UNBREAKING_3",
@@ -13916,7 +13916,7 @@
       "sell": 15,
       "defaultBuy": 60,
       "defaultSell": 15,
-      "grundwert": 83
+      "grundwert": 83.00
     },
     {
       "id": "ENCHANTED_BOOK_WIND_BURST_3",
@@ -13925,7 +13925,7 @@
       "sell": 30,
       "defaultBuy": 120,
       "defaultSell": 30,
-      "grundwert": 8003
+      "grundwert": 8003.00
     }
   ],
   "customItems": [],
@@ -14329,388 +14329,388 @@
   },
   "enchantedBookGrundwerte": {
     "ENCHANTED_BOOK_LOOTING_1": {
-      "grundwert": 1503
+      "grundwert": 1503.00
     },
     "ENCHANTED_BOOK_LOOTING_2": {
-      "grundwert": 3003
+      "grundwert": 3003.00
     },
     "ENCHANTED_BOOK_LOOTING_3": {
-      "grundwert": 6003
+      "grundwert": 6003.00
     },
     "ENCHANTED_BOOK_INFINITY_1": {
-      "grundwert": 2003
+      "grundwert": 2003.00
     },
     "ENCHANTED_BOOK_FLAME_1": {
-      "grundwert": 2003
+      "grundwert": 2003.00
     },
     "ENCHANTED_BOOK_KNOCKBACK_1": {
-      "grundwert": 203
+      "grundwert": 203.00
     },
     "ENCHANTED_BOOK_KNOCKBACK_2": {
-      "grundwert": 403
+      "grundwert": 403.00
     },
     "ENCHANTED_BOOK_FIRE_ASPECT_1": {
-      "grundwert": 503
+      "grundwert": 503.00
     },
     "ENCHANTED_BOOK_FIRE_ASPECT_2": {
-      "grundwert": 1003
+      "grundwert": 1003.00
     },
     "ENCHANTED_BOOK_SMITE_1": {
-      "grundwert": 83
+      "grundwert": 83.00
     },
     "ENCHANTED_BOOK_SMITE_2": {
-      "grundwert": 163
+      "grundwert": 163.00
     },
     "ENCHANTED_BOOK_SMITE_3": {
-      "grundwert": 323
+      "grundwert": 323.00
     },
     "ENCHANTED_BOOK_SMITE_4": {
-      "grundwert": 643
+      "grundwert": 643.00
     },
     "ENCHANTED_BOOK_SMITE_5": {
-      "grundwert": 1283
+      "grundwert": 1283.00
     },
     "ENCHANTED_BOOK_BANE_OF_ARTHROPODS_1": {
-      "grundwert": 83
+      "grundwert": 83.00
     },
     "ENCHANTED_BOOK_BANE_OF_ARTHROPODS_2": {
-      "grundwert": 163
+      "grundwert": 163.00
     },
     "ENCHANTED_BOOK_BANE_OF_ARTHROPODS_3": {
-      "grundwert": 323
+      "grundwert": 323.00
     },
     "ENCHANTED_BOOK_BANE_OF_ARTHROPODS_4": {
-      "grundwert": 643
+      "grundwert": 643.00
     },
     "ENCHANTED_BOOK_BANE_OF_ARTHROPODS_5": {
-      "grundwert": 1283
+      "grundwert": 1283.00
     },
     "ENCHANTED_BOOK_SWEEPING_EDGE_1": {
-      "grundwert": 153
+      "grundwert": 153.00
     },
     "ENCHANTED_BOOK_SWEEPING_EDGE_2": {
-      "grundwert": 303
+      "grundwert": 303.00
     },
     "ENCHANTED_BOOK_SWEEPING_EDGE_3": {
-      "grundwert": 603
+      "grundwert": 603.00
     },
     "ENCHANTED_BOOK_FIRE_PROTECTION_1": {
-      "grundwert": 123
+      "grundwert": 123.00
     },
     "ENCHANTED_BOOK_FIRE_PROTECTION_2": {
-      "grundwert": 243
+      "grundwert": 243.00
     },
     "ENCHANTED_BOOK_FIRE_PROTECTION_3": {
-      "grundwert": 483
+      "grundwert": 483.00
     },
     "ENCHANTED_BOOK_FIRE_PROTECTION_4": {
-      "grundwert": 963
+      "grundwert": 963.00
     },
     "ENCHANTED_BOOK_BLAST_PROTECTION_1": {
-      "grundwert": 123
+      "grundwert": 123.00
     },
     "ENCHANTED_BOOK_BLAST_PROTECTION_2": {
-      "grundwert": 243
+      "grundwert": 243.00
     },
     "ENCHANTED_BOOK_BLAST_PROTECTION_3": {
-      "grundwert": 483
+      "grundwert": 483.00
     },
     "ENCHANTED_BOOK_BLAST_PROTECTION_4": {
-      "grundwert": 963
+      "grundwert": 963.00
     },
     "ENCHANTED_BOOK_PROJECTILE_PROTECTION_1": {
-      "grundwert": 123
+      "grundwert": 123.00
     },
     "ENCHANTED_BOOK_PROJECTILE_PROTECTION_2": {
-      "grundwert": 243
+      "grundwert": 243.00
     },
     "ENCHANTED_BOOK_PROJECTILE_PROTECTION_3": {
-      "grundwert": 483
+      "grundwert": 483.00
     },
     "ENCHANTED_BOOK_PROJECTILE_PROTECTION_4": {
-      "grundwert": 963
+      "grundwert": 963.00
     },
     "ENCHANTED_BOOK_FEATHER_FALLING_1": {
-      "grundwert": 143
+      "grundwert": 143.00
     },
     "ENCHANTED_BOOK_FEATHER_FALLING_2": {
-      "grundwert": 283
+      "grundwert": 283.00
     },
     "ENCHANTED_BOOK_FEATHER_FALLING_3": {
-      "grundwert": 563
+      "grundwert": 563.00
     },
     "ENCHANTED_BOOK_FEATHER_FALLING_4": {
-      "grundwert": 1123
+      "grundwert": 1123.00
     },
     "ENCHANTED_BOOK_RESPIRATION_1": {
-      "grundwert": 133
+      "grundwert": 133.00
     },
     "ENCHANTED_BOOK_RESPIRATION_2": {
-      "grundwert": 263
+      "grundwert": 263.00
     },
     "ENCHANTED_BOOK_RESPIRATION_3": {
-      "grundwert": 523
+      "grundwert": 523.00
     },
     "ENCHANTED_BOOK_AQUA_AFFINITY_1": {
-      "grundwert": 203
+      "grundwert": 203.00
     },
     "ENCHANTED_BOOK_DEPTH_STRIDER_1": {
-      "grundwert": 103
+      "grundwert": 103.00
     },
     "ENCHANTED_BOOK_DEPTH_STRIDER_2": {
-      "grundwert": 203
+      "grundwert": 203.00
     },
     "ENCHANTED_BOOK_DEPTH_STRIDER_3": {
-      "grundwert": 403
+      "grundwert": 403.00
     },
     "ENCHANTED_BOOK_FROST_WALKER_1": {
-      "grundwert": 103
+      "grundwert": 103.00
     },
     "ENCHANTED_BOOK_FROST_WALKER_2": {
-      "grundwert": 203
+      "grundwert": 203.00
     },
     "ENCHANTED_BOOK_SOUL_SPEED_1": {
-      "grundwert": 103
+      "grundwert": 103.00
     },
     "ENCHANTED_BOOK_SOUL_SPEED_2": {
-      "grundwert": 203
+      "grundwert": 203.00
     },
     "ENCHANTED_BOOK_SOUL_SPEED_3": {
-      "grundwert": 403
+      "grundwert": 403.00
     },
     "ENCHANTED_BOOK_THORNS_1": {
-      "grundwert": 83
+      "grundwert": 83.00
     },
     "ENCHANTED_BOOK_THORNS_2": {
-      "grundwert": 163
+      "grundwert": 163.00
     },
     "ENCHANTED_BOOK_THORNS_3": {
-      "grundwert": 323
+      "grundwert": 323.00
     },
     "ENCHANTED_BOOK_POWER_1": {
-      "grundwert": 503
+      "grundwert": 503.00
     },
     "ENCHANTED_BOOK_POWER_2": {
-      "grundwert": 1003
+      "grundwert": 1003.00
     },
     "ENCHANTED_BOOK_POWER_3": {
-      "grundwert": 2003
+      "grundwert": 2003.00
     },
     "ENCHANTED_BOOK_POWER_4": {
-      "grundwert": 4003
+      "grundwert": 4003.00
     },
     "ENCHANTED_BOOK_POWER_5": {
-      "grundwert": 8003
+      "grundwert": 8003.00
     },
     "ENCHANTED_BOOK_PUNCH_1": {
-      "grundwert": 503
+      "grundwert": 503.00
     },
     "ENCHANTED_BOOK_PUNCH_2": {
-      "grundwert": 1003
+      "grundwert": 1003.00
     },
     "ENCHANTED_BOOK_QUICK_CHARGE_1": {
-      "grundwert": 103
+      "grundwert": 103.00
     },
     "ENCHANTED_BOOK_QUICK_CHARGE_2": {
-      "grundwert": 203
+      "grundwert": 203.00
     },
     "ENCHANTED_BOOK_QUICK_CHARGE_3": {
-      "grundwert": 403
+      "grundwert": 403.00
     },
     "ENCHANTED_BOOK_MULTISHOT_1": {
-      "grundwert": 203
+      "grundwert": 203.00
     },
     "ENCHANTED_BOOK_PIERCING_1": {
-      "grundwert": 103
+      "grundwert": 103.00
     },
     "ENCHANTED_BOOK_PIERCING_2": {
-      "grundwert": 203
+      "grundwert": 203.00
     },
     "ENCHANTED_BOOK_PIERCING_3": {
-      "grundwert": 403
+      "grundwert": 403.00
     },
     "ENCHANTED_BOOK_PIERCING_4": {
-      "grundwert": 803
+      "grundwert": 803.00
     },
     "ENCHANTED_BOOK_IMPALING_1": {
-      "grundwert": 103
+      "grundwert": 103.00
     },
     "ENCHANTED_BOOK_IMPALING_2": {
-      "grundwert": 203
+      "grundwert": 203.00
     },
     "ENCHANTED_BOOK_IMPALING_3": {
-      "grundwert": 403
+      "grundwert": 403.00
     },
     "ENCHANTED_BOOK_IMPALING_4": {
-      "grundwert": 803
+      "grundwert": 803.00
     },
     "ENCHANTED_BOOK_IMPALING_5": {
-      "grundwert": 1603
+      "grundwert": 1603.00
     },
     "ENCHANTED_BOOK_RIPTIDE_1": {
-      "grundwert": 1003
+      "grundwert": 1003.00
     },
     "ENCHANTED_BOOK_RIPTIDE_2": {
-      "grundwert": 2003
+      "grundwert": 2003.00
     },
     "ENCHANTED_BOOK_RIPTIDE_3": {
-      "grundwert": 4003
+      "grundwert": 4003.00
     },
     "ENCHANTED_BOOK_LOYALTY_1": {
-      "grundwert": 503
+      "grundwert": 503.00
     },
     "ENCHANTED_BOOK_LOYALTY_2": {
-      "grundwert": 1003
+      "grundwert": 1003.00
     },
     "ENCHANTED_BOOK_LOYALTY_3": {
-      "grundwert": 2003
+      "grundwert": 2003.00
     },
     "ENCHANTED_BOOK_CHANNELING_1": {
-      "grundwert": 303
+      "grundwert": 303.00
     },
     "ENCHANTED_BOOK_LUCK_OF_THE_SEA_1": {
-      "grundwert": 183
+      "grundwert": 183.00
     },
     "ENCHANTED_BOOK_LUCK_OF_THE_SEA_2": {
-      "grundwert": 363
+      "grundwert": 363.00
     },
     "ENCHANTED_BOOK_LUCK_OF_THE_SEA_3": {
-      "grundwert": 723
+      "grundwert": 723.00
     },
     "ENCHANTED_BOOK_LURE_1": {
-      "grundwert": 83
+      "grundwert": 83.00
     },
     "ENCHANTED_BOOK_LURE_2": {
-      "grundwert": 163
+      "grundwert": 163.00
     },
     "ENCHANTED_BOOK_LURE_3": {
-      "grundwert": 323
+      "grundwert": 323.00
     },
     "ENCHANTED_BOOK_BINDING_CURSE_1": {
-      "grundwert": 13
+      "grundwert": 13.00
     },
     "ENCHANTED_BOOK_VANISHING_CURSE_1": {
-      "grundwert": 13
+      "grundwert": 13.00
     },
     "ENCHANTED_BOOK_DENSITY_1": {
-      "grundwert": 353
+      "grundwert": 353.00
     },
     "ENCHANTED_BOOK_DENSITY_2": {
-      "grundwert": 703
+      "grundwert": 703.00
     },
     "ENCHANTED_BOOK_DENSITY_3": {
-      "grundwert": 1403
+      "grundwert": 1403.00
     },
     "ENCHANTED_BOOK_DENSITY_4": {
-      "grundwert": 2803
+      "grundwert": 2803.00
     },
     "ENCHANTED_BOOK_DENSITY_5": {
-      "grundwert": 5603
+      "grundwert": 5603.00
     },
     "ENCHANTED_BOOK_BREACH_1": {
-      "grundwert": 353
+      "grundwert": 353.00
     },
     "ENCHANTED_BOOK_BREACH_2": {
-      "grundwert": 703
+      "grundwert": 703.00
     },
     "ENCHANTED_BOOK_BREACH_3": {
-      "grundwert": 1403
+      "grundwert": 1403.00
     },
     "ENCHANTED_BOOK_BREACH_4": {
-      "grundwert": 2803
+      "grundwert": 2803.00
     },
     "ENCHANTED_BOOK_WIND_BURST_1": {
-      "grundwert": 2003
+      "grundwert": 2003.00
     },
     "ENCHANTED_BOOK_WIND_BURST_2": {
-      "grundwert": 4003
+      "grundwert": 4003.00
     },
     "ENCHANTED_BOOK_WIND_BURST_3": {
-      "grundwert": 8003
+      "grundwert": 8003.00
     },
     "ENCHANTED_BOOK_UNBREAKING_1": {
-      "grundwert": 23
+      "grundwert": 23.00
     },
     "ENCHANTED_BOOK_UNBREAKING_2": {
-      "grundwert": 43
+      "grundwert": 43.00
     },
     "ENCHANTED_BOOK_UNBREAKING_3": {
-      "grundwert": 83
+      "grundwert": 83.00
     },
     "ENCHANTED_BOOK_EFFICIENCY_1": {
-      "grundwert": 18
+      "grundwert": 18.00
     },
     "ENCHANTED_BOOK_EFFICIENCY_2": {
-      "grundwert": 33
+      "grundwert": 33.00
     },
     "ENCHANTED_BOOK_EFFICIENCY_3": {
-      "grundwert": 63
+      "grundwert": 63.00
     },
     "ENCHANTED_BOOK_EFFICIENCY_4": {
-      "grundwert": 123
+      "grundwert": 123.00
     },
     "ENCHANTED_BOOK_EFFICIENCY_5": {
-      "grundwert": 243
+      "grundwert": 243.00
     },
     "ENCHANTED_BOOK_PROTECTION_1": {
-      "grundwert": 13
+      "grundwert": 13.00
     },
     "ENCHANTED_BOOK_PROTECTION_2": {
-      "grundwert": 23
+      "grundwert": 23.00
     },
     "ENCHANTED_BOOK_PROTECTION_3": {
-      "grundwert": 43
+      "grundwert": 43.00
     },
     "ENCHANTED_BOOK_PROTECTION_4": {
-      "grundwert": 83
+      "grundwert": 83.00
     },
     "ENCHANTED_BOOK_SHARPNESS_1": {
-      "grundwert": 203
+      "grundwert": 203.00
     },
     "ENCHANTED_BOOK_SHARPNESS_2": {
-      "grundwert": 403
+      "grundwert": 403.00
     },
     "ENCHANTED_BOOK_SHARPNESS_3": {
-      "grundwert": 803
+      "grundwert": 803.00
     },
     "ENCHANTED_BOOK_SHARPNESS_4": {
-      "grundwert": 1603
+      "grundwert": 1603.00
     },
     "ENCHANTED_BOOK_SHARPNESS_5": {
-      "grundwert": 3203
+      "grundwert": 3203.00
     },
     "ENCHANTED_BOOK_MENDING_1": {
-      "grundwert": 30003
+      "grundwert": 30003.00
     },
     "ENCHANTED_BOOK_FORTUNE_1": {
-      "grundwert": 3003
+      "grundwert": 3003.00
     },
     "ENCHANTED_BOOK_FORTUNE_2": {
-      "grundwert": 6003
+      "grundwert": 6003.00
     },
     "ENCHANTED_BOOK_FORTUNE_3": {
-      "grundwert": 12003
+      "grundwert": 12003.00
     },
     "ENCHANTED_BOOK_SILK_TOUCH_1": {
-      "grundwert": 20003
+      "grundwert": 20003.00
     },
     "ENCHANTED_BOOK_SWIFT_SNEAK_1": {
-      "grundwert": 803
+      "grundwert": 803.00
     },
     "ENCHANTED_BOOK_SWIFT_SNEAK_2": {
-      "grundwert": 1603
+      "grundwert": 1603.00
     },
     "ENCHANTED_BOOK_SWIFT_SNEAK_3": {
-      "grundwert": 3203
+      "grundwert": 3203.00
     },
     "ENCHANTED_BOOK_LUNGE_1": {
-      "grundwert": 503
+      "grundwert": 503.00
     },
     "ENCHANTED_BOOK_LUNGE_2": {
-      "grundwert": 1003
+      "grundwert": 1003.00
     },
     "ENCHANTED_BOOK_LUNGE_3": {
-      "grundwert": 2003
+      "grundwert": 2003.00
     }
   }
 }

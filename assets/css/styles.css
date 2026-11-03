@@ -1328,6 +1328,47 @@ select:focus-visible {
   color: #ffadad;
 }
 
+.converter-layout .rate {
+  display: grid;
+  gap: 4px;
+  padding-top: 0;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+.item-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--input-bg);
+  min-width: 0;
+}
+.item-price-row.is-used {
+  border-color: var(--gold-line);
+  color: var(--accent-gold);
+}
+.item-price-label {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.item-price-value {
+  min-width: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.item-price-value small {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+.item-price-default {
+  display: block;
+}
+
 /* Shared site chrome and landing page, based on the Startseite reference. */
 .site-page {
   /* Container units exclude the browser scrollbar; share the actual gutters

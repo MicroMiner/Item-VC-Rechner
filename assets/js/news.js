@@ -1,4 +1,4 @@
-import { loadNews, request, api } from './news-data.js';
+import { loadNews, request, api, newsSource } from './news-data.js?v=feed-source-1';
 import { element, cover, metadata, article, safeUrl } from './news-format.js';
 const container=document.getElementById('newsList'),preview=container.dataset.preview==='true';
 function card(post) {
@@ -14,7 +14,7 @@ try {
  if(preview){if(posts.length)container.append(card(posts[0]));else container.append(element('p','muted','Aktuell gibt es noch keine Neuigkeiten.'));}
  else {
   const slug=new URLSearchParams(location.search).get('beitrag');
-  if(slug){document.getElementById('newsOverview').hidden=true;const detail=document.getElementById('newsDetail');detail.hidden=false;let p=posts.find(p=>p.slug===slug||p.id===slug);if(!p&&api)try{p=(await request('/news?slug='+encodeURIComponent(slug))).post;}catch{}if(p){detail.append(article(p));document.title=p.title+' · VeloCity';}else{const back=element('a','news-back','← Zurück zur Übersicht');back.href='neuigkeiten.html';detail.append(back,element('h1','','Beitrag nicht gefunden'),element('p','muted','Dieser Beitrag ist nicht veröffentlicht oder nicht mehr verfügbar.'));}}
+  if(slug){document.getElementById('newsOverview').hidden=true;const detail=document.getElementById('newsDetail');detail.hidden=false;let p=posts.find(p=>p.slug===slug||p.id===slug);if(!p&&newsSource==='api'&&api)try{p=(await request('/news?slug='+encodeURIComponent(slug))).post;}catch{}if(p){detail.append(article(p));document.title=p.title+' · VeloCity';}else{const back=element('a','news-back','← Zurück zur Übersicht');back.href='neuigkeiten.html';detail.append(back,element('h1','','Beitrag nicht gefunden'),element('p','muted','Dieser Beitrag ist nicht veröffentlicht oder nicht mehr verfügbar.'));}}
   else {
    let shown=0,count=total;const more=document.getElementById('moreNews');async function append(){more.disabled=true;try{if(shown>=posts.length&&backend&&posts.length<count){const page=await request('/news?limit=50&offset='+posts.length);const seen=new Set(posts.map(p=>p.id));posts.push(...page.posts.filter(p=>!seen.has(p.id)));count=page.total;}const chunk=posts.slice(shown,shown+10);container.append(...chunk.map(card));shown+=chunk.length;more.hidden=shown>=posts.length&&(!backend||posts.length>=count);}catch{more.textContent='Erneut versuchen';}finally{more.disabled=false;}}
    if(!posts.length)container.append(element('div','news-empty','Noch keine Neuigkeiten vorhanden. Hier findest du künftig Ankündigungen, Updates und Änderungen rund um VeloCity.'));
@@ -25,7 +25,7 @@ try {
 if(!preview){
  const invite=safeUrl(window.VELOCITY_CONFIG?.discordInvite),link=document.getElementById('discordInvite');
  if(invite&&/^https:\/\/(?:discord\.gg\/|discord\.com\/invite\/)[a-zA-Z0-9_-]+\/?$/.test(invite)){link.href=invite;link.hidden=false;}
- async function status(){const node=document.getElementById('discordStatus');let value='not_configured';if(api)try{const data=await request('/news/status');value=data.discord?.status||'not_configured';}catch(e){value=e.status===404||e.configured===false?'not_configured':'error';}const labels={connected:'Verbunden',disconnected:'Nicht verbunden',not_configured:'Nicht eingerichtet',error:'Verbindungsfehler'};node.dataset.state=labels[value]?value:'error';node.textContent=labels[node.dataset.state];}
+ async function status(){const node=document.getElementById('discordStatus');if(newsSource==='static'){node.dataset.state='static';node.textContent='GitHub-Import';node.title='Beiträge werden über den eingerichteten GitHub-Workflow importiert. Dies ist keine dauerhafte Bot-Verbindung.';return;}let value='not_configured';if(api)try{const data=await request('/news/status');value=data.discord?.status||'not_configured';}catch(e){value=e.status===404||e.configured===false?'not_configured':'error';}const labels={connected:'Verbunden',disconnected:'Nicht verbunden',not_configured:'Nicht eingerichtet',error:'Verbindungsfehler'};node.dataset.state=labels[value]?value:'error';node.textContent=labels[node.dataset.state];}
  status();setInterval(status,60000);
  await import('./news-admin.js?v=news-2');
 }

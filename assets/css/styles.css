@@ -1998,3 +1998,36 @@ select:focus-visible {
   .conversion-result-content { padding: 24px 14px; }
   .conversion-result-content .btn { padding: 9px 10px; font-size: 0.85rem; }
 }
+
+/* Header tools share a fixed square; the glyph stays exactly in its centre. */
+.calculator-toggle { padding: 0; grid-template-columns: minmax(0, 1fr); }
+.calculator-toggle svg { display: block; justify-self: center; align-self: center; }
+.layout-toggle svg { width: 28px; height: 28px; }
+.layout-toggle[aria-pressed="true"] { border-color: var(--accent-gold); background: var(--bg-blue); }
+.calculator-window .calc-screen { display: grid; grid-template-columns: minmax(0, 1fr) 36px 36px; }
+.calculator-window .calc-screen .btn { padding-inline: 0; }
+@media (min-width: 721px) {
+  .converter-layout-two .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .converter-layout-two .converter-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 65px minmax(0, 1fr);
+    height: auto;
+    min-height: 0;
+    align-items: stretch;
+  }
+  .converter-layout-two .swap-slot .swap-icon { transform: none; }
+  .converter-layout-two .swap-slot .swap { width: 52px; height: 40px; }
+  .converter-layout-two .right-stack {
+    width: 50%;
+    min-width: 0;
+    justify-self: center;
+    margin-top: 8px;
+  }
+}
+@media (min-width: 721px) and (max-width: 1000px) {
+  .converter-main .top { height: auto; min-height: 88px; flex-wrap: wrap; gap: 12px; padding-bottom: 14px; }
+}
+@media (max-width: 600px) {
+  .converter-tools { flex-wrap: wrap; justify-content: flex-start; }
+  .converter-tools .economy-status { flex: 1 1 100%; width: 100%; }
+}

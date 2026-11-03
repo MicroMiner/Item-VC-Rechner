@@ -49,8 +49,31 @@ const wasChanged = (id) => {
   const x = list().find((x) => x.id === id);
   return !!x && isChanged(x);
 };
+const enchantmentNames = {
+  AQUA_AFFINITY: "Wasseraffinität", BANE_OF_ARTHROPODS: "Nemesis der Gliederfüßer",
+  BLAST_PROTECTION: "Explosionsschutz", BREACH: "Durchbruch", CHANNELING: "Entladung",
+  BINDING_CURSE: "Fluch der Bindung", VANISHING_CURSE: "Fluch des Verschwindens",
+  DENSITY: "Dichte", DEPTH_STRIDER: "Wasserläufer", EFFICIENCY: "Effizienz",
+  FEATHER_FALLING: "Federfall", FIRE_ASPECT: "Verbrennung", FIRE_PROTECTION: "Feuerschutz",
+  FLAME: "Flamme", FORTUNE: "Glück", FROST_WALKER: "Eisläufer", IMPALING: "Harpune",
+  INFINITY: "Unendlichkeit", KNOCKBACK: "Rückstoß", LOOTING: "Plünderung", LOYALTY: "Treue",
+  LUCK_OF_THE_SEA: "Glück des Meeres", LURE: "Köder", MENDING: "Reparatur",
+  MULTISHOT: "Mehrfachschuss", PIERCING: "Durchschuss", POWER: "Stärke",
+  PROJECTILE_PROTECTION: "Schusssicher", PROTECTION: "Schutz", PUNCH: "Schlag",
+  QUICK_CHARGE: "Schnellladen", RESPIRATION: "Atmung", RIPTIDE: "Sog", SHARPNESS: "Schärfe",
+  SILK_TOUCH: "Behutsamkeit", SMITE: "Bann", SOUL_SPEED: "Seelenläufer",
+  SWEEPING_EDGE: "Schwungkraft", SWIFT_SNEAK: "Flinkes Schleichen", THORNS: "Dornen",
+  UNBREAKING: "Haltbarkeit", WIND_BURST: "Windstoß",
+};
+function localizedItemName(item) {
+  const match = /^ENCHANTED_BOOK_(.+)_(\d+)$/.exec(item.id);
+  return match && enchantmentNames[match[1]]
+    ? `Verzaubertes Buch – ${enchantmentNames[match[1]]} ${match[2]}`
+    : item.name;
+}
 const priceLabel = (x) =>
-  `${x.name} · Buy ${fmtPrice(x.buy)} / Sell ${fmtPrice(x.sell)} VC`;
+  `${localizedItemName(x)} · Buy ${fmtPrice(x.buy)} / Sell ${fmtPrice(x.sell)} VC` +
+  (Number.isFinite(x.grundwert) ? ` · Grundwert ${fmtPrice(x.grundwert)} VC` : "");
 const rateMarkup = (x, side) => {
   const buy = side === "to" && $("shopMode").checked;
   return `${fmtPrice(buy ? x.buy : x.sell)} VC <span class="original">${buy ? "Buy" : "Sell"}${wasChanged(x.id) ? " · Standard: " + fmtPrice(buy ? x.defaultBuy : x.defaultSell) + " VC" : ""}</span>`;
@@ -106,6 +129,7 @@ function currentPayload() {
     sell: x.sell,
     defaultBuy: x.defaultBuy,
     defaultSell: x.defaultSell,
+    ...(x.grundwert !== undefined ? { grundwert: x.grundwert } : {}),
   });
   return {
     format: "VeloCoin-Preisliste",
@@ -157,6 +181,9 @@ function parsePayload(data) {
       const sell = item.sell ?? item.price ?? item.buy;
       const defaultBuy = item.defaultBuy ?? buy,
         defaultSell = item.defaultSell ?? sell;
+      if (item.grundwert != null &&
+          (!Number.isFinite(item.grundwert) || item.grundwert < 0))
+        throw Error("Ungültiger Grundwert bei " + item.id);
       if (![buy, sell, defaultBuy, defaultSell].every(validPrice))
         throw Error("Ungültiger Kauf-/Verkaufspreis bei " + item.id);
       seen.add(item.id);
@@ -167,6 +194,7 @@ function parsePayload(data) {
         sell,
         defaultBuy,
         defaultSell,
+        ...(item.grundwert !== undefined ? { grundwert: item.grundwert } : {}),
         isCustom,
       });
     }
@@ -352,13 +380,13 @@ function createItemPicker(side, onChange) {
     matches = [],
     active = -1;
   const selectedName = () =>
-    list().find((x) => x.id === select.value)?.name || "";
+    list().find((x) => x.id === select.value);
   function close() {
     opened = false;
     popup.hidden = true;
     input.setAttribute("aria-expanded", "false");
     input.removeAttribute("aria-activedescendant");
-    input.value = selectedName();
+    input.value = selectedName() ? localizedItemName(selectedName()) : "";
     query = "";
   }
   function highlight() {
@@ -374,7 +402,7 @@ function createItemPicker(side, onChange) {
   function show() {
     const q = query.trim().toLocaleLowerCase();
     matches = list().filter((x) =>
-      (x.id + " " + x.name).toLocaleLowerCase().includes(q),
+      (x.id + " " + x.name + " " + localizedItemName(x)).toLocaleLowerCase().includes(q),
     );
     matches.sort(
       (a, b) =>
@@ -511,8 +539,8 @@ function update() {
       : null;
   $("useResult").disabled = !latestConversion;
   $("result").textContent = shop
-    ? `${fmt(amount)} × ${a.name} verkaufen → ${fmt(dest)} × ${b.name} kaufen`
-    : `${fmt(amount)} × ${a.name} = ${fmt(dest)} × ${b.name}`;
+    ? `${fmt(amount)} × ${localizedItemName(a)} verkaufen → ${fmt(dest)} × ${localizedItemName(b)} kaufen`
+    : `${fmt(amount)} × ${localizedItemName(a)} = ${fmt(dest)} × ${localizedItemName(b)}`;
 }
 $("shopMode").addEventListener("change", () => update());
 function redraw() {
@@ -724,13 +752,6 @@ function exportList() {
   status("JSON-Sicherung heruntergeladen.");
 }
 $("exportData").addEventListener("click", exportList);
-$("converterPriceList").addEventListener("change", async () => {
-  try {
-    await chooseList($("converterPriceList").value);
-  } catch (err) {
-    status(err.message);
-  }
-});
 $("reloadData").addEventListener("click", async () => {
   if (
     !confirm(
@@ -765,29 +786,22 @@ async function chooseList(file) {
   const previous = selectedFile;
   switching = true;
   $("priceList").disabled = true;
-  $("converterPriceList").disabled = true;
   adminInner.inert = true;
   try {
     await writeChain;
     selectedFile = file;
     await loadRemote();
     $("priceList").value = file;
-    $("converterPriceList").value = file;
-    $("loadedPriceList").textContent = "Geladen: " + file;
     $("listStatus").textContent = "Geladen: " + file;
   } catch (err) {
     selectedFile = previous;
     $("priceList").value = previous;
-    $("converterPriceList").value = previous;
-    $("loadedPriceList").textContent =
-      (previous ? "Weiterhin geladen: " + previous + ". " : "") + err.message;
     $("listStatus").textContent = err.message;
     throw err;
   } finally {
     switching = false;
     const locked = management.classList.contains("locked");
     $("priceList").disabled = locked;
-    $("converterPriceList").disabled = !selectedFile;
     adminInner.inert = locked;
   }
 }
@@ -813,16 +827,13 @@ async function init() {
       o.value = entry.file;
       o.textContent = entry.name || entry.file;
       $("priceList").append(o);
-      $("converterPriceList").append(o.cloneNode(true));
     }
     await chooseList(
-      entries.find((entry) => entry.file === "VeloCoin_Preisliste_aktuell.json")?.file ||
-        entries[0].file,
+      entries.find((entry) => entry.file === "VeloCoin_Preisliste_aktuell.json")?.file || entries[0].file,
     );
   } catch (err) {
     setSynchronized(false);
     $("listStatus").textContent = err.message;
-    $("loadedPriceList").textContent = err.message;
     status("Laden fehlgeschlagen: " + err.message);
     $("result").textContent = "Preisliste nicht verfügbar";
   }

@@ -2085,3 +2085,7 @@ select:focus-visible {
 .converter-wrapper .converter-layout .fieldrow { margin-top: 12px; padding-top: 0; }
 .converter-wrapper .item-price-row { padding: 4px 8px; font-size: 0.85rem; }
 .converter-wrapper .quantity-shortcuts .btn { padding: 4px 9px; min-height: 26px; }
+
+/* A stable three-line result in either converter layout. */
+.result-value-line { display: block; text-align: center; }
+.result-equals { display: block; margin-block: 10px; font-size: 1.1rem; font-weight: 500; color: var(--text-secondary); text-align: center; }

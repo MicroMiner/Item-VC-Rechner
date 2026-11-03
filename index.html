@@ -16,6 +16,7 @@
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/portal.css" />
+    <link rel="stylesheet" href="assets/css/home.css?v=home-1" />
   </head>
   <body class="site-page home-page">
     <div class="wrap">
@@ -39,107 +40,49 @@
         </nav>
       </header>
       <main class="home-main">
-        <section class="home-welcome" aria-labelledby="welcomeTitle">
-          <h1 id="welcomeTitle">Willkommen bei <span>VeloCity</span></h1>
-          <p class="welcome-intro">
-            Entdecke eine Minecraft-Survival-Welt, in der Bauen, Erkunden und
-            gemeinsames Spielen im Mittelpunkt stehen. Mit einem eigenen
-            Wirtschaftssystem und individuell entwickelten Plugins gestalten wir
-            ein abwechslungsreiches Spielerlebnis – für alle, die ihre eigene
-            Geschichte in einer entspannten Community schreiben möchten.
-          </p>
-          <p id="serverVersion" class="server-version">
-            Serverinformationen werden geladen …
-          </p>
-          <div class="welcome-rule" aria-hidden="true"></div>
-        </section>
-        <section class="server-access" aria-labelledby="serverAccessTitle">
-          <h2 id="serverAccessTitle" class="field-label">Server-Zugang</h2>
-          <div class="server-address-row">
-            <input
-              id="serverAddress"
-              aria-label="Serveradresse"
-              type="text"
-              readonly
-              placeholder="Serveradresse folgt"
-              autocomplete="off"
-              spellcheck="false"
-            />
-            <button id="copyServerAddress" class="btn" type="button" disabled>
-              IP kopieren
-            </button>
-          </div>
-          <p id="serverCopyStatus" class="status" role="status"></p>
-        </section>
-        <section class="economy-entry" aria-labelledby="entryTitle">
-          <div class="entry-main">
-            <div class="entry-icon">
-              <svg
-                viewBox="3 1 18 22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="5" y="2" width="14" height="20" rx="2" />
-                <path d="M5 8h14" />
-                <path
-                  d="M8 11h1v1H8zm4 0h1v1h-1zm4 0h.1v1H16zM8 15h1v1H8zm4 0h1v1h-1zm4 0h.1v1H16zM8 19h1v.1H8zm4 0h1v.1h-1zm4 0h.1v.1H16z"
-                  stroke-width="1.2"
-                />
-              </svg>
+        <div class="home-shell">
+          <section class="home-hero" aria-labelledby="welcomeTitle">
+            <img class="home-hero-image" src="assets/images/velocity-castle-night.webp" alt="" width="1672" height="941" fetchpriority="high" />
+            <div class="home-hero-copy">
+              <p class="home-eyebrow">Minecraft Survival Server</p>
+              <h1 id="welcomeTitle">Willkommen bei <span>VeloCity</span></h1>
+              <p class="home-intro">Entdecke eine Minecraft-Survival-Welt, in der gemeinsames Bauen, Erkunden und eine lebendige Community im Mittelpunkt stehen. Ein eigenes Wirtschaftssystem und individuell entwickelte Plugins machen dein Abenteuer bei VeloCity einzigartig.</p>
+              <p id="serverVersion" class="home-version">Minecraft Java • 1.26.3</p>
+              <div class="home-hero-rule" aria-hidden="true"></div>
             </div>
-            <div class="entry-copy">
-              <h2 id="entryTitle">VeloCity <span>Economy</span></h2>
-              <p>Itempreise vergleichen und umrechnen.</p>
+          </section>
+          <section class="home-server" aria-labelledby="serverAccessTitle">
+            <div class="home-server-heading">
+              <span class="home-server-icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.1M7 17.5h.1M12 6.5h5M12 17.5h5"/></svg></span>
+              <div><h2 id="serverAccessTitle">Server-Zugang</h2><p>Tritt jetzt VeloCity bei!</p></div>
             </div>
+            <input id="serverAddress" aria-label="Serveradresse" type="text" readonly placeholder="Serveradresse folgt" autocomplete="off" spellcheck="false" />
+            <button id="copyServerAddress" class="home-button home-button-gold" type="button" disabled><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="6" width="12" height="15" rx="2"/><path d="M15 3H5a2 2 0 0 0-2 2v12"/></svg><span>IP kopieren</span></button>
+            <p id="serverCopyStatus" class="status" role="status"></p>
+          </section>
+          <div class="home-features">
+            <section class="home-feature home-feature-economy" aria-labelledby="entryTitle">
+              <div class="home-feature-heading">
+                <span class="home-feature-icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8v3H8zM8 13h.1m3.9 0h.1m3.9 0h.1M8 17h.1m3.9 0h.1m3.9 0h.1M8 20h.1m3.9 0h.1m3.9 0h.1"/></svg></span>
+                <div><h2 id="entryTitle">VeloCity <span>Economy</span></h2><p>Itempreise vergleichen und umrechnen.</p></div>
+              </div>
+              <a class="home-button home-button-gold home-economy-link" href="umrechner.html"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8v3H8zM8 13h.1m3.9 0h.1m3.9 0h.1M8 17h.1m3.9 0h.1m3.9 0h.1M8 20h.1m3.9 0h.1m3.9 0h.1"/></svg><span>Zum Umrechner</span><svg class="home-button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a>
+            </section>
+            <section class="home-feature home-feature-news" aria-labelledby="homeNewsTitle">
+              <div class="home-feature-heading"><span class="home-feature-icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 7h4v5H7zM15 7h2m-2 4h2M7 16h10"/></svg></span><h2 id="homeNewsTitle">Neuigkeiten</h2></div>
+              <div class="home-feature-body">
+                <div id="newsList" data-preview="true" aria-live="polite"><p class="muted">Aktuell gibt es noch keine Neuigkeiten.</p></div>
+                <a class="home-news-link" href="neuigkeiten.html">Alle Neuigkeiten <svg class="home-button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a>
+              </div>
+            </section>
+            <section class="home-feature home-feature-gallery" aria-labelledby="homeGalleryTitle">
+              <div class="home-feature-heading"><span class="home-feature-icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3" width="19" height="18" rx="3"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg></span><h2 id="homeGalleryTitle">Galerie</h2></div>
+              <div class="home-feature-body"><p>Impressionen vom Server und aus der Community.</p><a class="home-button home-button-blue" href="galerie.html"><span>Zur Galerie</span><svg class="home-button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></div>
+            </section>
           </div>
-          <div class="entry-action">
-            <a class="tool-link" href="umrechner.html"
-              ><svg
-                viewBox="3 1 18 22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="5" y="2" width="14" height="20" rx="2" />
-                <path d="M5 8h14" />
-                <path
-                  d="M8 11h1v1H8zm4 0h1v1h-1zm4 0h.1v1H16zM8 15h1v1H8zm4 0h1v1h-1zm4 0h.1v1H16zM8 19h1v.1H8zm4 0h1v.1h-1zm4 0h.1v.1H16z"
-                  stroke-width="1.2"
-                /></svg
-              ><span>Zum Umrechner</span
-              ><svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="m9 5 7 7-7 7" /></svg
-            ></a>
-          </div>
-        </section>
-        <section class="home-news" aria-labelledby="homeNewsTitle">
-          <h2 id="homeNewsTitle">Neuigkeiten</h2>
-          <div id="newsList" data-preview="true" aria-live="polite">
-            <p class="muted">Neuigkeiten werden geladen …</p>
-          </div>
-          <a class="portal-link" href="neuigkeiten.html">Alle Neuigkeiten</a>
-        </section>
-        <noscript
-          ><p>
-            Bitte JavaScript aktivieren, um Serverinformationen und Neuigkeiten
-            zu laden.
-          </p></noscript
-        >
+          <div class="home-ornament" aria-hidden="true"><span></span></div>
+          <noscript><p class="home-noscript">Die Serverinformationen und Neuigkeiten benötigen JavaScript. Alle Seiten sind über die Navigation erreichbar.</p></noscript>
+        </div>
       </main>
       <footer class="foot">
         <span>© 2026 VeloCity</span><span aria-hidden="true">·</span
@@ -159,7 +102,7 @@
     ></dialog>
     <script src="assets/js/ui.js?v=legal-2" defer></script>
     <script src="assets/js/site-config.js" defer></script>
-    <script src="assets/js/home.js" defer></script>
+    <script src="assets/js/home.js?v=home-1" defer></script>
     <script src="assets/js/news.js" type="module"></script>
   </body>
 </html>

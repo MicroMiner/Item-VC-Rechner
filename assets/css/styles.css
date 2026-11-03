@@ -1339,6 +1339,11 @@ select:focus-visible {
   color: var(--text-primary);
 }
 .item-price-row {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -1352,6 +1357,23 @@ select:focus-visible {
 .item-price-row.is-used {
   border-color: var(--gold-line);
   color: var(--accent-gold);
+}
+.item-price-row:hover:not(:disabled),
+.item-price-row:focus-visible {
+  border-color: var(--accent-gold);
+}
+.item-price-row:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+.item-price-row:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+.price-selection-hint {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin: 8px 0;
 }
 .item-price-label {
   font-weight: 500;

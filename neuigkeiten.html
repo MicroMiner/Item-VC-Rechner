@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/portal.css" />
-    <link rel="stylesheet" href="assets/css/news.css?v=news-2" />
+    <link rel="stylesheet" href="assets/css/news.css?v=news-3" />
   </head>
   <body class="site-page portal-page news-page">
     <div class="wrap">
@@ -58,26 +58,30 @@
                   <div><h2>Discord-Anbindung</h2><p>Neuigkeiten werden automatisch aus unserem Discord übernommen.</p></div>
                   <div class="news-side-actions"><span id="discordStatus" class="discord-status" role="status" data-state="not_configured">Nicht eingerichtet</span><a id="discordInvite" class="news-button" href="#" rel="noopener noreferrer" target="_blank" hidden>Zum Discord ↗</a></div>
                 </section>
-                <section class="news-side-card">
+                <section id="newsAdminGate" class="news-side-card news-admin-gate is-locked">
+                  <div class="news-gate-body"><div id="newsAdminGateContent" class="news-admin-gate-content" inert aria-hidden="true">
                   <svg class="edit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m15 3 6 6M3 21l2-7L17 2l5 5L10 19l-7 2Z"/></svg>
                   <div><h2>Admin-Bereich</h2><p>Manuell einen neuen Beitrag erstellen oder vorhandene Beiträge verwalten.</p></div>
                   <button id="openNewsAdmin" aria-controls="newsAdminPanel" aria-expanded="false" class="news-button news-button-gold" type="button" disabled>✎ Beitrag erstellen</button>
-                </section>
-              </aside>
-            </div>
-          </div>
-    <section id="newsAdminPanel" class="news-admin-panel is-locked" hidden aria-labelledby="newsAdminTitle">
-      <header class="news-admin-heading"><h2 id="newsAdminTitle">Beitragsverwaltung</h2><button id="closeNewsAdmin" class="news-close" type="button" aria-label="Beitragsverwaltung einklappen">×</button></header>
-      <p id="newsAdminMessage" role="status" class="status"></p>
-      <div class="news-admin-body">
+                  </div>
       <div id="newsLoginOverlay" class="news-login-overlay">
       <form id="newsLoginForm" class="news-inline-login">
-        <h3>Beitragsverwaltung gesperrt</h3>
+        <h3>Admin-Anmeldung</h3>
         <p>Mit der bestehenden Admin-Anmeldung entsperren.</p>
         <label for="newsPassword">Admin-Passwort</label>
         <div class="news-login-row"><input id="newsPassword" type="password" autocomplete="current-password" required /><button class="news-button news-button-gold" type="submit">Anmelden</button></div>
       </form>
       </div>
+                  </div>
+                  <p id="newsLoginMessage" class="news-login-message" role="status"></p>
+                </section>
+              </aside>
+            </div>
+          </div>
+    <section id="newsAdminPanel" class="news-admin-panel" hidden aria-labelledby="newsAdminTitle">
+      <header class="news-admin-heading"><h2 id="newsAdminTitle">Beitragsverwaltung</h2><button id="closeNewsAdmin" class="news-close" type="button" aria-label="Beitragsverwaltung einklappen">×</button></header>
+      <p id="newsAdminMessage" role="status" class="status"></p>
+      <div class="news-admin-body">
       <div id="newsAdminContent" class="news-admin-content" inert aria-hidden="true">
         <div class="news-admin-toolbar"><button id="newNewsPost" class="news-button" type="button">Neuer Beitrag</button><button id="reloadNewsAdmin" class="news-button" type="button">Neu laden</button><button id="logoutNewsAdmin" class="news-button" type="button">Abmelden</button></div>
         <div id="newsAdminList" class="news-admin-list"></div>
@@ -118,6 +122,6 @@
     <script src="assets/js/ui.js?v=legal-2" defer></script>
     <script src="config.js" defer></script>
     <script src="assets/js/site-config.js" defer></script>
-    <script src="assets/js/news.js?v=news-2" type="module"></script>
+    <script src="assets/js/news.js?v=news-3" type="module"></script>
   </body>
 </html>

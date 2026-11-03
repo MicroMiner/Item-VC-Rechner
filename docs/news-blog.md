@@ -10,6 +10,14 @@ Der Editor verwendet **dieselbe** `/auth`-Anmeldung, denselben Sitzungsschlüsse
 
 Formatierung: Absätze, Überschriften, Listen, **fett**, *kursiv*, `Code`, Links und Hinweiszitate. Alle Inhalte werden über DOM-Textknoten und explizit erlaubte Elemente dargestellt, niemals als fremdes HTML. `javascript:`-/`data:`-URLs werden verworfen. Bildladefehler entfernen das Bild, ohne den Beitrag zu verlieren. Teilen nutzt `navigator.share`, sonst Clipboard mit verständlichem Fallback.
 
+## Anmeldung und Verbindungsprüfung in der Seitenleiste
+
+Die kleine Admin-Karte enthält zunächst das Passwortfeld über einem unscharfen, nicht bedienbaren Hintergrund. Eine vorhandene Umrechner-Sitzung wird automatisch serverseitig geprüft. Nach erfolgreicher Anmeldung verschwindet der Blur und „Beitrag erstellen“ wird freigegeben. Erst dieser Button öffnet den eigentlichen Editor.
+
+Nach der Passwortprüfung testet die Seite die geschützte `/news/admin`-Verbindung. Ein gültiges Passwort bleibt dabei eine gültige Anmeldung, selbst wenn die News-Datenbank noch fehlt. In diesem Fall bleibt der Editor geschlossen und die Karte nennt die zu prüfenden Cloudflare-Schritte. Ein erneuter Klick auf „Beitrag erstellen“ wiederholt die Verbindungsprüfung. Nur ein erfolgreicher serverseitiger Zugriff gibt den Editor frei. Abmelden oder Sitzungsablauf sperren die Karte erneut und entfernen private Editor-Daten.
+
+Diese Browserprüfung verwendet die tatsächliche öffentliche Worker-Adresse aus `config.js`. Die lokale Testsuite ersetzt nur den Transport durch den echten Worker-Code mit einer SQLite-Testdatenbank; sie beweist keine produktive Cloudflare-Einrichtung.
+
 ## Einmalig in Cloudflare aktivieren
 
 Die Repository-Änderung allein installiert **keine** Datenbank und veröffentlicht **keinen** Worker. Der produktive Worker verwendet weiterhin seine bisherige Version, bis diese Schritte erledigt sind:

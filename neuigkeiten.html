@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/portal.css" />
-    <link rel="stylesheet" href="assets/css/news.css?v=news-1" />
+    <link rel="stylesheet" href="assets/css/news.css?v=news-2" />
   </head>
   <body class="site-page portal-page news-page">
     <div class="wrap">
@@ -61,11 +61,38 @@
                 <section class="news-side-card">
                   <svg class="edit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m15 3 6 6M3 21l2-7L17 2l5 5L10 19l-7 2Z"/></svg>
                   <div><h2>Admin-Bereich</h2><p>Manuell einen neuen Beitrag erstellen oder vorhandene Beiträge verwalten.</p></div>
-                  <button id="openNewsAdmin" class="news-button news-button-gold" type="button" disabled>✎ Beitrag erstellen</button>
+                  <button id="openNewsAdmin" aria-controls="newsAdminPanel" aria-expanded="false" class="news-button news-button-gold" type="button" disabled>✎ Beitrag erstellen</button>
                 </section>
               </aside>
             </div>
           </div>
+    <section id="newsAdminPanel" class="news-admin-panel is-locked" hidden aria-labelledby="newsAdminTitle">
+      <header class="news-admin-heading"><h2 id="newsAdminTitle">Beitragsverwaltung</h2><button id="closeNewsAdmin" class="news-close" type="button" aria-label="Beitragsverwaltung einklappen">×</button></header>
+      <p id="newsAdminMessage" role="status" class="status"></p>
+      <div class="news-admin-body">
+      <div id="newsLoginOverlay" class="news-login-overlay">
+      <form id="newsLoginForm" class="news-inline-login">
+        <h3>Beitragsverwaltung gesperrt</h3>
+        <p>Mit der bestehenden Admin-Anmeldung entsperren.</p>
+        <label for="newsPassword">Admin-Passwort</label>
+        <div class="news-login-row"><input id="newsPassword" type="password" autocomplete="current-password" required /><button class="news-button news-button-gold" type="submit">Anmelden</button></div>
+      </form>
+      </div>
+      <div id="newsAdminContent" class="news-admin-content" inert aria-hidden="true">
+        <div class="news-admin-toolbar"><button id="newNewsPost" class="news-button" type="button">Neuer Beitrag</button><button id="reloadNewsAdmin" class="news-button" type="button">Neu laden</button><button id="logoutNewsAdmin" class="news-button" type="button">Abmelden</button></div>
+        <div id="newsAdminList" class="news-admin-list"></div>
+        <form id="newsEditorForm">
+          <label for="postTitle">Titel</label><input id="postTitle" required maxlength="160" />
+          <div class="news-editor-pair"><div><label for="postCategory">Kategorie</label><select id="postCategory"><option>Update</option><option>Info</option><option>Ankündigung</option><option>Changelog</option><option>Wartung</option></select></div><div><label for="postStatus">Status</label><select id="postStatus"><option value="draft">Entwurf</option><option value="published">Veröffentlicht</option></select></div></div>
+          <label for="postExcerpt">Kurzbeschreibung (optional)</label><textarea id="postExcerpt" maxlength="400" rows="2"></textarea>
+          <label for="postImage">Titelbild (optional, HTTP(S)-Adresse oder assets/…)</label><input id="postImage" maxlength="2000" />
+          <label for="postContent">Inhalt</label><textarea id="postContent" required maxlength="20000" rows="10" placeholder="Absätze, ### Überschriften, - Listen und **Hervorhebungen**"></textarea>
+          <div class="news-editor-actions"><button id="previewNewsPost" class="news-button" type="button">Vorschau</button><button id="saveNewsDraft" class="news-button" type="submit" data-status="draft">Entwurf speichern</button><button id="publishNewsPost" class="news-button news-button-gold" type="submit" data-status="published">Veröffentlichen</button><button id="deleteNewsPost" class="news-button news-button-danger" type="button" hidden>Beitrag löschen</button></div>
+        </form>
+        <section id="newsEditorPreview" class="news-detail" aria-label="Beitragsvorschau" hidden></section>
+      </div>
+      </div>
+    </section>
           <article id="newsDetail" class="news-detail" hidden></article>
           <div class="news-ornament" aria-hidden="true"><span>◆</span></div>
         </div>
@@ -87,31 +114,10 @@
       class="legal-dialog"
       aria-labelledby="impressumTitle"
     ></dialog>
-    <dialog id="newsAdminDialog" class="news-admin-dialog" aria-labelledby="newsAdminTitle">
-      <header class="news-admin-heading"><h2 id="newsAdminTitle">Beitragsverwaltung</h2><button id="closeNewsAdmin" class="news-close" type="button" aria-label="Beitragsverwaltung schliessen">×</button></header>
-      <p id="newsAdminMessage" role="status" class="status"></p>
-      <form id="newsLoginForm">
-        <p>Dieselbe Admin-Anmeldung wie im Umrechner. Eine bestehende Sitzung wird übernommen.</p>
-        <label for="newsPassword">Admin-Passwort</label><input id="newsPassword" type="password" autocomplete="current-password" required />
-        <button class="news-button news-button-gold" type="submit">Anmelden</button>
-      </form>
-      <div id="newsAdminContent" hidden>
-        <div class="news-admin-toolbar"><button id="newNewsPost" class="news-button" type="button">Neuer Beitrag</button><button id="reloadNewsAdmin" class="news-button" type="button">Neu laden</button><button id="logoutNewsAdmin" class="news-button" type="button">Abmelden</button></div>
-        <div id="newsAdminList" class="news-admin-list"></div>
-        <form id="newsEditorForm">
-          <label for="postTitle">Titel</label><input id="postTitle" required maxlength="160" />
-          <div class="news-editor-pair"><div><label for="postCategory">Kategorie</label><select id="postCategory"><option>Update</option><option>Info</option><option>Ankündigung</option><option>Changelog</option><option>Wartung</option></select></div><div><label for="postStatus">Status</label><select id="postStatus"><option value="draft">Entwurf</option><option value="published">Veröffentlicht</option></select></div></div>
-          <label for="postExcerpt">Kurzbeschreibung (optional)</label><textarea id="postExcerpt" maxlength="400" rows="2"></textarea>
-          <label for="postImage">Titelbild (optional, HTTP(S)-Adresse oder assets/…)</label><input id="postImage" maxlength="2000" />
-          <label for="postContent">Inhalt</label><textarea id="postContent" required maxlength="20000" rows="10" placeholder="Absätze, ### Überschriften, - Listen und **Hervorhebungen**"></textarea>
-          <div class="news-editor-actions"><button id="previewNewsPost" class="news-button" type="button">Vorschau</button><button id="saveNewsDraft" class="news-button" type="submit" data-status="draft">Entwurf speichern</button><button id="publishNewsPost" class="news-button news-button-gold" type="submit" data-status="published">Veröffentlichen</button><button id="deleteNewsPost" class="news-button news-button-danger" type="button" hidden>Beitrag löschen</button></div>
-        </form>
-        <section id="newsEditorPreview" class="news-detail" aria-label="Beitragsvorschau" hidden></section>
-      </div>
-    </dialog>
+
     <script src="assets/js/ui.js?v=legal-2" defer></script>
     <script src="config.js" defer></script>
     <script src="assets/js/site-config.js" defer></script>
-    <script src="assets/js/news.js?v=news-1" type="module"></script>
+    <script src="assets/js/news.js?v=news-2" type="module"></script>
   </body>
 </html>

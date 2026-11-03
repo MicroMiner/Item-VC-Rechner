@@ -1,5 +1,5 @@
 /* Blog views and protected editor; all presentation is scoped to the news page. */
-.news-page .news-main { padding-top: 24px; }
+.news-page .news-main { padding-top: 24px; max-width: 1200px; width: 100%; margin-inline: auto; }
 .news-page [hidden] { display: none !important; }
 .news-page .news-shell { overflow: hidden; padding: 0 24px 24px; border: 1px solid #355574; border-radius: 20px; background: rgba(5,20,37,.84); box-shadow: var(--panel-shadow); }
 .news-page .news-hero { padding: 32px 24px 28px; margin: 0 -24px 24px; background: linear-gradient(90deg,#06172c 12%,rgba(6,23,44,.95) 34%,rgba(6,23,44,.2)),linear-gradient(0deg,#08192e,transparent 48%),url('../images/velocity-castle-night.webp') right 40%/cover; border-bottom: 1px solid var(--gold-line); }
@@ -59,19 +59,18 @@
 .news-page .news-body code { padding: 2px 5px; border-radius: 4px; background: var(--input-bg); }
 .news-page .news-detail-footer { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 16px; display: flex; justify-content: space-between; gap: 16px; align-items: center; flex-wrap: wrap; font-size: .85rem; color: var(--text-secondary); }
 .news-page .news-empty { padding: 32px 22px; border: 1px dashed var(--line); border-radius: 12px; color: var(--text-secondary); }
-.news-page .news-admin-dialog { width: min(900px,calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--bg-navy); color: var(--text-primary); }
-.news-page .news-admin-dialog::backdrop { background: rgba(2,10,23,.8); }
+.news-page .news-admin-panel { width: 100%; margin-top: 24px; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--bg-navy); color: var(--text-primary); scroll-margin-top: 20px; }
 .news-page .news-admin-heading { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
 .news-page .news-admin-heading h2 { margin: 0; font-size: 1.4rem; }
 .news-page .news-close { width: 36px; height: 36px; padding: 0; font-size: 1.5rem; color: var(--danger); background: transparent; border: 1px solid var(--danger); border-radius: 8px; cursor: pointer; }
-.news-page .news-admin-dialog label { margin-top: 14px; }
-.news-page .news-admin-dialog textarea { display: block; width: 100%; min-width: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; color: var(--text-primary); background: var(--input-bg); font: inherit; resize: vertical; }
+.news-page .news-admin-panel label { margin-top: 14px; }
+.news-page .news-admin-panel textarea { display: block; width: 100%; min-width: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; color: var(--text-primary); background: var(--input-bg); font: inherit; resize: vertical; }
 .news-page .news-admin-toolbar,.news-page .news-editor-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-block: 16px; }
 .news-page .news-editor-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .news-page .news-admin-list { display: grid; gap: 8px; max-height: 240px; overflow: auto; }
 .news-page .news-admin-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; }
 .news-page .news-admin-row small { display: block; color: var(--text-secondary); }
-.news-page #newsLoginForm button { margin-top: 16px; }
+.news-page #newsLoginForm button { margin-top: 0; }
 .news-page #newsEditorPreview { border: 1px solid var(--line); border-radius: 12px; margin-top: 20px; }
 @media(max-width:1000px) {
  .news-page .news-columns { grid-template-columns: minmax(0,1fr) 250px; gap: 18px; }
@@ -88,7 +87,23 @@
  .news-page .news-sidebar { grid-template-columns: minmax(0,1fr); }
  .news-page .news-detail { padding: 24px 4px 4px; }
  .news-page .news-detail-cover { aspect-ratio: 1.8; }
- .news-page .news-admin-dialog { padding: 18px; }
+ .news-page .news-admin-panel { padding: 18px; }
  .news-page .news-admin-row { flex-wrap: wrap; }
 }
 @media(prefers-reduced-motion:reduce) { .news-page .news-blog-card { transition:none; } }
+
+/* Inline locked editor: private data is cleared on lock; blur is visual only. */
+.news-page .news-admin-body { position: relative; min-width: 0; }
+.news-page .news-admin-panel.is-locked .news-admin-body { height: 340px; overflow: hidden; }
+.news-page .news-admin-content { transition: filter 140ms ease; }
+.news-page .news-admin-panel.is-locked .news-admin-content { filter: blur(4px); opacity: .45; user-select: none; }
+.news-page .news-login-overlay { position: absolute; inset: 0; z-index: 2; display: flex; justify-content: center; align-items: flex-start; padding: 72px 12px 20px; background: rgba(8,19,38,.12); }
+.news-page .news-inline-login { width: min(360px,100%); padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: rgba(16,37,60,.97); box-shadow: 0 10px 24px rgba(3,12,25,.24); }
+.news-page .news-inline-login h3 { margin: 0 0 6px; font-size: 1rem; }
+.news-page .news-inline-login p { color: var(--text-secondary); font-size: .8rem; margin: 0; }
+.news-page .news-inline-login label { font-size: .8rem; margin-top: 12px; }
+.news-page .news-login-row { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 8px; }
+.news-page .news-login-row input { min-width: 0; height: 40px; }
+.news-page .news-close { display: grid; place-items: center; line-height: 1; flex: none; }
+@media(max-width:550px) { .news-page .news-admin-panel { padding: 14px; } .news-page .news-editor-pair { grid-template-columns: minmax(0,1fr); gap: 0; } .news-page .news-login-overlay { padding-inline: 6px; } .news-page .news-inline-login { padding: 14px; } }
+@media(prefers-reduced-motion:reduce) { .news-page .news-admin-content { transition: none; } }

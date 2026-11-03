@@ -1,12 +1,12 @@
 {
   "lists": [
     {
-      "file": "VeloCoin_Preisliste.json",
-      "name": "VeloCoin · Standardpreisliste"
-    }
+      "file": "VeloCoin_Preisliste_aktuell.json",
+      "name": "VeloCoin · Aktuelle Preisliste"
+    },
     {
-      "file": "VeloCoin_Preisliste_(03.11.26).json",
-      "name": "Preisliste stand (03.11.26)"
+      "file": "VeloCoin_Preisliste_03-11-26.json",
+      "name": "VeloCoin · Stand 03.11.26"
     }
   ]
 }

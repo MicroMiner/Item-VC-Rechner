@@ -2019,7 +2019,7 @@ select:focus-visible {
   .converter-layout-two .swap-slot .swap-icon { transform: none; }
   .converter-layout-two .swap-slot .swap { width: 36px; height: 52px; font-size: 1.1rem; }
   .converter-layout-two .right-stack {
-    width: calc(100% * 4 / 6);
+    width: 100%;
     min-width: 0;
     justify-self: center;
     margin-top: 8px;
@@ -2058,6 +2058,8 @@ select:focus-visible {
   padding: 16px;
 }
 .converter-wrapper .right-stack .result {
+  background: var(--panel);
+  border-color: var(--line);
   padding: 24px 18px;
 }
 .converter-wrapper .conversion-result-content {

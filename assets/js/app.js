@@ -1,6 +1,6 @@
 "use strict";
 
-const APP_VERSION = "v1.0.30";
+const APP_VERSION = "v1.0.31";
 const $ = (id) => document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
 let defaults = [],

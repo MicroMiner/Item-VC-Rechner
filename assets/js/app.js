@@ -724,6 +724,13 @@ function exportList() {
   status("JSON-Sicherung heruntergeladen.");
 }
 $("exportData").addEventListener("click", exportList);
+$("converterPriceList").addEventListener("change", async () => {
+  try {
+    await chooseList($("converterPriceList").value);
+  } catch (err) {
+    status(err.message);
+  }
+});
 $("reloadData").addEventListener("click", async () => {
   if (
     !confirm(
@@ -758,22 +765,29 @@ async function chooseList(file) {
   const previous = selectedFile;
   switching = true;
   $("priceList").disabled = true;
+  $("converterPriceList").disabled = true;
   adminInner.inert = true;
   try {
     await writeChain;
     selectedFile = file;
     await loadRemote();
     $("priceList").value = file;
+    $("converterPriceList").value = file;
+    $("loadedPriceList").textContent = "Geladen: " + file;
     $("listStatus").textContent = "Geladen: " + file;
   } catch (err) {
     selectedFile = previous;
     $("priceList").value = previous;
+    $("converterPriceList").value = previous;
+    $("loadedPriceList").textContent =
+      (previous ? "Weiterhin geladen: " + previous + ". " : "") + err.message;
     $("listStatus").textContent = err.message;
     throw err;
   } finally {
     switching = false;
     const locked = management.classList.contains("locked");
     $("priceList").disabled = locked;
+    $("converterPriceList").disabled = !selectedFile;
     adminInner.inert = locked;
   }
 }
@@ -799,11 +813,16 @@ async function init() {
       o.value = entry.file;
       o.textContent = entry.name || entry.file;
       $("priceList").append(o);
+      $("converterPriceList").append(o.cloneNode(true));
     }
-    await chooseList(entries[0].file);
+    await chooseList(
+      entries.find((entry) => entry.file === "VeloCoin_Preisliste_aktuell.json")?.file ||
+        entries[0].file,
+    );
   } catch (err) {
     setSynchronized(false);
     $("listStatus").textContent = err.message;
+    $("loadedPriceList").textContent = err.message;
     status("Laden fehlgeschlagen: " + err.message);
     $("result").textContent = "Preisliste nicht verfügbar";
   }

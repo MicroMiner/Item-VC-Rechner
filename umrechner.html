@@ -10,7 +10,7 @@
       sizes="48x48"
       href="assets/images/favicon.png"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=1.0.34" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=1.0.35" />
   </head>
   <body class="site-page converter-page">
     <div class="wrap">
@@ -39,6 +39,7 @@
             <div class="brand">VELOCITY ECONOMY</div>
             <h1>Item-Umrechner</h1>
           </div>
+          <div class="converter-tools">
           <aside
             class="economy-status"
             id="economyStatus"
@@ -114,6 +115,10 @@
               >
             </div>
           </aside>
+          <button class="calculator-toggle" id="openCalculator" type="button" aria-label="Taschenrechner öffnen" aria-controls="calculatorWindow" aria-expanded="false" title="Taschenrechner öffnen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8v4H8zM8 14h1m3 0h1m3 0h.1M8 18h1m3 0h1m3 0h.1"/></svg>
+          </button>
+          </div>
         </header>
         <section class="hero" aria-label="Item-Umrechner">
           <h2 class="section-heading">01 · Umrechnung</h2>
@@ -340,89 +345,7 @@
                 </div>
                 <div id="copyStatus" class="status" aria-live="polite"></div>
               </section>
-              <section class="card calculator" aria-label="Taschenrechner">
-                <h3>Mini-Taschenrechner</h3>
-                <label for="calcInput">Rechnung</label>
-                <div class="calc-screen">
-                  <input
-                    id="calcInput"
-                    type="text"
-                    inputmode="decimal"
-                    placeholder="z. B. 350 * 64"
-                    autocomplete="off"
-                    aria-label="Rechnung eingeben"
-                  /><button
-                    class="btn"
-                    id="calcClear"
-                    type="button"
-                    aria-label="Rechnung löschen"
-                  >
-                    C
-                  </button>
-                </div>
-                <div class="calc-grid" id="calcKeys">
-                  <button class="btn" type="button" data-key="7">7</button
-                  ><button class="btn" type="button" data-key="8">8</button
-                  ><button class="btn" type="button" data-key="9">9</button
-                  ><button
-                    class="btn accent"
-                    type="button"
-                    data-key="/"
-                    aria-label="Dividieren"
-                  >
-                    ÷
-                  </button>
-                  <button class="btn" type="button" data-key="4">4</button
-                  ><button class="btn" type="button" data-key="5">5</button
-                  ><button class="btn" type="button" data-key="6">6</button
-                  ><button
-                    class="btn accent"
-                    type="button"
-                    data-key="*"
-                    aria-label="Multiplizieren"
-                  >
-                    ×
-                  </button>
-                  <button class="btn" type="button" data-key="1">1</button
-                  ><button class="btn" type="button" data-key="2">2</button
-                  ><button class="btn" type="button" data-key="3">3</button
-                  ><button
-                    class="btn accent"
-                    type="button"
-                    data-key="-"
-                    aria-label="Subtrahieren"
-                  >
-                    −
-                  </button>
-                  <button class="btn" type="button" data-key="0">0</button
-                  ><button
-                    class="btn"
-                    type="button"
-                    data-key="."
-                    aria-label="Dezimalpunkt"
-                  >
-                    .</button
-                  ><button
-                    class="btn equals"
-                    type="button"
-                    data-key="="
-                    aria-label="Ergebnis berechnen"
-                  >
-                    =</button
-                  ><button
-                    class="btn accent"
-                    type="button"
-                    data-key="+"
-                    aria-label="Addieren"
-                  >
-                    +
-                  </button>
-                </div>
-                <div id="calcFeedback" class="calc-feedback" aria-live="polite">
-                  Addition, Subtraktion, Multiplikation und Division · Enter =
-                  Ergebnis
-                </div>
-              </section>
+
             </div>
           </div>
         </section>
@@ -697,9 +620,95 @@
       class="legal-dialog"
       aria-labelledby="impressumTitle"
     ></dialog>
-    <script src="config.js?v=1.0.34" defer></script>
+              <section id="calculatorWindow" class="card calculator calculator-window" popover="manual" role="dialog" aria-modal="false" aria-labelledby="calculatorTitle">
+                <div class="calculator-window-header">
+                  <h3 id="calculatorTitle" tabindex="0" title="Zum Verschieben ziehen oder Pfeiltasten verwenden">Taschenrechner</h3>
+                  <button id="closeCalculator" class="calculator-close" type="button" aria-label="Taschenrechner schliessen">×</button>
+                </div>
+                <label for="calcInput">Rechnung</label>
+                <div class="calc-screen">
+                  <input
+                    id="calcInput"
+                    type="text"
+                    inputmode="decimal"
+                    placeholder="z. B. 350 * 64"
+                    autocomplete="off"
+                    aria-label="Rechnung eingeben"
+                  /><button
+                    class="btn"
+                    id="calcClear"
+                    type="button"
+                    aria-label="Rechnung löschen"
+                  >
+                    C
+                  </button>
+                </div>
+                <div class="calc-grid" id="calcKeys">
+                  <button class="btn" type="button" data-key="7">7</button
+                  ><button class="btn" type="button" data-key="8">8</button
+                  ><button class="btn" type="button" data-key="9">9</button
+                  ><button
+                    class="btn accent"
+                    type="button"
+                    data-key="/"
+                    aria-label="Dividieren"
+                  >
+                    ÷
+                  </button>
+                  <button class="btn" type="button" data-key="4">4</button
+                  ><button class="btn" type="button" data-key="5">5</button
+                  ><button class="btn" type="button" data-key="6">6</button
+                  ><button
+                    class="btn accent"
+                    type="button"
+                    data-key="*"
+                    aria-label="Multiplizieren"
+                  >
+                    ×
+                  </button>
+                  <button class="btn" type="button" data-key="1">1</button
+                  ><button class="btn" type="button" data-key="2">2</button
+                  ><button class="btn" type="button" data-key="3">3</button
+                  ><button
+                    class="btn accent"
+                    type="button"
+                    data-key="-"
+                    aria-label="Subtrahieren"
+                  >
+                    −
+                  </button>
+                  <button class="btn" type="button" data-key="0">0</button
+                  ><button
+                    class="btn"
+                    type="button"
+                    data-key="."
+                    aria-label="Dezimalpunkt"
+                  >
+                    .</button
+                  ><button
+                    class="btn equals"
+                    type="button"
+                    data-key="="
+                    aria-label="Ergebnis berechnen"
+                  >
+                    =</button
+                  ><button
+                    class="btn accent"
+                    type="button"
+                    data-key="+"
+                    aria-label="Addieren"
+                  >
+                    +
+                  </button>
+                </div>
+                <div id="calcFeedback" class="calc-feedback" aria-live="polite">
+                  Addition, Subtraktion, Multiplikation und Division · Enter =
+                  Ergebnis
+                </div>
+              </section>
+    <script src="config.js?v=1.0.35" defer></script>
     <script src="assets/js/ui.js?v=legal-2" defer></script>
-    <script src="assets/js/app.js?v=1.0.34" defer></script>
-    <script src="assets/js/calculator.js?v=1.0.34" defer></script>
+    <script src="assets/js/app.js?v=1.0.35" defer></script>
+    <script src="assets/js/calculator.js?v=1.0.35" defer></script>
   </body>
 </html>

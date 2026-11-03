@@ -16,8 +16,9 @@
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/portal.css" />
+    <link rel="stylesheet" href="assets/css/news.css?v=news-1" />
   </head>
-  <body class="site-page portal-page">
+  <body class="site-page portal-page news-page">
     <div class="wrap">
       <header class="site-header">
         <a
@@ -38,28 +39,37 @@
           ><a class="nav-link" href="galerie.html">Galerie</a>
         </nav>
       </header>
-      <main class="portal-main">
-        <header class="portal-heading">
-          <div class="brand">VELOCITY SERVER</div>
-          <h1>Neuigkeiten &amp; Changelog</h1>
-          <p>
-            Alle wichtigen Ankündigungen, Updates und Änderungen rund um
-            VeloCity.
-          </p>
-        </header>
-        <section
-          id="newsList"
-          class="news-list"
-          aria-label="Servermeldungen"
-          aria-live="polite"
-        >
-          <p class="muted">Neuigkeiten werden geladen …</p>
-        </section>
-        <noscript
-          ><p>
-            Bitte JavaScript aktivieren, um die Neuigkeiten zu laden.
-          </p></noscript
-        >
+      <main class="portal-main news-main">
+        <div class="news-shell" id="newsShell">
+          <div id="newsOverview">
+            <header class="news-hero">
+              <div class="brand">VELOCITY SERVER</div>
+              <h1>Neuigkeiten &amp; Changelog</h1>
+              <p>Alle wichtigen Ankündigungen, Updates und Änderungen rund um VeloCity.</p>
+            </header>
+            <div class="news-columns">
+              <section aria-label="Servermeldungen">
+                <div id="newsList" class="news-list" aria-live="polite"><p class="muted">Neuigkeiten werden geladen …</p></div>
+                <button id="moreNews" class="news-button" type="button" hidden>Weitere Beiträge laden</button>
+              </section>
+              <aside class="news-sidebar" aria-label="Discord und Beitragsverwaltung">
+                <section class="news-side-card">
+                  <svg class="discord-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.7 5.2a18 18 0 0 0-4.4-1.4l-.5 1a17 17 0 0 0-5.6 0l-.5-1a18 18 0 0 0-4.4 1.4C1.5 9.5.8 13.7 1.2 17.8a18 18 0 0 0 5.5 2.7l1.1-1.8-1.7-.9.4-.3c3.6 1.6 7.4 1.6 11 0l.4.3-1.7.9 1.1 1.8a18 18 0 0 0 5.5-2.7c.5-4.8-.8-8.9-3.1-12.6ZM8.4 14.9c-1 0-1.8-1-1.8-2.1s.8-2.1 1.8-2.1 1.8 1 1.8 2.1-.8 2.1-1.8 2.1Zm7.2 0c-1 0-1.8-1-1.8-2.1s.8-2.1 1.8-2.1 1.8 1 1.8 2.1-.8 2.1-1.8 2.1Z"/></svg>
+                  <div><h2>Discord-Anbindung</h2><p>Neuigkeiten werden automatisch aus unserem Discord übernommen.</p></div>
+                  <div class="news-side-actions"><span id="discordStatus" class="discord-status" role="status" data-state="not_configured">Nicht eingerichtet</span><a id="discordInvite" class="news-button" href="#" rel="noopener noreferrer" target="_blank" hidden>Zum Discord ↗</a></div>
+                </section>
+                <section class="news-side-card">
+                  <svg class="edit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m15 3 6 6M3 21l2-7L17 2l5 5L10 19l-7 2Z"/></svg>
+                  <div><h2>Admin-Bereich</h2><p>Manuell einen neuen Beitrag erstellen oder vorhandene Beiträge verwalten.</p></div>
+                  <button id="openNewsAdmin" class="news-button news-button-gold" type="button" disabled>✎ Beitrag erstellen</button>
+                </section>
+              </aside>
+            </div>
+          </div>
+          <article id="newsDetail" class="news-detail" hidden></article>
+          <div class="news-ornament" aria-hidden="true"><span>◆</span></div>
+        </div>
+        <noscript><p>Bitte JavaScript aktivieren, um die Neuigkeiten und die Beitragsansicht zu laden.</p></noscript>
       </main>
       <footer class="foot">
         <span>© 2026 VeloCity</span><span aria-hidden="true">·</span
@@ -77,7 +87,31 @@
       class="legal-dialog"
       aria-labelledby="impressumTitle"
     ></dialog>
+    <dialog id="newsAdminDialog" class="news-admin-dialog" aria-labelledby="newsAdminTitle">
+      <header class="news-admin-heading"><h2 id="newsAdminTitle">Beitragsverwaltung</h2><button id="closeNewsAdmin" class="news-close" type="button" aria-label="Beitragsverwaltung schliessen">×</button></header>
+      <p id="newsAdminMessage" role="status" class="status"></p>
+      <form id="newsLoginForm">
+        <p>Dieselbe Admin-Anmeldung wie im Umrechner. Eine bestehende Sitzung wird übernommen.</p>
+        <label for="newsPassword">Admin-Passwort</label><input id="newsPassword" type="password" autocomplete="current-password" required />
+        <button class="news-button news-button-gold" type="submit">Anmelden</button>
+      </form>
+      <div id="newsAdminContent" hidden>
+        <div class="news-admin-toolbar"><button id="newNewsPost" class="news-button" type="button">Neuer Beitrag</button><button id="reloadNewsAdmin" class="news-button" type="button">Neu laden</button><button id="logoutNewsAdmin" class="news-button" type="button">Abmelden</button></div>
+        <div id="newsAdminList" class="news-admin-list"></div>
+        <form id="newsEditorForm">
+          <label for="postTitle">Titel</label><input id="postTitle" required maxlength="160" />
+          <div class="news-editor-pair"><div><label for="postCategory">Kategorie</label><select id="postCategory"><option>Update</option><option>Info</option><option>Ankündigung</option><option>Changelog</option><option>Wartung</option></select></div><div><label for="postStatus">Status</label><select id="postStatus"><option value="draft">Entwurf</option><option value="published">Veröffentlicht</option></select></div></div>
+          <label for="postExcerpt">Kurzbeschreibung (optional)</label><textarea id="postExcerpt" maxlength="400" rows="2"></textarea>
+          <label for="postImage">Titelbild (optional, HTTP(S)-Adresse oder assets/…)</label><input id="postImage" maxlength="2000" />
+          <label for="postContent">Inhalt</label><textarea id="postContent" required maxlength="20000" rows="10" placeholder="Absätze, ### Überschriften, - Listen und **Hervorhebungen**"></textarea>
+          <div class="news-editor-actions"><button id="previewNewsPost" class="news-button" type="button">Vorschau</button><button id="saveNewsDraft" class="news-button" type="submit" data-status="draft">Entwurf speichern</button><button id="publishNewsPost" class="news-button news-button-gold" type="submit" data-status="published">Veröffentlichen</button><button id="deleteNewsPost" class="news-button news-button-danger" type="button" hidden>Beitrag löschen</button></div>
+        </form>
+        <section id="newsEditorPreview" class="news-detail" aria-label="Beitragsvorschau" hidden></section>
+      </div>
+    </dialog>
     <script src="assets/js/ui.js?v=legal-2" defer></script>
-    <script src="assets/js/news.js" type="module"></script>
+    <script src="config.js" defer></script>
+    <script src="assets/js/site-config.js" defer></script>
+    <script src="assets/js/news.js?v=news-1" type="module"></script>
   </body>
 </html>

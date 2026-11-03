@@ -1,5 +1,25 @@
 {
   "version": 1,
-  "updatedAt": null,
-  "updates": []
+  "updatedAt": "2026-11-03T10:03:16.856Z",
+  "updates": [
+    {
+      "id": "velocity-news-welcome-test",
+      "slug": "test-beitrag-willkommen-bei-den-news-velocity",
+      "title": "Test-Beitrag: Willkommen bei den News!",
+      "excerpt": "Willkommen im neuen Neuigkeiten-Bereich von VeloCity! Hier findest du künftig alle wichtigen Ankündigungen und Updates.",
+      "content": "Willkommen im neuen Neuigkeiten-Bereich von VeloCity!\n\nHier findest du künftig wichtige Ankündigungen, Änderungen am Wirtschaftssystem, technische Verbesserungen und Informationen zur Weiterentwicklung unseres Minecraft-Servers.\n\n### Was ist neu?\n\n- Modernisierte Neuigkeiten-Seite im Blog-Design.\n- Eigene Detailseiten für vollständige Beiträge.\n- Vorbereitung der automatischen Discord-Anbindung.\n- Möglichkeit, Beiträge manuell zu veröffentlichen.\n- Optimierte Darstellung auf Desktop und Smartphone.\n\n### Wie geht es weiter?\n\nWir entwickeln VeloCity laufend weiter und informieren dich hier über wichtige Fortschritte.\n\n> Hinweis: Dieser Beitrag dient vorerst dazu, das neue Design und die Darstellung verschiedener Textformate zu überprüfen.",
+      "category": "Update",
+      "image": "assets/images/velocity-news-sunset.webp",
+      "status": "published",
+      "source": "manual",
+      "sourceId": null,
+      "channelId": null,
+      "guildId": null,
+      "author": "VeloCity",
+      "publishedAt": "2026-11-03T10:03:16.856Z",
+      "updatedAt": "2026-11-03T10:03:16.856Z",
+      "revision": 1,
+      "hidden": false
+    }
+  ]
 }

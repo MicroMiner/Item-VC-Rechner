@@ -29,10 +29,13 @@ jobs:
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           DISCORD_CHANNEL_ID: ${{ vars.DISCORD_CHANNEL_ID }}
+          DISCORD_GUILD_ID: ${{ vars.DISCORD_GUILD_ID }}
+          NEWS_API_URL: ${{ vars.NEWS_API_URL }}
+          DISCORD_INGEST_TOKEN: ${{ secrets.DISCORD_INGEST_TOKEN }}
         run: |
           if [ -z "$DISCORD_BOT_TOKEN" ] || [ -z "$DISCORD_CHANNEL_ID" ]; then
-            echo "::error::Configure DISCORD_BOT_TOKEN (secret) and DISCORD_CHANNEL_ID (variable)."
-            exit 1
+            echo "Discord import not configured; publishing the website without synchronization."
+            exit 0
           fi
           node scripts/sync-discord.mjs
       - name: Commit changed news JSON

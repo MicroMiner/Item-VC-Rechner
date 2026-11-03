@@ -84,6 +84,15 @@
     feedback.classList.remove("is-success", "is-error");
     inp.focus();
   });
+  document.getElementById("calcBackspace").addEventListener("click", () => {
+    const start = inp.selectionStart ?? inp.value.length;
+    const end = inp.selectionEnd ?? start;
+    const removeFrom = start === end ? Math.max(0, start - 1) : start;
+    inp.setRangeText("", removeFrom, end, "end");
+    feedback.textContent = "";
+    feedback.classList.remove("is-success", "is-error");
+    inp.focus();
+  });
   inp.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();

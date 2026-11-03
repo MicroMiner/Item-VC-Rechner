@@ -1,10 +1,11 @@
 "use strict";
 
-const APP_VERSION = "v1.0.42";
+const APP_VERSION = "v1.0.43";
 const $ = (id) => document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
 let defaults = [],
   custom = [];
+let derivedBooks = [], listMetadata = {};
 let priceUpdatedAt = null,
   synchronized = false;
 let writeChain = Promise.resolve();
@@ -42,7 +43,7 @@ const num = (v) => {
   const x = Number(String(v).replace(",", "."));
   return Number.isFinite(x) && x >= 0 ? x : 0;
 };
-const list = () => [...defaults, ...custom];
+const list = () => [...defaults, ...custom, ...derivedBooks];
 const get = (id) =>
   list().find((x) => x.id === id) ||
   list()[0] || { id: "DIRT", name: "Erde", buy: 1, sell: 1 };
@@ -68,12 +69,13 @@ const enchantmentNames = {
 };
 function localizedItemName(item) {
   const match = /^ENCHANTED_BOOK_(.+)_(\d+)$/.exec(item.id);
-  return match && enchantmentNames[match[1]]
-    ? `Verzaubertes Buch ${enchantmentNames[match[1]]} [${match[2]}]`
+  const name = match && (listMetadata.enchantmentValues?.[match[1]]?.name || enchantmentNames[match[1]]);
+  return name
+    ? `Verzaubertes Buch ${name} [${match[2]}]`
     : item.name;
 }
 const priceLabel = (x) =>
-  `${localizedItemName(x)} · Buy ${fmtPrice(x.buy)} / Sell ${fmtPrice(x.sell)} VC` +
+  `${localizedItemName(x)} · Buy ${validPrice(x.buy) ? fmtPrice(x.buy) : "—"} / Sell ${validPrice(x.sell) ? fmtPrice(x.sell) : "—"} VC` +
   (Number.isFinite(x.grundwert) ? ` · Grundwert ${fmtPrice(x.grundwert)} VC` : "");
 const priceModes = { from: "grundwert", to: "grundwert" };
 const priceNames = { sell: "Sell", buy: "Buy", grundwert: "Grundwert" };
@@ -137,6 +139,7 @@ function currentPayload() {
     ...(x.grundwert !== undefined ? { grundwert: x.grundwert } : {}),
   });
   return {
+    ...listMetadata,
     format: "VeloCoin-Preisliste",
     version: 2,
     baseCurrency: "VC",
@@ -208,8 +211,34 @@ function parsePayload(data) {
 }
 function applyData(data) {
   const parsed = parsePayload(data);
+  const metadata = {};
+  for (const key of ["materialValueRules", "enchantmentValues", "enchantedBookGrundwerte"])
+    if (data[key] !== undefined) metadata[key] = structuredClone(data[key]);
+  const existing = new Set([...parsed.std, ...parsed.cus].map(x => x.id));
+  const candidates = new Map();
+  const base = data.materialValueRules?.enchantedBookBaseGrundwert;
+  for (const [key, enchantment] of Object.entries(data.enchantmentValues || {})) {
+    if (!/^[A-Z][A-Z0-9_]*$/.test(key)) continue;
+    for (const [level, value] of Object.entries(enchantment.levels || {})) {
+      if (/^[1-9]\d*$/.test(level) && Number.isFinite(value) && value >= 0 && Number.isFinite(base) && base >= 0)
+        candidates.set(`ENCHANTED_BOOK_${key}_${level}`, { grundwert: base + value });
+    }
+  }
+  for (const [id, value] of Object.entries(data.enchantedBookGrundwerte || {}))
+    candidates.set(id, value);
+  const books = [];
+  for (const [id, value] of candidates) {
+    const match = /^ENCHANTED_BOOK_([A-Z][A-Z0-9_]*)_([1-9]\d*)$/.exec(id);
+    if (!match || existing.has(id) || !validPrice(value?.grundwert)) continue;
+    const name = data.enchantmentValues?.[match[1]]?.name || enchantmentNames[match[1]] || match[1].replaceAll("_", " ");
+    books.push({ id, name: `Verzaubertes Buch ${name} [${match[2]}]`,
+      buy: null, sell: null, defaultBuy: null, defaultSell: null,
+      grundwert: value.grundwert, isDerived: true });
+  }
   defaults = parsed.std;
   custom = parsed.cus;
+  derivedBooks = books;
+  listMetadata = metadata;
   priceUpdatedAt = readUpdatedAt(data.updatedAt);
   for (const id of ["fromSearch", "toSearch", "editSearch"]) $(id).value = "";
   redraw();
@@ -407,12 +436,14 @@ function createItemPicker(side, onChange) {
   function show() {
     const q = query.trim().toLocaleLowerCase();
     matches = list().filter((x) =>
+      (side !== "edit" || !x.isDerived) &&
       (x.id + " " + x.name + " " + localizedItemName(x)).toLocaleLowerCase().includes(q),
     );
     matches.sort(
       (a, b) =>
         Number(b.id.toLocaleLowerCase() === q) -
-        Number(a.id.toLocaleLowerCase() === q),
+        Number(a.id.toLocaleLowerCase() === q) ||
+        localizedItemName(a).localeCompare(localizedItemName(b), "de", { numeric: true }),
     );
     active = matches.length ? 0 : -1;
     popup.replaceChildren();
@@ -579,7 +610,7 @@ function renderEditor() {
   const sel = $("editItem"),
     keep = sel.value || "DIAMOND";
   sel.replaceChildren();
-  for (const item of list()) {
+  for (const item of list().filter(x => !x.isDerived)) {
     const o = document.createElement("option");
     o.value = item.id;
     o.textContent = priceLabel(item);

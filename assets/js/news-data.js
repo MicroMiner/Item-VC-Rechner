@@ -1,5 +1,5 @@
-import { loadData } from './portal-data.js';
 export const api = (window.VELOCITY_API_URL || '').replace(/\/$/, '');
+export const newsSource = window.VELOCITY_CONFIG?.newsSource === 'api' ? 'api' : 'static';
 export const sessionKey = 'velocity.adminSession:' + api;
 export function articleSlug(post) { return post.slug || (post.title || 'beitrag').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') + '-' + post.id; }
 export async function request(path, options = {}, token = null) {
@@ -14,8 +14,14 @@ export function validPublic(post) {
 }
 export async function loadNews() {
   let posts, backend=false, total;
-  if (api) try { const data=await request('/news?limit=50'); if(!Array.isArray(data.posts))throw Error('Ungültiges News-Format.');posts=data.posts;total=data.total;backend=true; } catch(error) { if(error.status!==404 && error.configured!==false)throw error; }
-  if (!posts) posts=await loadData('assets/data/updates.json','updates');
+  if (newsSource === 'api' && api) try { const data=await request('/news?limit=50'); if(!Array.isArray(data.posts))throw Error('Ungültiges News-Format.');posts=data.posts;total=data.total;backend=true; } catch(error) { if(error.status!==404 && error.configured!==false)throw error; }
+  if (!posts) {
+    const response=await fetch('assets/data/updates.json?v='+Date.now(),{cache:'no-store',signal:AbortSignal.timeout(10000)});
+    if(!response.ok)throw Error('News-Datei nicht verfügbar (HTTP '+response.status+').');
+    const data=await response.json();
+    if(data?.version!==1||!Array.isArray(data.updates))throw Error('Ungültiges News-Format.');
+    posts=data.updates;
+  }
   const seen=new Set();
   return { backend, total:total ?? posts.length, posts:posts.filter(p=>{if(!validPublic(p)||seen.has(p.id))return false;seen.add(p.id);return true;}).map(p=>({...p,slug:articleSlug(p)})).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt)) };
 }

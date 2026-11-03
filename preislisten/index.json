@@ -4,5 +4,9 @@
       "file": "VeloCoin_Preisliste.json",
       "name": "VeloCoin · Standardpreisliste"
     }
+    {
+      "file": "VeloCoin_Preisliste_(03.11.26).json",
+      "name": "Preisliste stand (03.11.26)"
+    }
   ]
 }

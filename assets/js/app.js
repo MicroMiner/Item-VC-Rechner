@@ -1,6 +1,6 @@
 "use strict";
 
-const APP_VERSION = "v1.0.43";
+const APP_VERSION = "v1.0.44";
 const $ = (id) => document.getElementById(id);
 // Item: {id,name,buy,sell,defaultBuy,defaultSell,isCustom}
 let defaults = [],
@@ -74,9 +74,7 @@ function localizedItemName(item) {
     ? `Verzaubertes Buch ${name} [${match[2]}]`
     : item.name;
 }
-const priceLabel = (x) =>
-  `${localizedItemName(x)} · Buy ${validPrice(x.buy) ? fmtPrice(x.buy) : "—"} / Sell ${validPrice(x.sell) ? fmtPrice(x.sell) : "—"} VC` +
-  (Number.isFinite(x.grundwert) ? ` · Grundwert ${fmtPrice(x.grundwert)} VC` : "");
+const priceLabel = (x) => localizedItemName(x);
 const priceModes = { from: "grundwert", to: "grundwert" };
 const priceNames = { sell: "Sell", buy: "Buy", grundwert: "Grundwert" };
 const rateMarkup = (x, side) => {

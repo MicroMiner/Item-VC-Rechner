@@ -91,3 +91,64 @@
     }
   });
 })();
+
+// Non-modal calculator: stays open while using the converter.
+(() => {
+  const panel = document.getElementById('calculatorWindow');
+  const opener = document.getElementById('openCalculator');
+  const close = document.getElementById('closeCalculator');
+  const handle = document.getElementById('calculatorTitle');
+  let positioned = false, drag = null;
+  const isOpen = () => panel.matches(':popover-open');
+  function position(left, top) {
+    const bounds = panel.getBoundingClientRect();
+    panel.style.left = Math.max(8, Math.min(left, innerWidth - bounds.width - 8)) + 'px';
+    panel.style.top = Math.max(8, Math.min(top, innerHeight - bounds.height - 8)) + 'px';
+  }
+  opener.addEventListener('click', () => {
+    if (!isOpen()) panel.showPopover();
+    opener.setAttribute('aria-expanded', 'true');
+    const bounds = panel.getBoundingClientRect(), anchor = opener.getBoundingClientRect();
+    position(positioned ? bounds.left : anchor.right - bounds.width,
+      positioned ? bounds.top : anchor.bottom + 12);
+    positioned = true;
+    document.getElementById('calcInput').focus({ preventScroll: true });
+  });
+  function hide() {
+    if (!isOpen()) return;
+    panel.hidePopover();
+    opener.setAttribute('aria-expanded', 'false');
+    drag = null;
+    opener.focus({ preventScroll: true });
+  }
+  close.addEventListener('click', hide);
+  panel.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { event.preventDefault(); hide(); }
+  });
+  handle.addEventListener('pointerdown', event => {
+    if (event.button !== 0) return;
+    const bounds = panel.getBoundingClientRect();
+    drag = { id: event.pointerId, x: event.clientX - bounds.left, y: event.clientY - bounds.top };
+    handle.setPointerCapture(event.pointerId);
+    handle.classList.add('is-dragging');
+    event.preventDefault();
+  });
+  handle.addEventListener('pointermove', event => {
+    if (drag && drag.id === event.pointerId) position(event.clientX - drag.x, event.clientY - drag.y);
+  });
+  function stop() { drag = null; handle.classList.remove('is-dragging'); }
+  handle.addEventListener('pointerup', stop);
+  handle.addEventListener('pointercancel', stop);
+  handle.addEventListener('lostpointercapture', stop);
+  handle.addEventListener('keydown', event => {
+    const moves = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] };
+    const move = moves[event.key];
+    if (!move) return;
+    event.preventDefault();
+    const bounds = panel.getBoundingClientRect(), step = event.shiftKey ? 40 : 10;
+    position(bounds.left + move[0] * step, bounds.top + move[1] * step);
+  });
+  window.addEventListener('resize', () => {
+    if (isOpen()) { const bounds = panel.getBoundingClientRect(); position(bounds.left, bounds.top); }
+  });
+})();

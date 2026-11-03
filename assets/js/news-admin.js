@@ -1,4 +1,4 @@
-import { api, sessionKey, request } from './news-data.js';
+import { api, sessionKey, request } from './news-data.js?v=auth-check-1';
 import { element, article, dateFormatter } from './news-format.js';
 const $=id=>document.getElementById(id),panel=$('newsAdminPanel');
 let session=null,current=null,busy=false,dirty=false,changed=false,expiryTimer;
@@ -24,7 +24,16 @@ function accept(value){
 }
 async function admin(path='',options={}){
  if(!session||session.expiresAt<=Date.now()){locked();throw Error('Bitte erneut anmelden.');}
- try{return await request('/news/admin'+path,options,session.token);}catch(e){if(e.status===401){locked();forget();}throw e;}
+ const token=session.token;
+ try{return await request('/news/admin'+path,options,token);}catch(error){
+  if(error.status!==401)throw error;
+  // A rejected News endpoint must not discard a session still accepted by /auth.
+  try{accept(await request('/auth',{method:'POST',body:JSON.stringify({token})}));}
+  catch(check){check.authentication='session';if(check.status===401){locked();forget();}else locked(false);throw check;}
+  error.authVerified=true;
+  locked(false);
+  throw error;
+ }
 }
 function input(status){return {id:current.id,revision:current.revision,title:$('postTitle').value,category:$('postCategory').value,excerpt:$('postExcerpt').value,content:$('postContent').value,image:$('postImage').value,status:status||$('postStatus').value};}
 async function load(){
@@ -40,10 +49,20 @@ async function load(){
  unlock();
 }
 function loginError(error){
- if(session&&error.status!==401){locked(false);message('Anmeldung gültig. '+([404,503].includes(error.status)?'Die News-Verwaltung ist noch nicht verfügbar. D1-Datenbank und Worker-Deployment müssen in Cloudflare aktiviert werden.': 'Die News-Verwaltung konnte nicht geladen werden. Bitte erneut versuchen.'));}
- else {if(error.status===401)forget();locked();message(error.status===401?'Passwort oder Sitzung ungültig.':error.message);}
+ if(error.authVerified){message('Admin-Anmeldung gültig. Der News-Endpunkt hat die Sitzung abgelehnt (HTTP 401). Bitte den erweiterten News-Worker und seine Anmeldung prüfen.');return;}
+ if(session&&error.status!==401){locked(false);message('Anmeldung gültig. '+([404,503].includes(error.status)?'Die News-Verwaltung ist noch nicht verfügbar. Bitte D1-Bindung, Migrationen und Worker-Deployment in Cloudflare prüfen.':'Die News-Verwaltung konnte nicht geladen werden. Bitte erneut versuchen.'));}
+ else {
+  if(error.status===401&&error.authentication!=='password')forget();
+  locked();
+  message(error.status===401?(error.authentication==='session'?'Admin-Sitzung abgelaufen oder nicht mehr gültig. Bitte erneut anmelden.':'Das Admin-Passwort wurde von der Anmeldung nicht akzeptiert (HTTP 401). Bitte dasselbe Passwort wie im Umrechner verwenden.'):error.message);
+ }
 }
-async function authenticate(credentials){accept(await request('/auth',{method:'POST',body:JSON.stringify(credentials)}));$('newsPassword').value='';await load();edit();}
+async function authenticate(credentials){
+ let value;
+ try{value=await request('/auth',{method:'POST',body:JSON.stringify(credentials)});}
+ catch(error){error.authentication=credentials.token?'session':'password';throw error;}
+ accept(value);$('newsPassword').value='';await load();edit();
+}
 $('openNewsAdmin').addEventListener('click',async()=>{
  if(!panel.hidden){panel.scrollIntoView({block:'start',behavior:'instant'});return;}
  panel.hidden=false;$('openNewsAdmin').setAttribute('aria-expanded','true');locked();message('Admin-Zugang wird geprüft …');

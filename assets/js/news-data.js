@@ -6,7 +6,7 @@ export async function request(path, options = {}, token = null) {
   if (!api) throw Error('Die News-API ist noch nicht eingerichtet.');
   const response = await fetch(api + path, { ...options, cache:'no-store', signal:AbortSignal.timeout(10000), headers:{ ...(options.body ? {'Content-Type':'application/json'} : {}), ...(token ? {Authorization:'Bearer '+token}:{}), ...options.headers } });
   const data = await response.json().catch(()=>({}));
-  if (!response.ok) { const error = Error(response.status===404&&path.startsWith('/news/admin')?'Die News-Verwaltung ist im Worker noch nicht aktiviert. Bitte Datenbank und Worker-Deployment einrichten.':data.error || 'News-Dienst nicht verfügbar (HTTP '+response.status+').'); error.status=response.status; error.configured=data.configured; throw error; }
+  if (!response.ok) { const error = Error(response.status===404&&path.startsWith('/news/admin')?'Die News-Verwaltung ist im Worker noch nicht aktiviert. Bitte Datenbank und Worker-Deployment einrichten.':data.error || 'News-Dienst nicht verfügbar (HTTP '+response.status+').'); error.status=response.status; error.endpoint=path; error.configured=data.configured; throw error; }
   return data;
 }
 export function validPublic(post) {

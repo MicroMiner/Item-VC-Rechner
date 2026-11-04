@@ -1,7 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-04T12:45:41.268Z",
+  "updatedAt": "2026-11-04T14:27:48.084Z",
   "updates": [
+    {
+      "id": "discord-1567540817906634812",
+      "source": "discord",
+      "sourceId": "1567540817906634812",
+      "title": "VeloCity – Unsere neue Webseite ist online!",
+      "category": "Update",
+      "excerpt": "",
+      "content": "Gerne möchten wir euch unsere neue **VeloCity-Webseite** vorstellen!\n\nWas ursprünglich als kleines Tool für unseren Server geplant war, entwickelte sich durch die Erweiterung verschiedener Funktionen zu einer vollständigen Server-Webseite. Hier findet ihr wichtige Informationen und praktische Werkzeuge an einem Ort.\n\n**Jetzt entdecken:** https://microminer.github.io/VeloCity\n\n### Das bietet euch die Webseite\n- **Startseite:** Allgemeine Informationen über VeloCity\n- **Umrechner:** Itemwerte, Verkaufs- und Kaufpreise sowie Mengen berechnen\n- **News:** Neuigkeiten direkt aus unserem Discord-Channel #server-log\n- **Bildergalerie:** Eindrücke vom Server, die laufend ergänzt werden können\n- **BlueMap:** Unsere interaktive Serverkarte direkt auf der Webseite\n\n### Umrechner – Items und Preise vergleichen\n\nDer Umrechner arbeitet mit drei Werttypen:\n\n- **Grundwert:** Allgemeiner Wert eines Items in unserer Serverwirtschaft\n- **Sell-Wert:** Preis, zu dem ihr ein Item verkaufen könnt\n- **Buy-Wert:** Preis, zu dem ihr ein Item kaufen könnt\n\nIhr könnt diese Werte individuell auswählen und miteinander vergleichen.\n\n**Beispiel:** Ihr möchtet wissen, wie viele Einheiten eines bestimmten Items ihr euch durch den Verkauf anderer Items leisten könnt? Wählt euer Verkaufsitem mit Menge und Sell-Wert und anschliessend das gewünschte Zielitem mit Buy-Wert. Der Umrechner zeigt euch automatisch, wie viele Einheiten des Zielitems ihr dafür bekommt.\n\nDas erleichtert die Planung eurer Ressourcen und den Handel auf dem Server.\n\n### News – Mit Discord verbunden\n\nUnser News-Bereich ist mit dem Discord-Channel **#server-log** synchronisiert. Dort veröffentlichte Neuigkeiten und Änderungen erscheinen automatisch auch auf der Webseite. So verpasst ihr keine wichtigen Informationen.\n\n### Bildergalerie – Eindrücke aus VeloCity\n\nEntdeckt Bilder und Impressionen aus unserer Minecraft-Welt. Die Galerie kann jederzeit um weitere Aufnahmen erweitert werden.\n\n### BlueMap – Die Welt interaktiv erkunden\n\nUnsere bereits bestehende **BlueMap** ist nun direkt auf der Webseite eingebunden. Ihr könnt die Minecraft-Welt interaktiv erkunden, ohne eine separate Seite öffnen zu müssen. Auch ein Vollbildmodus steht zur Verfügung.\n\n### Auch auf Smartphones und Mobilgeräten\n\nDie Webseite wurde von Anfang an auch für **Smartphones und andere Mobilgeräte** optimiert. Das Design passt sich an unterschiedliche Bildschirmgrössen an und ermöglicht eine übersichtliche, benutzerfreundliche Bedienung – auch unterwegs.\n\n### Wie geht es weiter?\n\nDie Webseite ist die Grundlage für zukünftige Funktionen, Verbesserungen und Erweiterungen. Wir freuen uns, euch das Ergebnis vorzustellen, und wünschen euch viel Spass beim Erkunden!\n\n**Zur Webseite:** https://microminer.github.io/VeloCity\n\n**Euer VeloCity-Team**",
+      "publishedAt": "2026-11-04T14:07:34.489000+00:00",
+      "image": "assets/img/news/discord-1567540817906634812-1567540817604772020.png",
+      "url": "https://discord.com/channels/@me/1566486495303434350/1567540817906634812"
+    },
     {
       "id": "discord-1567520068055601344",
       "source": "discord",

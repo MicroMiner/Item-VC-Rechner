@@ -330,7 +330,8 @@ async function discordApi(env,path,options={}){
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);let sent=false;
  try{
   sent=true;
-  const result=await fetch('https://discord.com/api/v10'+path,{...init,headers:{'User-Agent':discordUserAgent,...(botAuth?{Authorization:'Bot '+String(env.DISCORD_BOT_TOKEN).trim()}:{}),...init.headers},redirect:'error',signal:controller.signal});
+  // Workers supports manual/follow only; reject redirects through result.ok below.
+  const result=await fetch('https://discord.com/api/v10'+path,{...init,headers:{'User-Agent':discordUserAgent,...(botAuth?{Authorization:'Bot '+String(env.DISCORD_BOT_TOKEN).trim()}:{}),...init.headers},redirect:'manual',signal:controller.signal});
   const data=await result.json().catch(()=>({}));
   if(!result.ok)throw discordHttpProblem(stage,result.status,Number.isSafeInteger(data.code)?data.code:null);
   return data;
@@ -387,7 +388,7 @@ async function discordPublishDraft(record,interaction,env){
    if(remaining<=0)throw discordProblem('image','Zeitlimit beim Prüfen des Titelbilds erreicht.');
    const timer=setTimeout(()=>controller.abort(),remaining);
    try{
-    const result=await fetch(draft.image.url,{headers:{'User-Agent':discordUserAgent},redirect:'error',signal:controller.signal});
+    const result=await fetch(draft.image.url,{headers:{'User-Agent':discordUserAgent},redirect:'manual',signal:controller.signal});
     if(!result.ok)throw discordProblem('image','Das Titelbild ist abgelaufen oder nicht erreichbar. Bitte über Bearbeiten erneut auswählen.',result.status);
     if(Number(result.headers.get('Content-Length'))>discordNewsImageLimit)throw discordProblem('image','Titelbild zu gross. Maximal 8 MB sind erlaubt.');
     const bytes=await discordLimitedBytes(result.body,discordNewsImageLimit),kind=discordImageType(bytes);

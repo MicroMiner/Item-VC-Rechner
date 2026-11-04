@@ -27,6 +27,7 @@ async function setup(){
 function transport({memberRoles=[ROLE],wrongGuild=false,rejectOnce=false,uncertain=false}={}){
  const calls=[],messages=[],patches=[];let rejects=rejectOnce;
  const fetcher=async (input,options={})=>{
+  assert.equal(options.redirect,'manual','Cloudflare-compatible redirect mode; never forward credentials to redirects');
   const url=new URL(input);calls.push({url:url.href,method:options.method||'GET'});
   if(url.hostname==='cdn.discordapp.com')return new Response(png,{headers:{'Content-Type':'image/png'}});
   if(url.pathname==='/api/v10/oauth2/applications/@me')return Response.json({id:APP});
@@ -144,4 +145,11 @@ test('interrupted publication becomes uncertain through read-only refresh withou
 test('existing v1 publications remain importable alongside the redesigned embed',()=>{
  const parsed=parseStructuredDiscordNews({author:{id:APP,bot:true},embeds:[{title:'Alter Beitrag',description:'Bestehender Inhalt',footer:{text:'VeloCity News · v1'},fields:[{name:'Kategorie',value:'Info'},{name:'Kurzbeschreibung',value:'Bestehende Einleitung'}]}]},APP);
  assert.equal(parsed.title,'Alter Beitrag');assert.equal(parsed.category,'Info');assert.equal(parsed.excerpt,'Bestehende Einleitung');
+});
+
+test('Discord redirects fail closed before public send without following Location',async()=>{
+ const s=await setup(),original=globalThis.fetch;let calls=0;
+ globalThis.fetch=async(url,options)=>{calls++;assert.equal(options.redirect,'manual');return new Response(null,{status:302,headers:{Location:'https://untrusted.example/'}});};
+ try{const preview=await s.submit(await s.command()),publish=s.button(preview,0),progress=await s.send(3,{custom_id:publish});await s.flush();const state=await s.state(publish.split(':')[2]);assert.equal(state.status,'preview');assert.equal(state.lastError.stage,'application');assert.equal(state.lastError.httpStatus,302);assert.equal(calls,2);assert.match((await s.send(3,{custom_id:s.button(progress,0)})).data.content,/HTTP 302/);}
+ finally{globalThis.fetch=original;s.env.NEWS_DB.db.close();}
 });

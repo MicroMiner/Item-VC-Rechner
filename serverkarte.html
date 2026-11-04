@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="de-CH"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Erkunde die Welt von VeloCity auf unserer interaktiven BlueMap-Serverkarte.">
+<title>VeloCity · Serverkarte</title>
+<link rel="icon" href="assets/images/favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/serverkarte.css?v=map-1">
+</head><body class="site-page map-page"><div class="wrap">
+      <header class="site-header">
+        <a
+          class="site-logo"
+          href="index.html"
+          aria-label="VeloCity – Startseite"
+          ><img
+            src="assets/images/velocity-logo.png"
+            alt="VeloCity"
+            width="2171"
+            height="724"
+        /></a>
+        <nav class="site-nav" aria-label="Hauptnavigation">
+          <a class="nav-link" href="index.html">Startseite</a
+          ><a class="nav-link" href="umrechner.html">Umrechner</a
+          ><a class="nav-link" href="neuigkeiten.html">Neuigkeiten</a
+          ><a class="nav-link" href="galerie.html"
+            >Galerie</a
+          >
+        <a class="nav-link" href="serverkarte.html" aria-current="page">Serverkarte</a></nav>
+      </header>
+
+<main class="map-main"><div class="map-shell">
+<header class="map-hero"><div class="brand">VELOCITY SERVER</div><h1>Serverkarte <span>(BlueMap)</span></h1><p>Entdecke die Welt von VeloCity auf unserer interaktiven Live-Karte.</p></header>
+<div class="map-grid">
+<section class="map-info" aria-labelledby="mapInfoTitle">
+<div class="map-info-heading"><span class="map-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 9-5 9 5-9 5zM3 12l9 5 9-5M3 17l9 5 9-5"/></svg></span><div><h2 id="mapInfoTitle">Über die Serverkarte</h2><p>Unsere BlueMap zeigt dir die aktuelle Welt von VeloCity in einer interaktiven 3D-Karte. Erkunde Gebiete, Bauwerke und finde interessante Orte.</p></div></div>
+<ul class="map-features">
+<li><span class="map-icon map-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><div><h3>Welt erkunden</h3><p>Die gesamte Serverwelt aus der Vogelperspektive.</p></div></li>
+<li><span class="map-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5v10l-9 5-9-5V7zM3 7l9 5 9-5M12 12v10"/></svg></span><div><h3>3D-Ansicht</h3><p>Gebäude und Gelände in echter 3D-Darstellung.</p></div></li>
+<li><span class="map-icon map-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 21v-4a6 6 0 0 1 12 0v4M17 4a3 3 0 0 1 0 6M21 21v-4a6 6 0 0 0-3-5"/></svg></span><div><h3>Orte finden</h3><p>Wichtige Spawn-, Stadt- und Projektbereiche.</p></div></li>
+</ul></section>
+<section id="mapViewport" class="map-viewport" aria-label="Interaktive BlueMap-Serverkarte">
+<div class="map-toolbar"><span class="map-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5v10l-9 5-9-5V7zM3 7l9 5 9-5M12 12v10"/></svg> BlueMap <span id="mapLive" class="map-live" hidden><i></i>Live</span></span><button id="mapFullscreen" class="map-fullscreen" type="button" aria-label="Karte im Vollbild anzeigen" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button></div>
+<div id="mapPlaceholder" class="map-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 9-5 9 5-9 5zM3 12l9 5 9-5M3 17l9 5 9-5"/></svg><h2>Die Welt wartet auf dich</h2><p id="mapMessage" role="status">Die Serverkarte wird vorbereitet. Die Kartenadresse folgt in Kürze.</p></div>
+<iframe id="blueMapFrame" title="VeloCity BlueMap – interaktive 3D-Serverkarte" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="fullscreen" hidden></iframe>
+</section></div>
+<div class="map-bottom"><a id="mapExternal" class="map-open" target="_blank" rel="noopener noreferrer" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7M21 3 10 14M10 3H3v18h18v-7"/></svg><span>Serverkarte in neuem Tab öffnen</span><span aria-hidden="true">→</span></a><p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 11v6M12 7h.01"/></svg><strong>BlueMap</strong><span>Interaktive Serverkarte • Live-Ansicht • 3D-Erkundung</span></p></div>
+<p id="mapFallback" class="map-fallback" hidden>Falls die Karte leer bleibt oder nicht geladen werden kann, öffne sie über den Button in einem neuen Tab.</p>
+<div class="map-ornament" aria-hidden="true"><span></span></div>
+<noscript><p>Bitte JavaScript aktivieren, um die Serverkarte zu laden.</p></noscript>
+</div></main>
+      <footer class="foot">
+        <span>© 2026 VeloCity</span><span aria-hidden="true">·</span
+        ><span
+          >Developed by
+          <strong class="developer-credit">MicroMiner</strong></span
+        ><span aria-hidden="true">·</span
+        ><a href="#impressum" id="openImpressum" aria-haspopup="dialog"
+          >Impressum</a
+        >
+      </footer>
+    </div>
+    <dialog
+      id="impressum"
+      class="legal-dialog"
+      aria-labelledby="impressumTitle"
+    ></dialog>
+
+<script src="assets/js/ui.js?v=legal-2" defer></script>
+<script src="assets/js/site-config.js?v=map-1" defer></script>
+<script src="assets/js/serverkarte.js?v=map-1" defer></script>
+</body></html>

@@ -1,0 +1,50 @@
+/* Gallery: shared VeloCity surfaces, viewport-filling image viewer. */
+.gallery-page .portal-main {padding:24px 0 28px;}
+.gallery-shell {padding:0 28px 24px;border:1px solid #355574;border-radius:20px;background:rgba(5,20,37,.86);box-shadow:var(--panel-shadow);overflow:hidden;}
+.gallery-page .gallery-hero {margin:0 -28px 26px;padding:34px 32px 30px;border-bottom:1px solid var(--gold-line);background:linear-gradient(90deg,#06172c 12%,rgba(6,23,44,.94) 43%,rgba(6,23,44,.18)),url('../images/velocity-castle-night.webp') right 44%/cover;}
+.gallery-hero .brand {font-size:.8rem;}
+.gallery-page .gallery-hero h1 {font-size:clamp(1.9rem,3vw,2.6rem);margin:6px 0 10px;line-height:1.2;}
+.gallery-hero h1 span {color:var(--accent-gold);}
+.gallery-hero p {max-width:680px;}
+.gallery-heading {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px;}
+.gallery-heading h2 {font-size:1.1rem;margin:0;}
+.gallery-heading p {font-size:.85rem;color:var(--text-secondary);margin:0;}
+.gallery-page .gallery-grid {gap:22px;}
+.gallery-page .gallery-card {position:relative;background:linear-gradient(145deg,#152f4a,#0b2037);border-color:#355574;box-shadow:0 8px 24px #020c1c30;transition:transform 160ms ease,border-color 160ms ease,box-shadow 160ms ease;}
+.gallery-page .gallery-card:hover {border-color:var(--accent-gold);transform:translateY(-3px);box-shadow:0 12px 28px #020c1c60;}
+.gallery-media {position:relative;display:block;overflow:hidden;background:var(--input-bg);}
+.gallery-media img {display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform 240ms ease;}
+.gallery-card:hover .gallery-media img {transform:scale(1.035);}
+.gallery-expand {position:absolute;right:12px;bottom:12px;display:grid;place-items:center;width:36px;height:36px;border:1px solid #8eb2cc70;border-radius:10px;background:#07172bd9;color:var(--accent-gold);font-size:1.5rem;}
+.gallery-page .gallery-caption {padding:16px 18px;gap:8px;}
+.gallery-page .gallery-card-title {font-size:1.05rem;font-weight:750;}
+.gallery-page .gallery-category {align-self:flex-start;padding:3px 9px;border:1px solid #46647f;border-radius:7px;font-size:.73rem;color:var(--text-secondary);}
+.gallery-ornament {display:flex;align-items:center;gap:18px;margin:30px 0 0;}
+.gallery-ornament:before,.gallery-ornament:after {content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--accent-gold));}
+.gallery-ornament:after {transform:rotate(180deg);}
+.gallery-ornament span {width:10px;height:10px;border:2px solid var(--accent-gold);transform:rotate(45deg);}
+.gallery-page #galleryStatus:empty {display:none;}
+html.gallery-viewer-open,html.gallery-viewer-open body {overflow:hidden;}
+.gallery-page .gallery-dialog {position:fixed;inset:0;width:100%;height:100%;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:0;background:#040b15;color:var(--text-primary);overflow:hidden;overscroll-behavior:contain;}
+.gallery-page .gallery-dialog::backdrop {background:#040b15;opacity:1;}
+.gallery-page .gallery-dialog figure {position:absolute;inset:0;margin:0;}
+.gallery-page .gallery-dialog figure>img {width:100%;height:100%;max-height:none;object-fit:contain;touch-action:pinch-zoom;}
+.gallery-page .gallery-dialog.is-loading figure>img {opacity:.3;}
+.gallery-page .gallery-dialog figcaption {position:absolute;inset:auto 0 0;padding:42px max(70px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom));text-align:center;background:linear-gradient(transparent,rgba(4,11,21,.92));pointer-events:none;}
+.gallery-page .gallery-dialog h2 {font-size:1rem;margin:0;line-height:1.4;}
+.gallery-page .gallery-dialog figcaption p {margin:6px auto 0;max-width:760px;max-height:15vh;overflow:auto;pointer-events:auto;}
+.gallery-viewer-top {position:absolute;inset:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:max(14px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 26px max(16px,env(safe-area-inset-left));background:linear-gradient(rgba(4,11,21,.8),transparent);pointer-events:none;}
+#galleryPosition {font-size:.9rem;font-weight:650;font-variant-numeric:tabular-nums;}
+.gallery-viewer-actions {display:flex;gap:10px;pointer-events:auto;}
+.gallery-page .gallery-viewer-button {display:grid;place-items:center;width:46px;height:46px;padding:0;border:1px solid #819bb875;border-radius:12px;background:#0b1d32d9;color:var(--text-primary);font-size:1.8rem;line-height:1;cursor:pointer;touch-action:manipulation;}
+.gallery-page .gallery-close {position:static;color:var(--danger);border-color:#ff738180;font-size:2rem;}
+.gallery-viewer-button:hover {background:#203b55;}
+.gallery-viewer-button:focus-visible {outline:2px solid var(--accent-gold);outline-offset:3px;}
+.gallery-page .gallery-previous,.gallery-page .gallery-next {position:absolute;top:50%;transform:translateY(-50%);font-size:2.4rem;}
+.gallery-previous {left:max(16px,env(safe-area-inset-left));}
+.gallery-next {right:max(16px,env(safe-area-inset-right));}
+.gallery-page #galleryImageStatus:not(:empty) {position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;padding:16px 20px;max-width:calc(100% - 140px);border-radius:12px;background:#0b1d32ed;color:var(--text-primary);text-align:center;}
+.gallery-page [hidden] {display:none!important;}
+@media(max-width:760px){.gallery-heading{align-items:flex-start;flex-direction:column;gap:6px}.gallery-page .gallery-grid{gap:18px}.gallery-shell{padding:0 16px 20px}.gallery-page .gallery-hero{margin-inline:-16px;padding:28px 22px}.gallery-page .gallery-caption{padding:14px 16px}}
+@media(max-width:600px){.gallery-page .gallery-dialog figcaption{padding-inline:24px;padding-bottom:max(20px,env(safe-area-inset-bottom))}.gallery-page .gallery-viewer-button{width:44px;height:44px}.gallery-previous{left:8px}.gallery-next{right:8px}.gallery-page #galleryImageStatus:not(:empty){max-width:calc(100% - 120px);width:260px;font-size:.85rem}}
+@media(prefers-reduced-motion:reduce){.gallery-page .gallery-card,.gallery-media img{transition:none}.gallery-page .gallery-card:hover,.gallery-card:hover .gallery-media img{transform:none}}

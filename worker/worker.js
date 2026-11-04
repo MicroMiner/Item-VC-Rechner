@@ -1,5 +1,6 @@
 // VeloCity admin backend – deployed as Cloudflare Worker.
 import { newsRequest } from './news.js';
+import { discordInteractions } from './discord-interactions.js';
 // ADMIN_PASSWORD and GITHUB_TOKEN MUST be stored as Cloudflare Secrets.
 const jsonHeaders = {'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'};
 const reply=(data,status=200,headers={})=>new Response(JSON.stringify(data),{status,headers:{...jsonHeaders,...headers}});
@@ -58,7 +59,8 @@ async function ghRequest(env,method,body,file){
 function toBase64(text){const bytes=new TextEncoder().encode(text);let binary='';for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(binary)}
 function fromBase64(s){const binary=atob(s.replace(/\s/g,''));return new TextDecoder().decode(Uint8Array.from(binary,c=>c.charCodeAt(0)))}
 export default {
- async fetch(request,env){
+ async fetch(request,env,context){
+  if(new URL(request.url).pathname==='/discord/interactions')return discordInteractions(request,env,context);
   const origin=request.headers.get('Origin')||'';
   const allowed=env.SITE_ORIGIN?.replace(/\/$/,'');
   const cors=origin===allowed?{'Access-Control-Allow-Origin':origin,'Vary':'Origin','Access-Control-Allow-Methods':'GET,POST,PUT,OPTIONS','Access-Control-Allow-Headers':'Content-Type,Authorization'}:{};

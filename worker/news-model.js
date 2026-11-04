@@ -1,5 +1,6 @@
 // Shared validation used by the protected API and the offline seed/import tool.
-export const categories = ['Ankündigung', 'Update', 'Info', 'Changelog', 'Wartung'];
+import { categories } from '../shared/discord-news.mjs';
+export { categories };
 export function slugify(value) {
   return value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/ß/g, 'ss').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 100) || 'beitrag';
 }

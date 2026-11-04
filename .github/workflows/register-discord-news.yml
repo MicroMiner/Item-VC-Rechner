@@ -1,0 +1,35 @@
+name: Discord news command einrichten
+
+on:
+  workflow_dispatch:
+    inputs:
+      application_id:
+        description: Discord Application ID
+        required: true
+        type: string
+      guild_id:
+        description: Discord Server ID (Guild ID)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: velocity-discord-command-setup
+  cancel-in-progress: false
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Register only the news command
+        env:
+          DISCORD_APPLICATION_ID: ${{ inputs.application_id }}
+          DISCORD_GUILD_ID: ${{ inputs.guild_id }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+        run: node scripts/register-discord-news.mjs --apply

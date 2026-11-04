@@ -2,6 +2,8 @@
 // Node.js 22+, no third-party dependencies. Never expose the bot token to the browser.
 import { readFile, writeFile } from "node:fs/promises";
 import { createNewsBridge } from "./discord-news-client.mjs";
+import { parseStructuredDiscordNews } from '../shared/discord-news.mjs';
+import { cacheDiscordNewsImage } from './discord-news-images.mjs';
 
 const token = process.env.DISCORD_BOT_TOKEN;
 const channel = process.env.DISCORD_CHANNEL_ID;
@@ -41,6 +43,16 @@ for (let page = 0; page < 2; page++) {
 }
 
 const categories = new Set(["Ankündigung", "Update", "Changelog", "Wartung"]);
+const selfResponse=await fetch('https://discord.com/api/v10/users/@me',{headers:{Authorization:`Bot ${token}`}});
+if(!selfResponse.ok)throw Error('Discord bot identity lookup failed.');
+const self=await selfResponse.json();
+if(!/^\d{17,22}$/.test(self.id||''))throw Error('Invalid Discord bot identity.');
+async function structuredPost(message){
+ if(message.type!==0)return null;
+ const structured=parseStructuredDiscordNews(message,self.id);if(!structured)return null;
+ const image=await cacheDiscordNewsImage(message.id,structured);
+ return {id:`discord-${message.id}`,source:'discord',sourceId:String(message.id),title:structured.title,category:structured.category,excerpt:structured.excerpt,content:structured.content,publishedAt:message.timestamp,image,url:`https://discord.com/channels/${process.env.DISCORD_GUILD_ID||'@me'}/${channel}/${message.id}`};
+}
 function convert(m) {
   if (!m || m.type !== 0 || !m.id || !m.timestamp) return null;
   // Ignore bots: avoids importing automated echoes and unrelated integrations.
@@ -72,14 +84,17 @@ function convert(m) {
 
 // Backend mode shares the persistent news store and never exposes the ingest token.
 if (process.env.NEWS_API_URL) {
-  const bridge = createNewsBridge();
+  const bridge = createNewsBridge({...process.env,DISCORD_NEWS_BOT_ID:self.id});
   try {
     // Verify the configured guild against Discord, rather than inventing guild IDs.
     const metadata = await fetch(`https://discord.com/api/v10/channels/${channel}`, {headers:{Authorization:`Bot ${token}`}});
     if(!metadata.ok)throw Error('Discord channel lookup failed.');
     const info=await metadata.json();
     if(info.guild_id!==process.env.DISCORD_GUILD_ID)throw Error('Configured guild does not match the news channel.');
-    for(const message of messages)if(message.type===0)await bridge.message({...message,guild_id:info.guild_id,channel_id:channel});
+    for(const message of messages)if(message.type===0){
+      const structured=await structuredPost(message);
+      await bridge.message({...message,guild_id:info.guild_id,channel_id:channel},structured?{image:structured.image?new URL(structured.image,process.env.NEWS_PUBLIC_BASE_URL||'https://microminer.github.io/VeloCity/').href:null}:{});
+    }
     await bridge.heartbeat(true);
     console.log('Authenticated news synchronization completed.');
   } catch(error) { await bridge.heartbeat(false).catch(()=>{});throw error; }
@@ -87,10 +102,11 @@ if (process.env.NEWS_API_URL) {
 }
 
 const fetchedIds = new Set(messages.map(m => String(m.id)));
-const incoming = messages.map(convert).filter(Boolean);
+const incoming=[];
+for(const message of messages){const post=await structuredPost(message)||convert(message);if(post)incoming.push(post);}
 const other = original.updates.filter(x => x.source !== "discord");
 const oldDiscord = original.updates.filter(x => x.source === "discord" && !fetchedIds.has(String(x.sourceId)));
-const merged = [...other, ...oldDiscord, ...incoming]
+const merged = [...new Map([...other, ...oldDiscord, ...incoming].map(post=>[post.id,post])).values()]
   .sort((a,b) => Date.parse(b.publishedAt ?? 0) - Date.parse(a.publishedAt ?? 0));
 const oldComparable = JSON.stringify(original.updates);
 const newComparable = JSON.stringify(merged);

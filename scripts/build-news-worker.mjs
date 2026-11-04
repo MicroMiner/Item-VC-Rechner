@@ -1,9 +1,10 @@
 // Build the dashboard's single-file ES-module Worker without external dependencies.
 import {readFile,writeFile} from 'node:fs/promises';
 const root=new URL('../worker/',import.meta.url),parts=[];
-for(const name of ['news-model.js','news.js','worker.js']){
+for(const name of ['../shared/discord-news.mjs','news-model.js','news.js','discord-interactions.js','worker.js']){
  let source=await readFile(new URL(name,root),'utf8');
- source=source.replace(/^import\s+[^\n]+from\s+['"]\.\/news(?:-model)?\.js['"];?\s*$/gm,'');
+ source=source.replace(/^import\s+\{[^}]+\}\s+from\s+['"](?:\.\/|\.\.\/shared\/)[^'"]+['"];?\s*$/gm,'');
+ source=source.replace(/^export\s*\{[^}]+\};?\s*$/gm,'');
  source=source.replace(/^export (?=(?:async )?function|const )/gm,'');
  if(/^\s*import\s/m.test(source))throw Error('Unsupported dependency in '+name);
  parts.push('// Source: '+name+'\n'+source.trim());

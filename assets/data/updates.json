@@ -1,7 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03T23:36:13.207Z",
+  "updatedAt": "2026-11-04T12:17:03.063Z",
   "updates": [
+    {
+      "id": "discord-1567512766456270932",
+      "source": "discord",
+      "sourceId": "1567512766456270932",
+      "title": "I bi ba la",
+      "category": "Changelog",
+      "excerpt": "Was auch immer",
+      "content": "Bald fertig",
+      "publishedAt": "2026-11-04T12:16:06.502000+00:00",
+      "image": null,
+      "url": "https://discord.com/channels/@me/1566486495303434350/1567512766456270932"
+    },
     {
       "id": "discord-1567321389105676334",
       "source": "discord",

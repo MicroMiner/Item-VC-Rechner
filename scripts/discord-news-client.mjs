@@ -1,5 +1,6 @@
 // Adapter for the existing Discord bot. No bot client, Gateway connection or Discord posting.
 import {createHash} from 'node:crypto';
+import {parseStructuredDiscordNews} from '../shared/discord-news.mjs';
 const snowflake=x=>typeof x==='string'&&/^\d{17,22}$/.test(x);
 export function createNewsBridge(config=process.env,transport=fetch){
  const base=(config.NEWS_API_URL||'').replace(/\/$/,'');
@@ -9,10 +10,12 @@ export function createNewsBridge(config=process.env,transport=fetch){
  async function send(path,data){const response=await transport(base+path,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+secret},body:JSON.stringify({guildId,channelId,...data}),signal:AbortSignal.timeout(15000)});if(!response.ok)throw Error('News backend rejected request (HTTP '+response.status+').');return response.json();}
  return {
   heartbeat(ok=true){return send('/discord/heartbeat',{ok});},
-  async message(message){
+  async message(message,options={}){
    const channel=message.channelId||message.channel_id,guild=message.guildId||message.guild_id;
-   if(channel!==channelId||guild!==guildId||message.author?.bot||!snowflake(String(message.id)))return {ignored:true};
-   const content=String(message.content||'').trim();if(!content)return {ignored:true};
+   if(channel!==channelId||guild!==guildId||!snowflake(String(message.id)))return {ignored:true};
+   const structured=parseStructuredDiscordNews(message,config.DISCORD_NEWS_BOT_ID);
+   if(message.author?.bot&&!structured)return {ignored:true};
+   const content=String(message.content||structured?.title||'').trim();if(!content)return {ignored:true};
    const lines=content.split(/\r?\n/),first=lines.shift().trim();
    const tag=/^\[(Ankündigung|Update|Info|Changelog|Wartung)\]\s*/i.exec(first);
    const names=['Ankündigung','Update','Info','Changelog','Wartung'];
@@ -23,6 +26,7 @@ export function createNewsBridge(config=process.env,transport=fetch){
    const attachments=message.attachments?.values?[...message.attachments.values()]:message.attachments||[];
    const image=attachments.find(x=>String(x.contentType||x.content_type||'').startsWith('image/'))?.url||null;
    const data={messageId:String(message.id),type:edited?'update':'create',eventAt,publishedAt:published,title,content:(lines.join('\n').trim()||title).slice(0,20000),category:tag?names.find(x=>x.toLowerCase()===tag[1].toLowerCase()):'Ankündigung',image};
+   if(structured)Object.assign(data,{title:structured.title,category:structured.category,excerpt:structured.excerpt,content:structured.content,image:Object.hasOwn(options,'image')?options.image:structured.image});
    data.eventId=String(message.id)+':'+createHash('sha256').update(JSON.stringify(data)).digest('hex');
    return send('/discord/events',data);
   },

@@ -10,6 +10,11 @@ SITE_ORIGIN = "https://microminer.github.io"
 DISCORD_DELETE_MODE = "hide"
 # DISCORD_GUILD_ID = "set-your-server-id"
 # DISCORD_CHANNEL_ID = "set-your-news-channel-id"
+# Discord editor (public configuration; keep actual values in your Worker settings).
+# DISCORD_APPLICATION_ID = "set-your-application-id"
+# DISCORD_PUBLIC_KEY = "64-character-public-key-from-discord"
+# DISCORD_NEWS_ADMIN_ROLE_IDS = "role-id,another-role-id"
+# DISCORD_NEWS_ADMIN_USER_IDS = "optional-user-id"
 
 [[d1_databases]]
 binding = "NEWS_DB"
@@ -17,3 +22,4 @@ database_name = "velocity-news"
 database_id = "22c08a8b-70df-42cc-aa05-d0f3e4cbab2d"
 migrations_dir = "migrations"
 # Secrets: existing ADMIN_PASSWORD/GITHUB_TOKEN; new DISCORD_INGEST_TOKEN.
+# Discord editor secret: DISCORD_BOT_TOKEN (same application's bot, never a frontend value).

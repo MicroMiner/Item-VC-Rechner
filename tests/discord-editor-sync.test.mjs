@@ -1,0 +1,60 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtemp,readFile,writeFile,mkdir,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join,resolve} from 'node:path';
+import {execFile} from 'node:child_process';
+import {promisify} from 'node:util';
+import {discordNewsEmbed,parseStructuredDiscordNews} from '../shared/discord-news.mjs';
+import {registerDiscordNews} from '../scripts/register-discord-news.mjs';
+const run=promisify(execFile),APP='111111111111111111',GUILD='222222222222222222',CHANNEL='333333333333333333',ATT='666666666666666666',MID='777777777777777777';
+test('command setup defaults to no network and upserts only /news without deleting other commands',async()=>{
+ const calls=[],commands=new Map([['existing',{id:'old',name:'existing'}]]);
+ const transport=async(url,options)=>{calls.push(url);if(url.endsWith('/oauth2/applications/@me'))return Response.json({id:APP});if(url.endsWith('/users/@me'))return Response.json({id:APP});assert.equal(options.method,'POST');const command=JSON.parse(options.body);commands.set(command.name,{...command,id:'registered'});return Response.json(commands.get(command.name));};
+ const config={DISCORD_APPLICATION_ID:APP,DISCORD_GUILD_ID:GUILD,DISCORD_BOT_TOKEN:'mock-secret'};
+ assert.equal((await registerDiscordNews(config,transport)).dryRun,true);assert.equal(calls.length,0);
+ for(let i=0;i<2;i++){const result=await registerDiscordNews(config,transport,true);assert.equal(result.commandId,'registered');assert.equal(JSON.stringify(result).includes('mock-secret'),false);}
+ assert.equal(commands.size,2);assert.equal(commands.get('news').options[0].name,'erstellen');assert.equal(commands.get('news').default_member_permissions,'0');assert.ok(commands.has('existing'));
+ await assert.rejects(()=>registerDiscordNews({...config,DISCORD_GUILD_ID:'bad'},transport,true));
+ const before=calls.length;await assert.rejects(()=>registerDiscordNews(config,async()=>Response.json({id:'wrong-app'}),true));assert.equal(calls.length,before);
+});
+test('existing scheduled importer handles trusted structured bot posts and normal messages, archives images, retains deletions and remains idempotent',async()=>{
+ const directory=await mkdtemp(join(tmpdir(),'velocity-discord-sync-'));
+ try{
+  const png=await readFile(new URL('../assets/images/favicon.png',import.meta.url));
+  const full='Vollständiger Inhalt\n\n'+'x'.repeat(3900),excerpt='Eine vollständige Kurzbeschreibung';
+  const image=`https://cdn.discordapp.com/attachments/${CHANNEL}/${ATT}/title-image.png?ex=first`;
+  const structured={id:MID,type:0,author:{id:APP,bot:true},content:'[Info] Strukturierte News',embeds:[discordNewsEmbed({title:'Strukturierte News',category:'Info',content:full,excerpt},image)],attachments:[{id:ATT,filename:'title-image.png',url:image}],timestamp:'2026-11-04T10:00:00Z'};
+  const normal={id:'888888888888888888',type:0,author:{id:'999999999999999999',bot:false},content:'[Update] Normale Nachricht\nNormaler Inhalt bleibt erhalten.',timestamp:'2026-11-04T09:00:00Z'};
+  const otherBot={...structured,id:'444444444444444444',author:{id:'555555555555555555',bot:true}};
+  assert.equal(parseStructuredDiscordNews(otherBot,APP),null);
+  await mkdir(join(directory,'assets/data'),{recursive:true});
+  const kept={id:'discord-123456789012345678',source:'discord',sourceId:'123456789012345678',title:'Aus Discord entfernt, auf Webseite aufbewahrt',content:'Bleibt erhalten.',category:'Info',publishedAt:'2026-10-01T00:00:00Z'};
+  const manual={id:'manual-kept',source:'manual',title:'Manuell',content:'Unverändert',category:'Info',publishedAt:'2026-09-01T00:00:00Z'};
+  await writeFile(join(directory,'assets/data/updates.json'),JSON.stringify({version:1,updates:[kept,manual]}));
+  const messagesFile=join(directory,'messages.json'),log=join(directory,'requests.jsonl');await writeFile(messagesFile,JSON.stringify([structured,normal,otherBot]));
+  const mock=join(directory,'mock-fetch.mjs');
+  await writeFile(mock,`import {readFileSync,appendFileSync} from 'node:fs';
+globalThis.fetch=async(input,options={})=>{const u=new URL(input);appendFileSync(${JSON.stringify(log)},JSON.stringify({host:u.hostname,path:u.pathname,method:options.method||'GET'})+'\\n');
+if(options.method&&options.method!=='GET')throw Error('Importer must never publish a Discord message');
+if(u.hostname==='discord.com'&&u.pathname==='/api/v10/users/@me')return Response.json({id:${JSON.stringify(APP)}});
+if(u.hostname==='discord.com'&&u.pathname==='/api/v10/channels/${CHANNEL}/messages')return Response.json(JSON.parse(readFileSync(${JSON.stringify(messagesFile)},'utf8')));
+if(u.hostname==='cdn.discordapp.com')return new Response(Buffer.from(${JSON.stringify(png.toString('base64'))},'base64'),{headers:{'Content-Type':'image/png'}});
+throw Error('Unexpected offline-test request');};`);
+  const script=resolve('scripts/sync-discord.mjs');
+  const options={cwd:directory,env:{...process.env,DISCORD_BOT_TOKEN:'mock-only',DISCORD_CHANNEL_ID:CHANNEL,DISCORD_GUILD_ID:GUILD,NEWS_API_URL:''}};
+  await run(process.execPath,['--import',mock,script],options);
+  const file=join(directory,'assets/data/updates.json'),first=await readFile(file,'utf8'),data=JSON.parse(first);
+  assert.equal(data.updates.length,4);assert.equal(new Set(data.updates.map(p=>p.id)).size,4);
+  const post=data.updates.find(p=>p.id==='discord-'+MID);assert.equal(post.title,'Strukturierte News');assert.equal(post.category,'Info');assert.equal(post.excerpt,excerpt);assert.equal(post.content,full);assert.match(post.image,/^assets\/img\/news\/discord-/);
+  assert.deepEqual(await readFile(join(directory,post.image)),png);
+  const importedNormal=data.updates.find(p=>p.id==='discord-'+normal.id);assert.equal(importedNormal.title,'Normale Nachricht');assert.equal(importedNormal.content,'Normaler Inhalt bleibt erhalten.');assert.equal(importedNormal.category,'Update');
+  assert.ok(data.updates.some(p=>p.id===kept.id));assert.ok(data.updates.some(p=>p.id===manual.id));
+  await run(process.execPath,['--import',mock,script],options);assert.equal(await readFile(file,'utf8'),first,'same messages do not create duplicates or needless JSON changes');
+  const requests=(await readFile(log,'utf8')).trim().split('\n').map(JSON.parse);assert.equal(requests.filter(r=>r.host==='cdn.discordapp.com').length,1,'stable public image is cached once');assert.ok(requests.every(r=>r.method==='GET'));
+  structured.embeds[0].description='Bearbeiteter strukturierter Inhalt';normal.content='[Update] Geänderte normale Nachricht\nAktualisiert.';
+  await writeFile(messagesFile,JSON.stringify([structured,normal]));await run(process.execPath,['--import',mock,script],options);
+  const updated=JSON.parse(await readFile(file,'utf8'));assert.equal(updated.updates.length,4);assert.equal(updated.updates.find(p=>p.id===post.id).content,'Bearbeiteter strukturierter Inhalt');assert.equal(updated.updates.find(p=>p.id===importedNormal.id).title,'Geänderte normale Nachricht');
+  const workflow=await readFile('.github/workflows/sync-news.yml','utf8');assert.ok(workflow.includes('cron: "17,47 * * * *"'));assert.ok(workflow.includes('git add -- assets/img/news'));
+ }finally{await rm(directory,{recursive:true,force:true});}
+});

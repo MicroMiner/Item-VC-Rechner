@@ -47,9 +47,18 @@ const selfResponse=await fetch('https://discord.com/api/v10/users/@me',{headers:
 if(!selfResponse.ok)throw Error('Discord bot identity lookup failed.');
 const self=await selfResponse.json();
 if(!/^\d{17,22}$/.test(self.id||''))throw Error('Invalid Discord bot identity.');
+console.log(JSON.stringify({event:'discord_news_scan',channelId:channel,botId:self.id,messages:messages.length,ownBotMessages:messages.filter(m=>m.author?.bot&&String(m.author.id)===self.id).length}));
 async function structuredPost(message){
  if(message.type!==0)return null;
- const structured=parseStructuredDiscordNews(message,self.id);if(!structured)return null;
+ const structured=parseStructuredDiscordNews(message,self.id);
+ if(!structured){
+  if(message.author?.bot&&String(message.author.id)===self.id){
+   const embed=message.embeds?.[0],attachments=Array.isArray(message.attachments)?message.attachments:[];
+   // Public IDs and schema flags only: no token, content, title or signed image URLs.
+   console.log(JSON.stringify({event:'discord_news_skipped_bot_post',messageId:String(message.id),embedCount:message.embeds?.length||0,webhook:Boolean(message.webhook_id),footerVersion:embed?.footer?.text==='VeloCity News · v1'?'v1':embed?.footer?.text==='VeloCity · Neuigkeiten & Changelog'?'v2':'other',markerUrlMatches:embed?.url==='https://microminer.github.io/VeloCity/neuigkeiten.html#discord-news-v2',authorMatches:Boolean(embed?.author?.name?.startsWith('VeloCity · ')),hasImage:Boolean(embed?.image),attachments:attachments.length,hasTitleImage:attachments.some(a=>/^title-image\.(jpg|png|webp|gif)$/.test(a.filename||''))}));
+  }
+  return null;
+ }
  const image=await cacheDiscordNewsImage(message.id,structured);
  return {id:`discord-${message.id}`,source:'discord',sourceId:String(message.id),title:structured.title,category:structured.category,excerpt:structured.excerpt,content:structured.content,publishedAt:message.timestamp,image,url:`https://discord.com/channels/${process.env.DISCORD_GUILD_ID||'@me'}/${channel}/${message.id}`};
 }

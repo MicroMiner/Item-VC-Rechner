@@ -16,8 +16,9 @@
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/portal.css" />
+    <link rel="stylesheet" href="assets/css/gallery.css?v=gallery-2" />
   </head>
-  <body class="site-page portal-page">
+  <body class="site-page portal-page gallery-page">
     <div class="wrap">
       <header class="site-header">
         <a
@@ -40,15 +41,16 @@
           <a class="nav-link" href="serverkarte.html">Serverkarte</a>
         </nav>
       </header>
-      <main class="portal-main">
-        <header class="portal-heading">
+      <main class="portal-main"><div class="gallery-shell">
+        <header class="portal-heading gallery-hero">
           <div class="brand">VELOCITY SERVER</div>
-          <h1>Galerie</h1>
+          <h1>Einblicke in <span>VeloCity</span></h1>
           <p>
             Entdecke unsere Minecraft-Welt, besondere Bauprojekte und
             unvergessliche Momente.
           </p>
         </header>
+        <div class="gallery-heading"><h2>Unsere Welt in Bildern</h2><p><span id="galleryTotal"></span> · Bilder antippen und gross entdecken</p></div>
         <section
           id="galleryGrid"
           class="gallery-grid"
@@ -63,7 +65,8 @@
             Bitte JavaScript aktivieren, um die Galerie zu laden.
           </p></noscript
         >
-      </main>
+        <div class="gallery-ornament" aria-hidden="true"><span></span></div>
+      </div></main>
       <footer class="foot">
         <span>© 2026 VeloCity</span><span aria-hidden="true">·</span
         ><span
@@ -80,48 +83,23 @@
       class="legal-dialog"
       aria-labelledby="impressumTitle"
     ></dialog>
-    <dialog
-      id="galleryDialog"
-      class="gallery-dialog"
-      aria-labelledby="galleryTitle"
-    >
-      <button
-        id="galleryClose"
-        class="btn gallery-close"
-        type="button"
-        aria-label="Bildansicht schliessen"
-        autofocus
-      >
-        ×
-      </button>
+    <dialog id="galleryDialog" class="gallery-dialog" aria-labelledby="galleryTitle">
       <figure>
-        <img id="galleryFullImage" alt="" width="1920" height="1017" />
-        <figcaption>
-          <h2 id="galleryTitle"></h2>
-          <p id="galleryDescription"></p>
-        </figcaption>
+        <img id="galleryFullImage" alt="" width="1920" height="1017" draggable="false" />
+        <figcaption><h2 id="galleryTitle"></h2><p id="galleryDescription"></p></figcaption>
       </figure>
-      <div class="gallery-controls">
-        <button
-          id="galleryPrevious"
-          class="btn"
-          type="button"
-          aria-label="Vorheriges Bild"
-        >
-          ←</button
-        ><span id="galleryPosition" role="status" aria-live="polite"></span
-        ><button
-          id="galleryNext"
-          class="btn"
-          type="button"
-          aria-label="Nächstes Bild"
-        >
-          →
-        </button>
+      <div class="gallery-viewer-top">
+        <span id="galleryPosition" role="status" aria-live="polite"></span>
+        <div class="gallery-viewer-actions">
+          <button id="galleryFullscreen" class="gallery-viewer-button" type="button" aria-label="Browser-Vollbild aktivieren" hidden>⛶</button>
+          <button id="galleryClose" class="gallery-viewer-button gallery-close" type="button" aria-label="Bildansicht schliessen" autofocus>×</button>
+        </div>
       </div>
+      <button id="galleryPrevious" class="gallery-viewer-button gallery-previous" type="button" aria-label="Vorheriges Bild">‹</button>
+      <button id="galleryNext" class="gallery-viewer-button gallery-next" type="button" aria-label="Nächstes Bild">›</button>
       <p id="galleryImageStatus" role="status"></p>
     </dialog>
     <script src="assets/js/ui.js?v=legal-2" defer></script>
-    <script src="assets/js/gallery.js" type="module"></script>
+    <script src="assets/js/gallery.js?v=gallery-2" type="module"></script>
   </body>
 </html>

@@ -1,9 +1,8 @@
 /* Vector symbols use a centred SVG box, independent of font glyph metrics. */
-.gallery-page .gallery-viewer-button {display:flex;align-items:center;justify-content:center;padding:0;line-height:0;}
-.gallery-page .gallery-viewer-button svg {display:block;width:24px;height:24px;flex:none;pointer-events:none;}
+.gallery-page .gallery-viewer-button {position:relative;display:block;padding:0;line-height:0;}
+.gallery-page .gallery-previous,.gallery-page .gallery-next {position:absolute;}
+.gallery-page .gallery-viewer-button svg {position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:block;width:24px;height:24px;margin:0;pointer-events:none;}
 .gallery-page .gallery-previous svg,.gallery-page .gallery-next svg {width:26px;height:26px;}
-.gallery-page .gallery-expand {display:flex;align-items:center;justify-content:center;line-height:0;}
-.gallery-page .gallery-expand svg {display:block;width:22px;height:22px;flex:none;}
 .home-page .home-server-icon,.home-page .home-feature-icon {align-items:center;justify-content:center;}
 .home-page .home-button svg,.home-page .home-feature-icon svg,.home-page .home-server-icon svg {display:block;flex-shrink:0;}
 .calculator-toggle {padding:0;align-items:center;justify-content:center;}

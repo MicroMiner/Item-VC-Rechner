@@ -66,26 +66,9 @@ dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });
 // Modal focus and Escape handling are provided by the native dialog.
-const fullscreenButton = document.getElementById("galleryFullscreen");
-let ownsFullscreen = false;
 dialog.addEventListener("close", () => {
   document.documentElement.classList.remove("gallery-viewer-open");
-  if (ownsFullscreen && document.fullscreenElement) document.exitFullscreen().catch(() => {});
-  ownsFullscreen = false;
 });
-if (document.documentElement.requestFullscreen) {
-  fullscreenButton.hidden = false;
-  fullscreenButton.addEventListener("click", async () => {
-    try {
-      if (document.fullscreenElement) await document.exitFullscreen();
-      else { await document.documentElement.requestFullscreen(); ownsFullscreen = true; }
-    } catch { imageStatus.textContent = "Browser-Vollbild ist hier nicht verfügbar. Das Bild nutzt weiterhin die gesamte Fensterfläche."; }
-  });
-  document.addEventListener("fullscreenchange", () => {
-    fullscreenButton.setAttribute("aria-label", document.fullscreenElement ? "Browser-Vollbild beenden" : "Browser-Vollbild aktivieren");
-    if (!document.fullscreenElement) ownsFullscreen = false;
-  });
-}
 let touchStart = null;
 dialog.addEventListener("touchstart", event => {
   touchStart = event.touches.length === 1 ? {x:event.touches[0].clientX,y:event.touches[0].clientY} : null;
@@ -155,10 +138,7 @@ try {
       ),
     );
     const media = element("span", "gallery-media");
-    const expand = element("span", "gallery-expand");
-    expand.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></svg>';
-    expand.setAttribute("aria-hidden", "true");
-    media.append(thumbnail, expand);
+    media.append(thumbnail);
     button.append(media, caption);
     button.addEventListener("click", () => showImage(index));
     grid.append(button);

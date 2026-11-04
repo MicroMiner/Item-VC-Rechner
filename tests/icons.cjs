@@ -22,7 +22,7 @@ const {chromium}=require('playwright'),path=require('node:path'),assert=require(
   await page.screenshot({path:'/tmp/icons-converter-'+width+'.png',fullPage:true});
   await page.goto(base+'galerie.html');await page.waitForFunction(()=>document.querySelector('.gallery-card'));
   await page.locator('.gallery-card').first().click();
-  for(const selector of ['#galleryFullscreen','#galleryClose','#galleryPrevious','#galleryNext']){
+  for(const selector of ['#galleryClose','#galleryPrevious','#galleryNext']){
    assert.ok(await page.locator(selector).evaluate(n=>{const a=n.getBoundingClientRect(),svg=n.querySelector('svg'),b=svg.getBoundingClientRect(),drawing=svg.getBBox();return Math.abs(a.x+a.width/2-b.x-b.width/2)<.6&&Math.abs(a.y+a.height/2-b.y-b.height/2)<.6&&Math.abs(drawing.x+drawing.width/2-12)<.01&&Math.abs(drawing.y+drawing.height/2-12)<.01;}),selector+' symbol centred');
   }
   await page.screenshot({path:'/tmp/icons-gallery-'+width+'.png'});

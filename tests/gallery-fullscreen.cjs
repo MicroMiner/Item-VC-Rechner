@@ -37,14 +37,13 @@ try{
   const end=new Event('touchend');Object.defineProperties(end,{touches:{value:[]},changedTouches:{value:[{clientX:80,clientY:302}]}});n.dispatchEvent(end);
  });
  assert.equal(await page.locator('#galleryPosition').textContent(),'2 / 6');
- await page.locator('#galleryFullscreen').click();
- await page.waitForFunction(()=>!!document.fullscreenElement);
- assert.ok(await page.locator('#galleryClose').isVisible());
- await page.locator('#galleryClose').click();await page.waitForFunction(()=>!document.fullscreenElement);
+ assert.equal(await page.locator('#galleryFullscreen').count(),0);
+ assert.equal(await page.locator('.gallery-expand').count(),0);
+ await page.locator('#galleryClose').click();
  await page.locator('.gallery-card').first().click();
  await page.locator('#galleryFullImage').evaluate(n=>n.dispatchEvent(new Event('error')));
  assert.match(await page.locator('#galleryImageStatus').textContent(),/nicht geladen/);
  assert.deepEqual(errors,[]);
- console.log('PASS: 6 real gallery photos, six viewport sizes, window-filling image area, arrows/wrapping, touch swipe, browser fullscreen, Escape, close, focus restoration, scroll unlock and image error.');
+ console.log('PASS: 6 real gallery photos, six viewport sizes, window-filling image area, arrows/wrapping, touch swipe, removed expand/fullscreen buttons, Escape, close, focus restoration, scroll unlock and image error.');
 }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

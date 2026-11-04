@@ -15,7 +15,6 @@
 .gallery-media {position:relative;display:block;overflow:hidden;background:var(--input-bg);}
 .gallery-media img {display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform 240ms ease;}
 .gallery-card:hover .gallery-media img {transform:scale(1.035);}
-.gallery-expand {position:absolute;right:12px;bottom:12px;display:grid;place-items:center;width:36px;height:36px;border:1px solid #8eb2cc70;border-radius:10px;background:#07172bd9;color:var(--accent-gold);font-size:1.5rem;}
 .gallery-page .gallery-caption {padding:16px 18px;gap:8px;}
 .gallery-page .gallery-card-title {font-size:1.05rem;font-weight:750;}
 .gallery-page .gallery-category {align-self:flex-start;padding:3px 9px;border:1px solid #46647f;border-radius:7px;font-size:.73rem;color:var(--text-secondary);}

@@ -84,8 +84,8 @@ auch für statisch importierte Discord-Beiträge eine dauerhafte Website-Sperre.
 
 Unter Repository → Settings → Pages → Build and deployment muss Source auf
 **GitHub Actions** stehen. `sync-news.yml` veröffentlicht dann sowohl Änderungen
-auf main als auch manuelle/geplante News-Abgleiche. Push-Läufe importieren keine
-Discord-Nachrichten; manuelle/geplante Läufe behalten den bisherigen Import.
+auf main als auch manuelle/geplante News-Abgleiche. Auch Push-Läufe importieren Discord-Nachrichten, damit jede Veröffentlichung
+den aktuellen Feed enthält. Manuelle und geplante Abgleiche bleiben verfügbar.
 Die gemeinsame Concurrency-Gruppe serialisiert Veröffentlichungen.
 Nicht gleichzeitig den eingebauten Branch-/Jekyll-Pages-Workflow verwenden:
 sonst können zwei Deployments mit „in progress deployment“ kollidieren.

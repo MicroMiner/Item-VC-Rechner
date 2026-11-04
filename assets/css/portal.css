@@ -1,6 +1,6 @@
 /* Portal additions share the established tokens; the converter does not load this file. */
 .portal-page .wrap {
-  min-height: 100svh;
+  min-height: calc(100svh / var(--site-scale));
   display: flex;
   flex-direction: column;
 }

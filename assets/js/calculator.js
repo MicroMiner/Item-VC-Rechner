@@ -111,8 +111,9 @@
   const isOpen = () => panel.matches(':popover-open');
   function position(left, top) {
     const bounds = panel.getBoundingClientRect();
-    panel.style.left = Math.max(8, Math.min(left, innerWidth - bounds.width - 8)) + 'px';
-    panel.style.top = Math.max(8, Math.min(top, innerHeight - bounds.height - 8)) + 'px';
+    const scale = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+    panel.style.left = Math.max(8, Math.min(left, innerWidth - bounds.width - 8)) / scale + 'px';
+    panel.style.top = Math.max(8, Math.min(top, innerHeight - bounds.height - 8)) / scale + 'px';
   }
   opener.addEventListener('click', () => {
     if (!isOpen()) panel.showPopover();

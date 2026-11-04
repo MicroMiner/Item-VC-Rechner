@@ -1,6 +1,8 @@
 /* Shared VeloCity palette. Legacy variable names remain aliases for the tool. */
 :root {
   color-scheme: dark;
+  --site-scale: 1;
+  zoom: var(--site-scale);
   --bg-dark: #081326;
   --bg-navy: #0c1d35;
   --bg-blue: #142b49;
@@ -40,7 +42,7 @@ body {
     -apple-system,
     Segoe UI,
     sans-serif;
-  min-height: 100vh;
+  min-height: calc(100vh / var(--site-scale));
   padding: 20px 12px;
 }
 .top {
@@ -1504,7 +1506,7 @@ select:focus-visible {
   outline-offset: 4px;
 }
 .home-page .wrap {
-  min-height: 100svh;
+  min-height: calc(100svh / var(--site-scale));
   display: flex;
   flex-direction: column;
 }
@@ -2093,3 +2095,12 @@ select:focus-visible {
 /* A stable three-line result in either converter layout. */
 .result-value-line { display: block; text-align: center; }
 .result-equals { display: block; margin-block: 10px; font-size: 1.1rem; font-weight: 500; color: var(--text-secondary); text-align: center; }
+
+/* Compact desktop view, equivalent in scale to 90% browser zoom.
+   Small screens retain their original text and touch target sizes.
+   Browsers without CSS zoom retain the unscaled layout. */
+@supports (zoom: 1) {
+  @media (min-width: 1100px) {
+    :root { --site-scale: 0.9; }
+  }
+}

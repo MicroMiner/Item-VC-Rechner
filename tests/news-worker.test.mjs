@@ -37,7 +37,7 @@ test('Discord auth, channel scope, heartbeat, idempotent updates and tombstones'
  const update={...event,type:'update',eventId:'message-update',eventAt:new Date(now-2000).toISOString(),title:'Bearbeitete Meldung'};
  assert.equal((await req(e,'/discord/events','POST',update,token,null)).status,200);
  p=(await (await req(e,'/news')).json()).posts[0];assert.equal(p.title,update.title);assert.equal(p.slug,'discord-meldung-'+event.messageId);
- const adminToken=await login(e);assert.equal((await req(e,'/news/admin','POST',{...draft,id:p.id,revision:p.revision},adminToken)).status,409);
+ const adminToken=await login(e);assert.equal((await req(e,'/news/admin','POST',{...draft,id:p.id,revision:p.revision-1},adminToken)).status,409);
  await req(e,'/discord/events','POST',{...event,eventId:'stale-create'},token,null);assert.equal((await (await req(e,'/news')).json()).posts[0].title,update.title);
  const del={...event,eventId:'message-delete',type:'delete',eventAt:new Date(now-1000).toISOString()};await req(e,'/discord/events','POST',del,token,null);
  assert.equal((await (await req(e,'/news')).json()).posts.length,0);

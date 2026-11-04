@@ -1,17 +1,22 @@
-import { api, sessionKey, request } from './news-data.js?v=auth-check-1';
+import { api, sessionKey, request, loadNews } from './news-data.js?v=news-editor-3';
+import { createNewsImageEditor } from './news-image.js?v=news-editor-3';
 import { element, article, dateFormatter } from './news-format.js';
 const $=id=>document.getElementById(id),panel=$('newsAdminPanel');
-let session=null,current=null,busy=false,dirty=false,changed=false,expiryTimer;
+let session=null,current=null,busy=false,dirty=false,changed=false,expiryTimer,canEdit=false;
+let knownPosts=new Map();
+const imageEditor=createNewsImageEditor({onChange:()=>{dirty=true;},upload:blob=>admin('/image',{method:'POST',headers:{'Content-Type':'image/jpeg'},body:blob,signal:AbortSignal.timeout(30000)})});
 function message(text){$('newsAdminMessage').textContent=text;}
 function forget(){try{localStorage.removeItem(sessionKey);}catch{}}
 function newId(){return crypto.randomUUID?.() || Array.from(crypto.getRandomValues(new Uint8Array(16)),x=>x.toString(16).padStart(2,'0')).join('');}
 function edit(post=null){
  current=post?{...post}:{id:newId(),revision:null};
  for(const [id,key] of [['postTitle','title'],['postExcerpt','excerpt'],['postContent','content'],['postImage','image']])$(id).value=post?.[key]||'';
+ imageEditor.reset(post?.image||'');
  $('postCategory').value=post?.category||'Update';$('postStatus').value=post?.status||'draft';$('deleteNewsPost').hidden=!post;
  $('newsEditorPreview').hidden=true;$('newsEditorPreview').replaceChildren();dirty=false;
 }
 function locked(clearSession=true){
+ canEdit=false;decorate();
  if(clearSession){session=null;clearTimeout(expiryTimer);}
  panel.classList.add('is-locked');$('newsAdminContent').inert=true;$('newsAdminContent').setAttribute('aria-hidden','true');
  $('newsLoginOverlay').hidden=false;$('newsAdminList').replaceChildren();edit();
@@ -35,19 +40,55 @@ async function admin(path='',options={}){
   throw error;
  }
 }
-function input(status){return {id:current.id,revision:current.revision,title:$('postTitle').value,category:$('postCategory').value,excerpt:$('postExcerpt').value,content:$('postContent').value,image:$('postImage').value,status:status||$('postStatus').value};}
-async function load(){
- const data=await admin();$('newsAdminList').replaceChildren();
- for(const p of data.posts){
-  const row=element('div','news-admin-row'),text=element('div');
-  text.append(element('strong','',p.title),element('small','',`${p.category} · ${p.status==='draft'?'Entwurf':'Veröffentlicht'}${p.hidden?' · Ausgeblendet':''} · ${p.source==='discord'?'Discord':'Manuell'} · ${dateFormatter.format(new Date(p.updatedAt))}`));
-  const button=element('button','news-button',p.source==='manual'?'Bearbeiten':p.hidden?'Einblenden':'Ausblenden');button.type='button';
-  button.addEventListener('click',async()=>{if(busy)return;if(p.source==='manual'){if(dirty&&!confirm('Ungespeicherte Änderungen verwerfen?'))return;edit(p);$('postTitle').focus();}else{try{await admin('/moderate',{method:'POST',body:JSON.stringify({id:p.id,revision:p.revision,hidden:!p.hidden})});changed=true;await load();message('Sichtbarkeit aktualisiert.');}catch(e){message(e.message);}}});
-  row.append(text,button);$('newsAdminList').append(row);
- }
- if(!data.posts.length)$('newsAdminList').append(element('p','muted','Noch keine Beiträge gespeichert.'));
- unlock();
+function input(status){return {id:current.id,revision:current.revision,title:$('postTitle').value,category:$('postCategory').value,excerpt:$('postExcerpt').value,content:$('postContent').value,image:$('postImage').value,status:status||$('postStatus').value,...(!current.revision&&current.original?{original:current.original}:{})};}
+function original(post){return post.revision?post:{...post,revision:null,original:{...post}};}
+function openEditor(post){
+ if(busy||!canEdit)return;
+ if(dirty&&!confirm('Ungespeicherte Änderungen verwerfen?'))return;
+ panel.hidden=false;$('openNewsAdmin').setAttribute('aria-expanded','true');edit(original(post));panel.scrollIntoView({block:'start',behavior:'smooth'});$('postTitle').focus({preventScroll:true});
 }
+async function removePost(post){
+ if(busy||!canEdit||!confirm('„'+post.title+'“ von der Webseite löschen? Der Beitrag bleibt in Discord unverändert.'))return;
+ busy=true;
+ try{
+  await admin('/delete',{method:'POST',body:JSON.stringify({id:post.id,revision:post.revision??null,...(!post.revision?{original:post}:{})})});
+  if(current?.id===post.id)edit();changed=true;await load();document.dispatchEvent(new Event('news-changed'));message('Beitrag gelöscht.');
+ }catch(error){message(error.message);if(panel.hidden){panel.hidden=false;panel.scrollIntoView({block:'start',behavior:'smooth'});}}
+ finally{busy=false;}
+}
+function decorate(){
+ for(const root of document.querySelectorAll('[data-news-id]')){
+  const existing=root.querySelector('.news-card-actions');
+  if(!canEdit){existing?.remove();root.classList.remove('has-news-controls');continue;}
+  const p=knownPosts.get(root.dataset.newsId);if(!p||p.hidden){existing?.remove();root.classList.remove('has-news-controls');continue;}
+  root.classList.add('has-news-controls');if(existing)continue;
+  const actions=element('div','news-card-actions');
+  const editButton=element('button','news-card-edit','Bearbeiten');editButton.type='button';editButton.setAttribute('aria-label','Beitrag bearbeiten: '+p.title);editButton.addEventListener('click',()=>openEditor(knownPosts.get(root.dataset.newsId)));
+  const del=element('button','news-card-delete');del.type='button';del.setAttribute('aria-label','Beitrag löschen: '+p.title);del.title='Beitrag löschen';
+  del.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';
+  del.addEventListener('click',()=>removePost(knownPosts.get(root.dataset.newsId)));actions.append(editButton,del);root.append(actions);
+ }
+}
+async function load(){
+ const data=await admin();canEdit=data.capabilities?.websiteEditing===true;
+ const publicData=await loadNews();knownPosts=new Map(publicData.posts.map(p=>[p.id,p]));
+ for(const p of data.posts)knownPosts.set(p.id,p);
+ $('newsAdminList').replaceChildren();
+ for(const p of knownPosts.values()){
+  if(p.hidden)continue;
+  const row=element('div','news-admin-row'),text=element('div');
+  text.append(element('strong','',p.title),element('small','',p.category+' · '+(p.status==='draft'?'Entwurf':'Veröffentlicht')+' · '+(p.source==='discord'?'Discord':'Manuell')));
+  const button=element('button','news-button','Bearbeiten');button.type='button';
+  button.addEventListener('click',()=>{if(!canEdit&&p.source==='manual'){if(dirty&&!confirm('Ungespeicherte Änderungen verwerfen?'))return;edit(p);return;}openEditor(p);});
+  const del=element('button','news-button news-button-danger','Löschen');del.type='button';del.hidden=!canEdit;del.addEventListener('click',()=>removePost(p));
+  row.append(text,button,del);$('newsAdminList').append(row);
+ }
+ if(!knownPosts.size)$('newsAdminList').append(element('p','muted','Noch keine Beiträge gespeichert.'));
+ $('postImageFile').disabled=!data.capabilities?.imageUpload;
+ unlock();decorate();
+ if(!canEdit)message('Für direkte Bearbeitung und Bild-Upload bitte den aktualisierten News-Worker veröffentlichen.');
+}
+document.addEventListener('news-rendered',decorate);
 function loginError(error){
  if(error.authVerified){message('Admin-Anmeldung gültig. Der News-Endpunkt hat die Sitzung abgelehnt (HTTP 401). Bitte den erweiterten News-Worker und seine Anmeldung prüfen.');return;}
  if(session&&error.status!==401){locked(false);message('Anmeldung gültig. '+([404,503].includes(error.status)?'Die News-Verwaltung ist noch nicht verfügbar. Bitte D1-Bindung, Migrationen und Worker-Deployment in Cloudflare prüfen.':'Die News-Verwaltung konnte nicht geladen werden. Bitte erneut versuchen.'));}
@@ -86,11 +127,16 @@ $('newsEditorForm').addEventListener('input',()=>{dirty=true;});
 $('previewNewsPost').addEventListener('click',()=>{if(!$('newsEditorForm').reportValidity())return;const p=input();$('newsEditorPreview').replaceChildren(article({...p,author:'VeloCity',publishedAt:p.status==='published'?current.publishedAt||new Date().toISOString():null},true));$('newsEditorPreview').hidden=false;});
 $('newsEditorForm').addEventListener('submit',async event=>{
  event.preventDefault();if(busy||panel.classList.contains('is-locked'))return;busy=true;$('newsEditorForm').inert=true;message('Beitrag wird gespeichert …');
- try{const data=await admin('',{method:'POST',body:JSON.stringify(input(event.submitter?.dataset.status))});edit(data.post);changed=true;await load();message(data.post.status==='published'?'Beitrag veröffentlicht.':'Entwurf gespeichert.');}
+ try{await imageEditor.save();const data=await admin('',{method:'POST',body:JSON.stringify(input(event.submitter?.dataset.status))});edit(data.post);changed=true;await load();document.dispatchEvent(new Event('news-changed'));message(data.post.status==='published'?'Beitrag veröffentlicht.':'Entwurf gespeichert.');}
  catch(e){message(e.message);}finally{busy=false;$('newsEditorForm').inert=false;}
 });
-$('deleteNewsPost').addEventListener('click',async()=>{if(busy||!current.revision||!confirm('Diesen Beitrag endgültig löschen?'))return;busy=true;
- try{await admin('/delete',{method:'POST',body:JSON.stringify({id:current.id,revision:current.revision})});edit();changed=true;await load();message('Beitrag gelöscht.');}catch(e){message(e.message);}finally{busy=false;}
-});
+$('deleteNewsPost').addEventListener('click',()=>{if(current?.revision||current?.original)removePost(current.original&&!current.revision?current.original:current);});
 window.addEventListener('storage',event=>{if(event.key===sessionKey&&!event.newValue){locked();message('Admin-Sitzung beendet.');}});
-edit();$('openNewsAdmin').disabled=false;
+edit();
+let saved;try{saved=JSON.parse(localStorage.getItem(sessionKey));}catch{}
+if(saved?.expiresAt>Date.now()){
+ busy=true;
+ try{await authenticate({token:saved.token});}catch(error){loginError(error);}finally{busy=false;}
+}
+$('openNewsAdmin').disabled=false;
+

@@ -1,0 +1,72 @@
+# Direkte News-Verwaltung und Bild-Upload
+
+## Aktivieren
+
+Die bisherigen Secrets und die vorhandene D1-Bindung `NEWS_DB` bleiben bestehen.
+Es sind keine neue Datenbank, Migration, GitHub-Schreibrechte oder R2-Buckets nötig.
+
+Im Cloudflare-Dashboard den bestehenden Admin-/News-Worker
+`holy-sunset-4eb4velocity-admin-api` öffnen, Edit code wählen und den gesamten Code
+durch `worker/dashboard-worker.mjs` ersetzen. Danach Deploy klicken.
+NICHT den separaten BlueMap-Worker ersetzen.
+
+Die Einzeldatei wird mit `node scripts/build-news-worker.mjs` aus den drei
+Worker-Quelldateien erzeugt. Bei Nutzung von Wrangler wird weiterhin
+`npx wrangler deploy --config worker/wrangler.toml` verwendet.
+
+Der Frontend-Code ist mit dem älteren Worker kompatibel: `/news/overlay` mit 404
+lässt den bisherigen JSON-Feed bestehen. Ohne neue Capability werden keine
+direkten Bearbeitungs-/Löschbuttons eingeblendet und der Datei-Upload bleibt
+deaktiviert. Die neuen Funktionen werden nach dem Worker-Deployment verfügbar.
+
+## Beiträge und Discord
+
+Der bestehende GitHub-Import behält Nachrichten bei, die aus Discord entfernt
+wurden. Auf der Webseite kann ein angemeldeter Admin alle vorhandenen Beiträge
+direkt bearbeiten oder per rotem X löschen. Jede Löschung erfordert Bestätigung.
+Diese Aktionen ändern keine Discord-Nachrichten.
+
+Das Frontend kombiniert den statischen Import mit `/news/overlay`: D1-Versionen
+ersetzen JSON-Versionen mit derselben ID. Auch Entwürfe oder gelöschte Versionen
+unterdrücken die alte JSON-Version. Öffentlich werden keine Entwurfstitel,
+Inhalte, Bilder oder Admin-Daten ausgegeben, nur die erforderlichen IDs.
+Nach Aktivierung führen API-Fehler zu einer Ladefehlermeldung, damit gelöschte
+Beiträge nicht durch einen ungefilterten JSON-Fallback wieder auftauchen.
+
+Website-Versionen werden durch `source_event_id='website'` vor späteren
+Bot-Ereignissen geschützt. Löschen behält einen unsichtbaren D1-Eintrag als
+Sperrvermerk, statt den Eintrag vollständig zu entfernen. Revisionsprüfungen
+verhindern das Überschreiben zwischen mehreren Admin-Sitzungen.
+Details, Übersicht und Startseiten-Vorschau nutzen dieselbe öffentliche Quelle.
+
+## Bilder
+
+Dateiauswahl: JPEG, PNG oder WebP, höchstens 10 MB / 40 Megapixel.
+Der Browser zeigt einen festen 16:9-Ausschnitt mit Drag-Steuerung sowie Reglern
+für Horizontal-/Vertikalposition und Zoom. Beim Speichern entsteht ein JPEG
+mit 1600 × 900 Pixeln und maximal 750 KB. Die Bilddatei wird separat per
+authentifiziertem POST an `/news/admin/image` hochgeladen und erst danach
+der Beitrag gespeichert. Ein bereits hochgeladenes Bild wird beim erneuten
+Speichern ohne Bildänderung nicht nochmals hochgeladen.
+
+Der Worker prüft Authentifizierung, Uploadlänge, JPEG-Kennung und Abmessungen.
+Bilder werden Base64-kodiert in der vorhandenen D1-Tabelle `news_state` abgelegt.
+Das Limit hält auch den kodierten Wert unter den D1-Grössenlimits. Der öffentliche
+Bild-Endpunkt braucht kein Admin-Token und liefert nur JPEG, mit `nosniff` und
+einer unveränderlichen UUID-Adresse. Die tatsächlichen JPEG-Pixel werden im
+Browserintegrationstest dekodiert. Der Worker hat keinen eigenen JPEG-Decoder.
+
+Da Bilder dauerhaft erreichbar bleiben müssen, werden sie beim Verwerfen eines
+Entwurfs oder beim Löschen eines Beitrags nicht automatisch gelöscht. Vorläufig
+kann es dadurch unbenutzte Bilder geben; sie zählen zum D1-Speicherverbrauch.
+
+## Prüfung
+
+- `node tests/news-worker.test.mjs`
+- `node tests/news-editor-worker.test.mjs`
+- `node tests/news-editor-browser.cjs`
+- `node tests/news-auth-errors.cjs`
+
+Browserprüfungen verwenden eine lokale Worker-/SQLite-Simulation, einen echten
+lokalen Bildausschnitt und mehrere Bildschirmgrössen. Produktive Zugangsdaten
+werden nicht verwendet und keine Discord-Nachrichten verändert.

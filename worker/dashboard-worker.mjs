@@ -6,6 +6,9 @@
 // One schema for Discord's editor, its channel messages and the existing importer.
 const categories = ['Ankündigung','Update','Info','Changelog','Wartung'];
 const discordNewsMarker = 'VeloCity News · v1';
+const discordNewsMarkerUrl = 'https://microminer.github.io/VeloCity/neuigkeiten.html#discord-news-v2';
+const discordNewsFooter = 'VeloCity · Neuigkeiten & Changelog';
+const discordNewsIcon = 'https://microminer.github.io/VeloCity/assets/images/favicon.png';
 const discordNewsImageLimit = 8 * 1024 * 1024;
 function discordImageUrl(value) {
   try {const url=new URL(value);return url.protocol==='https:'&&(!url.port||url.port==='443')&&!url.username&&!url.password&&['cdn.discordapp.com','media.discordapp.net'].includes(url.hostname)&&/^\/(?:ephemeral-attachments|attachments)\/\d+\/\d+\//.test(url.pathname)?url.href:null;}catch{return null;}
@@ -25,15 +28,17 @@ function validateDiscordNews(input) {
   if(input.excerpt!=null&&(typeof input.excerpt!=='string'||input.excerpt.length>400))throw Error('Kurzbeschreibung: höchstens 400 Zeichen.');
   return {title:input.title.trim(),category:input.category,excerpt:(input.excerpt||'').trim(),content:input.content.trim()};
 }
-function discordNewsEmbed(input,image=null) {
+function discordNewsEmbed(input,image=null,options={}) {
   const data=validateDiscordNews(input);
-  return {title:data.title,description:data.content,color:0xffd21f,fields:[{name:'Kategorie',value:data.category,inline:true},...(data.excerpt?[{name:'Kurzbeschreibung',value:data.excerpt,inline:false}]:[])],footer:{text:discordNewsMarker},...(image?{image:{url:image}}:{})};
+  const colors={'Ankündigung':0xffd21f,Update:0x38b5ef,Info:0x8fb2e8,Changelog:0x64efad,Wartung:0xf0a648};
+  return {author:{name:'VeloCity · '+data.category,icon_url:discordNewsIcon},title:data.title,url:discordNewsMarkerUrl,description:data.content,color:colors[data.category],fields:data.excerpt?[{name:'Kurzbeschreibung',value:data.excerpt,inline:false}]:[],footer:{text:discordNewsFooter+(options.preview?' · Vorschau':''),icon_url:discordNewsIcon},...(options.publishedAt?{timestamp:options.publishedAt}:{}),...(image?{image:{url:image}}:{})};
 }
 function parseStructuredDiscordNews(message,trustedBotId) {
   if(!/^\d{17,22}$/.test(trustedBotId||'')||message?.author?.bot!==true||String(message.author.id)!==trustedBotId||message.webhook_id||message.embeds?.length!==1)return null;
-  const embed=message.embeds[0];if(embed.footer?.text!==discordNewsMarker)return null;
+  const embed=message.embeds[0],legacy=embed.footer?.text===discordNewsMarker,modern=embed.url===discordNewsMarkerUrl&&embed.footer?.text===discordNewsFooter&&typeof embed.author?.name==='string'&&embed.author.name.startsWith('VeloCity · ');
+  if(!legacy&&!modern)return null;
   try {
-    const fields=embed.fields||[],category=fields.filter(f=>f.name==='Kategorie'),excerpt=fields.filter(f=>f.name==='Kurzbeschreibung');
+    const fields=embed.fields||[],category=modern?[{value:embed.author.name.slice('VeloCity · '.length)}]:fields.filter(f=>f.name==='Kategorie'),excerpt=fields.filter(f=>f.name==='Kurzbeschreibung');
     if(category.length!==1||excerpt.length>1)return null;
     const data=validateDiscordNews({title:embed.title,content:embed.description,category:category[0].value,excerpt:excerpt[0]?.value||''});
     const attachments=Array.isArray(message.attachments)?message.attachments:message.attachments?.values?[...message.attachments.values()]:[];
@@ -293,7 +298,7 @@ function discordEditorModal(draft){
  ]}});
 }
 function discordEditorButtons(draft){return [{type:1,components:[['publish','Veröffentlichen',3],['edit','Bearbeiten',1],['cancel','Abbrechen',4]].map(([action,label,style])=>({type:2,custom_id:`vn:${action}:${draft.id}:${draft.revision}`,label,style}))}];}
-function discordEditorPreview(draft){return {content:'Private Vorschau – noch nicht veröffentlicht.',embeds:[discordNewsEmbed(draft,draft.image?.url)],components:discordEditorButtons(draft),allowed_mentions:{parse:[]}};}
+function discordEditorPreview(draft){return {content:'**Private Vorschau** · Nur für dich sichtbar.\nErst mit Veröffentlichen erscheint der Beitrag im News-Kanal.',embeds:[discordNewsEmbed(draft,draft.image?.url,{preview:true})],components:discordEditorButtons(draft),allowed_mentions:{parse:[]}};}
 function discordModalFields(data){
  const fields=new Map();
  function visit(items){for(const c of items||[]){if(c.component)visit([c.component]);else if(c.components)visit(c.components);else if(c.custom_id){if(fields.has(c.custom_id))throw Error('Doppeltes Eingabefeld.');fields.set(c.custom_id,c);}}}
@@ -308,60 +313,114 @@ function discordModalImage(component,resolved,previous){
  if(!discordSnowflake(id)||!file||String(file.id)!==id||!url||!['image/jpeg','image/png','image/webp','image/gif'].includes(file.content_type)||!Number.isSafeInteger(file.size)||file.size<=0||file.size>discordNewsImageLimit)throw Error('Bitte ein gültiges JPEG-, PNG-, WebP- oder GIF-Bild bis 8 MB wählen.');
  return {url,type:file.content_type,size:file.size};
 }
+const discordUserAgent='DiscordBot (https://github.com/MicroMiner/VeloCity, 2.0)';
+function discordProblem(stage,message,status=null,code=null,kind='api'){
+ const error=Error('Discord request failed');Object.assign(error,{stage,userMessage:message,httpStatus:status,discordCode:code,kind});return error;
+}
+function discordHttpProblem(stage,status,code){
+ const messages={application:'Bot-Anmeldung fehlgeschlagen. DISCORD_BOT_TOKEN in Cloudflare prüfen (nur den Token, ohne Bot-Präfix).',channel:'Der Bot kann den konfigurierten News-Kanal nicht lesen. Kanal-ID und Kanalzugriff prüfen.',member:'Die Servermitgliedschaft konnte nicht geprüft werden. Server-ID und Bot-Mitgliedschaft prüfen.',send:'Discord hat die Nachricht abgelehnt. Bot-Rechte im News-Kanal prüfen: Kanal ansehen, Nachrichten senden, Links einbetten und Dateien anhängen.',reply:'Discord hat die Statusantwort abgelehnt. Bitte Status aktualisieren verwenden.'};
+ return discordProblem(stage,(messages[stage]||'Discord-Anfrage fehlgeschlagen.')+` (HTTP ${status}${code!==null?', Code '+code:''})`,status,code);
+}
+function discordLogProblem(error,id,event='discord_news_publish_failed'){
+ console.error(JSON.stringify({event,draftId:id,stage:error.stage||'unknown',httpStatus:error.httpStatus??null,discordCode:error.discordCode??null,kind:error.kind||'internal'}));
+}
 async function discordApi(env,path,options={}){
- return fetch('https://discord.com/api/v10'+path,{...options,headers:{Authorization:'Bot '+env.DISCORD_BOT_TOKEN,...options.headers},redirect:'error',signal:options.signal||AbortSignal.timeout(6000)});
+ const {stage='unknown',timeout=5000,botAuth=true,...init}=options;
+ if(timeout<=0)throw discordProblem(stage,'Discord hat nicht rechtzeitig geantwortet. Bitte später erneut prüfen.',null,null,'timeout');
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);let sent=false;
+ try{
+  sent=true;
+  const result=await fetch('https://discord.com/api/v10'+path,{...init,headers:{'User-Agent':discordUserAgent,...(botAuth?{Authorization:'Bot '+String(env.DISCORD_BOT_TOKEN).trim()}:{}),...init.headers},redirect:'error',signal:controller.signal});
+  const data=await result.json().catch(()=>({}));
+  if(!result.ok)throw discordHttpProblem(stage,result.status,Number.isSafeInteger(data.code)?data.code:null);
+  return data;
+ }catch(error){
+  if(!error.userMessage)error=discordProblem(stage,controller.signal.aborted?'Discord hat nicht rechtzeitig geantwortet.':'Die Verbindung zu Discord ist fehlgeschlagen.',null,null,controller.signal.aborted?'timeout':'network');
+  error.requestSent=sent;throw error;
+ }finally{clearTimeout(timer);}
 }
 async function discordPatchReply(interaction,env,data){
- const result=await fetch(`https://discord.com/api/v10/webhooks/${env.DISCORD_APPLICATION_ID}/${encodeURIComponent(interaction.token)}/messages/@original`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),redirect:'error',signal:AbortSignal.timeout(5000)});
- if(!result.ok)throw Error('reply');
+ // Discord can briefly return Unknown Webhook/Message if the callback ACK has
+ // not propagated. Retry only this idempotent PATCH, never the public message POST.
+ const deadline=Date.now()+4500;
+ for(let attempt=0;;attempt++){
+  try{return await discordApi(env,`/webhooks/${env.DISCORD_APPLICATION_ID}/${encodeURIComponent(interaction.token)}/messages/@original`,{method:'PATCH',stage:'reply',botAuth:false,timeout:Math.min(1800,deadline-Date.now()),headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});}
+  catch(error){
+   const retry=error.httpStatus===404||error.httpStatus===429||error.httpStatus>=500||['network','timeout'].includes(error.kind);
+   const delay=[150,350,700][attempt];if(!retry||delay===undefined||Date.now()+delay>=deadline)throw error;
+   await new Promise(resolve=>setTimeout(resolve,delay));
+  }
+ }
+}
+function discordStatusButton(draft){return [{type:1,components:[{type:2,style:2,label:'Status aktualisieren',custom_id:`vn:status:${draft.id}:${draft.revision}`}]}];}
+function discordStatusData(draft,env){
+ const base={embeds:[],components:[],allowed_mentions:{parse:[]}};
+ if(draft.status==='published')return {...base,content:`✅ **Bereits veröffentlicht**\n[Beitrag in Discord öffnen](https://discord.com/channels/${draft.guildId}/${draft.channelId||env.DISCORD_CHANNEL_ID}/${draft.messageId})\nDie Webseite übernimmt den Beitrag beim nächsten regulären Abgleich.`};
+ if(draft.status==='uncertain')return {...base,content:'⚠️ **Veröffentlichungsstatus unklar**\n'+(draft.lastError?.message||'Bitte den News-Kanal prüfen.')+' Es wird kein zweiter Beitrag gesendet.'};
+ if(draft.status==='publishing')return {...base,content:'**Veröffentlichung wird geprüft …**\nMit Status aktualisieren kannst du den gespeicherten Stand abrufen. Es wird kein zweiter Beitrag gesendet.',embeds:[discordNewsEmbed(draft,draft.image?.url,{preview:true})],components:discordStatusButton(draft)};
+ if(draft.status==='preview'&&draft.expiresAt<Date.now())return {...base,content:'Dieser Entwurf ist abgelaufen.'};
+ if(draft.status==='preview')return {...discordEditorPreview(draft),content:draft.lastError?'❌ **Nicht veröffentlicht**\n'+draft.lastError.message:discordEditorPreview(draft).content};
+ return {...base,content:'Dieser Entwurf ist abgelaufen oder wurde abgebrochen.'};
+}
+function discordStatusReply(draft,interaction,env,update=false){return discordJson({type:update&&(interaction.message?.flags&64)?7:4,data:{...discordStatusData(draft,env),...(!(update&&(interaction.message?.flags&64))?{flags:64}:{})}});}
+async function discordRefreshStatus(db,record){
+ const draft=record.data,started=draft.startedAt||(draft.expiresAt-86400000);
+ if(draft.status==='publishing'&&Date.now()-started>40000){
+  const next={...draft,status:'uncertain',revision:draft.revision+1,lastError:{stage:'background',message:'Die Verarbeitung wurde unterbrochen. Bitte den News-Kanal prüfen; ein erneutes Senden erfolgt nicht automatisch.'}};
+  if(await discordSaveDraft(db,record,next))return next;
+  return (await discordReadDraft(db,draft.id))?.data||next;
+ }
+ return draft;
 }
 async function discordPublishDraft(record,interaction,env){
- const draft=record.data,db=env.NEWS_DB,budget=AbortSignal.timeout(22000);let sendStarted=false,definiteRejection=false;
- const api=(path,options={})=>discordApi(env,path,{...options,signal:AbortSignal.any([budget,AbortSignal.timeout(6000)])});
- try {
-  // Recheck current membership/role, application identity and destination immediately
-  // before posting. Signed interaction permissions alone are not a lasting grant.
-  const appResponse=await api('/oauth2/applications/@me');
-  if(!appResponse.ok||(await appResponse.json()).id!==env.DISCORD_APPLICATION_ID)throw Error('Bot-Token und Discord-Anwendung passen nicht zusammen.');
-  const channelResponse=await api('/channels/'+env.DISCORD_CHANNEL_ID);
-  if(!channelResponse.ok)throw Error('News-Kanal ist nicht erreichbar.');
-  const channel=await channelResponse.json();
-  if(channel.guild_id!==env.DISCORD_GUILD_ID||![0,5].includes(channel.type))throw Error('Der News-Kanal gehört nicht zum konfigurierten Server oder ist kein Textkanal.');
+ const draft=record.data,db=env.NEWS_DB,deadline=Date.now()+20000;let sendStarted=false,sentMessageId=null;
+ const api=(path,options={})=>discordApi(env,path,{...options,timeout:Math.min(5000,deadline-Date.now())});
+ const published=id=>({id:draft.id,ownerId:draft.ownerId,guildId:draft.guildId,channelId:env.DISCORD_CHANNEL_ID,status:'published',revision:draft.revision+1,messageId:id,expiresAt:Date.now()+86400000});
+ try{
+  const application=await api('/oauth2/applications/@me',{stage:'application'});
+  if(application.id!==env.DISCORD_APPLICATION_ID)throw discordProblem('application','Der Bot-Token gehört zu einer anderen Discord-Anwendung.');
+  const channel=await api('/channels/'+env.DISCORD_CHANNEL_ID,{stage:'channel'});
+  if(channel.guild_id!==env.DISCORD_GUILD_ID||![0,5].includes(channel.type))throw discordProblem('channel','Der eingestellte News-Kanal gehört nicht zum Server oder ist kein Textkanal.');
   let upload=null;
   if(draft.image){
-   const imageResponse=await fetch(draft.image.url,{redirect:'error',signal:AbortSignal.any([budget,AbortSignal.timeout(6000)])});
-   if(!imageResponse.ok)throw Error('Titelbild abgelaufen oder nicht erreichbar. Bitte über Bearbeiten erneut auswählen.');
-   if(Number(imageResponse.headers.get('Content-Length'))>discordNewsImageLimit)throw Error('Titelbild zu gross.');
-   const bytes=await discordLimitedBytes(imageResponse.body,discordNewsImageLimit),kind=discordImageType(bytes);
-   if(!kind||kind.type!==draft.image.type)throw Error('Bildinhalt stimmt nicht mit dem Dateityp überein.');
-   upload={bytes,...kind,filename:'title-image.'+kind.extension};
+   const controller=new AbortController(),remaining=Math.min(5000,deadline-Date.now());
+   if(remaining<=0)throw discordProblem('image','Zeitlimit beim Prüfen des Titelbilds erreicht.');
+   const timer=setTimeout(()=>controller.abort(),remaining);
+   try{
+    const result=await fetch(draft.image.url,{headers:{'User-Agent':discordUserAgent},redirect:'error',signal:controller.signal});
+    if(!result.ok)throw discordProblem('image','Das Titelbild ist abgelaufen oder nicht erreichbar. Bitte über Bearbeiten erneut auswählen.',result.status);
+    if(Number(result.headers.get('Content-Length'))>discordNewsImageLimit)throw discordProblem('image','Titelbild zu gross. Maximal 8 MB sind erlaubt.');
+    const bytes=await discordLimitedBytes(result.body,discordNewsImageLimit),kind=discordImageType(bytes);
+    if(!kind||kind.type!==draft.image.type)throw discordProblem('image','Der Bildinhalt stimmt nicht mit dem Dateityp überein.');
+    upload={bytes,...kind,filename:'title-image.'+kind.extension};
+   }catch(error){if(!error.userMessage)throw discordProblem('image','Das Titelbild konnte nicht vollständig geladen werden. Bitte erneut auswählen.');throw error;}finally{clearTimeout(timer);}
   }
-  const memberResponse=await api(`/guilds/${draft.guildId}/members/${draft.ownerId}`);
-  if(!memberResponse.ok)throw Error('Mitgliedschaft konnte nicht bestätigt werden.');
-  const member=await memberResponse.json();
-  if(!discordEditorAllowed(draft.ownerId,member.roles||[],env))throw Error('Keine Veröffentlichungsberechtigung mehr.');
-  const payload={content:`[${draft.category}] ${draft.title}`,embeds:[discordNewsEmbed(draft,upload?'attachment://'+upload.filename:null)],allowed_mentions:{parse:[],replied_user:false},nonce:draft.id,enforce_nonce:true};
+  const member=await api(`/guilds/${draft.guildId}/members/${draft.ownerId}`,{stage:'member'});
+  if(!discordEditorAllowed(draft.ownerId,member.roles||[],env))throw discordProblem('member','Dein Benutzerkonto oder deine Rolle ist nicht mehr zur Veröffentlichung freigeschaltet.');
+  const payload={embeds:[discordNewsEmbed(draft,upload?'attachment://'+upload.filename:null,{publishedAt:new Date().toISOString()})],allowed_mentions:{parse:[],replied_user:false},nonce:draft.id,enforce_nonce:true};
   let options;
-  if(upload){
-   const form=new FormData();payload.attachments=[{id:0,filename:upload.filename}];form.set('payload_json',JSON.stringify(payload));form.set('files[0]',new Blob([upload.bytes],{type:upload.type}),upload.filename);options={method:'POST',body:form};
-  }else options={method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)};
+  if(upload){const form=new FormData();payload.attachments=[{id:0,filename:upload.filename}];form.set('payload_json',JSON.stringify(payload));form.set('files[0]',new Blob([upload.bytes],{type:upload.type}),upload.filename);options={method:'POST',body:form};}
+  else options={method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)};
   sendStarted=true;
-  const posted=await api('/channels/'+env.DISCORD_CHANNEL_ID+'/messages',options);
-  definiteRejection=posted.status>=400&&posted.status<500&&posted.status!==408;
-  if(!posted.ok)throw Error('Discord hat die Veröffentlichung nicht bestätigt (HTTP '+posted.status+').');
-  const message=await posted.json();if(!discordSnowflake(message.id)||message.channel_id!==env.DISCORD_CHANNEL_ID)throw Error('Ungültige Veröffentlichungsbestätigung.');
-  const published={id:draft.id,ownerId:draft.ownerId,guildId:draft.guildId,status:'published',revision:draft.revision+1,messageId:message.id,expiresAt:Date.now()+86400000};
-  if(!await discordSaveDraft(db,record,published))throw Error('Status konnte nicht gespeichert werden.');
-  const link=`https://discord.com/channels/${draft.guildId}/${env.DISCORD_CHANNEL_ID}/${message.id}`;
-  try{await discordPatchReply(interaction,env,{content:'In Discord veröffentlicht: '+link+'\nDie Webseite übernimmt den Beitrag beim nächsten regulären Abgleich.',embeds:[],components:[],allowed_mentions:{parse:[]}});}catch{console.error('Discord News: private success reply failed.');}
+  const message=await api('/channels/'+env.DISCORD_CHANNEL_ID+'/messages',{...options,stage:'send'});
+  if(!discordSnowflake(message.id)||message.channel_id!==env.DISCORD_CHANNEL_ID)throw discordProblem('send','Discord hat keine eindeutige Veröffentlichungsbestätigung geliefert.');
+  sentMessageId=message.id;
+  if(!await discordSaveDraft(db,record,published(message.id)))throw discordProblem('persist','Die Nachricht wurde gesendet, aber ihr Status konnte nicht gespeichert werden.');
+  try{await discordPatchReply(interaction,env,discordStatusData(published(message.id),env));}catch(error){discordLogProblem(error,draft.id,'discord_news_reply_failed');}
  }catch(error){
-  const retryable=!sendStarted||definiteRejection;
-  const next={...draft,status:retryable?'preview':'uncertain',revision:draft.revision+1,expiresAt:Date.now()+(retryable?discordEditorTtl:86400000)};
+  discordLogProblem(error,draft.id);
+  if(sentMessageId){
+   try{await discordSaveDraft(db,record,published(sentMessageId));}catch{}
+   try{await discordPatchReply(interaction,env,discordStatusData(published(sentMessageId),env));}catch(replyError){discordLogProblem(replyError,draft.id,'discord_news_reply_failed');}
+   return;
+  }
+  const rejected=error.stage==='send'&&error.httpStatus>=400&&error.httpStatus<500&&error.httpStatus!==408;
+  const retryable=!sendStarted||rejected||(error.stage==='send'&&error.requestSent===false);
+  const next={...draft,status:retryable?'preview':'uncertain',revision:draft.revision+1,expiresAt:Date.now()+(retryable?discordEditorTtl:86400000),lastError:{stage:error.stage||'unknown',httpStatus:error.httpStatus??null,discordCode:error.discordCode??null,message:error.userMessage||'Die Verarbeitung wurde unterbrochen. Bitte den News-Kanal prüfen.'}};
   try{
-   await discordSaveDraft(db,record,next);
-   const content=retryable?'Nicht veröffentlicht. '+(sendStarted?'Discord-Berechtigungen oder Limits prüfen.':'Berechtigungen, Einrichtung oder Titelbild prüfen.')+' Du kannst bearbeiten oder erneut bestätigen.':'Status unklar. Bitte den Discord-News-Kanal prüfen. Zur Vermeidung doppelter Beiträge wird dieser Entwurf nicht nochmals gesendet.';
-   await discordPatchReply(interaction,env,{content,embeds:retryable?discordEditorPreview(next).embeds:[],components:retryable?discordEditorButtons(next):[],allowed_mentions:{parse:[]}});
-  }catch{console.error('Discord News: could not update private publication status.');}
+   if(!await discordSaveDraft(db,record,next))throw discordProblem('persist','Status konnte nicht gespeichert werden.');
+   await discordPatchReply(interaction,env,discordStatusData(next,env));
+  }catch(replyError){discordLogProblem(replyError,draft.id,'discord_news_reply_failed');}
  }
 }
 async function discordInteractions(request,env,context){
@@ -384,14 +443,14 @@ async function discordInteractions(request,env,context){
    if(context?.waitUntil)context.waitUntil(db.prepare("DELETE FROM news_state WHERE key >= 'discord-editor:' AND key < 'discord-editor;' AND CAST(json_extract(value,'$.expiresAt') AS INTEGER) < ?").bind(Date.now()).run().catch(()=>{}));
    return discordEditorModal(record.data);
   }
-  const match=/^vn:(modal|publish|edit|cancel):(\d{17,22}):(\d{1,6})$/.exec(interaction.data?.custom_id||'');
+  const match=/^vn:(modal|publish|edit|cancel|status):(\d{17,22}):(\d{1,6})$/.exec(interaction.data?.custom_id||'');
   if(!match||![3,5].includes(interaction.type)||(interaction.type===5)!==(match[1]==='modal'))return discordPrivate('Dieser Editor-Aufruf wird nicht unterstützt.');
   const [,action,id,revision]=match,record=await discordReadDraft(db,id),draft=record?.data;
   if(!draft||draft.ownerId!==owner||draft.guildId!==interaction.guild_id)return discordPrivate('Dieser Entwurf gehört nicht zu deiner Sitzung oder ist abgelaufen.');
-  if(draft.status==='published')return discordPrivate('Bereits veröffentlicht: https://discord.com/channels/'+draft.guildId+'/'+env.DISCORD_CHANNEL_ID+'/'+draft.messageId);
-  if(['publishing','uncertain'].includes(draft.status))return discordPrivate('Veröffentlichung läuft oder ihr Status ist unklar. Bitte den News-Kanal prüfen; es wird kein zweiter Beitrag gesendet.');
+  if(action==='status')return discordStatusReply(await discordRefreshStatus(db,record),interaction,env,true);
+  if(['published','publishing','uncertain'].includes(draft.status))return discordStatusReply(await discordRefreshStatus(db,record),interaction,env);
   if(draft.status==='cancelled'||draft.expiresAt<Date.now())return discordPrivate('Dieser Entwurf ist abgelaufen oder wurde abgebrochen.');
-  if(draft.revision!==Number(revision))return discordPrivate('Diese Vorschau ist veraltet. Bitte die neueste Vorschau verwenden.');
+  if(draft.revision!==Number(revision))return discordJson({type:4,data:{...discordStatusData(draft,env),content:'Diese Vorschau ist veraltet. Hier ist der aktuelle Stand.\n'+discordStatusData(draft,env).content,flags:64}});
   if(action==='edit')return discordEditorModal(draft);
   if(action==='cancel'){
    if(!await discordSaveDraft(db,record,{...draft,status:'cancelled',revision:draft.revision+1}))return discordPrivate('Entwurf wurde bereits geändert.');
@@ -402,18 +461,18 @@ async function discordInteractions(request,env,context){
    if(category?.type!==3||category.values?.length!==1)throw Error('Bitte eine Kategorie auswählen.');
    const input=validateDiscordNews({title:fields.get('title')?.value,category:category.values[0],excerpt:fields.get('excerpt')?.value||'',content:fields.get('content')?.value});
    const image=discordModalImage(fields.get('image'),interaction.data.resolved,draft.image);
-   const next={...draft,...input,image,status:'preview',revision:draft.revision+1,expiresAt:Date.now()+discordEditorTtl};
+   const next={...draft,...input,image,status:'preview',revision:draft.revision+1,expiresAt:Date.now()+discordEditorTtl};delete next.lastError;
    if(!await discordSaveDraft(db,record,next))return discordPrivate('Entwurf wurde bereits geändert. Bitte die neueste Vorschau verwenden.');
    return discordJson({type:4,data:{...discordEditorPreview(next),flags:64}});
   }
   if(action==='publish'){
    if(draft.status!=='preview')return discordPrivate('Bitte zuerst eine Vorschau erstellen.');
    if(!context?.waitUntil)return discordPrivate('Die Veröffentlichung ist in dieser Ausführungsumgebung nicht verfügbar.');
-   const publishing={...draft,status:'publishing',expiresAt:Date.now()+86400000};
+   const publishing={...draft,status:'publishing',startedAt:Date.now(),expiresAt:Date.now()+86400000};
    if(!await discordSaveDraft(db,record,publishing))return discordPrivate('Dieser Entwurf wird bereits verarbeitet.');
    // The initial response never waits for file downloads or Discord's REST API.
    context.waitUntil(discordPublishDraft({raw:JSON.stringify(publishing),data:publishing},interaction,env));
-   return discordJson({type:5,data:{flags:64}});
+   return discordStatusReply(publishing,interaction,env,true);
   }
   return discordPrivate('Unbekannte Aktion.');
  }catch(error){

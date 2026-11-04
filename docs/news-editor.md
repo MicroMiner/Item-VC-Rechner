@@ -76,3 +76,19 @@ kann es dadurch unbenutzte Bilder geben; sie zählen zum D1-Speicherverbrauch.
 Browserprüfungen verwenden eine lokale Worker-/SQLite-Simulation, einen echten
 lokalen Bildausschnitt und mehrere Bildschirmgrössen. Produktive Zugangsdaten
 werden nicht verwendet und keine Discord-Nachrichten verändert.
+
+### Pages-Deployment und veraltete Verwaltung
+Die vorhandenen Beiträge stehen nach Formular und Vorschau. Jede Zeile bietet
+Bearbeiten und ein rotes Lösch-X; Löschen verlangt eine Bestätigung und hinterlegt
+auch für statisch importierte Discord-Beiträge eine dauerhafte Website-Sperre.
+
+Unter Repository → Settings → Pages → Build and deployment muss Source auf
+**GitHub Actions** stehen. `sync-news.yml` veröffentlicht dann sowohl Änderungen
+auf main als auch manuelle/geplante News-Abgleiche. Push-Läufe importieren keine
+Discord-Nachrichten; manuelle/geplante Läufe behalten den bisherigen Import.
+Die gemeinsame Concurrency-Gruppe serialisiert Veröffentlichungen.
+Nicht gleichzeitig den eingebauten Branch-/Jekyll-Pages-Workflow verwenden:
+sonst können zwei Deployments mit „in progress deployment“ kollidieren.
+
+Bei einer noch alten Admin-Oberfläche die Seite nach abgeschlossenem Deployment
+mit Strg+F5 neu laden. Die News-Ressourcen verwenden eine neue Cache-Version.

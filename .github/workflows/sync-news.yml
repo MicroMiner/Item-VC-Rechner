@@ -2,6 +2,8 @@ name: Sync and publish VeloCity news
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
   schedule:
     - cron: "17,47 * * * *"
 
@@ -26,6 +28,7 @@ jobs:
         with:
           node-version: "22"
       - name: Fetch Discord updates
+        if: github.event_name != 'push'
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           DISCORD_CHANNEL_ID: ${{ vars.DISCORD_CHANNEL_ID }}
@@ -39,6 +42,7 @@ jobs:
           fi
           node scripts/sync-discord.mjs
       - name: Commit changed news JSON
+        if: github.event_name != 'push'
         run: |
           git add -- assets/data/updates.json
           if [ -d assets/img/news ]; then

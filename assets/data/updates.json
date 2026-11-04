@@ -1,7 +1,19 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-04T12:17:03.063Z",
+  "updatedAt": "2026-11-04T12:38:11.787Z",
   "updates": [
+    {
+      "id": "discord-1567518215289176066",
+      "source": "discord",
+      "sourceId": "1567518215289176066",
+      "title": "Ich mag nicht mehr",
+      "category": "Update",
+      "excerpt": "",
+      "content": "Wenn das so weiter hin und her geht, bin ich bald nicht mehr ich selbst",
+      "publishedAt": "2026-11-04T12:37:45.605000+00:00",
+      "image": null,
+      "url": "https://discord.com/channels/@me/1566486495303434350/1567518215289176066"
+    },
     {
       "id": "discord-1567512766456270932",
       "source": "discord",

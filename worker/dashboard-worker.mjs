@@ -1,0 +1,266 @@
+// Generated from worker/news-model.js, worker/news.js and worker/worker.js.
+// Keep existing Cloudflare secrets and bindings, including NEWS_DB.
+
+// Source: news-model.js
+// Shared validation used by the protected API and the offline seed/import tool.
+const categories = ['Ankündigung', 'Update', 'Info', 'Changelog', 'Wartung'];
+function slugify(value) {
+  return value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/ß/g, 'ss').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 100) || 'beitrag';
+}
+function safeImage(value) {
+  if (value == null || value === '') return null;
+  if (typeof value !== 'string' || value.length > 2000) throw Error('Ungültige Bildadresse.');
+  if (/^assets\/[a-zA-Z0-9_./% -]+$/.test(value) && !value.includes('..')) return value;
+  let url;
+  try { url = new URL(value); } catch { throw Error('Ungültige Bildadresse.'); }
+  if (!['https:', 'http:'].includes(url.protocol) || url.username || url.password) throw Error('Nur HTTP(S)-Bildadressen sind erlaubt.');
+  return url.href;
+}
+function manualPost(input, previous = null, now = new Date().toISOString()) {
+  if (!input || typeof input.title !== 'string' || !input.title.trim() || input.title.length > 160) throw Error('Bitte einen Titel mit höchstens 160 Zeichen eingeben.');
+  if (typeof input.content !== 'string' || !input.content.trim() || input.content.length > 20000) throw Error('Bitte einen Inhalt mit höchstens 20 000 Zeichen eingeben.');
+  if (!categories.includes(input.category)) throw Error('Ungültige Kategorie.');
+  if (!['draft', 'published'].includes(input.status)) throw Error('Ungültiger Veröffentlichungsstatus.');
+  if (input.excerpt != null && (typeof input.excerpt !== 'string' || input.excerpt.length > 400)) throw Error('Die Kurzbeschreibung darf höchstens 400 Zeichen enthalten.');
+  const id = previous?.id || input.id || crypto.randomUUID();
+  if (typeof id !== 'string' || !/^[a-zA-Z0-9_-]{1,100}$/.test(id)) throw Error('Ungültige Beitrags-ID.');
+  return { id, slug: previous?.slug || `${slugify(input.title)}-${id.slice(0, 8)}`, title: input.title.trim(), excerpt: (input.excerpt || '').trim(), content: input.content.trim(), category: input.category, image: safeImage(input.image), status: input.status, source: 'manual', sourceId: null, channelId: null, guildId: null, author: previous?.author || 'VeloCity', publishedAt: input.status === 'published' ? previous?.publishedAt || now : previous?.publishedAt || null, updatedAt: now, revision: (previous?.revision || 0) + 1, hidden: false };
+}
+
+// Source: news.js
+const noSecrets = { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' };
+const response = (data, status = 200, cors = {}) => new Response(JSON.stringify(data), { status, headers: { ...noSecrets, ...cors } });
+const snowflake = value => typeof value === 'string' && /^\d{17,22}$/.test(value);
+function post(row) {
+  return { id: row.id, slug: row.slug, title: row.title, excerpt: row.excerpt, content: row.content, category: row.category, image: row.image, status: row.status, source: row.source, sourceId: row.source_id, channelId: row.channel_id, guildId: row.guild_id, author: row.author, publishedAt: row.published_at, updatedAt: row.updated_at, revision: row.revision, hidden: Boolean(row.hidden) };
+}
+const fields = ['id','slug','title','excerpt','content','category','image','status','source','source_id','channel_id','guild_id','author','published_at','updated_at','revision','hidden'];
+const values = p => [p.id,p.slug,p.title,p.excerpt,p.content,p.category,p.image,p.status,p.source,p.sourceId,p.channelId,p.guildId,p.author,p.publishedAt,p.updatedAt,p.revision,p.hidden ? 1 : 0];
+async function body(request) {
+  const raw = await request.text();
+  if (raw.length > 40000) throw Error('Anfrage zu gross.');
+  return JSON.parse(raw);
+}
+async function state(db, key) {
+  const row = await db.prepare('SELECT value FROM news_state WHERE key = ?').bind(key).first();
+  return row ? JSON.parse(row.value) : null;
+}
+function putState(db, key, value) {
+  return db.prepare('INSERT INTO news_state(key,value) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value').bind(key, JSON.stringify(value));
+}
+async function newsRequest(request, env, { verifySession, sameSecret, cors }) {
+  const url = new URL(request.url), path = url.pathname;
+  const bot = path.startsWith('/discord/');
+  if (bot) {
+    const secret = request.headers.get('Authorization') || '';
+    if (!env.DISCORD_INGEST_TOKEN || !await sameSecret(secret, 'Bearer ' + env.DISCORD_INGEST_TOKEN)) return response({ error: 'Nicht autorisiert.' }, 401);
+  } else if (request.headers.get('Origin') !== env.SITE_ORIGIN?.replace(/\/$/, '')) return response({ error: 'Origin nicht zugelassen.' }, 403);
+  if (request.method === 'OPTIONS' && !bot) return new Response(null, { status: 204, headers: cors });
+  if (!env.NEWS_DB) return response({ error: 'News-Datenbank noch nicht eingerichtet.', configured: false }, 503, cors);
+  const db = env.NEWS_DB;
+  try {
+    if (path === '/news/status' && request.method === 'GET') {
+      const configured = snowflake(env.DISCORD_GUILD_ID) && snowflake(env.DISCORD_CHANNEL_ID) && Boolean(env.DISCORD_INGEST_TOKEN);
+      const heartbeat = await state(db, 'discord_heartbeat'), lastSync = await state(db, 'discord_last_sync'), lastError = await state(db, 'discord_error');
+      const fresh = heartbeat && Date.now() - Date.parse(heartbeat.at) < 180000;
+      return response({ configured: true, discord: { status: !configured ? 'not_configured' : lastError ? 'error' : fresh ? 'connected' : 'disconnected', lastHeartbeat: heartbeat?.at || null, lastSync: lastSync?.at || null } }, 200, cors);
+    }
+    if (path === '/news' && request.method === 'GET') {
+      const slug = url.searchParams.get('slug');
+      if (slug) {
+        const row = await db.prepare("SELECT * FROM news_posts WHERE slug = ? AND status = 'published' AND hidden = 0").bind(slug).first();
+        return response(row ? { post: post(row) } : { error: 'Beitrag nicht gefunden.' }, row ? 200 : 404, cors);
+      }
+      const offset = Math.max(0, Math.min(100000, parseInt(url.searchParams.get('offset'),10) || 0));
+      const limit = Math.max(1, Math.min(1000, parseInt(url.searchParams.get('limit'),10) || 1000));
+      const rows = await db.prepare("SELECT * FROM news_posts WHERE status='published' AND hidden=0 ORDER BY published_at DESC, id LIMIT ? OFFSET ?").bind(limit, offset).all();
+      const count = await db.prepare("SELECT COUNT(*) AS count FROM news_posts WHERE status='published' AND hidden=0").first();
+      return response({ posts: rows.results.map(post), total: count.count }, 200, cors);
+    }
+    if (path.startsWith('/news/admin')) {
+      const token = (request.headers.get('Authorization') || '').replace(/^Bearer /, '');
+      if (!await verifySession(token, env)) return response({ error: 'Bitte mit der bestehenden Admin-Anmeldung anmelden.' }, 401, cors);
+      if (path === '/news/admin' && request.method === 'GET') {
+        const rows = await db.prepare('SELECT * FROM news_posts ORDER BY updated_at DESC, id LIMIT 1000').all();
+        return response({ posts: rows.results.map(post) }, 200, cors);
+      }
+      if (path === '/news/admin' && request.method === 'POST') {
+        const input = await body(request), id = input.id;
+        const row = id ? await db.prepare('SELECT * FROM news_posts WHERE id=?').bind(id).first() : null;
+        if (row && row.source !== 'manual') return response({ error: 'Discord-Beiträge können nur ausgeblendet werden.' }, 409, cors);
+        if (row && input.revision !== row.revision) return response({ error: 'Der Beitrag wurde geändert. Bitte neu laden.' }, 409, cors);
+        const p = manualPost(input, row ? post(row) : null);
+        let result;
+        if (row) result = await db.prepare(`UPDATE news_posts SET ${fields.slice(1).map(f=>f+'=?').join(',')} WHERE id=? AND revision=? AND source='manual'`).bind(...values(p).slice(1), p.id, input.revision).run();
+        else result = await db.prepare(`INSERT OR IGNORE INTO news_posts(${fields.join(',')}) VALUES(${fields.map(()=>'?').join(',')})`).bind(...values(p)).run();
+        if (!result.meta.changes) return response({ error: 'Speicherkonflikt oder bereits gespeichert. Bitte Verwaltung neu laden.' }, 409, cors);
+        return response({ post: p }, row ? 200 : 201, cors);
+      }
+      if (path === '/news/admin/delete' && request.method === 'POST') {
+        const input = await body(request);
+        const result = await db.prepare("DELETE FROM news_posts WHERE id=? AND revision=? AND source='manual'").bind(input.id, input.revision).run();
+        return response(result.meta.changes ? { ok: true } : { error: 'Speicherkonflikt oder kein manueller Beitrag.' }, result.meta.changes ? 200 : 409, cors);
+      }
+      if (path === '/news/admin/moderate' && request.method === 'POST') {
+        const input = await body(request);
+        if (typeof input.hidden !== 'boolean') throw Error('Ungültiger Status.');
+        const result = await db.prepare("UPDATE news_posts SET hidden=?,revision=revision+1 WHERE id=? AND revision=? AND source='discord'").bind(input.hidden ? 1 : 0, input.id, input.revision).run();
+        return response(result.meta.changes ? { ok: true } : { error: 'Speicherkonflikt.' }, result.meta.changes ? 200 : 409, cors);
+      }
+    }
+    if (bot && request.method === 'POST') {
+      const input = await body(request);
+      if (!snowflake(env.DISCORD_GUILD_ID) || !snowflake(env.DISCORD_CHANNEL_ID) || input.guildId !== env.DISCORD_GUILD_ID || input.channelId !== env.DISCORD_CHANNEL_ID) return response({ error: 'Kanal oder Server nicht zugelassen.' }, 403);
+      const now = new Date().toISOString();
+      if (path === '/discord/heartbeat') {
+        await db.batch([putState(db, 'discord_heartbeat', { at: now }), putState(db, 'discord_error', input.ok === false ? { at: now } : null)]);
+        return response({ ok: true });
+      }
+      if (path === '/discord/events') {
+        if (!snowflake(input.messageId) || !['create','update','delete'].includes(input.type) || typeof input.eventId !== 'string' || !/^[a-zA-Z0-9_.:-]{1,180}$/.test(input.eventId)) throw Error('Ungültiges Discord-Ereignis.');
+        const time = Date.parse(input.eventAt);
+        if (!Number.isFinite(time) || time > Date.now() + 60000) throw Error('Ungültiger Ereigniszeitpunkt.');
+        const duplicate = await db.prepare('SELECT id FROM news_events WHERE id=?').bind(input.eventId).first();
+        if (duplicate) return response({ ok: true, duplicate: true });
+        const deleted = input.type === 'delete';
+        const statements = [db.prepare('INSERT OR IGNORE INTO news_events(id,received_at) VALUES(?,?)').bind(input.eventId, now),
+          db.prepare('INSERT INTO news_discord_versions(message_id,event_time,event_id,deleted) VALUES(?,?,?,?) ON CONFLICT(message_id) DO UPDATE SET event_time=excluded.event_time,event_id=excluded.event_id,deleted=excluded.deleted WHERE (news_discord_versions.deleted=0 OR excluded.deleted=1) AND (excluded.event_time > news_discord_versions.event_time OR (excluded.event_time = news_discord_versions.event_time AND excluded.deleted > news_discord_versions.deleted))').bind(input.messageId,time,input.eventId,deleted?1:0)];
+        const guard = 'EXISTS(SELECT 1 FROM news_discord_versions WHERE message_id=? AND event_id=?)';
+        if (deleted) {
+          statements.push(env.DISCORD_DELETE_MODE === 'delete'
+            ? db.prepare(`DELETE FROM news_posts WHERE source='discord' AND source_id=? AND ${guard}`).bind(input.messageId,input.messageId,input.eventId)
+            : db.prepare(`UPDATE news_posts SET hidden=1,revision=revision+1,source_event_id=? WHERE source='discord' AND source_id=? AND (source_event_id IS NULL OR source_event_id<>?) AND ${guard}`).bind(input.eventId,input.messageId,input.eventId,input.messageId,input.eventId));
+        } else {
+          const p = manualPost({ id: 'discord-'+input.messageId, title: input.title, excerpt: input.excerpt, content: input.content, category: input.category || 'Ankündigung', image: input.image, status:'published' }, null, now);
+          p.source='discord';p.sourceId=input.messageId;p.channelId=input.channelId;p.guildId=input.guildId;p.author='Discord';
+          p.slug=slugify(p.title)+'-'+input.messageId;
+          const published = Date.parse(input.publishedAt);
+          if (!Number.isFinite(published) || published > Date.now()+60000) throw Error('Ungültiges Veröffentlichungsdatum.');
+          p.publishedAt=new Date(published).toISOString();
+          statements.push(db.prepare(`INSERT INTO news_posts(${fields.join(',')},source_event_id) SELECT ${fields.map(()=>'?').join(',')},? WHERE ${guard} ON CONFLICT(id) DO UPDATE SET title=excluded.title,excerpt=excluded.excerpt,content=excluded.content,category=excluded.category,image=excluded.image,updated_at=excluded.updated_at,revision=news_posts.revision+1,source_event_id=excluded.source_event_id WHERE news_posts.source_event_id IS NULL OR news_posts.source_event_id<>excluded.source_event_id`).bind(...values(p),input.eventId,input.messageId,input.eventId));
+        }
+        statements.push(putState(db,'discord_last_sync',{ at:now }),putState(db,'discord_error',null));
+        await db.batch(statements);
+        return response({ ok:true });
+      }
+    }
+    return response({ error:'Nicht gefunden.' },404,cors);
+  } catch (error) {
+    // Validation errors are safe; database/credential details are never public.
+    const validation = error instanceof SyntaxError || /Bitte|Ungültig|höchstens|erlaubt|gross/.test(error.message);
+    return response({ error:validation ? error.message : 'News-Dienst derzeit nicht verfügbar. Datenbank und Migration prüfen.' },validation?400:503,cors);
+  }
+}
+
+// Source: worker.js
+// VeloCity admin backend – deployed as Cloudflare Worker.
+
+// ADMIN_PASSWORD and GITHUB_TOKEN MUST be stored as Cloudflare Secrets.
+const jsonHeaders = {'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'};
+const reply=(data,status=200,headers={})=>new Response(JSON.stringify(data),{status,headers:{...jsonHeaders,...headers}});
+async function sameSecret(a,b){
+  const enc=new TextEncoder();const digest=x=>crypto.subtle.digest('SHA-256',enc.encode(x));
+  const [aa,bb]=await Promise.all([digest(a),digest(b)]);
+  const x=new Uint8Array(aa),y=new Uint8Array(bb);let diff=0;
+  for(let i=0;i<x.length;i++)diff|=x[i]^y[i];return diff===0;
+}
+const SESSION_DURATION_MS=30*60*1000;
+async function sessionKey(env){
+ return crypto.subtle.importKey('raw',new TextEncoder().encode(env.ADMIN_PASSWORD),{name:'HMAC',hash:'SHA-256'},false,['sign','verify']);
+}
+async function createSession(env){
+ const expiresAt=Date.now()+SESSION_DURATION_MS;
+ const payload=toBase64(JSON.stringify({expiresAt,origin:env.SITE_ORIGIN.replace(/\/$/,''),nonce:crypto.randomUUID()}));
+ const signature=await crypto.subtle.sign('HMAC',await sessionKey(env),new TextEncoder().encode('velocity-admin-session:'+payload));
+ const hex=Array.from(new Uint8Array(signature),b=>b.toString(16).padStart(2,'0')).join('');
+ return {token:payload+'.'+hex,expiresAt};
+}
+async function verifySession(token,env){
+ if(typeof token!=='string'||token.length>2048)return null;
+ try{
+  const [payload,hex,extra]=token.split('.');
+  if(extra!==undefined||!payload||!(/^[a-f0-9]{64}$/).test(hex))return null;
+  const signature=Uint8Array.from(hex.match(/../g),x=>parseInt(x,16));
+  if(!await crypto.subtle.verify('HMAC',await sessionKey(env),signature,new TextEncoder().encode('velocity-admin-session:'+payload)))return null;
+  const data=JSON.parse(fromBase64(payload));
+  if(!Number.isSafeInteger(data.expiresAt)||data.expiresAt<=Date.now()||data.expiresAt>Date.now()+SESSION_DURATION_MS||data.origin!==env.SITE_ORIGIN.replace(/\/$/,''))return null;
+  return {token,expiresAt:data.expiresAt};
+ }catch{return null}
+}
+async function authorized(body,env){
+ if(body.token)return !!await verifySession(body.token,env);
+ return typeof body.password==='string'&&body.password.length<=256&&await sameSecret(body.password,env.ADMIN_PASSWORD);
+}
+function validList(data){
+ if(!data||data.format!=='VeloCoin-Preisliste'||data.version!==2||!Array.isArray(data.items)||!Array.isArray(data.customItems))return false;
+ if(data.items.length<1||data.items.length>3000||data.customItems.length>3000)return false;
+ const ids=new Set();
+ for(const [items,isCustom] of [[data.items,false],[data.customItems,true]])for(const item of items){
+  if(!item||typeof item.id!=='string'||!(isCustom?/^CUSTOM_[a-zA-Z0-9_-]+$/:/^[A-Z][A-Z0-9_]*$/).test(item.id)||ids.has(item.id)||typeof item.name!=='string'||!item.name.trim()||item.name.length>100)return false;
+  const buy=item.buy??item.standardPrice??item.price??item.sell,sell=item.sell??item.price??item.buy;
+  if(![buy,sell,item.defaultBuy??buy,item.defaultSell??sell].every(v=>Number.isFinite(v)&&v>0))return false;
+  ids.add(item.id);
+ }
+ return ids.has('DIRT');
+}
+const validFile=name=>typeof name==='string'&&/^[a-zA-Z0-9][a-zA-Z0-9_.-]*\.json$/.test(name)&&name!=='index.json';
+async function ghRequest(env,method,body,file){
+ const path='preislisten'+(file?'/'+encodeURIComponent(file):'');
+ const url=new URL(`https://api.github.com/repos/${encodeURIComponent(env.GITHUB_OWNER)}/${encodeURIComponent(env.GITHUB_REPO)}/contents/${path}`);
+ if(method==='GET'&&env.GITHUB_BRANCH)url.searchParams.set('ref',env.GITHUB_BRANCH);
+ return fetch(url,{method,headers:{'Accept':'application/vnd.github+json','Content-Type':'application/json','Authorization':`Bearer ${env.GITHUB_TOKEN}`,'User-Agent':'VeloCity-Price-Manager','X-GitHub-Api-Version':'2022-11-28'},body:body?JSON.stringify(body):undefined,cache:'no-store'});
+}
+function toBase64(text){const bytes=new TextEncoder().encode(text);let binary='';for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(binary)}
+function fromBase64(s){const binary=atob(s.replace(/\s/g,''));return new TextDecoder().decode(Uint8Array.from(binary,c=>c.charCodeAt(0)))}
+export default {
+ async fetch(request,env){
+  const origin=request.headers.get('Origin')||'';
+  const allowed=env.SITE_ORIGIN?.replace(/\/$/,'');
+  const cors=origin===allowed?{'Access-Control-Allow-Origin':origin,'Vary':'Origin','Access-Control-Allow-Methods':'GET,POST,PUT,OPTIONS','Access-Control-Allow-Headers':'Content-Type,Authorization'}:{};
+  const newsPath=new URL(request.url).pathname;
+  if(newsPath==='/news'||newsPath.startsWith('/news/')||newsPath.startsWith('/discord/')){
+   if(!allowed||!env.ADMIN_PASSWORD)return reply({error:'Worker-Konfiguration unvollständig.'},503,cors);
+   return newsRequest(request,env,{verifySession,sameSecret,cors});
+  }
+  if(!allowed||!env.ADMIN_PASSWORD||!env.GITHUB_TOKEN||!env.GITHUB_OWNER||!env.GITHUB_REPO)return reply({error:'Worker-Konfiguration unvollständig.'},503,cors);
+  if(origin!==allowed)return reply({error:'Origin nicht zugelassen.'},403,cors);
+  if(request.method==='OPTIONS')return new Response(null,{status:204,headers:cors});
+  const url=new URL(request.url),pathname=url.pathname;
+  const file=url.searchParams.get('file');
+  if(pathname==='/prices'&&!validFile(file))return reply({error:'Ungültiger Preislisten-Dateiname.'},400,cors);
+  try{
+   if(pathname==='/auth'&&request.method==='POST'){
+    const body=await request.json();
+    if(body.token){
+     const session=await verifySession(body.token,env);
+     return session?reply({ok:true,...session},200,cors):reply({error:'Sitzung abgelaufen. Bitte erneut anmelden.'},401,cors);
+    }
+    if(!await authorized(body,env))return reply({error:'Passwort ungültig.'},401,cors);
+    return reply({ok:true,...await createSession(env)},200,cors);
+   }
+   if(pathname==='/lists'&&request.method==='GET'){
+    const gh=await ghRequest(env,'GET');if(!gh.ok)return reply({error:'Preislisten-Verzeichnis nicht verfügbar.'},502,cors);
+    const entries=await gh.json();if(!Array.isArray(entries))return reply({error:'Ungültiges Verzeichnis.'},502,cors);
+    return reply({lists:entries.filter(x=>x.type==='file'&&validFile(x.name)).map(x=>({file:x.name,name:x.name.replace(/\.json$/,'')})).sort((a,b)=>a.file.localeCompare(b.file))},200,cors);
+   }
+   if(pathname==='/prices'&&request.method==='GET'){
+    const gh=await ghRequest(env,'GET',undefined,file);if(!gh.ok)return reply({error:'GitHub-Lesen fehlgeschlagen (HTTP '+gh.status+').'},502,cors);
+    const item=await gh.json();const data=JSON.parse(fromBase64(item.content));if(!validList(data))return reply({error:'JSON hat ein ungültiges Format.'},502,cors);
+    return reply({data,sha:item.sha},200,cors);
+   }
+   if(pathname==='/prices'&&request.method==='PUT'){
+    const raw=await request.text();if(raw.length>500000)return reply({error:'Datei zu gross.'},413,cors);
+    const body=JSON.parse(raw);
+    if(!await authorized(body,env))return reply({error:'Anmeldung ungültig oder Sitzung abgelaufen.'},401,cors);
+    if(!validList(body.data)||typeof body.sha!=='string'||!(/^[a-f0-9]{40}$/i).test(body.sha))return reply({error:'Ungültige Preisliste oder Versionsnummer.'},400,cors);
+    const savedData={...body.data,updatedAt:new Date().toISOString()};
+    const payload={message:'VeloCity: Preisliste aktualisieren',content:toBase64(JSON.stringify(savedData,null,2)+'\n'),sha:body.sha};
+    if(env.GITHUB_BRANCH)payload.branch=env.GITHUB_BRANCH;
+    const gh=await ghRequest(env,'PUT',payload,file);
+    if(!gh.ok){const detail=await gh.json().catch(()=>({}));return reply({error:gh.status===409||gh.status===422?'Speicherkonflikt: Die Liste wurde zwischenzeitlich geändert. Bitte erneut laden.':'GitHub-Speichern fehlgeschlagen (HTTP '+gh.status+').'},gh.status===409||gh.status===422?409:502,cors)}
+    const data=await gh.json();return reply({ok:true,sha:data.content.sha,updatedAt:savedData.updatedAt},200,cors);
+   }
+   return reply({error:'Nicht gefunden.'},404,cors);
+  }catch(e){return reply({error:'Anfrage konnte nicht verarbeitet werden.'},400,cors)}
+ }
+};

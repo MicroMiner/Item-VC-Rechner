@@ -293,11 +293,11 @@ function discordEditorModal(draft){
   label('Titel',text('title',1,160,true,draft.title)),
   label('Kategorie',{type:3,custom_id:'category',min_values:1,max_values:1,required:true,options:categories.map(name=>({label:name,value:name,default:name===(draft.category||'Update')}))}),
   label('Kurzbeschreibung (optional)',text('excerpt',2,400,false,draft.excerpt)),
-  label('Vollständiger Beitragsinhalt',text('content',2,4000,true,draft.content),'Bis 4000 Zeichen; Markdown ist möglich.'),
+  label('Vollständiger Beitragsinhalt',text('content',2,4000,true,draft.content),'Bis 4000 Zeichen. **fett**, *kursiv*, - Listen und > Zitate. Hilfe: Formatierung in der Vorschau.'),
   label('Titelbild (optional)',{type:19,custom_id:'image',required:false,min_values:0,max_values:1,file_types:['.jpg','.jpeg','.png','.webp','.gif']},draft.image?'Leer lassen behält das bisherige Bild. Maximal 8 MB.':'JPEG, PNG, WebP oder GIF. Maximal 8 MB.'),
  ]}});
 }
-function discordEditorButtons(draft){return [{type:1,components:[['publish','Veröffentlichen',3],['edit','Bearbeiten',1],['cancel','Abbrechen',4]].map(([action,label,style])=>({type:2,custom_id:`vn:${action}:${draft.id}:${draft.revision}`,label,style}))}];}
+function discordEditorButtons(draft){return [{type:1,components:[['publish','Veröffentlichen',3],['edit','Bearbeiten',1],['cancel','Abbrechen',4],['format','Formatierung',2]].map(([action,label,style])=>({type:2,custom_id:`vn:${action}:${draft.id}:${draft.revision}`,label,style}))}];}
 function discordEditorPreview(draft){return {content:'**Private Vorschau** · Nur für dich sichtbar.\nErst mit Veröffentlichen erscheint der Beitrag im News-Kanal.',embeds:[discordNewsEmbed(draft,draft.image?.url,{preview:true})],components:discordEditorButtons(draft),allowed_mentions:{parse:[]}};}
 function discordModalFields(data){
  const fields=new Map();
@@ -444,7 +444,7 @@ async function discordInteractions(request,env,context){
    if(context?.waitUntil)context.waitUntil(db.prepare("DELETE FROM news_state WHERE key >= 'discord-editor:' AND key < 'discord-editor;' AND CAST(json_extract(value,'$.expiresAt') AS INTEGER) < ?").bind(Date.now()).run().catch(()=>{}));
    return discordEditorModal(record.data);
   }
-  const match=/^vn:(modal|publish|edit|cancel|status):(\d{17,22}):(\d{1,6})$/.exec(interaction.data?.custom_id||'');
+  const match=/^vn:(modal|publish|edit|cancel|status|format):(\d{17,22}):(\d{1,6})$/.exec(interaction.data?.custom_id||'');
   if(!match||![3,5].includes(interaction.type)||(interaction.type===5)!==(match[1]==='modal'))return discordPrivate('Dieser Editor-Aufruf wird nicht unterstützt.');
   const [,action,id,revision]=match,record=await discordReadDraft(db,id),draft=record?.data;
   if(!draft||draft.ownerId!==owner||draft.guildId!==interaction.guild_id)return discordPrivate('Dieser Entwurf gehört nicht zu deiner Sitzung oder ist abgelaufen.');
@@ -452,6 +452,16 @@ async function discordInteractions(request,env,context){
   if(['published','publishing','uncertain'].includes(draft.status))return discordStatusReply(await discordRefreshStatus(db,record),interaction,env);
   if(draft.status==='cancelled'||draft.expiresAt<Date.now())return discordPrivate('Dieser Entwurf ist abgelaufen oder wurde abgebrochen.');
   if(draft.revision!==Number(revision))return discordJson({type:4,data:{...discordStatusData(draft,env),content:'Diese Vorschau ist veraltet. Hier ist der aktuelle Stand.\n'+discordStatusData(draft,env).content,flags:64}});
+  if(action==='format')return discordJson({type:4,data:{flags:64,content:[
+   '**Text formatieren**',
+   'Über **Inhalt bearbeiten** öffnest du deinen gespeicherten Entwurf. Schreibe die Zeichen direkt ins Feld Hauptinhalt; die nächste Vorschau zeigt das Ergebnis.',
+   '```md',
+   '**Fett**', '*Kursiv*', '__Unterstrichen__', '~~Durchgestrichen~~',
+   '', '**Abschnittstitel**', '- Erster Listenpunkt', '- Zweiter Listenpunkt',
+   '1. Erster Schritt', '2. Zweiter Schritt', '', '> Hervorgehobener Hinweis',
+   '[Linktext](https://example.com)', '||Verdeckter Text||', '`Kurzer Code`', '```',
+   'Leerzeilen trennen Absätze. Discord bestimmt die Schriftgrössen und unterstützt je nach Nachrichtenbereich unterschiedliche Markdown-Formate. Kategorie-Textfarben sind nicht einstellbar; der Farbstreifen richtet sich nach der Kategorie.',
+  ].join('\n'),components:[{type:1,components:[{type:2,style:1,label:'Inhalt bearbeiten',custom_id:`vn:edit:${draft.id}:${draft.revision}`}]}],allowed_mentions:{parse:[]}}});
   if(action==='edit')return discordEditorModal(draft);
   if(action==='cancel'){
    if(!await discordSaveDraft(db,record,{...draft,status:'cancelled',revision:draft.revision+1}))return discordPrivate('Entwurf wurde bereits geändert.');

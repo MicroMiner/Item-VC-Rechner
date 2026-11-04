@@ -69,7 +69,7 @@ test('five current modal fields, limits, full private preview, prefilling/editin
   assert.match((await s.submit(modal,{category:'Unknown'})).data.content,/Kategorie/);
   const invalid=s.fields(modal.data.custom_id,{},true);invalid.resolved.attachments[ATTACHMENT].url='https://evil.example/image.png';assert.match((await s.send(5,invalid)).data.content,/gültiges/);
   const values={title:'T'.repeat(160),content:'C'.repeat(4000),excerpt:'E'.repeat(400),category:'Info'};
-  const preview=await s.submit(modal,values,true);assert.equal(preview.type,4);assert.equal(preview.data.flags,64);assert.equal(preview.data.embeds[0].title,values.title);assert.equal(preview.data.embeds[0].description,values.content);assert.equal(preview.data.embeds[0].fields[0].value,values.excerpt);assert.equal(preview.data.components[0].components.length,3);assert.deepEqual(preview.data.allowed_mentions,{parse:[]});
+  const preview=await s.submit(modal,values,true);assert.equal(preview.type,4);assert.equal(preview.data.flags,64);assert.equal(preview.data.embeds[0].title,values.title);assert.equal(preview.data.embeds[0].description,values.content);assert.equal(preview.data.embeds[0].fields[0].value,values.excerpt);assert.equal(preview.data.components[0].components.length,4);assert.deepEqual(preview.data.allowed_mentions,{parse:[]});
   const edited=await s.send(3,{custom_id:s.button(preview,1)});assert.equal(edited.type,9);assert.equal(edited.data.components[0].component.value,values.title);
   const next=await s.submit(edited,{title:'Bearbeitet'},false);assert.ok(next.data.embeds[0].image,'previous image is retained when no new file is selected');
   assert.match((await s.send(3,{custom_id:s.button(preview,0)})).data.content,/veraltet/);
@@ -126,7 +126,7 @@ test('private reply failure remains recoverable; only private PATCH is retried; 
    const preview=await s.submit(await s.command()),publish=s.button(preview,0),progress=await s.send(3,{custom_id:publish});
    assert.equal(progress.type,7);const status=s.button(progress,0);await s.flush();
    const reply=await s.send(3,{custom_id:status});assert.equal(reply.type,7);
-   if(mode==='sendForbidden'){assert.match(reply.data.content,/HTTP 403, Code 50013/);assert.equal(t.messages.length,0);assert.equal(reply.data.components[0].components.length,3);}
+   if(mode==='sendForbidden'){assert.match(reply.data.content,/HTTP 403, Code 50013/);assert.equal(t.messages.length,0);assert.equal(reply.data.components[0].components.length,4);}
    else {assert.match(reply.data.content,/Bereits veröffentlicht/);assert.equal(t.messages.length,1);await s.send(3,{custom_id:publish});assert.equal(t.messages.length,1);}
    assert.equal(patches,mode==='replyRace'?2:1);
   }finally{s.env.NEWS_DB.db.close();}
@@ -152,4 +152,13 @@ test('Discord redirects fail closed before public send without following Locatio
  globalThis.fetch=async(url,options)=>{calls++;assert.equal(options.redirect,'manual');return new Response(null,{status:302,headers:{Location:'https://untrusted.example/'}});};
  try{const preview=await s.submit(await s.command()),publish=s.button(preview,0),progress=await s.send(3,{custom_id:publish});await s.flush();const state=await s.state(publish.split(':')[2]);assert.equal(state.status,'preview');assert.equal(state.lastError.stage,'application');assert.equal(state.lastError.httpStatus,302);assert.equal(calls,2);assert.match((await s.send(3,{custom_id:s.button(progress,0)})).data.content,/HTTP 302/);}
  finally{globalThis.fetch=original;s.env.NEWS_DB.db.close();}
+});
+
+test('formatting help is private, preserves the draft and opens the prefilled editor without network calls',async()=>{
+ const s=await setup(),original=globalThis.fetch;let calls=0;globalThis.fetch=async()=>{calls++;throw Error('No network allowed');};
+ try{const preview=await s.submit(await s.command(),{content:'**Mein Inhalt**'}),id=s.button(preview,0).split(':')[2],before=await s.state(id);
+ const help=await s.send(3,{custom_id:s.button(preview,3)});assert.equal(help.type,4);assert.equal(help.data.flags,64);assert.match(help.data.content,/Text formatieren/);assert.match(help.data.content,/Unterstrichen/);assert.deepEqual(await s.state(id),before);
+ const modal=await s.send(3,{custom_id:s.button(help,0)});assert.equal(modal.type,9);assert.equal(modal.data.components[3].component.value,'**Mein Inhalt**');
+ const denied=await s.send(3,{custom_id:s.button(preview,3)},{member:{user:{id:'888888888888888888'},roles:[ROLE]}});assert.match(denied.data.content,/gehört nicht/);assert.equal(calls,0);await s.flush();
+ }finally{globalThis.fetch=original;s.env.NEWS_DB.db.close();}
 });

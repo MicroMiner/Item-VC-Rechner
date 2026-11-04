@@ -213,3 +213,14 @@ Der Importer erkennt sowohl bisherige v1-Nachrichten als auch das neue v2-Format
 Deployment: `node scripts/build-news-worker.mjs` ausführen und den Inhalt von
 `worker/dashboard-worker.mjs` im bestehenden Admin-/News-Worker veröffentlichen.
 Keine neue Datenbank, Secrets oder Befehlsregistrierung erforderlich.
+
+### Formatierung im Discord-Editor
+Die private Vorschau enthält zusätzlich „Formatierung“. Die nur für den Ersteller
+sichtbare Hilfe zeigt Markdown-Beispiele und öffnet über „Inhalt bearbeiten“ den
+vorausgefüllten Entwurf. Danach erneut die Vorschau erzeugen und erst bei Bedarf
+veröffentlichen. Die Hilfe verändert und veröffentlicht keinen Beitrag.
+
+Discord erlaubt im Embed keine frei wählbare Textfarbe für den Kategorie-Kopf
+und keine einstellbare Schriftgrösse des Titels. Die bestehenden Kategoriefarben
+bleiben als Seitenlinie erhalten. Das native Modal unterstützt keine eigene
+Rich-Text-Werkzeugleiste; Formatzeichen werden direkt im Inhaltsfeld eingegeben.

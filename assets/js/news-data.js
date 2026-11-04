@@ -4,7 +4,7 @@ export const sessionKey = 'velocity.adminSession:' + api;
 export function articleSlug(post) { return post.slug || (post.title || 'beitrag').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') + '-' + post.id; }
 export async function request(path, options = {}, token = null) {
   if (!api) throw Error('Die News-API ist noch nicht eingerichtet.');
-  const response = await fetch(api + path, { ...options, cache:'no-store', signal:AbortSignal.timeout(10000), headers:{ ...(options.body ? {'Content-Type':'application/json'} : {}), ...(token ? {Authorization:'Bearer '+token}:{}), ...options.headers } });
+  const response = await fetch(api + path, { ...options, cache:'no-store', signal:options.signal || AbortSignal.timeout(10000), headers:{ ...(options.body ? {'Content-Type':'application/json'} : {}), ...(token ? {Authorization:'Bearer '+token}:{}), ...options.headers } });
   const data = await response.json().catch(()=>({}));
   if (!response.ok) { const error = Error(response.status===404&&path.startsWith('/news/admin')?'Die News-Verwaltung ist im Worker noch nicht aktiviert. Bitte Datenbank und Worker-Deployment einrichten.':data.error || 'News-Dienst nicht verfügbar (HTTP '+response.status+').'); error.status=response.status; error.endpoint=path; error.configured=data.configured; throw error; }
   return data;
@@ -21,6 +21,18 @@ export async function loadNews() {
     const data=await response.json();
     if(data?.version!==1||!Array.isArray(data.updates))throw Error('Ungültiges News-Format.');
     posts=data.updates;
+    if(api) {
+      try {
+        const overlay=await request('/news/overlay');
+        if(!Array.isArray(overlay.posts)||!Array.isArray(overlay.suppressedIds)||overlay.suppressedIds.some(id=>typeof id!=='string'))throw Error('Ungültige News-Verwaltungsdaten.');
+        const suppressed=new Set(overlay.suppressedIds);
+        posts=[...overlay.posts,...posts.filter(p=>!suppressed.has(p.id))];
+      } catch(error) {
+        // Older Workers do not have overlays yet. Other failures must not
+        // resurrect posts deleted through website administration.
+        if(error.status!==404)throw error;
+      }
+    }
   }
   const seen=new Set();
   return { backend, total:total ?? posts.length, posts:posts.filter(p=>{if(!validPublic(p)||seen.has(p.id))return false;seen.add(p.id);return true;}).map(p=>({...p,slug:articleSlug(p)})).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt)) };

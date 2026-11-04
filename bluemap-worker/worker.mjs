@@ -1,6 +1,6 @@
 // Standalone Cloudflare ES-module Worker. No secrets or bindings required.
 // Deploy as a NEW worker; never replace the economy/news worker with this file.
-const UPSTREAM = 'http://134.255.208.82:13003';
+const UPSTREAM = 'http://bluemap-origin.microminer.ch:13003';
 const SITE = 'https://microminer.github.io';
 const requestHeaders = ['accept', 'accept-language', 'range', 'if-range', 'if-none-match', 'if-modified-since'];
 const responseHeaders = ['content-type', 'content-encoding', 'content-length', 'content-range', 'accept-ranges', 'etag', 'last-modified', 'vary'];

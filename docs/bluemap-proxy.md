@@ -17,7 +17,7 @@ Er benötigt keine Secrets, Datenbank oder zusätzlichen Bindings.
 Alternativ mit authentifiziertem Wrangler:
 `npx wrangler deploy --config bluemap-worker/wrangler.toml`.
 
-Der Upstream ist fest auf `http://134.255.208.82:13003` beschränkt. Nur GET/HEAD,
+Der Upstream ist fest auf `http://bluemap-origin.microminer.ch:13003` beschränkt. Nur GET/HEAD,
 keine Weitergabe von Cookies oder Authorization, keine beliebigen Proxy-Ziele.
 Relative Dateien, Abfragen, binäre Kartenkacheln, Komprimierung und Range-Requests
 werden durchgereicht. Weiterleitungen bleiben auf derselben Nitrado-Adresse

@@ -155,7 +155,8 @@ try {
       ),
     );
     const media = element("span", "gallery-media");
-    const expand = element("span", "gallery-expand", "⛶");
+    const expand = element("span", "gallery-expand");
+    expand.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></svg>';
     expand.setAttribute("aria-hidden", "true");
     media.append(thumbnail, expand);
     button.append(media, caption);

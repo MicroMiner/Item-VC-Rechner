@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/portal.css" />
     <link rel="stylesheet" href="assets/css/gallery.css?v=gallery-2" />
+    <link rel="stylesheet" href="assets/css/icons.css?v=icons-1" />
   </head>
   <body class="site-page portal-page gallery-page">
     <div class="wrap">
@@ -91,15 +92,15 @@
       <div class="gallery-viewer-top">
         <span id="galleryPosition" role="status" aria-live="polite"></span>
         <div class="gallery-viewer-actions">
-          <button id="galleryFullscreen" class="gallery-viewer-button" type="button" aria-label="Browser-Vollbild aktivieren" hidden>⛶</button>
-          <button id="galleryClose" class="gallery-viewer-button gallery-close" type="button" aria-label="Bildansicht schliessen" autofocus>×</button>
+          <button id="galleryFullscreen" class="gallery-viewer-button" type="button" aria-label="Browser-Vollbild aktivieren" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></svg></button>
+          <button id="galleryClose" class="gallery-viewer-button gallery-close" type="button" aria-label="Bildansicht schliessen" autofocus><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
         </div>
       </div>
-      <button id="galleryPrevious" class="gallery-viewer-button gallery-previous" type="button" aria-label="Vorheriges Bild">‹</button>
-      <button id="galleryNext" class="gallery-viewer-button gallery-next" type="button" aria-label="Nächstes Bild">›</button>
+      <button id="galleryPrevious" class="gallery-viewer-button gallery-previous" type="button" aria-label="Vorheriges Bild"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15.5 5-7 7 7 7"/></svg></button>
+      <button id="galleryNext" class="gallery-viewer-button gallery-next" type="button" aria-label="Nächstes Bild"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8.5 5 7 7-7 7"/></svg></button>
       <p id="galleryImageStatus" role="status"></p>
     </dialog>
     <script src="assets/js/ui.js?v=legal-2" defer></script>
-    <script src="assets/js/gallery.js?v=gallery-2" type="module"></script>
+    <script src="assets/js/gallery.js?v=gallery-icons-1" type="module"></script>
   </body>
 </html>

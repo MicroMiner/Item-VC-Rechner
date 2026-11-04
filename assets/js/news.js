@@ -25,7 +25,5 @@ try {
 if(!preview){
  const invite=safeUrl(window.VELOCITY_CONFIG?.discordInvite),link=document.getElementById('discordInvite');
  if(invite&&/^https:\/\/(?:discord\.gg\/|discord\.com\/invite\/)[a-zA-Z0-9_-]+\/?$/.test(invite)){link.href=invite;link.hidden=false;}
- async function status(){const node=document.getElementById('discordStatus');if(newsSource==='static'){node.dataset.state='static';node.textContent='GitHub-Import';node.title='Beiträge werden über den eingerichteten GitHub-Workflow importiert. Dies ist keine dauerhafte Bot-Verbindung.';return;}let value='not_configured';if(api)try{const data=await request('/news/status');value=data.discord?.status||'not_configured';}catch(e){value=e.status===404||e.configured===false?'not_configured':'error';}const labels={connected:'Verbunden',disconnected:'Nicht verbunden',not_configured:'Nicht eingerichtet',error:'Verbindungsfehler'};node.dataset.state=labels[value]?value:'error';node.textContent=labels[node.dataset.state];}
- status();setInterval(status,60000);
  await import('./news-admin.js?v=auth-check-1');
 }

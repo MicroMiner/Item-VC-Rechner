@@ -24,10 +24,12 @@ test('existing scheduled importer handles trusted structured bot posts and norma
   const png=await readFile(new URL('../assets/images/favicon.png',import.meta.url));
   const full='Vollständiger Inhalt\n\n'+'x'.repeat(3900),excerpt='Eine vollständige Kurzbeschreibung';
   const image=`https://cdn.discordapp.com/attachments/${CHANNEL}/${ATT}/title-image.png?ex=first`;
-  const structured={id:MID,type:0,author:{id:APP,bot:true},content:'[Info] Strukturierte News',embeds:[discordNewsEmbed({title:'Strukturierte News',category:'Info',content:full,excerpt},image)],attachments:[{id:ATT,filename:'title-image.png',url:image}],timestamp:'2026-11-04T10:00:00Z'};
+  const structured={id:MID,type:0,author:{id:APP,bot:true},content:'[Info] Strukturierte News',embeds:[discordNewsEmbed({title:'Strukturierte News',category:'Info',content:full,excerpt},image)],attachments:[],timestamp:'2026-11-04T10:00:00Z'};
   const normal={id:'888888888888888888',type:0,author:{id:'999999999999999999',bot:false},content:'[Update] Normale Nachricht\nNormaler Inhalt bleibt erhalten.',timestamp:'2026-11-04T09:00:00Z'};
   const otherBot={...structured,id:'444444444444444444',author:{id:'555555555555555555',bot:true}};
   assert.equal(parseStructuredDiscordNews(otherBot,APP),null);
+  assert.equal(parseStructuredDiscordNews(structured,APP).imageAttachmentId,ATT,'embed-only public upload retains its stable archive ID');
+  for(const unsafe of ['https://evil.example/title-image.png',`https://cdn.discordapp.com/ephemeral-attachments/${CHANNEL}/${ATT}/title-image.png`])assert.equal(parseStructuredDiscordNews({...structured,embeds:[{...structured.embeds[0],image:{url:unsafe}}]},APP),null);
   await mkdir(join(directory,'assets/data'),{recursive:true});
   const kept={id:'discord-123456789012345678',source:'discord',sourceId:'123456789012345678',title:'Aus Discord entfernt, auf Webseite aufbewahrt',content:'Bleibt erhalten.',category:'Info',publishedAt:'2026-10-01T00:00:00Z'};
   const manual={id:'manual-kept',source:'manual',title:'Manuell',content:'Unverändert',category:'Info',publishedAt:'2026-09-01T00:00:00Z'};

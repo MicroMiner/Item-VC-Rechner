@@ -11,10 +11,9 @@ DISCORD_DELETE_MODE = "hide"
 # DISCORD_GUILD_ID = "set-your-server-id"
 # DISCORD_CHANNEL_ID = "set-your-news-channel-id"
 
-# After creating the D1 database, uncomment and insert its actual ID.
-# [[d1_databases]]
-# binding = "NEWS_DB"
-# database_name = "velocity-news"
-# database_id = "actual-database-uuid"
-# migrations_dir = "migrations"
+[[d1_databases]]
+binding = "NEWS_DB"
+database_name = "velocity-news"
+database_id = "22c08a8b-70df-42cc-aa05-d0f3e4cbab2d"
+migrations_dir = "migrations"
 # Secrets: existing ADMIN_PASSWORD/GITHUB_TOKEN; new DISCORD_INGEST_TOKEN.

@@ -191,3 +191,24 @@ API-Referenzen: [Discord-Modals](https://docs.discord.com/developers/components/
 [Interactions](https://docs.discord.com/developers/interactions/receiving-and-responding),
 [Commands](https://docs.discord.com/developers/interactions/application-commands),
 [Nachrichten und Nonce](https://docs.discord.com/developers/resources/message).
+
+### Veröffentlichung und Status (Aktualisierung)
+Beim Bestätigen wird die private Vorschau sofort durch eine Fortschrittsanzeige mit
+„Status aktualisieren“ ersetzt. Dieser Button liest den gespeicherten Entwurf und
+sendet keine neue Kanalnachricht. Auch wenn Discord das nachträgliche Aktualisieren
+der Vorschau ablehnt, bleibt der gespeicherte Erfolg oder Fehler darüber abrufbar.
+Unterbrochene Veröffentlichungen werden nach 40 Sekunden als unklar angezeigt;
+in diesem Fall den Kanal prüfen, nicht automatisch erneut veröffentlichen.
+
+REST-Aufrufe haben Zeitlimits. Nur das private, idempotente Status-PATCH wird bei
+vorübergehenden Fehlern wiederholt. Der öffentliche Nachrichten-POST wird nie
+ automatisch wiederholt. Logs enthalten Ereignis, Entwurfs-ID, Verarbeitungsschritt,
+HTTP-Status und numerischen Discord-Fehlercode, keine Tokens oder Beitragsinhalte.
+
+Die neue Embed-Darstellung zeigt Kategorie im Kopf, farbige Seitenlinie,
+Beitragsinhalt, optionale Kurzbeschreibung, Titelbild und Veröffentlichungszeit.
+Der Importer erkennt sowohl bisherige v1-Nachrichten als auch das neue v2-Format.
+
+Deployment: `node scripts/build-news-worker.mjs` ausführen und den Inhalt von
+`worker/dashboard-worker.mjs` im bestehenden Admin-/News-Worker veröffentlichen.
+Keine neue Datenbank, Secrets oder Befehlsregistrierung erforderlich.

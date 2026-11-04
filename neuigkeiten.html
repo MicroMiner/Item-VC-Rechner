@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/portal.css" />
-    <link rel="stylesheet" href="assets/css/news.css?v=news-admin-layout-4" />
+    <link rel="stylesheet" href="assets/css/news.css?v=news-image-fit-5" />
   </head>
   <body class="site-page portal-page news-page">
     <div class="wrap">
@@ -91,7 +91,8 @@
           <p class="muted">JPEG, PNG oder WebP · maximal 10 MB · Ausschnitt 16:9, gespeichert mit 1600 × 900 Pixeln.</p>
           <img id="postImageExisting" class="news-image-existing" alt="Aktuelles Titelbild" hidden />
           <div id="postImageCrop" hidden><canvas id="postImageCanvas" width="1600" height="900" aria-label="Vorschau des Titelbildausschnitts. Zum Verschieben ziehen oder Regler verwenden."></canvas>
-          <div class="news-crop-controls"><label>Horizontal<input id="postImageX" type="range" min="0" max="100" value="50" /></label><label>Vertikal<input id="postImageY" type="range" min="0" max="100" value="50" /></label><label>Vergrösserung<input id="postImageZoom" type="range" min="1" max="3" step="0.01" value="1" /></label></div></div>
+          <div class="news-image-fit-actions"><button id="fitPostImage" class="news-button" type="button">Ganzes Bild</button><button id="fillPostImage" class="news-button" type="button">Rahmen füllen</button></div>
+          <div class="news-crop-controls"><label>Horizontal<input id="postImageX" type="range" min="0" max="100" value="50" /></label><label>Vertikal<input id="postImageY" type="range" min="0" max="100" value="50" /></label><label>Grösse <output id="postImageScale" for="postImageZoom">100 %</output><input id="postImageZoom" type="range" min="0.1" max="4" step="0.01" value="1" /></label></div></div>
           <button id="removePostImage" class="news-button" type="button">Bild entfernen</button><p id="postImageMessage" class="status" role="status"></p>
           </fieldset>
           <label for="postContent">Inhalt</label><textarea id="postContent" required maxlength="20000" rows="10" placeholder="Absätze, ### Überschriften, - Listen und **Hervorhebungen**"></textarea>
@@ -127,6 +128,6 @@
     <script src="assets/js/ui.js?v=legal-2" defer></script>
     <script src="config.js?v=auth-check-1" defer></script>
     <script src="assets/js/site-config.js?v=feed-source-1" defer></script>
-    <script src="assets/js/news.js?v=news-admin-layout-4" type="module"></script>
+    <script src="assets/js/news.js?v=news-image-fit-5" type="module"></script>
   </body>
 </html>

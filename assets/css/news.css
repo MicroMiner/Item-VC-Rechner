@@ -131,3 +131,8 @@
 .news-page .news-admin-delete svg {position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:block;width:20px;height:20px;margin:0;pointer-events:none;}
 .news-page .news-admin-delete:hover {background:rgba(255,115,129,.1);}
 @media(max-width:550px){.news-page .news-admin-row-actions {margin-left:auto;}}
+
+/* Keep the crop preview manageable; export resolution stays 1600 by 900. */
+.news-page #postImageCanvas {max-width:640px;margin-inline:auto;}
+.news-page .news-image-fit-actions {display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.news-page #postImageScale {float:right;font-variant-numeric:tabular-nums;color:var(--text-primary);}

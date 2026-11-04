@@ -45,8 +45,21 @@ const {chromium}=require('playwright'),path=require('node:path'),fs=require('nod
   await page.reload();await page.waitForFunction(()=>document.querySelector('.news-empty'));assert.equal(await page.locator('.news-blog-card').count(),0,'deleted import remains deleted after reload/resync');
   await page.locator('#openNewsAdmin').click();await page.waitForFunction(()=>!document.querySelector('#newsAdminContent').inert);
   await page.locator('#newNewsPost').click();await page.locator('#postTitle').fill('Beitrag mit Bild');await page.locator('#postContent').fill('Der Bildausschnitt bleibt gespeichert.');
-  await page.locator('#postImageFile').setInputFiles(path.join(process.cwd(),'assets/images/velocity-news-sunset.webp'));
+  const portrait=await page.evaluate(()=>{const c=document.createElement('canvas');c.width=400;c.height=800;const x=c.getContext('2d');x.fillStyle='#ff0000';x.fillRect(0,0,400,400);x.fillStyle='#00ff00';x.fillRect(0,400,400,400);return c.toDataURL('image/png').split(',')[1];});
+  await page.locator('#postImageFile').setInputFiles({name:'portrait.png',mimeType:'image/png',buffer:Buffer.from(portrait,'base64')});
   await page.waitForFunction(()=>!document.querySelector('#postImageCrop').hidden);
+  const pixel=(x,y)=>page.locator('#postImageCanvas').evaluate((n,p)=>Array.from(n.getContext('2d').getImageData(p.x,p.y,1,1).data),{x,y});
+  assert.deepEqual(await pixel(800,10),[255,0,0,255],'whole portrait top visible by default');
+  assert.deepEqual(await pixel(800,890),[0,255,0,255],'whole portrait bottom visible by default');
+  assert.deepEqual(await pixel(10,450),[8,19,38,255],'free frame area uses navy background');
+  await page.locator('#postImageZoom').evaluate(n=>{n.value='0.5';n.dispatchEvent(new Event('input',{bubbles:true}));});
+  assert.deepEqual(await pixel(800,10),[8,19,38,255],'zooming out actually shrinks the image');
+  assert.deepEqual(await pixel(800,240),[255,0,0,255]);assert.equal(await page.locator('#postImageScale').textContent(),'50 %');
+  await page.locator('#fillPostImage').click();assert.notDeepEqual(await pixel(10,450),[8,19,38,255],'fill covers frame edge');
+  await page.locator('#fitPostImage').click();assert.deepEqual(await pixel(800,10),[255,0,0,255]);assert.equal(await page.locator('#postImageZoom').inputValue(),'1');
+  assert.ok((await page.locator('#postImageCanvas').boundingBox()).width<=640);
+  await page.locator('#postImageFile').setInputFiles(path.join(process.cwd(),'assets/images/velocity-news-sunset.webp'));
+  await page.waitForFunction(()=>document.querySelector('#postImageMessage').textContent.startsWith('Ganzes Bild'));
   const before=await page.locator('#postImageCanvas').evaluate(n=>n.toDataURL());
   await page.locator('#postImageZoom').evaluate(n=>{n.value='1.5';n.dispatchEvent(new Event('input',{bubbles:true}));});
   await page.locator('#postImageX').evaluate(n=>{n.value='80';n.dispatchEvent(new Event('input',{bubbles:true}));});
@@ -58,6 +71,6 @@ const {chromium}=require('playwright'),path=require('node:path'),fs=require('nod
   await page.goto(base+'index.html');await page.waitForFunction(()=>document.querySelector('.news-preview h3'));assert.equal(await page.locator('.news-preview h3').textContent(),'Beitrag mit Bild');
   overlayDown=true;await page.goto(base+'neuigkeiten.html');await page.waitForFunction(()=>document.querySelector('.news-empty'));assert.equal(await page.locator('.news-blog-card').count(),0,'backend failure must not resurrect deleted static posts');
   assert.deepEqual(errors,[]);
-  console.log('PASS static Discord edit/delete overlay, confirmation cancellation, shared session restore, real local image crop/upload/decode/persistence, admin-only controls below the editor, homepage, responsive editor and fail-closed overlays.');
+  console.log('PASS static Discord edit/delete overlay, confirmation cancellation, shared session restore, portrait fit, zoom-out/fill controls, compact preview, real local image crop/upload/decode/persistence, admin-only controls below the editor, homepage, responsive editor and fail-closed overlays.');
  }finally{await browser.close();db.db.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

@@ -45,7 +45,11 @@ Details, Übersicht und Startseiten-Vorschau nutzen dieselbe öffentliche Quelle
 
 Dateiauswahl: JPEG, PNG oder WebP, höchstens 10 MB / 40 Megapixel.
 Der Browser zeigt einen festen 16:9-Ausschnitt mit Drag-Steuerung sowie Reglern
-für Horizontal-/Vertikalposition und Zoom. Beim Speichern entsteht ein JPEG
+für Horizontal-/Vertikalposition und Grösse. Das ganze Bild wird standardmässig
+eingepasst. Mit „Ganzes Bild“ lässt sich diese Ansicht wiederherstellen;
+„Rahmen füllen“ füllt den 16:9-Rahmen und schneidet gegebenenfalls Ränder ab.
+Verkleinern bis 10 % ist möglich; freie Flächen bleiben dunkelblau. Die Vorschau
+im Formular ist höchstens 640 Pixel breit. Beim Speichern entsteht ein JPEG
 mit 1600 × 900 Pixeln und maximal 750 KB. Die Bilddatei wird separat per
 authentifiziertem POST an `/news/admin/image` hochgeladen und erst danach
 der Beitrag gespeichert. Ein bereits hochgeladenes Bild wird beim erneuten

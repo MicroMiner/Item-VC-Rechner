@@ -42,8 +42,15 @@ function parseStructuredDiscordNews(message,trustedBotId) {
     if(category.length!==1||excerpt.length>1)return null;
     const data=validateDiscordNews({title:embed.title,content:embed.description,category:category[0].value,excerpt:excerpt[0]?.value||''});
     const attachments=Array.isArray(message.attachments)?message.attachments:message.attachments?.values?[...message.attachments.values()]:[];
-    const image=attachments.find(a=>/^title-image\.(jpg|png|webp|gif)$/.test(a.filename||'')&&discordImageUrl(a.url)&&new URL(a.url).pathname.startsWith('/attachments/')&&/^\d{17,22}$/.test(String(a.id)));
-    // Only the re-uploaded public attachment is imported, never an ephemeral preview URL.
+    let image=attachments.find(a=>/^title-image\.(jpg|png|webp|gif)$/.test(a.filename||'')&&discordImageUrl(a.url)&&new URL(a.url).pathname.startsWith('/attachments/')&&/^\d{17,22}$/.test(String(a.id)));
+    // Discord can omit embed-consumed uploads from message.attachments. The
+    // trusted bot's public embed image still contains the stable attachment ID.
+    if(!image&&embed.image){
+      const url=discordImageUrl(embed.image.url),path=url?new URL(url).pathname:'';
+      const match=/^\/attachments\/\d{17,22}\/(\d{17,22})\/[^/]+\.(jpg|jpeg|png|webp|gif)$/i.exec(path);
+      if(match)image={id:match[1],url,filename:'title-image.'+(match[2].toLowerCase()==='jpeg'?'jpg':match[2].toLowerCase())};
+    }
+    // Only public Discord CDN uploads; never external or ephemeral preview URLs.
     if(embed.image&&!image)return null;
     return {...data,image:image?discordImageUrl(image.url):null,imageAttachmentId:image?String(image.id):null,imageExtension:image?image.filename.split('.').at(-1):null};
   } catch{return null;}

@@ -21,15 +21,27 @@ const {chromium}=require('playwright'),path=require('node:path'),fs=require('nod
   });
   const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base+'neuigkeiten.html');await page.waitForFunction(()=>document.querySelector('.news-blog-card'));
-  assert.equal(await page.locator('.news-card-delete').count(),0,'public visitor gets no controls');
+  assert.equal(await page.locator('.news-card-actions').count(),0,'public visitor gets no controls');
   await page.locator('#openNewsAdmin').click();await page.locator('#newsPassword').fill(env.ADMIN_PASSWORD);await page.locator('#newsLoginForm button').click();
-  await page.waitForFunction(()=>document.querySelector('.news-card-delete'));
-  await page.locator('.news-card-edit').click();await page.locator('#postTitle').fill('Auf der Webseite bearbeitet');await page.locator('#publishNewsPost').click();
+  await page.waitForFunction(()=>document.querySelector('#newsAdminList .news-admin-row'));
+  assert.equal(await page.locator('.news-card-actions').count(),0);
+  assert.ok(await page.evaluate(()=>document.querySelector('#newsEditorForm').compareDocumentPosition(document.querySelector('#newsAdminList')) & Node.DOCUMENT_POSITION_FOLLOWING));
+  assert.ok(await page.locator('#closeNewsAdmin').evaluate(n=>{const a=n.getBoundingClientRect(),b=n.querySelector('svg').getBoundingClientRect();return Math.abs(a.x+a.width/2-b.x-b.width/2)<.5&&Math.abs(a.y+a.height/2-b.y-b.height/2)<.5;}));
+  for(const width of [1440,390,320]){
+   await page.setViewportSize({width,height:900});
+   const row=page.locator('#newsAdminList .news-admin-row').first(),edit=await row.getByRole('button',{name:'Bearbeiten',exact:true}).boundingBox(),del=await row.locator('.news-admin-delete').boundingBox();
+   assert.ok(edit.x+edit.width<=del.x && Math.abs(edit.y+edit.height/2-del.y-del.height/2)<.6,'Edit immediately beside delete');
+   assert.ok(await row.locator('.news-admin-delete').evaluate(n=>{const a=n.getBoundingClientRect(),b=n.querySelector('svg').getBoundingClientRect();return Math.abs(a.x+a.width/2-b.x-b.width/2)<.5&&Math.abs(a.y+a.height/2-b.y-b.height/2)<.5;}));
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+   await page.screenshot({path:'/tmp/news-admin-list-'+width+'.png',fullPage:true});
+  }
+  await page.locator('#newsAdminList .news-admin-row').first().getByRole('button',{name:'Bearbeiten',exact:true}).click();await page.locator('#postTitle').fill('Auf der Webseite bearbeitet');await page.locator('#publishNewsPost').click();
   await page.waitForFunction(()=>document.querySelector('.news-blog-card h2')?.textContent==='Auf der Webseite bearbeitet');
-  await page.reload();await page.waitForFunction(()=>document.querySelector('.news-card-delete'));
+  await page.reload();await page.waitForFunction(()=>document.querySelector('#newsAdminList .news-admin-row'));
   assert.equal(await page.locator('.news-blog-card h2').textContent(),'Auf der Webseite bearbeitet','static Discord import does not overwrite edit');
-  page.once('dialog',d=>d.dismiss());await page.locator('.news-card-delete').click();assert.equal(deletes,0,'cancel must not send a delete');
-  page.once('dialog',d=>d.accept());await page.locator('.news-card-delete').click();await page.waitForFunction(()=>!document.querySelector('.news-blog-card'));
+  await page.locator('#openNewsAdmin').click();
+  page.once('dialog',d=>d.dismiss());await page.locator('#newsAdminList .news-admin-delete').first().click();assert.equal(deletes,0,'cancel must not send a delete');
+  page.once('dialog',d=>d.accept());await page.locator('#newsAdminList .news-admin-delete').first().click();await page.waitForFunction(()=>!document.querySelector('.news-blog-card'));
   await page.reload();await page.waitForFunction(()=>document.querySelector('.news-empty'));assert.equal(await page.locator('.news-blog-card').count(),0,'deleted import remains deleted after reload/resync');
   await page.locator('#openNewsAdmin').click();await page.waitForFunction(()=>!document.querySelector('#newsAdminContent').inert);
   await page.locator('#newNewsPost').click();await page.locator('#postTitle').fill('Beitrag mit Bild');await page.locator('#postContent').fill('Der Bildausschnitt bleibt gespeichert.');
@@ -42,10 +54,10 @@ const {chromium}=require('playwright'),path=require('node:path'),fs=require('nod
   for(const width of [1440,768,390,320]){await page.setViewportSize({width,height:900});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:'/tmp/news-image-editor-'+width+'.png',fullPage:true});}
   await page.locator('#publishNewsPost').click();await page.waitForFunction(()=>document.querySelector('.news-blog-card h2')?.textContent==='Beitrag mit Bild');assert.equal(uploads,1);
   const img=page.locator('.news-blog-card img');await img.evaluate(n=>n.decode());assert.equal(await img.evaluate(n=>n.naturalWidth),1600);assert.equal(await img.evaluate(n=>n.naturalHeight),900);
-  await page.reload();await page.waitForFunction(()=>document.querySelector('.news-card-delete'));await page.locator('.news-read-more').click();await page.waitForFunction(()=>document.querySelector('#newsDetail .news-card-delete'));assert.equal(await page.locator('#newsDetail h1').textContent(),'Beitrag mit Bild');
+  await page.reload();await page.waitForFunction(()=>document.querySelector('#newsAdminList .news-admin-row'));await page.locator('.news-read-more').click();await page.waitForFunction(()=>document.querySelector('#newsDetail h1'));assert.equal(await page.locator('#newsDetail .news-card-actions').count(),0);assert.equal(await page.locator('#newsDetail h1').textContent(),'Beitrag mit Bild');
   await page.goto(base+'index.html');await page.waitForFunction(()=>document.querySelector('.news-preview h3'));assert.equal(await page.locator('.news-preview h3').textContent(),'Beitrag mit Bild');
   overlayDown=true;await page.goto(base+'neuigkeiten.html');await page.waitForFunction(()=>document.querySelector('.news-empty'));assert.equal(await page.locator('.news-blog-card').count(),0,'backend failure must not resurrect deleted static posts');
   assert.deepEqual(errors,[]);
-  console.log('PASS static Discord edit/delete overlay, confirmation cancellation, shared session restore, real local image crop/upload/decode/persistence, direct detail controls, homepage, responsive editor and fail-closed overlays.');
+  console.log('PASS static Discord edit/delete overlay, confirmation cancellation, shared session restore, real local image crop/upload/decode/persistence, admin-only controls below the editor, homepage, responsive editor and fail-closed overlays.');
  }finally{await browser.close();db.db.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

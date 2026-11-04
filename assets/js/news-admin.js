@@ -16,7 +16,7 @@ function edit(post=null){
  $('newsEditorPreview').hidden=true;$('newsEditorPreview').replaceChildren();dirty=false;
 }
 function locked(clearSession=true){
- canEdit=false;decorate();
+ canEdit=false;
  if(clearSession){session=null;clearTimeout(expiryTimer);}
  panel.classList.add('is-locked');$('newsAdminContent').inert=true;$('newsAdminContent').setAttribute('aria-hidden','true');
  $('newsLoginOverlay').hidden=false;$('newsAdminList').replaceChildren();edit();
@@ -56,19 +56,6 @@ async function removePost(post){
  }catch(error){message(error.message);if(panel.hidden){panel.hidden=false;panel.scrollIntoView({block:'start',behavior:'smooth'});}}
  finally{busy=false;}
 }
-function decorate(){
- for(const root of document.querySelectorAll('[data-news-id]')){
-  const existing=root.querySelector('.news-card-actions');
-  if(!canEdit){existing?.remove();root.classList.remove('has-news-controls');continue;}
-  const p=knownPosts.get(root.dataset.newsId);if(!p||p.hidden){existing?.remove();root.classList.remove('has-news-controls');continue;}
-  root.classList.add('has-news-controls');if(existing)continue;
-  const actions=element('div','news-card-actions');
-  const editButton=element('button','news-card-edit','Bearbeiten');editButton.type='button';editButton.setAttribute('aria-label','Beitrag bearbeiten: '+p.title);editButton.addEventListener('click',()=>openEditor(knownPosts.get(root.dataset.newsId)));
-  const del=element('button','news-card-delete');del.type='button';del.setAttribute('aria-label','Beitrag löschen: '+p.title);del.title='Beitrag löschen';
-  del.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';
-  del.addEventListener('click',()=>removePost(knownPosts.get(root.dataset.newsId)));actions.append(editButton,del);root.append(actions);
- }
-}
 async function load(){
  const data=await admin();canEdit=data.capabilities?.websiteEditing===true;
  const publicData=await loadNews();knownPosts=new Map(publicData.posts.map(p=>[p.id,p]));
@@ -80,15 +67,17 @@ async function load(){
   text.append(element('strong','',p.title),element('small','',p.category+' · '+(p.status==='draft'?'Entwurf':'Veröffentlicht')+' · '+(p.source==='discord'?'Discord':'Manuell')));
   const button=element('button','news-button','Bearbeiten');button.type='button';
   button.addEventListener('click',()=>{if(!canEdit&&p.source==='manual'){if(dirty&&!confirm('Ungespeicherte Änderungen verwerfen?'))return;edit(p);return;}openEditor(p);});
-  const del=element('button','news-button news-button-danger','Löschen');del.type='button';del.hidden=!canEdit;del.addEventListener('click',()=>removePost(p));
-  row.append(text,button,del);$('newsAdminList').append(row);
+  const del=element('button','news-admin-delete');del.type='button';del.hidden=!canEdit;del.title='Beitrag löschen';del.setAttribute('aria-label','Beitrag löschen: '+p.title);
+  del.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg>';
+  del.addEventListener('click',()=>removePost(p));
+  const actions=element('div','news-admin-row-actions');actions.append(button,del);
+  row.append(text,actions);$('newsAdminList').append(row);
  }
  if(!knownPosts.size)$('newsAdminList').append(element('p','muted','Noch keine Beiträge gespeichert.'));
  $('postImageFile').disabled=!data.capabilities?.imageUpload;
- unlock();decorate();
+ unlock();
  if(!canEdit)message('Für direkte Bearbeitung und Bild-Upload bitte den aktualisierten News-Worker veröffentlichen.');
 }
-document.addEventListener('news-rendered',decorate);
 function loginError(error){
  if(error.authVerified){message('Admin-Anmeldung gültig. Der News-Endpunkt hat die Sitzung abgelehnt (HTTP 401). Bitte den erweiterten News-Worker und seine Anmeldung prüfen.');return;}
  if(session&&error.status!==401){locked(false);message('Anmeldung gültig. '+([404,503].includes(error.status)?'Die News-Verwaltung ist noch nicht verfügbar. Bitte D1-Bindung, Migrationen und Worker-Deployment in Cloudflare prüfen.':'Die News-Verwaltung konnte nicht geladen werden. Bitte erneut versuchen.'));}

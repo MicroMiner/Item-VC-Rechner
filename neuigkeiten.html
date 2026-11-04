@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/portal.css" />
-    <link rel="stylesheet" href="assets/css/news.css?v=news-editor-3" />
+    <link rel="stylesheet" href="assets/css/news.css?v=news-admin-layout-4" />
   </head>
   <body class="site-page portal-page news-page">
     <div class="wrap">
@@ -68,7 +68,7 @@
             </div>
           </div>
     <section id="newsAdminPanel" class="news-admin-panel is-locked" hidden aria-labelledby="newsAdminTitle">
-      <header class="news-admin-heading"><h2 id="newsAdminTitle">Beitragsverwaltung</h2><button id="closeNewsAdmin" class="news-close" type="button" aria-label="Beitragsverwaltung einklappen">×</button></header>
+      <header class="news-admin-heading"><h2 id="newsAdminTitle">Beitragsverwaltung</h2><button id="closeNewsAdmin" class="news-close" type="button" aria-label="Beitragsverwaltung einklappen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header>
       <p id="newsAdminMessage" role="status" class="status"></p>
       <div class="news-admin-body">
       <div id="newsLoginOverlay" class="news-login-overlay">
@@ -81,7 +81,6 @@
       </div>
       <div id="newsAdminContent" class="news-admin-content" inert aria-hidden="true">
         <div class="news-admin-toolbar"><button id="newNewsPost" class="news-button" type="button">Neuer Beitrag</button><button id="reloadNewsAdmin" class="news-button" type="button">Neu laden</button><button id="logoutNewsAdmin" class="news-button" type="button">Abmelden</button></div>
-        <div id="newsAdminList" class="news-admin-list"></div>
         <form id="newsEditorForm">
           <label for="postTitle">Titel</label><input id="postTitle" required maxlength="160" />
           <div class="news-editor-pair"><div><label for="postCategory">Kategorie</label><select id="postCategory"><option>Update</option><option>Info</option><option>Ankündigung</option><option>Changelog</option><option>Wartung</option></select></div><div><label for="postStatus">Status</label><select id="postStatus"><option value="draft">Entwurf</option><option value="published">Veröffentlicht</option></select></div></div>
@@ -99,6 +98,7 @@
           <div class="news-editor-actions"><button id="previewNewsPost" class="news-button" type="button">Vorschau</button><button id="saveNewsDraft" class="news-button" type="submit" data-status="draft">Entwurf speichern</button><button id="publishNewsPost" class="news-button news-button-gold" type="submit" data-status="published">Veröffentlichen</button><button id="deleteNewsPost" class="news-button news-button-danger" type="button" hidden>Beitrag löschen</button></div>
         </form>
         <section id="newsEditorPreview" class="news-detail" aria-label="Beitragsvorschau" hidden></section>
+        <section class="news-existing-posts" aria-labelledby="newsExistingTitle"><h3 id="newsExistingTitle">Vorhandene Beiträge</h3><div id="newsAdminList" class="news-admin-list"></div></section>
       </div>
       </div>
     </section>
@@ -127,6 +127,6 @@
     <script src="assets/js/ui.js?v=legal-2" defer></script>
     <script src="config.js?v=auth-check-1" defer></script>
     <script src="assets/js/site-config.js?v=feed-source-1" defer></script>
-    <script src="assets/js/news.js?v=news-editor-3" type="module"></script>
+    <script src="assets/js/news.js?v=news-admin-layout-4" type="module"></script>
   </body>
 </html>

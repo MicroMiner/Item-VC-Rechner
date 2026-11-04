@@ -30,5 +30,5 @@ document.addEventListener('news-changed',render);
 if(!preview){
  const invite=safeUrl(window.VELOCITY_CONFIG?.discordInvite),link=document.getElementById('discordInvite');
  if(invite&&/^https:\/\/(?:discord\.gg\/|discord\.com\/invite\/)[a-zA-Z0-9_-]+\/?$/.test(invite)){link.href=invite;link.hidden=false;}
- await import('./news-admin.js?v=news-editor-3');
+ await import('./news-admin.js?v=news-admin-layout-4');
 }

@@ -23,7 +23,9 @@ deaktiviert. Die neuen Funktionen werden nach dem Worker-Deployment verfügbar.
 
 Der bestehende GitHub-Import behält Nachrichten bei, die aus Discord entfernt
 wurden. Auf der Webseite kann ein angemeldeter Admin alle vorhandenen Beiträge
-direkt bearbeiten oder per rotem X löschen. Jede Löschung erfordert Bestätigung.
+in der Verwaltung unter dem Formular bearbeiten oder per rotem X löschen.
+Bearbeiten und Lösch-X stehen nebeneinander rechts in jeder Zeile. Im öffentlichen
+Feed und auf der Detailseite gibt es keine Admin-Steuerbuttons. Jede Löschung erfordert Bestätigung.
 Diese Aktionen ändern keine Discord-Nachrichten.
 
 Das Frontend kombiniert den statischen Import mit `/news/overlay`: D1-Versionen

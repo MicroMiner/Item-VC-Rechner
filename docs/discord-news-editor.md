@@ -6,9 +6,10 @@
 - Admin-/News-Worker: `holy-sunset-4eb4velocity-admin-api`, vorhandene D1-Bindung
   `NEWS_DB`, bestehendes Website-Passwort und signierte Website-Sitzungen.
 - Discord-Abgleich: `.github/workflows/sync-news.yml`, manuell startbar und
-  `17,47 * * * *`. Das sind zwei Läufe pro Stunde zur Minute 17 und 47. GitHub
-  wertet Cron in UTC aus; in der Schweiz sind die Minuten ebenfalls 17 und 47.
-  GitHub kann die Ausführung verzögern. Der Zeitplan wurde nicht verändert.
+  `17 * * * *`. Das ist ein automatischer Lauf pro Stunde zur Minute 17.
+  GitHub wertet Cron in UTC aus; in der Schweiz ist es ebenfalls Minute 17.
+  GitHub kann die Ausführung verzögern. Danach wird die Webseite veröffentlicht;
+  eine bereits geöffnete Seite muss neu geladen werden.
 - Gelöschte Discord-Nachrichten werden im aktiven statischen Import weiterhin
   aufbewahrt. Die manuelle Website-Verwaltung kann sie wie bisher ausblenden/löschen;
   deren D1-Überlagerungen werden von späteren Importen nicht überschrieben.

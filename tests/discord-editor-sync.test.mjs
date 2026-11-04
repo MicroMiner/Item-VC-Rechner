@@ -55,6 +55,6 @@ throw Error('Unexpected offline-test request');};`);
   structured.embeds[0].description='Bearbeiteter strukturierter Inhalt';normal.content='[Update] Geänderte normale Nachricht\nAktualisiert.';
   await writeFile(messagesFile,JSON.stringify([structured,normal]));await run(process.execPath,['--import',mock,script],options);
   const updated=JSON.parse(await readFile(file,'utf8'));assert.equal(updated.updates.length,4);assert.equal(updated.updates.find(p=>p.id===post.id).content,'Bearbeiteter strukturierter Inhalt');assert.equal(updated.updates.find(p=>p.id===importedNormal.id).title,'Geänderte normale Nachricht');
-  const workflow=await readFile('.github/workflows/sync-news.yml','utf8');assert.ok(workflow.includes('cron: "17,47 * * * *"'));assert.ok(workflow.includes('git add -- assets/img/news'));
+  const workflow=await readFile('.github/workflows/sync-news.yml','utf8');assert.ok(workflow.includes('cron: "17 * * * *"'));assert.ok(workflow.includes('git add -- assets/img/news'));
  }finally{await rm(directory,{recursive:true,force:true});}
 });

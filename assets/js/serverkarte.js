@@ -10,6 +10,4 @@
  // Cross-origin iframe load events do not prove availability or detect CSP/X-Frame-Options blocks.
  // Live labels the configured map; it is not a bot/server availability check.
  frame.addEventListener('error',()=>{frame.hidden=true;placeholder.hidden=false;document.getElementById('mapLive').hidden=true;message.textContent='Die eingebettete Karte konnte nicht geladen werden. Bitte öffne sie in einem neuen Tab.';});
- const viewport=document.getElementById('mapViewport'),full=document.getElementById('mapFullscreen');
- if(viewport.requestFullscreen){full.hidden=false;full.addEventListener('click',async()=>{try{if(document.fullscreenElement===viewport)await document.exitFullscreen();else await viewport.requestFullscreen();}catch{fallback.textContent='Vollbild ist hier nicht verfügbar. Du kannst die Karte in einem neuen Tab öffnen.';}});document.addEventListener('fullscreenchange',()=>full.setAttribute('aria-label',document.fullscreenElement===viewport?'Vollbild beenden':'Karte im Vollbild anzeigen'));}
 })();

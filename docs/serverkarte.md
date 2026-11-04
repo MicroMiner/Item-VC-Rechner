@@ -31,8 +31,9 @@ CORS-Freigaben allein erlauben keine iframe-Einbettung.
 Beim Konfigurationswechsel den Cache-Parameter des Konfigurationsskripts in
 `serverkarte.html` erhöhen.
 
-Die Karte nutzt die nativen BlueMap-Steuerelemente; der zusätzliche
-Vollbildbutton nutzt die Browser-Fullscreen-API. Das iframe lädt verzögert.
+Die Karte nutzt die nativen BlueMap-Steuerelemente ohne zusätzlichen
+Vergrösserungsbutton der Webseite. Das BlueMap-/Live-Label liegt unten links
+und fängt keine Klicks oder Touch-Gesten ab. Das iframe lädt verzögert.
 Der Link in einen neuen Tab bleibt auch bei einer blockierten Einbettung nutzbar.
 Cross-Origin-iframe-Load-Events können Erreichbarkeit und Header-Blockaden
 nicht zuverlässig bestätigen. Das Label „Live“ kennzeichnet eine konfigurierte
